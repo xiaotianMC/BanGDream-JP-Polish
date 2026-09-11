@@ -1,6 +1,6 @@
 // Skill bundle 校验器 —— 数据驱动的 skill 最怕 YAML 静默损坏。
 // 用法：node validate.mjs   （可在任意 cwd 运行）
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 
@@ -25,12 +25,24 @@ async function loadYaml() {
 }
 const parse = await loadYaml();
 
-const FILES = [
-  'corrections/_rules.yaml',
-  'corrections/kasumi/2026-02-14-live-invite.yaml',
-  'dictionary/pronunciation.yaml',
-  'dictionary/proper-nouns.yaml',
-];
+// 固定文件 + corrections/ 下所有角色记录（自动发现，新增记录会被自动纳入校验）
+function discover() {
+  const fixed = [
+    'corrections/_rules.yaml',
+    'dictionary/pronunciation.yaml',
+    'dictionary/proper-nouns.yaml',
+  ];
+  const records = [];
+  const cdir = join(base, 'corrections');
+  for (const e of readdirSync(cdir, { withFileTypes: true })) {
+    if (!e.isDirectory()) continue; // 跳过 _schema.md / _rules.yaml
+    for (const f of readdirSync(join(cdir, e.name))) {
+      if (f.endsWith('.yaml')) records.push(`corrections/${e.name}/${f}`);
+    }
+  }
+  return [...fixed, ...records.sort()];
+}
+const FILES = discover();
 
 let problems = 0;
 const fail = (m) => { console.log(`  !! ${m}`); problems++; };
@@ -59,15 +71,28 @@ for (const f of FILES) {
     }
   }
 
-  if (f.includes('live-invite')) {
-    console.log(`     changes: ${doc.pairs[0].changes.length}, not_promoted: ${doc.not_promoted.length}`);
-    for (const c of doc.pairs[0].changes) {
-      // _schema.md §6：没有 reason 的记录没有价值
-      if (!c.reason) fail(`change "${c.from}" 缺 reason`);
-      if (!c.issues?.length) fail(`change "${c.from}" 缺 issues 分类`);
+  // correction 记录：由 _schema.md §3 的必填字段驱动
+  if (f.startsWith('corrections/') && !f.endsWith('_rules.yaml')) {
+    const REQUIRED = ['id', 'date', 'character', 'scene', 'source', 'pairs', 'confidence', 'evidence_count'];
+    for (const k of REQUIRED) if (doc[k] === undefined) fail(`缺必填字段 ${k}`);
+    if (!doc.tts_engine) console.log('     tts_engine: null（未猜引擎，符合 G8）');
+    let n = 0;
+    for (const [i, p] of (doc.pairs ?? []).entries()) {
+      n += p.changes?.length ?? 0;
+      if (!p.original || !p.corrected) fail(`pairs[${i}] 缺 original/corrected`);
+      for (const c of p.changes ?? []) {
+        // _schema.md §6：没有 reason 的记录没有价值；没有 issues 等于没分类
+        if (!c.reason) fail(`pairs[${i}] change "${c.from}" 缺 reason`);
+        if (!c.issues?.length) fail(`pairs[${i}] change "${c.from}" 缺 issues 分类`);
+      }
+    }
+    // §5：升级判定要求 evidence_count 与 confidence 相符
+    const cap = { observed: 2, recommended: 9, established: Infinity }[doc.confidence];
+    if (cap !== undefined && doc.evidence_count > cap) {
+      fail(`confidence=${doc.confidence} 与 evidence_count=${doc.evidence_count} 不符`);
     }
     if (!doc.not_promoted?.length) fail('缺 not_promoted —— 说明没做"是否该推广"的判断');
-    if (!doc.tts_engine) console.log('     tts_engine: null（未猜引擎，符合 G8）');
+    console.log(`     pairs: ${doc.pairs?.length}, changes: ${n}, not_promoted: ${doc.not_promoted?.length}`);
   }
 
   if (f.includes('pronunciation')) {
