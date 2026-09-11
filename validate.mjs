@@ -111,6 +111,33 @@ for (const f of FILES) {
       const p = join(base, 'characters', c.rules_file);
       try { readFileSync(p); } catch { fail(`${c.canonical}: rules_file ${c.rules_file} 不存在`); }
     }
+    // address_forms 是手工维护的嵌套 map，容易重复键
+    // （yaml 解析器会抛错，但信息不明确；这里给出可操作的提示）
+    const lines = readFileSync(join(base, f), 'utf8').split('\n');
+    const start = lines.findIndex(l => /^address_forms:\s*$/.test(l));
+    if (start >= 0) {
+      const seen = new Map();
+      for (const line of lines.slice(start + 1)) {
+        if (/^\S/.test(line)) break;          // 下一个顶层键 = 本节结束
+        const m = /^ {2}([^\s#][^:]*):\s*$/.exec(line);
+        if (!m) continue;
+        const k = m[1];
+        if (seen.has(k)) fail(`address_forms 中 "${k}" 出现 ${seen.get(k) + 1} 次（会覆盖前一条，应合并为一个块）`);
+        seen.set(k, (seen.get(k) ?? 0) + 1);
+      }
+      // 每个被引用的角色都应在 characters 里登记
+      const known = new Set(doc.characters.map(c => c.canonical));
+      known.add('目上'); known.add('初対面');
+      for (const k of seen.keys()) {
+        if (!known.has(k)) fail(`address_forms 引用了未在 characters 登记的角色「${k}」`);
+      }
+      console.log(`     address_forms: ${seen.size} 主体`);
+    }
+    // 角色条目的 band 必须能在 bands 里找到
+    const bandNames = new Set(doc.bands.map(b => b.canonical));
+    for (const c of doc.characters.filter(c => c.band)) {
+      if (!bandNames.has(c.band)) fail(`${c.canonical}: band「${c.band}」不在 bands 段中`);
+    }
   }
 }
 

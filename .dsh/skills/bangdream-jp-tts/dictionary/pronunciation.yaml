@@ -36,6 +36,41 @@ updated: 2026-02-14
 # ─────────────────────────────────────────────────────────────
 character_names:
 
+  # ★ 最高リスク項目 —— 「燈」は あかり と誤読されやすい。
+  #   原作でも道人が「あかり」と読み間違える場面がある。
+  #   GPT-SoVITS も同じ誤りを犯す可能性が高い（adapters/gpt-sovits.md 参照）。
+  - word: 燈
+    reading: ともり
+    reason: |
+      TTS pronunciation — **あかり と誤読する可能性が極めて高い**。
+      動詞「灯（とも）る」の名詞形に由来する希少な読み。
+      名前のため**書き換えによる回避ができない**（T5 veto の適用外）
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      高松燈（たかまつ ともり）。読みの希少さ自体が原作の要素。
+      回避手段の優先順位：
+        1. 本エントリの登録（実施済み）
+        2. GPT-SoVITS 側のフロントエンド辞書に登録
+        3. 最終手段として本文を「ともり」と仮名表記
+      名前は G7 により表記統一が必須のため、安易に仮名化しない
+
+  - word: 高松
+    reading: たかまつ
+    reason: TTS pronunciation — 姓の読み
+    verified: false
+    engine: GPT-SoVITS
+    note: 読みの異形は考えにくいが、名と連続するため誤読の連鎖に注意
+
+  - word: 氷川
+    reading: ひかわ
+    reason: |
+      TTS pronunciation — 「氷」を こおり と読む誤りが起きやすい。
+      氷川紗夜（ロゼリア）・氷川日菜（パステルパレット）の姉妹で頻出
+    verified: false
+    engine: GPT-SoVITS
+    note: 読みは ひかわ。「ひょうかわ」等にも注意
+
   - word: 香澄
     reading: かすみ
     reason: TTS pronunciation — 「香」を「こう」と読む可能性が高い
