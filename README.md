@@ -24,6 +24,8 @@ BanGDream-JP-Polish/
     │   ├── global.md                语义/信息/关系/专有名词/英文转写（全角色）
     │   ├── japanese.md              日语自然度
     │   └── tts.md                   断句/停顿/读音/情绪
+    ├── adapters/
+    │   └── gpt-sovits.md            引擎适配（已确定 GPT-SoVITS）+ 验证清单
     ├── characters/
     │   ├── _template.md             新角色从这里开始
     │   └── kasumi.md                戸山香澄
@@ -65,18 +67,47 @@ DSH 扫描以下根目录（优先级从高到低）：
 - 手动触发：`/bangdream-jp-tts`
 - 加载规则：skill 会用 `skill` 工具读取对应的规则文件
 
+## TTS 引擎
+
+**已确定为 GPT-SoVITS**（2026-02-14）。
+
+引擎特定行为集中在 `adapters/gpt-sovits.md`，**不写进 `rules/`**。
+核心规则保持引擎无关，换引擎时只替换 adapter 文件。
+
+**关键结果：英文一律转写为片假名（G9，无条件）。**
+
+理由是引擎行为而非风格偏好：GPT-SoVITS 对拉丁字母走**英语 G2P**，
+产出英语音素而非日语母语者说外来语时的音。`Live` → 英语 /laɪv/，不是 ライブ 的 らいぶ。
+这会让角色听起来像**在说英语**，直接破坏角色还原度。
+
+因此乐队名等英字专有名词**同样转写**：
+
+```text
+Poppin'Party  → ポッピンパーティ
+BanG Dream!   → バンドリ
+```
+
+`dictionary/proper-nouns.yaml` 的 `canonical` 已同步改为片假名，
+拉丁原表記保留在 `latin` 字段供追溯。转写会消掉原表記的符号（`!` `'` `*`），
+**不要补回正文**。
+
+> ⚠️ `adapters/gpt-sovits.md` 当前 `verified: false` —— 引擎行为描述基于通用架构认知，
+> **尚未实机合成验证**。上机第一件事是跑其中的「验证清单」并回填结果。
+
 ## 数据状态（重要）
 
 | 部分 | 状态 |
 |---|---|
 | `rules/`（global / japanese / tts） | ✅ 可直接使用。基于日语语言学通用规律 |
+| `adapters/gpt-sovits.md` | ⚠️ 引擎已确定，但 `verified: false` —— **行为描述未实机验证** |
 | `characters/kasumi.md` | ⚠️ 基于通用认知撰写，**未经真实修订数据校准** |
-| `dictionary/` | ⚠️ 条目已列，但 `verified: false` —— **未用真实 TTS 验证** |
+| `dictionary/` | ⚠️ 条目已列（含 6 个地名），`verified: false` —— **未用真实 TTS 验证** |
 | `corrections/_rules.yaml` | ⚠️ 全部是 `status: demo`，源自需求文档示例，**不得作为强制依据** |
 | `corrections/kasumi/*.yaml` | ⚠️ 示范记录，非真实数据 |
 
 **这些标记不是形式。** 用未验证的读音词典去改文本，会产生新的错误。
-引擎确定后第一件事是把 `pronunciation.yaml` 的 `verified` 跑一遍。
+引擎已确定，所以下一步就是把 `pronunciation.yaml` 和 adapter 验证清单的
+`verified` 跑一遍——这是目前唯一挡在可用性前面的硬问题。
 
 ## Learn 工作流：怎么让它越用越好
 
@@ -109,9 +140,11 @@ DSH 扫描以下根目录（优先级从高到低）：
 
 - 不训练模型，不生成音频或情绪参数，不抓取官方台词
 - 不修改历史 correction 数据（只追加）
-- 不与特定 TTS 引擎绑定。引擎差异应放入独立的 adapter 文件，不写进 `rules/tts.md`
+- 核心规则不绑定引擎；引擎差异放在 `adapters/`，不写进 `rules/`
+- 目前只有 GPT-SoVITS 一个 adapter。换引擎时新增 adapter，`rules/` 不动
 - 角色规则目前只有香澄一人。其余角色需按 `characters/_template.md` 补充
 - 曲名未登记；出现时按 `dictionary/proper-nouns.yaml` 的 `unregistered` 处理
+- **未实机验证**：所有读音条目与 adapter 行为描述均为 `verified: false`
 
 ## 参考
 

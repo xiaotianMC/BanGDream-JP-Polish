@@ -8,12 +8,18 @@
 #   - **词典里没有的专有名词不要猜**（G8）。列入 unregistered 待补。
 #   - 读音风险高的条目同时登记在 pronunciation.yaml。
 #
-# ★ 与 G9（英文默认转写为假名）的关系：
-#   `rules/global.md` G9 要求正文中的英文转写成片假名，但**本词典的 canonical 是例外 1**。
-#   凡 canonical 为英字表记的条目（Poppin'Party / Roselia / BanG Dream! 等），
-#   保留英字原样，**不得转写成片假名**——那是改变专有名词，违反 G7。
-#   这些条目的读音由 pronunciation.yaml 或引擎的专有名词处理负责，
-#   不由改写正文负责。详见 G9 的「例外」小节。
+# ★ 与 G9（英文转写为假名）的关系 —— 2026-02-14 已确定 TTS 引擎为 GPT-SoVITS
+#
+#   G9 在本项目下**无条件生效**：正文中的英字一律转写为片假名，**无例外**。
+#   （理由见 adapters/gpt-sovits.md：GPT-SoVITS 对拉丁字母走英语 G2P，
+#     产出英语音素而非日式外来语读音，角色听感会变成"在说英语"。）
+#
+#   因此本词典的 `canonical` 是**正文中实际使用的表记**：
+#     · 原本是英字的条目 → canonical 为片假名，拉丁原表記记在 `latin` 供追溯
+#     · 原本就是假名/汉字的条目 → canonical 不变，不反向改成英字
+#
+#   仍然不做的：**机械音译**。canonical 取日语中实际使用的那个词
+#   （Smartphone → スマホ，不是 スマートフォン 的机械拼读）。
 
 version: 0
 updated: 2026-02-14
@@ -23,54 +29,67 @@ updated: 2026-02-14
 # ─────────────────────────────────────────────────────────────
 bands:
 
-  - canonical: Poppin'Party
-    ja: ポッピンパーティ
+  - canonical: ポッピンパーティ
+    latin: Poppin'Party
     members: [戸山香澄, 花園たえ, 牛込りみ, 山吹沙綾, 市ヶ谷有咲]
-    note: 公式表記は英語。日本語表記はポッピンパーティ。混在させない
+    note: G9 により正文は片仮名。英字 `Poppin'Party` は正文で使わない
 
-  - canonical: Roselia
-    ja: ロゼリア
+  - canonical: ロゼリア
+    latin: Roselia
     members: [湊友希那, 氷川紗夜, 今井リサ, 宇田川あこ, 白金燐子]
-    note: 略称「ロゼ」も使われるが地の文では Roselia
+    note: 略称「ロゼ」も使われるが、正文では「ロゼリア」
 
-  - canonical: Afterglow
-    ja: アフターグロウ
+  - canonical: アフターグロウ
+    latin: Afterglow
     members: [美竹蘭, 青葉モカ, 上原ひまり, 宇田川巴, 羽沢つぐみ]
 
   - canonical: ハロー、ハッピーワールド！
-    ja: ハロー、ハッピーワールド！
+    latin: Hello, Happy World!
     members: [弦巻こころ, 瀬田薫, 北沢はぐみ, 松原花音, ミッシェル]
     note: |
       「！」と「、」を含む公式表記。省略しない。
-      英語表記 Hello, Happy World! は地の文で使わない
+      元から片仮名のため G9 の転写対象ではなく、**表記を変えない**
+      （「ハロー、ハッピーワールド」から「！」を落とさない）
 
-  - canonical: Pastel*Palettes
-    ja: パステルパレット
+  - canonical: パステルパレット
+    latin: Pastel*Palettes
     members: [丸山彩, 氷川日菜, 白鷺千聖, 大和麻弥, 若宮イヴ]
+    note: |
+      英字表記に `*` を含むが、正文は片仮名なので `*` は問題にならない。
+      `*` は GPT-SoVITS で予期しない挙動を起こしうる記号（adapters/gpt-sovits.md）
 
-  - canonical: Morfonica
-    ja: モルフォニカ
+  - canonical: モルフォニカ
+    latin: Morfonica
     members: [倉田ましろ, 桐谷透子, 広町七深, 二葉つくし, 八潮瑠唯]
 
-  - canonical: RAISE A SUILEN
-    ja: レイズアスイレン
+  - canonical: レイズアスイレン
+    latin: RAISE A SUILEN
     members: [レイヤ, ロック, マスキング, パレオ, チュチュ]
-    note: 公式表記は全て大文字。略称 RAS
+    note: 略称 RAS（読み アールエーエス。本文で使うなら片仮名で）
 
-  - canonical: MyGO!!!!!
-    ja: マイゴ
+  - canonical: マイゴ
+    latin: MyGO!!!!!
     members: [高松燈, 千早愛音, 要楽奈, 長崎そよ, 椎名立希]
-    note: 「!!!!!」は5つ。数を変えない
+    note: |
+      英字表記の「!!!!!」5つは転写により消える。
+      正文「マイゴ」に感嘆符は**付けない**——原表記の記号を本文に持ち込まない
 
-  - canonical: Ave Mujica
-    ja: アヴェムジカ
-    note: 表記は英語。日本語表記を地の文で使わない
+  - canonical: アヴェムジカ
+    latin: Ave Mujica
+    note: 表記は英字だが、G9 により正文は片仮名
 
   - canonical: グリッターグリーン
     members: [戸山明日香]
     note: |
-      香澄の妹・明日香のバンド。canonical は仮名。
-      G9 の例外 5 により、既に仮名の表記を英字に戻さない
+      香澄の妹・明日香のバンド。元から仮名のため転写対象外。
+      カタカナ表記の「グ」と「グリーン」を変えない
+
+  - canonical: バンドリ
+    latin: BanG Dream!
+    note: |
+      作品名。**公式の読みは「バンドリ」**（「バンドリーム」ではない）。
+      この点は要ユーザー確認（2026-02-14 時点で未確認）。
+      英字表記の半角 `!` は転写により消える。本文に記号を持ち込まない
 
 # ─────────────────────────────────────────────────────────────
 # 角色
@@ -79,55 +98,55 @@ characters:
 
   - canonical: 戸山香澄
     kana: とやま かすみ
-    band: Poppin'Party
+    band: ポッピンパーティ
     rules_file: kasumi.md
 
   - canonical: 花園たえ
     kana: はなぞの たえ
-    band: Poppin'Party
+    band: ポッピンパーティ
     note: 表記は「たえ」（漢字表記なし）。「多恵」等にしない
 
   - canonical: 牛込りみ
     kana: うしごめ りみ
-    band: Poppin'Party
+    band: ポッピンパーティ
     note: 表記は「りみ」（ひらがな）。「里美」にしない
 
   - canonical: 山吹沙綾
     kana: やまぶき さあや
-    band: Poppin'Party
+    band: ポッピンパーティ
 
   - canonical: 市ヶ谷有咲
     kana: いちがや ありさ
-    band: Poppin'Party
+    band: ポッピンパーティ
     note: 「ヶ」はカタカナ小書き。「ケ」「が」に置換しない
 
   - canonical: 湊友希那
     kana: みなと ゆきな
-    band: Roselia
+    band: ロゼリア
 
   - canonical: 氷川紗夜
     kana: ひかわ さよ
-    band: Roselia
+    band: ロゼリア
 
   - canonical: 今井リサ
     kana: いまい りさ
-    band: Roselia
+    band: ロゼリア
 
   - canonical: 宇田川あこ
     kana: うだがわ あこ
-    band: Roselia
+    band: ロゼリア
 
   - canonical: 白金燐子
     kana: しろかね りんこ
-    band: Roselia
+    band: ロゼリア
 
   - canonical: 美竹蘭
     kana: みたけ らん
-    band: Afterglow
+    band: アフターグロウ
 
   - canonical: 青葉モカ
     kana: あおば もか
-    band: Afterglow
+    band: アフターグロウ
 
   - canonical: 弦巻こころ
     kana: つるまき こころ
@@ -135,20 +154,20 @@ characters:
 
   - canonical: 丸山彩
     kana: まるやま あや
-    band: Pastel*Palettes
+    band: パステルパレット
 
   - canonical: 倉田ましろ
     kana: くらた ましろ
-    band: Morfonica
+    band: モルフォニカ
 
   - canonical: 高松燈
     kana: たかまつ ともり
-    band: MyGO!!!!!
+    band: マイゴ
     note: 「燈」は旧字体。常用漢字の「灯」に置換しない
 
   - canonical: 千早愛音
     kana: ちはや あのん
-    band: MyGO!!!!!
+    band: マイゴ
 
 # ─────────────────────────────────────────────────────────────
 # 学校・地名
@@ -170,16 +189,122 @@ schools:
 
 places:
 
-  # canonical は漢字表記のまま正文で使う。`kana` は**読みの記録**であって、
-  # 正文を仮名に開く指示ではない（G9 例外 5 と同じ原則）。
-  # 読みの代替表記が必要な場合は pronunciation.yaml に登録する。
+  # canonical は正文で使う表記。`kana` は**読みの記録**であって、
+  # 正文を仮名に開く指示ではない（漢字・かな表記は G9 の対象外）。
+  # 英字を含む地名は G9 により**片仮名に転写**する。
+  # 読みの突き合わせが必要な場合は pronunciation.yaml にも登録する。
 
-  - canonical: ライブハウス「SPACE」
-    kana: スペース
-    note: 鉤括弧込みが公式。単独で SPACE と書かない
+  # ── 聖地巡礼の地名（2026-02-14 追加）──
+  # verified: false = エンジンでの聴取確認が未実施。
+  # 特に「小豆島」は誤読リスクが高い（あずきじま / こまめじま の可能性）。
+
+  - canonical: 小豆島
+    kana: しょうどしま
+    reason: 難読地名。「小豆」を あずき と読む誤りが起きやすい
+    verified: false
+    note: |
+      香川県の島。**あずきじま ではない**。
+      聖地巡礼パックの行き先として登場（2026-02-14 のテスト本文）
+
+  - canonical: 安房鴨川
+    kana: あわかもがわ
+    reason: 「安房」は旧国名で あわ。難読
+    verified: false
+    note: |
+      千葉県。駅名「安房鴨川駅」は あわかもがわえき。
+      「あわ-かもがわ」と区切って読ませたい場合は要調整（未検証）
+
+  - canonical: 逗子
+    kana: ずし
+    reason: 「逗」が難読（とう / ず）
+    verified: false
+    note: 神奈川県
+
+  - canonical: 葉山
+    kana: はやま
+    reason: 地名の読み
+    verified: false
+    note: 神奈川県。「逗子・葉山」は並列表記で「・」は読ませない
+
+  - canonical: 江の島
+    kana: えのしま
+    reason: 「江」の読み。「えのしま」であり「こうのしま」ではない
+    verified: false
+    note: 神奈川県。表記は「江の島」または「江ノ島」。**「江の島」に統一**
+
+  - canonical: 鎌倉
+    kana: かまくら
+    reason: 地名の読み
+    verified: false
+
+  - canonical: 横浜
+    kana: よこはま
+    reason: 地名の読み
+    verified: false
+
+  - canonical: お台場
+    kana: おだいば
+    reason: かな混じり表記。頭の「お」を落とさない
+    verified: false
+    note: ライブハウス「SPACE」があった場所として作品内で重要
+
+  - canonical: 秋葉原
+    kana: あきはばら
+    reason: 地名の読み。略称「秋葉原（あきば）」ではない
+    verified: false
+
+  - canonical: 池袋
+    kana: いけぶくろ
+    reason: 地名の読み
+    verified: false
+
+  - canonical: 名古屋
+    kana: なごや
+    reason: 地名の読み
+    verified: false
+
+  - canonical: 大阪
+    kana: おおさか
+    reason: 地名の読み
+    verified: false
+
+  - canonical: 神戸
+    kana: こうべ
+    reason: 地名の読み。「しんこ」ではない
+    verified: false
+
+  - canonical: 京都
+    kana: きょうと
+    reason: 地名の読み
+    verified: false
+
+  - canonical: 札幌
+    kana: さっぽろ
+    reason: 地名の読み。促音に注意
+    verified: false
+
+  - canonical: 福岡
+    kana: ふくおか
+    reason: 地名の読み
+    verified: false
+
+  - canonical: 那覇
+    kana: なは
+    reason: 地名の読み
+    verified: false
+
+  # ── 作品内の施設 ──
+
+  - canonical: ライブハウス「スペース」
+    latin: ライブハウス「SPACE」
+    note: |
+      英字 `SPACE` は G9 により片仮名「スペース」に転写（2026-02-14 変更）。
+      鉤括弧込みが公式の体裁。単独で「スペース」と書かない
 
   - canonical: ガールズバンドパーティ
-    note: 通称 GBP / ガルパ。地の文では「ガルパ」より「ガールズバンドパーティ」
+    note: |
+      通称 GBP / ガルパ。正文では「ガルパ」より「ガールズバンドパーティ」。
+      「GBP」を本文で使う場合は片仮名「ジービーピー」（G9）
 
   - canonical: 流星堂
     kana: りゅうせいどう

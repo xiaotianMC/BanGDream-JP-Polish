@@ -2,6 +2,19 @@
 #
 # 用途：TTS 层的读音风险规避（rules/tts.md T3）。
 #
+# ── 引擎已确定（2026-02-14）──────────────────────────────────
+engine:
+  name: GPT-SoVITS
+  status: confirmed
+  verified: false        # 未实际合成验证。見 adapters/gpt-sovits.md
+  adapter: adapters/gpt-sovits.md
+#
+# 引擎确定后的三条影响：
+#   1. 英字は G9 により**無条件で片仮名に転写**。本词典に英字エントリを
+#      追加する意味は薄い——转写した片仮名を登録する
+#   2. 片仮名は字符と読みがほぼ一対一なので、**片仮名化自体が誤読対策**になる
+#   3. 促音「っ」・長音「ー」の挙動は要実測（adapters/gpt-sovits.md 検証清单 C）
+#
 # 填写原则：
 #   - 只填**真的会误读**的条目。常用词不要塞进来，会稀释信噪比。
 #   - reading 只写读音，不要写罗马字。
@@ -88,6 +101,58 @@ character_names:
     reason: TTS pronunciation — 学校名。地名由来の読み
     verified: false
     engine: null
+
+# ─────────────────────────────────────────────────────────────
+# 地名 —— 聖地巡礼スクリプトで頻出。難読地名は誤読リスクが高い
+# ─────────────────────────────────────────────────────────────
+# 2026-02-14 追加。ユーザー指定の 3 件（小豆島 / 安房鴨川 / 逗子・葉山）を含む。
+# 詳細な表記統一は proper-nouns.yaml の places セクションを参照。
+place_names:
+
+  - word: 小豆島
+    reading: しょうどしま
+    reason: TTS pronunciation — **あずきじま と誤読する可能性が高い**。最高リスク
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      香川県。「小豆」＝あずき の連想で誤読しやすい。
+      片仮名「ショウドシマ」にすれば確実だが、本文の可読性が落ちる。
+      通常は漢字のまま + 本エントリ + 実測で対応する
+
+  - word: 安房鴨川
+    reading: あわかもがわ
+    reason: TTS pronunciation — 「安房」は旧国名で あわ。難読
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      千葉県。駅名「安房鴨川駅」は あわかもがわえき。
+      「あわ-かもがわ」と区切る読みを望む場合は要調整（未検証）
+
+  - word: 逗子
+    reading: ずし
+    reason: TTS pronunciation — 「逗」の読み（とう / ず）が不安定
+    verified: false
+    engine: GPT-SoVITS
+
+  - word: 葉山
+    reading: はやま
+    reason: TTS pronunciation — 地名の読み
+    verified: false
+    engine: GPT-SoVITS
+    note: 「逗子・葉山」の「・」は読ませない。並列表記
+
+  - word: 江の島
+    reading: えのしま
+    reason: TTS pronunciation — 「江」を こう と読む可能性
+    verified: false
+    engine: GPT-SoVITS
+    note: 表記は「江の島」に統一（「江ノ島」と混在させない）
+
+  - word: 神戸
+    reading: こうべ
+    reason: TTS pronunciation — 「しんこ」等の誤読可能性
+    verified: false
+    engine: GPT-SoVITS
 
 # ─────────────────────────────────────────────────────────────
 # 多音汉字 —— 上下文中容易读错
@@ -205,18 +270,44 @@ unverified:
   - item: 全エントリ
     issue: |
       verified: false の項目はすべて**未検証**。
-      実際の TTS エンジンで聴取確認するまで、誤読が起きるかは不明。
+      引擎は GPT-SoVITS に確定したが、実合成での聴取確認はまだ行っていない。
     action: |
-      エンジン確定後、以下を確認する：
+      `../adapters/gpt-sovits.md` の「検証清单」を実行し、ここに結果を回填する。
+      確認項目：
         1. 上記の reading 通りに読むか
         2. 促音（ほんっとに）が発音されるか
         3. 長音（ー）が適切に伸びるか
         4. 数字の表記（3人 / 三人）で挙動が変わるか
+        5. 片仮名転写後の語（ポッピンパーティ等）が正しく読まれるか
     priority: high
+    engine: GPT-SoVITS
 
   - item: 促音「っ」の扱い
     issue: |
-      「ほんっとに」の小書き「っ」をエンジンが正しく促音として扱うか不明。
-      一部エンジンは表記をそのまま読もうとして不自然になる。
-    action: エンジン確定後に聴取確認。問題があれば engine 固有の回避策を検討
+      「ほんっとに」の小書き「っ」を GPT-SoVITS が正しく促音として扱うか不明。
+      文本前端が表記をそのまま音素化しようとして不自然になる可能性がある。
+    action: adapters/gpt-sovits.md 検証清单 C を実施。問題があれば回避策を検討
     priority: high
+    engine: GPT-SoVITS
+
+  - item: 地名の誤読（小豆島）
+    issue: |
+      **小豆島 を あずきじま と誤読する可能性が最も高い**。
+      聖地巡礼スクリプトでは固有名詞の誤読が最も目立つ失敗になる。
+    action: |
+      最優先で実測する。誤読する場合の選択肢：
+        1. pronunciation.yaml の frontend 辞書に登録（GPT-SoVITS 側の設定）
+        2. 本文を「ショウドシマ」と片仮名で書く
+        3. 「しょうどしま」と平仮名で書く
+      → どれを採るかはエンジンの辞書機能の可否を確認してから決める（未確認）
+    priority: high
+    engine: GPT-SoVITS
+
+  - item: 片仮名転写後の読み
+    issue: |
+      G9 により英字を片仮名転写した語（ポッピンパーティ / レイズアスイレン /
+      アヴェムジカ 等）が、想定通りに読まれるか未確認。
+      「ヴ」を含む語（アヴェムジカ）は引擎により ブ と ヴ が揺れうる。
+    action: adapters/gpt-sovits.md 検証清单 B を実施
+    priority: high
+    engine: GPT-SoVITS

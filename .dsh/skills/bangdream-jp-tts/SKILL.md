@@ -146,20 +146,24 @@ Do not paper over an uncertainty by picking one reading silently.
 For batch production the user may switch to output only `【优化结果】`, with a
 one-line exception list. Keep `【待确认】` even then.
 
-## Engine independence
+## Engine
 
-This skill does not bind to a TTS engine, and must not be tuned to one by
-default. Engines differ in how they treat punctuation, newlines, long vowels,
-readings, and numerals. Until an engine is named:
+**已确定引擎：GPT-SoVITS。** 引擎特定行为见 `adapters/gpt-sovits.md`。
 
-- Prefer conventions that are safe across engines.
-- Never introduce engine-specific control syntax into the line.
-- Record an engine-dependent uncertainty in `【待确认】` and in
-  `dictionary/pronunciation.yaml` under an `engine` field rather than baking one
-  engine's behavior into the general rules.
+该文件当前 `verified: false` —— 引擎行为描述基于通用架构认知，**尚未实机合成验证**。
+上机第一件事是按其中的「验证清单」跑一遍并回填结果。
 
-Engine-specific behavior belongs in a separate adapter file, not in
-`rules/tts.md`.
+核心规则（`rules/`）保持引擎无关，不得写入引擎特定行为。
+换引擎时只替换 `adapters/` 下的文件，`rules/` 不动。
+
+引擎确定后的两个直接结果：
+
+1. **英文转写（G9）从"默认"变为"无条件"** —— GPT-SoVITS 对拉丁字母走英语 G2P，
+   会产出英语音素而非日式外来语读音。乐队名等英字专有名词同样转写。
+2. **片假名、促音、长音的实测成为下一优先事项** —— 详见 adapters 的验证清单。
+
+在引擎确定之前，本文对引擎行为的一切判断都只能是"安全跨引擎的默认"。
+现已确定，因此可以按 GPT-SoVITS 的实际行为优化；但这些优化**要放 adapters，不要放进 rules**。
 
 ## Learn workflow
 
@@ -194,6 +198,7 @@ SKILL.md                  this file — workflow, priority, output
 rules/global.md           语义/信息/关系/专有名词 — all characters
 rules/japanese.md         日语自然度 — 书面语, 中文式表达, 标点
 rules/tts.md              TTS — 断句, 停顿, 读音, 情绪辅助
+adapters/gpt-sovits.md    引擎适配（已确定 GPT-SoVITS）— 引擎特定行为 + 验证清单
 characters/_template.md   模板 — 新角色从这里开始
 characters/kasumi.md      戸山香澄
 corrections/_schema.md    记录格式 + 分类 + 规则升级标准

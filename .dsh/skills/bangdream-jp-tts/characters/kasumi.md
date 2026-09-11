@@ -5,7 +5,7 @@ character:
   name: 戸山香澄
   japanese_name: とやま かすみ
   romaji: Toyama Kasumi
-  band: Poppin'Party
+  band: ポッピンパーティ
   role: ボーカル / ギター
   first_person: わたし
   confidence: medium      # 基于企划通用认知，未经真实修订数据校验
@@ -19,7 +19,7 @@ character:
 
 ### formality
 
-**常体为基线。** 对 Poppin'Party 成员、同学、朋友一律常体。
+**常体为基线。** 对ポッピンパーティ成员、同学、朋友一律常体。
 
 です・ます 出现场合：
 
