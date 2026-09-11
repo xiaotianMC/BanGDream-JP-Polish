@@ -7,6 +7,13 @@
 #   - canonical 是**唯一**允许的写法。AI 翻译出现其他写法一律改成 canonical。
 #   - **词典里没有的专有名词不要猜**（G8）。列入 unregistered 待补。
 #   - 读音风险高的条目同时登记在 pronunciation.yaml。
+#
+# ★ 与 G9（英文默认转写为假名）的关系：
+#   `rules/global.md` G9 要求正文中的英文转写成片假名，但**本词典的 canonical 是例外 1**。
+#   凡 canonical 为英字表记的条目（Poppin'Party / Roselia / BanG Dream! 等），
+#   保留英字原样，**不得转写成片假名**——那是改变专有名词，违反 G7。
+#   这些条目的读音由 pronunciation.yaml 或引擎的专有名词处理负责，
+#   不由改写正文负责。详见 G9 的「例外」小节。
 
 version: 0
 updated: 2026-02-14
@@ -61,7 +68,9 @@ bands:
 
   - canonical: グリッターグリーン
     members: [戸山明日香]
-    note: 香澄の妹・明日香のバンド
+    note: |
+      香澄の妹・明日香のバンド。canonical は仮名。
+      G9 の例外 5 により、既に仮名の表記を英字に戻さない
 
 # ─────────────────────────────────────────────────────────────
 # 角色
@@ -160,6 +169,10 @@ schools:
     kana: けいほう じょし こうとうがっこう
 
 places:
+
+  # canonical は漢字表記のまま正文で使う。`kana` は**読みの記録**であって、
+  # 正文を仮名に開く指示ではない（G9 例外 5 と同じ原則）。
+  # 読みの代替表記が必要な場合は pronunciation.yaml に登録する。
 
   - canonical: ライブハウス「SPACE」
     kana: スペース

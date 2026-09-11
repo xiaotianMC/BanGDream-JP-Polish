@@ -21,7 +21,7 @@ BanGDream-JP-Polish/
 └── .dsh/skills/bangdream-jp-tts/    ← Skill bundle
     ├── SKILL.md                     工作流、优先级、输出格式
     ├── rules/
-    │   ├── global.md                语义/信息/关系/专有名词（全角色）
+    │   ├── global.md                语义/信息/关系/专有名词/英文转写（全角色）
     │   ├── japanese.md              日语自然度
     │   └── tts.md                   断句/停顿/读音/情绪
     ├── characters/
