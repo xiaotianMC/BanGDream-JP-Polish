@@ -1,0 +1,222 @@
+# 读音词典
+#
+# 用途：TTS 层的读音风险规避（rules/tts.md T3）。
+#
+# 填写原则：
+#   - 只填**真的会误读**的条目。常用词不要塞进来，会稀释信噪比。
+#   - reading 只写读音，不要写罗马字。
+#   - engine 字段：null = 通用；填引擎名 = 仅该引擎需要特殊处理。
+#   - **不确定的读音写 verified: false 并列入待确认，不要猜**（Global G8）。
+#
+# 字段：
+#   word      原表记
+#   reading   期望读音（假名）
+#   reason    为什么需要（TTS pronunciation / 多音字 / 专有名词 …）
+#   verified  是否已用真实 TTS 验证过
+#   engine    适用引擎，null 为通用
+
+version: 0
+updated: 2026-02-14
+
+# ─────────────────────────────────────────────────────────────
+# 角色名 —— 最高风险。当用汉字几乎必然误读
+# ─────────────────────────────────────────────────────────────
+character_names:
+
+  - word: 香澄
+    reading: かすみ
+    reason: TTS pronunciation — 「香」を「こう」と読む可能性が高い
+    verified: false
+    engine: null
+
+  - word: 戸山
+    reading: とやま
+    reason: TTS pronunciation — 「戸」を「こ」と読む可能性
+    verified: false
+    engine: null
+
+  - word: 市ヶ谷
+    reading: いちがや
+    reason: TTS pronunciation — 「ヶ」の読み（が / け / ガ）が不安定
+    verified: false
+    engine: null
+
+  - word: 有咲
+    reading: ありさ
+    reason: TTS pronunciation — 難読。当用漢字の組み合わせ
+    verified: false
+    engine: null
+
+  - word: 沙綾
+    reading: さあや
+    reason: TTS pronunciation — 「沙」の読みが不安定（さ / しゃ）
+    verified: false
+    engine: null
+
+  - word: 友希那
+    reading: ゆきな
+    reason: TTS pronunciation — 「希」を「き」と読むのは難読
+    verified: false
+    engine: null
+
+  - word: 湊
+    reading: みなと
+    reason: TTS pronunciation — 「湊」の読みが複数
+    verified: false
+    engine: null
+
+  - word: 美竹蘭
+    reading: みたけらん
+    reason: TTS pronunciation — 人名の難読
+    verified: false
+    engine: null
+
+  - word: 青葉モカ
+    reading: あおばもか
+    reason: TTS pronunciation — 姓の読み
+    verified: false
+    engine: null
+
+  - word: 上原ひまり
+    reading: うえはらひまり
+    reason: TTS pronunciation — 姓の読み
+    verified: false
+    engine: null
+
+  - word: 羽丘
+    reading: はねおか
+    reason: TTS pronunciation — 学校名。地名由来の読み
+    verified: false
+    engine: null
+
+# ─────────────────────────────────────────────────────────────
+# 多音汉字 —— 上下文中容易读错
+# ─────────────────────────────────────────────────────────────
+ambiguous_kanji:
+
+  - word: 生
+    reading: （文脈依存）
+    reason: 多音字 — いきる / うまれる / なま / せい / おう
+    verified: false
+    engine: null
+    note: 単独では登録できない。誤読した具体例が出たら文単位で登録する
+
+  - word: 行
+    reading: （文脈依存）
+    reason: 多音字 — いく / ぎょう / おこなう / ゆく
+    verified: false
+    engine: null
+    note: 同上
+
+  - word: 空
+    reading: （文脈依存）
+    reason: 多音字 — そら / から / あく / くう
+    verified: false
+    engine: null
+    note: 同上
+
+  - word: 一日
+    reading: いちにち
+    reason: 多音字 — ついたち と読む文脈もある
+    verified: false
+    engine: null
+
+  - word: 今日
+    reading: きょう
+    reason: 多音字 — きょう / こんにち。通常会正确，但正式文脉可能读错
+    verified: false
+    engine: null
+
+# ─────────────────────────────────────────────────────────────
+# 数字 —— 读法依赖上下文，且引擎处理差异大
+# ─────────────────────────────────────────────────────────────
+numbers:
+
+  - word: 3人
+    reading: さんにん
+    reason: TTS pronunciation — 助数詞の読み（にん / り）
+    verified: false
+    engine: null
+
+  - word: 10月
+    reading: じゅうがつ
+    reason: TTS pronunciation — とおつき と誤読する可能性
+    verified: false
+    engine: null
+
+  - word: 4月
+    reading: しがつ
+    reason: TTS pronunciation — よんがつ と誤読する可能性
+    verified: false
+    engine: null
+
+  - word: 7月
+    reading: しちがつ
+    reason: TTS pronunciation — なながつ と読むケースもある
+    verified: false
+    engine: null
+
+  - word: 9月
+    reading: くがつ
+    reason: TTS pronunciation — きゅうがつ と誤読する可能性
+    verified: false
+    engine: null
+
+  - word: 1つ
+    reading: ひとつ
+    reason: TTS pronunciation — いちつ と誤読する可能性
+    verified: false
+    engine: null
+
+# ─────────────────────────────────────────────────────────────
+# 外来語・略称
+# ─────────────────────────────────────────────────────────────
+loanwords:
+
+  - word: ライブ
+    reading: らいぶ
+    reason: 通常は正しく読まれる。誤読例が出たら記録
+    verified: false
+    engine: null
+
+  - word: ギター
+    reading: ぎたー
+    reason: 通常は正しく読まれる
+    verified: false
+    engine: null
+
+# 略称は**登録しても解決しないことが多い**。
+# エンジンが逐字読みする場合、テキスト側で読みを書く方が確実（tts.md T3-4）。
+acronyms:
+
+  - word: BD
+    reading: ビーディー
+    reason: TTS pronunciation — 逐字読み・単語読みの両方がありうる
+    verified: false
+    engine: null
+    note: 確実にするなら本文に「ビーディー」と書く方が安全
+
+# ─────────────────────────────────────────────────────────────
+# 待确认 —— 尚未验证的读音风险
+# ─────────────────────────────────────────────────────────────
+# 规则：不确定就读不准的，写在这里，不要在生成文本时静默选一个（Global G8）。
+unverified:
+
+  - item: 全エントリ
+    issue: |
+      verified: false の項目はすべて**未検証**。
+      実際の TTS エンジンで聴取確認するまで、誤読が起きるかは不明。
+    action: |
+      エンジン確定後、以下を確認する：
+        1. 上記の reading 通りに読むか
+        2. 促音（ほんっとに）が発音されるか
+        3. 長音（ー）が適切に伸びるか
+        4. 数字の表記（3人 / 三人）で挙動が変わるか
+    priority: high
+
+  - item: 促音「っ」の扱い
+    issue: |
+      「ほんっとに」の小書き「っ」をエンジンが正しく促音として扱うか不明。
+      一部エンジンは表記をそのまま読もうとして不自然になる。
+    action: エンジン確定後に聴取確認。問題があれば engine 固有の回避策を検討
+    priority: high

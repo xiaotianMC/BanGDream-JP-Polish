@@ -1,0 +1,75 @@
+# ⚠️ 示范记录 —— 数据来自交接文档 §19 的示例，不是真实修订数据。
+#
+# 它的作用是演示 _schema.md 的格式，并把「AI 原文 → 人工修订 → 为什么」
+# 这条链路跑通一次。**不要**把它当作已校准的证据。
+#
+# 真实的第一条记录应该是你手上真实的 AI 翻译 + 人工改版。
+
+id: kasumi-2026-02-14-live-invite
+date: 2026-02-14
+character: 戸山香澄
+scene: ライブ後の会話、メンバーを次回に誘う
+emotion: 興奮 / 感謝
+source: 文档示例            # 非真实数据，见文件头
+tts_engine: null            # 引擎未定。不猜（Global G8）
+
+pairs:
+  - original: |
+      今日は本当にすごく楽しかったです！
+      次も一緒にライブをやりましょう！
+    corrected: |
+      今日はほんっとに楽しかったー！
+      次も一緒にライブやろうよ！
+    chinese: |
+      今天真的超级开心！下次也一起演出吧！
+    changes:
+      - from: 本当に
+        to: ほんっとに
+        issues: [character_style, emotion]
+        reason: |
+          興奮状態の強調形。促音の挿入で勢いが出る。
+          平叙の場面では「本当に」のままでよい（境界は excludes を参照）
+      - from: すごく
+        to: （削除）
+        issues: [natural_japanese]
+        reason: |
+          「ほんっとに」が強度を担うため、程度副詞の重複になる。
+          日本語では程度副詞の二重修飾は冗長に響く
+      - from: 楽しかったです
+        to: 楽しかったー
+        issues: [character_style, sentence_ending, tts]
+        reason: |
+          友人間かつ興奮状態で敬体は不自然（距離感が出る）。
+          長音「ー」が興奮を音声的に補助する
+      - from: やりましょう
+        to: やろうよ
+        issues: [character_style, sentence_ending]
+        reason: |
+          敬体の勧誘「〜ましょう」は過度に丁寧。
+          香澄は対等な相手には直接誘う形を使う
+      - from: ライブをやろうよ
+        to: ライブやろうよ
+        issues: [natural_japanese]
+        reason: 口語では助詞「を」を省略する
+
+generalizable_rule: |
+  興奮状態の香澄にはです・ます を使わない。勧誘は「〜しよう」「〜やろうよ」。
+  ただし公式・目上の場面では敬体が正しい（この境界を外すと過学習する）
+
+promoted_rule_ids: [kasumi_001, kasumi_002, kasumi_003, global_001, global_002]
+
+not_promoted:
+  - change: すごく → （削除）
+    why: この文脈固有。「すごく」が必要な文が多数あり、一般則にできない
+  - change: 「キラキラ」「みんな」の追加
+    why: |
+      原文に存在しない情報の追加（Global G2 違反）。
+      香澄の特徴語だが全台詞に足すのは刻板模倣であり、角色规则の過学習
+
+confidence: observed
+evidence_count: 1
+note: |
+  evidence_count が 1 なので、promoted_rule_ids の各規則はすべて observed 扱い。
+  同種の修正が3件以上、異なる場面から集まったら recommended への昇格を検討する。
+  「です・ます を使わない」は境界（公式の場）を外すと誤適用しやすいので、
+  昇格時には excludes を必ず維持すること。

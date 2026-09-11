@@ -1,0 +1,101 @@
+# 已提炼规则 — 机器可读
+#
+# 这个文件由 Learn 流程写入。SKILL.md 读取它以应用高置信度规则。
+# 格式与升级标准见 _schema.md §5。
+#
+# ⚠️ 当前所有条目的 status 都是 demo，来自文档 §19 的示范案例，
+#    不是从真实人工修订数据中提炼的。**不得作为强制修改依据。**
+#    真实数据灌入后，应删除 demo 条目并重新提炼。
+
+version: 0
+updated: 2026-02-14
+
+# ─────────────────────────────────────────────────────────────
+# 字段说明
+# ─────────────────────────────────────────────────────────────
+#
+# id            规则唯一 id，<character>_<nnn>
+# rule          一句话规则。写不成一句话 = 不该升级
+# layer         global | japanese | character | tts
+# applies_to    适用角色。跨角色规则写 [*]
+# scope         生效范围
+# excludes      边界——什么情况不适用。**必填**，无边界必过拟合
+# confidence    observed(1-2) | recommended(3-9) | established(10+)
+# evidence_count 支撑样本数
+# evidence      来源 correction 文件 id 列表
+# created       建立日期
+# status        active | demo | retracted
+# retracted_reason / retracted_date  仅 retracted 时填
+#
+# ─────────────────────────────────────────────────────────────
+
+rules:
+
+  - id: kasumi_001
+    rule: 興奮状態ではです・ます を使わない
+    layer: character
+    applies_to: [戸山香澄]
+    scope: 興奮・親しい相手との会話
+    excludes: 公式の場、目上、初対面
+    confidence: observed
+    evidence_count: 1
+    evidence: [kasumi-2026-02-14-live-invite]
+    created: 2026-02-14
+    status: demo
+
+  - id: kasumi_002
+    rule: 敬体の勧誘「〜ましょう」は使わない。「〜しよう」「〜やろうよ」を使う
+    layer: character
+    applies_to: [戸山香澄]
+    scope: 親しい相手を誘う場面
+    excludes: 目上・初対面を誘う場面（敬体が正しい）
+    confidence: observed
+    evidence_count: 1
+    evidence: [kasumi-2026-02-14-live-invite]
+    created: 2026-02-14
+    status: demo
+
+  - id: kasumi_003
+    rule: 興奮の強調は「本当に」ではなく「ほんっとに」（促音挿入）
+    layer: character
+    applies_to: [戸山香澄]
+    scope: 感情が高ぶっている場面
+    excludes: 平叙・冷静な説明の場面（「本当に」のままでよい）
+    confidence: observed
+    evidence_count: 1
+    evidence: [kasumi-2026-02-14-live-invite]
+    created: 2026-02-14
+    status: demo
+
+  - id: global_001
+    rule: 口語では助詞「を」を省略できる（ライブをやろう → ライブやろう）
+    layer: japanese
+    applies_to: ['*']
+    scope: 口語の会話文
+    excludes: 書き言葉、意味の曖昧化を招く場合
+    confidence: observed
+    evidence_count: 1
+    evidence: [kasumi-2026-02-14-live-invite]
+    created: 2026-02-14
+    status: demo
+
+  - id: global_002
+    rule: 程度副詞を重複させない（本当にすごく楽しかった → ほんっとに楽しかった）
+    layer: japanese
+    applies_to: ['*']
+    scope: 同一の程度を二重に修飾している場合
+    excludes: 意図的な強調の重ね（「すごくすごく嬉しい」など）
+    confidence: observed
+    evidence_count: 1
+    evidence: [kasumi-2026-02-14-live-invite]
+    created: 2026-02-14
+    status: demo
+
+  # ── 以下は昇格候補として明示的に却下された例（_schema.md §5） ──
+  # 記録として残すが rules には入れない。
+  #
+  # - candidate: 「すごく」→ 削除
+  #   rejected_because: この文脈固有。「すごく」が必要な文が多数ある
+  #
+  # - candidate: 「キラキラ」「みんな」を全台詞に追加
+  #   rejected_because: 原文にない情報の追加（Global G2 違反）。刻板模倣
