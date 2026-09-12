@@ -113,7 +113,7 @@ basis:
 ### address_forms
 
 称呼的中文写法。**译名变体由 Gate 2 决定**（`../dictionary/proper-nouns.yaml`
-的 `zh_variants`）。
+の `zh` フィールド）。
 
 | 对象 | 官方译名 | 社区译名 | 备注 |
 |---|---|---|---|

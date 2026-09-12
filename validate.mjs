@@ -161,26 +161,39 @@ for (const f of FILES) {
       if (!bandNames.has(c.band)) fail(`${c.canonical}: band「${c.band}」不在 bands 段中`);
     }
 
-    // ── zh と zh_variants.official の整合 ──
-    // 同じ中文名を 2 箇所に持っているので、片方だけ直すと必ず食い違う。
-    // characters[].zh      = その角色の中文名（正引き用）
-    // zh_variants[].official = Gate B が使う公式訳（変体比較用）
-    const byJp = new Map((doc.zh_variants ?? []).map(v => [v.japanese, v]));
-    let zhCount = 0;
-    for (const c of doc.characters.filter(c => c.zh)) {
-      zhCount++;
-      const v = byJp.get(c.canonical);
-      if (!v) { fail(`${c.canonical}: zh はあるが zh_variants に項目がない`); continue; }
-      if (v.official !== c.zh) {
-        fail(`${c.canonical}: zh「${c.zh}」と zh_variants.official「${v.official}」が不一致`);
+    // ── 中文名（Gate B）──
+    // 正体は characters の zh / zh_alt / zh_community の 1 箇所のみ。
+    // zh_variants は**保存しない**——以前は同じ値を 2 箇所に持っており、
+    // 片方だけ直して食い違う構造だった。今はここで導出する。
+    //
+    // 導出結果（Gate B が読む形）:
+    //   { japanese, official, alt?, community? }
+    const zhCharacters = doc.characters.filter(c => c.zh);
+    const derived = zhCharacters.map(c => ({
+      japanese: c.canonical,
+      official: c.zh,
+      ...(c.zh_alt ? { alt: c.zh_alt } : {}),
+      ...(c.zh_community ? { community: c.zh_community } : {}),
+    }));
+
+    // 保存されていたら構造が戻っている（二重管理の再発）
+    if (doc.zh_variants !== undefined) {
+      fail('zh_variants をファイルに保存しないこと（characters から導出する。二重管理の再発）');
+    }
+    // 導出元の健全性
+    for (const c of zhCharacters) {
+      if (c.zh_community && !(c.zh_alt ?? []).includes(c.zh_community)) {
+        fail(`${c.canonical}: zh_community「${c.zh_community}」が zh_alt に含まれていない`);
       }
     }
-    for (const v of doc.zh_variants ?? []) {
-      const c = doc.characters.find(c => c.canonical === v.japanese);
-      if (!c) { fail(`zh_variants「${v.japanese}」に対応する角色がない`); continue; }
-      if (!c.zh) fail(`zh_variants「${v.japanese}」はあるが角色側に zh がない`);
+    const dupZh = derived.map(d => d.official).filter((x, i, a) => a.indexOf(x) !== i);
+    if (dupZh.length) fail(`中文名が重複: ${[...new Set(dupZh)].join(', ')}`);
+
+    console.log(`     中文名: ${derived.length} 名（characters から導出）`);
+    for (const d of derived) {
+      const ex = [d.alt ? `alt=[${d.alt.join('/')}]` : '', d.community ? `community=${d.community}` : ''].filter(Boolean).join(' ');
+      console.log(`       ${d.japanese} → ${d.official}${ex ? '  ' + ex : ''}`);
     }
-    console.log(`     zh / zh_variants: ${zhCount} 名（整合確認済み）`);
   }
 
   if (f.includes('address-forms')) {

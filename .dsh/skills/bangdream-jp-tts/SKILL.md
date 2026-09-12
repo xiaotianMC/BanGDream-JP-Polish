@@ -72,7 +72,7 @@ the final text to be voiced (or the Chinese to be translated).
 （如「爽世」「素世」混用），仍需问一次——因为要统一成哪一种。
 判断方法是扫一遍输入里的中文人名，发现同一角色出现两种写法才问。
 
-> 除「只优化中文表达」外，输出都是日语，`zh_variants` 不影响日语正文
+> 除「只优化中文表达」外，输出都是日语，中文译名不影响日语正文
 > （日语一律写假名「そよ」，不写「爽世」/「素世」）。所以问了也白问。
 
 ### 条件问法：先定 A，再决定问不问 B
@@ -144,7 +144,9 @@ D 按原作设定 / E 允许口语化改写 / F 整批次一致 / G 全层
 都不改变 G7（专有名词全项目只允许一种写法）——选定后即成为本轮的
 canonical，同一批次内不得混用。
 
-变体数据在 `../dictionary/proper-nouns.yaml` 的 `zh_variants` 段。
+译名数据在 `../dictionary/proper-nouns.yaml` 的 **characters 段**：
+`zh`（中文名）/ `zh_alt`（别译）/ `zh_community`（早期译）。
+**已补完的只有 Poppin'Party 和 MyGO 两个乐队**，其余乐队遇名时按 G8 列入【待确认】。
 **遇到表里没有的译名分歧，不要猜**（G8），列入 `【待确认】`。
 
 ### C 成稿用途
@@ -504,7 +506,7 @@ the rules get audited and corrected. **中文输出用中文标签，日语输�
 
 Add `【待确认】` for anything you could not resolve — a reading that depends on
 the engine, an emotion you inferred, a proper noun missing from the dictionary,
-a 译名分歧 not in `zh_variants`. **所有模式都要保留这一节。**
+a 译名分歧 not recorded in `characters[].zh`. **所有模式都要保留这一节。**
 Do not paper over an uncertainty by picking one reading silently.
 
 For batch production the user may switch to output only `【优化结果】`, with a
@@ -589,7 +591,7 @@ corrections/_schema.md         记录格式 + 分类 + 规则升级标准
 corrections/_rules.yaml        已提炼规则 + confidence + evidence_count
 corrections/kasumi/            戸山香澄 的修订记录
 dictionary/pronunciation.yaml  读音词典（日语输出用）
-dictionary/proper-nouns.yaml   专有名词统一表 + zh_variants（译名变体，Gate B 用）
+dictionary/proper-nouns.yaml   专有名词统一表 + 中文名（Gate B 用）
 dictionary/address-forms.yaml  称呼对应表（G6 的唯一事实来源）
 examples/input/                输入样例
 examples/output/               输出样例

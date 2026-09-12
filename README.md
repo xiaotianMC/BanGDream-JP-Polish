@@ -51,7 +51,7 @@ BanGDream-JP-Polish/
     │   └── kasumi/
     ├── dictionary/
     │   ├── pronunciation.yaml       读音词典
-    │   ├── proper-nouns.yaml        专有名词统一表 + zh_variants（译名变体，Gate B）
+    │   ├── proper-nouns.yaml        专有名词统一表 + 中文名 zh/zh_alt（Gate B）
     │   └── address-forms.yaml       ★ 称呼对应表（G6 的唯一事实来源）
     └── examples/
         ├── input/cases.md
