@@ -111,6 +111,7 @@ bands:
 # ─────────────────────────────────────────────────────────────
 characters:
 
+
   - canonical: 戸山香澄
     kana: とやま かすみ
     band: ポッピンパーティ
@@ -380,6 +381,63 @@ characters:
     band: レイズアスイレン
     confirmed: false
     note: 称呼一覧に「燈ちゃん」で登場。「六花」は ろっか
+
+  - canonical: 白鷺千聖
+    kana: しらさぎ ちさと
+    band: パステルパレット
+    confirmed: false
+
+  - canonical: 若宮イヴ
+    kana: わかみや イヴ
+    band: パステルパレット
+    confirmed: false
+    note: 「ヴ」の読みがぶれやすい
+
+  - canonical: 松原花音
+    kana: まつばら かのん
+    band: ハロー、ハッピーワールド！
+    confirmed: false
+
+  - canonical: 北沢はぐみ
+    kana: きたざわ はぐみ
+    band: ハロー、ハッピーワールド！
+    confirmed: false
+    note: 表記は「はぐみ」（平仮名）
+
+  - canonical: 桐谷透子
+    kana: きりたに とうこ
+    band: モルフォニカ
+    confirmed: false
+
+  - canonical: 広町七深
+    kana: ひろまち ななみ
+    band: モルフォニカ
+    confirmed: false
+    note: 「七深」は ななみ
+
+  - canonical: 八潮瑠唯
+    kana: やしお るい
+    band: モルフォニカ
+    confirmed: false
+    note: 「瑠唯」は るい
+
+  - canonical: 和奏レイヤ
+    kana: わかな レイヤ
+    band: レイズアスイレン
+    confirmed: false
+    note: 通称 LAYER。姓は わかな
+
+  - canonical: 佐藤益木
+    kana: さとう ますき
+    band: レイズアスイレン
+    confirmed: false
+    note: 通称 マスキング
+
+  - canonical: 鳰原令王那
+    kana: におはら れおな
+    band: レイズアスイレン
+    confirmed: false
+    note: 通称 パレオ。「鳰」は難読
 
 # ─────────────────────────────────────────────────────────────
 # 学校・地名

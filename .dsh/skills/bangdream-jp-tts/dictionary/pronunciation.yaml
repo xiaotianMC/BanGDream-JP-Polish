@@ -71,6 +71,49 @@ character_names:
     engine: GPT-SoVITS
     note: 読みは ひかわ。「ひょうかわ」等にも注意
 
+  # ── MyGO!!!!! メンバー（2026-08-31 追加）──
+  # 灯以外の 4 名も当用漢字の難読揺れが大きい。
+
+  - word: 愛音
+    reading: あのん
+    reason: |
+      TTS pronunciation — **あいね と誤読する可能性が高い**。
+      「愛」→あい、「音」→ね という通常の連想から外れる
+    verified: false
+    engine: GPT-SoVITS
+    note: 千早愛音。読みの意外さはキャラ設定の一部。名前は書き換え不可（G7）
+
+  - word: 楽奈
+    reading: らーな
+    reason: |
+      TTS pronunciation — **らくな と誤読する可能性が高い**。
+      「楽」→らく、「奈」→な の直読を避ける必要がある
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      要楽奈。**長音符付きの「らーな」**が正しい（「らな」ではない）。
+      「ー」を正しく伸ばすかは要実測（adapters/gpt-sovits.md 検証清单 C）
+
+  - word: 立希
+    reading: たき
+    reason: |
+      TTS pronunciation — **りっき と誤読する可能性**。
+      同一作品内に「りっきー」というニックネームがあり混同しやすい
+    verified: false
+    engine: GPT-SoVITS
+    note: 椎名立希。`りっきー` は**愛音が押し付けた別名**で、名前の読みではない
+
+  - word: そよ
+    reading: そよ
+    reason: |
+      TTS pronunciation — **仮名表記なので誤読リスクは低い**。
+      ただし漢字表記「爽世」を使うと そうせい / そうよ 等に誤読される
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      長崎そよ。**名前は仮名「そよ」が正**（「爽世」は後付けの漢字名）。
+      本文でも仮名を使うのが原作準拠かつ TTS 安全
+
   - word: 香澄
     reading: かすみ
     reason: TTS pronunciation — 「香」を「こう」と読む可能性が高い

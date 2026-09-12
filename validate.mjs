@@ -160,6 +160,10 @@ for (const f of FILES) {
         for (const [who, v] of Object.entries(entries)) {
           total++;
           if (!known.has(who)) fail(`${owner}.${section} 引用了未登记的角色「${who}」`);
+          // never_met = 出典「-」。称呼が無いのが正なので forms は空でよい
+          if (v.never_met === true) {
+            if ((v.forms ?? []).length) fail(`${owner}.${section}.${who}: never_met なのに forms がある`);
+          }
           for (const fm of v.forms ?? []) {
             if (!fm.form) fail(`${owner}.${section}.${who}: forms 项缺 form`);
             if (!fm.register) fail(`${owner}.${section}.${who}:「${fm.form}」缺 register（语体是 G6 检查的关键）`);
@@ -174,13 +178,15 @@ for (const f of FILES) {
               fail(`${owner}.${section}.${who}: progression: true 但缺 stage（无法判断时间轴）`);
             }
           }
-          if (v.confirmed === undefined) fail(`${owner}.${section}.${who}: 缺 confirmed 标记`);
+          if (v.confirmed === undefined && v.never_met !== true) fail(`${owner}.${section}.${who}: 缺 confirmed 标记`);
         }
       }
     }
     console.log(`     subjects: ${OWNERS.size}, 称呼条目: ${total}`);
-    if (!doc.source?.revision) fail('缺 source.revision —— 来源版本必须记录');
-    else console.log(`     来源: ${doc.source.work} rev.${doc.source.revision} (${doc.source.last_edited})`);
+    const revs = doc.source?.revisions;
+    if (!revs && !doc.source?.revision) fail('缺 source.revision(s) —— 来源版本必须记录');
+    else if (revs) console.log(`     来源: ${Object.keys(revs).length} 项目 / ${doc.source.work}`);
+    else console.log(`     来源: ${doc.source.work} rev.${doc.source.revision}`);
   }
 }
 

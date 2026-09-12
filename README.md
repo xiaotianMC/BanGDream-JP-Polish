@@ -29,7 +29,11 @@ BanGDream-JP-Polish/
     ├── characters/
     │   ├── _template.md             新角色从这里开始
     │   ├── kasumi.md                戸山香澄（ポッピンパーティ）
-    │   └── tomori.md                高松燈（マイゴ）
+    │   ├── tomori.md                高松燈（マイゴ）ボーカル
+    │   ├── anon.md                  千早愛音（マイゴ）ギター
+    │   ├── rana.md                  要楽奈（マイゴ）ギター
+    │   ├── taki.md                  椎名立希（マイゴ）ドラム・作曲
+    │   └── soyo.md                  長崎そよ（マイゴ）ベース
     ├── corrections/                 ★ 项目核心数据
     │   ├── _schema.md               记录格式 + 分类 + 规则升级标准
     │   ├── _rules.yaml              已提炼规则 + confidence
@@ -103,7 +107,7 @@ BanG Dream!   → バンドリ
 | `rules/`（global / japanese / tts） | ✅ 可直接使用。基于日语语言学通用规律 |
 | `adapters/gpt-sovits.md` | ⚠️ 引擎已确定，但 `verified: false` —— **行为描述未实机验证** |
 | `characters/kasumi.md` | ⚠️ 基于通用认知撰写，**未经真实修订数据校准** |
-| `characters/tomori.md` | ⚠️ 基于萌娘百科条目撰写，**日文表记部分待确认**（见其「表记待确认」节） |
+| `characters/tomori.md` / `anon.md` / `rana.md` / `taki.md` / `soyo.md` | ⚠️ 基于萌娘百科条目撰写，**日文表记部分待确认**（各文末「表记待确认」） |
 | `dictionary/` | ⚠️ 条目已列（含 6 个地名），`verified: false` —— **未用真实 TTS 验证** |
 | `corrections/_rules.yaml` | ⚠️ 全部是 `status: demo`，源自需求文档示例，**不得作为强制依据** |
 | `corrections/kasumi/*.yaml` | ⚠️ 示范记录，非真实数据 |
@@ -145,7 +149,7 @@ BanG Dream!   → バンドリ
 - 不修改历史 correction 数据（只追加）
 - 核心规则不绑定引擎；引擎差异放在 `adapters/`，不写进 `rules/`
 - 目前只有 GPT-SoVITS 一个 adapter。换引擎时新增 adapter，`rules/` 不动
-- 角色规则目前有 2 人：香澄、燈。其余角色需按 `characters/_template.md` 补充
+- 角色规则目前有 6 人：香澄 + マイゴ 全 5 人（燈・愛音・楽奈・立希・そよ）。其余需按 `characters/_template.md` 补充
 - 曲名未登记；出现时按 `dictionary/proper-nouns.yaml` 的 `unregistered` 处理
 - **未实机验证**：所有读音条目与 adapter 行为描述均为 `verified: false`
 
