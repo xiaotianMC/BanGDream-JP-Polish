@@ -14,6 +14,9 @@
 #   → 未調査の組み合わせは本表に**追加しない**（G8）。
 #   → 会っていない相手は、双方のマップに載せない（非対称に書かない）。
 #
+# ★ 称呼は出典どおり**コードネーム**で記録している（レイヤ / ロック / マスキング / パレオ）。
+#   canonical は本名（和奏レイヤ 等）なので、proper-nouns.yaml の aliases で解決される。
+#
 # ── 字段 ───────────────────────────────────────────────────
 # forms[]     该称呼的所有形式
 #   form      称呼形态
@@ -37,22 +40,25 @@ source:
     要楽奈: 8611091
     椎名立希: 8626221
     長崎そよ: 8649573
+    和奏レイヤ: 8647881
+    朝日六花: 8595972
+    佐藤益木: 8509795
+    鳩原令王那: 8495706
+    珠手知由: 8648660
   retrieved: 2026-02-14
   license: CC BY-NC-SA 3.0 CN
   attribution: |
     称呼データは萌娘百科の各記事から抽出・翻訳したもの。
     同サイトは CC BY-NC-SA 3.0 CN で提供されている。
     本リポジトリを**非商業目的**で利用する場合のみ、この帰属表示を保持すること。
-  note: |
+  note: |-
     ★ 称呼データは**二次情報**である。confirmed: false の項目は、
       本文で使う前に公式設定・公式台詞で裏取りすること（G8）。
 
-version: 3
+          RAS の称呼データは 5 項目から抽出。**佐藤益木 の項目には称呼一覧が無い**ため
+          他メンバー側から再構成している（masking.md に明記）。
+version: 4
 updated: 2026-09-02
-
-# ═════════════════════════════════════════════════════════════
-# 戸山香澄（とやま かすみ / ポッピンパーティ）
-# ═════════════════════════════════════════════════════════════
 戸山香澄:
   self:
     first_person: わたし
@@ -64,13 +70,48 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: 出典で確認。香澄が名付けた呼称。命名由来は characters/poppin-party/tae.md
-    牛込りみ: { progression: false, forms: [{ form: りみりん, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: さーや, register: 常体 }], confirmed: true }
-    市ヶ谷有咲: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: 蘭ちゃん, register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: モカちゃん, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: ひまりちゃん, register: 常体 }], confirmed: true }
-    宇田川巴: { progression: false, forms: [{ form: 巴ちゃん, register: 常体 }], confirmed: true }
+    牛込りみ:
+      progression: false
+      forms:
+        - form: りみりん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: さーや
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 蘭ちゃん
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: モカちゃん
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: ひまりちゃん
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: 巴ちゃん
+          register: 常体
+      confirmed: true
     羽沢つぐみ:
       progression: false
       forms:
@@ -78,12 +119,42 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: 「つぐみちゃん」ではなく「つぐ」
-    丸山彩: { progression: false, forms: [{ form: 彩先輩, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: 日菜さん, register: 常体 }], confirmed: true }
-    白鷺千聖: { progression: false, forms: [{ form: 千聖先輩, register: 常体 }], confirmed: true }
-    大和麻弥: { progression: false, forms: [{ form: 麻弥さん, register: 常体 }], confirmed: true }
-    若宮イヴ: { progression: false, forms: [{ form: イヴちゃん, register: 常体 }], confirmed: true }
-    湊友希那: { progression: false, forms: [{ form: 友希那先輩, register: 常体 }], confirmed: true }
+    丸山彩:
+      progression: false
+      forms:
+        - form: 彩先輩
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 日菜さん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 千聖先輩
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 麻弥さん
+          register: 常体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: イヴちゃん
+          register: 常体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: 友希那先輩
+          register: 常体
+      confirmed: true
     氷川紗夜:
       progression: true
       forms:
@@ -104,19 +175,84 @@ updated: 2026-09-02
           register: 常体
           stage: 中期
       confirmed: true
-    宇田川あこ: { progression: false, forms: [{ form: あこ, register: 常体 }], confirmed: true }
-    白金燐子: { progression: false, forms: [{ form: 燐子先輩, register: 常体 }], confirmed: true }
-    弦巻こころ: { progression: false, forms: [{ form: こころん, register: 常体 }], confirmed: true }
-    瀬田薫: { progression: false, forms: [{ form: 薫さん, register: 常体 }], confirmed: true }
-    北沢はぐみ: { progression: false, forms: [{ form: はぐ, register: 常体 }], confirmed: true }
-    松原花音: { progression: false, forms: [{ form: 花音先輩, register: 常体 }], confirmed: true }
-    奥沢美咲: { progression: false, forms: [{ form: 美咲ちゃん, register: 常体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: ましろちゃん, register: 常体 }], confirmed: true }
-    桐谷透子: { progression: false, forms: [{ form: 透子ちゃん, register: 常体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: 七深ちゃん, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: つくしちゃん, register: 常体 }], confirmed: true }
-    八潮瑠唯: { progression: false, forms: [{ form: 瑠唯ちゃん, register: 常体 }], confirmed: true }
-    和奏レイヤ: { progression: false, forms: [{ form: レイさん, register: 常体 }], confirmed: true }
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: あこ
+          register: 常体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: こころん
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 薫さん
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: はぐ
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 花音先輩
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 美咲ちゃん
+          register: 常体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: ましろちゃん
+          register: 常体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: 透子ちゃん
+          register: 常体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 七深ちゃん
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: つくしちゃん
+          register: 常体
+      confirmed: true
+    八潮瑠唯:
+      progression: false
+      forms:
+        - form: 瑠唯ちゃん
+          register: 常体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: レイさん
+          register: 常体
+      confirmed: true
     朝日六花:
       progression: false
       forms:
@@ -124,12 +260,44 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: コードネームで呼ぶ
-    佐藤益木: { progression: false, forms: [{ form: マッスー, register: 常体 }], confirmed: true }
-    鳰原令王那: { progression: false, forms: [{ form: パレオちゃん, register: 常体 }, { form: パレちゃん, register: 常体 }], confirmed: true }
-    チュチュ: { progression: false, forms: [{ form: チュチュちゃん, register: 常体 }], confirmed: true }
-    高松燈: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    千早愛音: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    要楽奈: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
+    佐藤益木:
+      progression: false
+      forms:
+        - form: マッスー
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: パレオちゃん
+          register: 常体
+        - form: パレちゃん
+          register: 常体
+      confirmed: true
+    チュチュ:
+      progression: false
+      forms:
+        - form: チュチュちゃん
+          register: 常体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    千早愛音:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    要楽奈:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
     長崎そよ:
       progression: false
       forms:
@@ -137,30 +305,145 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: 出典は「そよちゃん」
-    椎名立希: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    三角初華: { progression: false, forms: [{ form: 初華ちゃん, register: 常体 }], confirmed: true }
+    椎名立希:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    三角初華:
+      progression: false
+      forms:
+        - form: 初華ちゃん
+          register: 常体
+      confirmed: true
   addressed_by:
-    花園たえ: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    牛込りみ: { progression: false, forms: [{ form: 香澄ちゃん, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    市ヶ谷有咲: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    宇田川巴: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    羽沢つぐみ: { progression: false, forms: [{ form: 香澄ちゃん, register: 常体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: 香澄ちゃん, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: 香澄ちゃん, register: 常体 }], confirmed: true }
-    白鷺千聖: { progression: false, forms: [{ form: 香澄ちゃん, register: 常体 }], confirmed: true }
-    大和麻弥: { progression: false, forms: [{ form: 戸山さん, register: 丁寧体 }], confirmed: true }
-    若宮イヴ: { progression: false, forms: [{ form: カスミさん, register: 丁寧体 }], confirmed: true }
-    湊友希那: { progression: false, forms: [{ form: 戸山さん, register: 丁寧体 }], confirmed: true }
-    氷川紗夜: { progression: false, forms: [{ form: 戸山さん, register: 丁寧体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    宇田川あこ: { progression: false, forms: [{ form: かすみ, register: 常体 }], confirmed: true }
-    白金燐子: { progression: false, forms: [{ form: 戸山さん, register: 丁寧体 }], confirmed: true }
-    弦巻こころ: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    瀬田薫: { progression: false, forms: [{ form: 香澄ちゃん, register: 常体 }], confirmed: true }
+    花園たえ:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: 香澄ちゃん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 香澄ちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 香澄ちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 香澄ちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 香澄ちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 戸山さん
+          register: 丁寧体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: カスミさん
+          register: 丁寧体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: 戸山さん
+          register: 丁寧体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 戸山さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: かすみ
+          register: 常体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 戸山さん
+          register: 丁寧体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 香澄ちゃん
+          register: 常体
+      confirmed: true
     北沢はぐみ:
       progression: false
       forms:
@@ -168,13 +451,48 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: 独特の愛称
-    松原花音: { progression: false, forms: [{ form: 香澄ちゃん, register: 常体 }], confirmed: true }
-    奥沢美咲: { progression: false, forms: [{ form: 戸山さん, register: 丁寧体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: 香澄さん, register: 丁寧体 }], confirmed: true }
-    桐谷透子: { progression: false, forms: [{ form: 香澄さん, register: 丁寧体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: 香澄先輩, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: 香澄先輩, register: 常体 }], confirmed: true }
-    八潮瑠唯: { progression: false, forms: [{ form: 戸山さん, register: 丁寧体 }], confirmed: true }
+    松原花音:
+      progression: false
+      forms:
+        - form: 香澄ちゃん
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 戸山さん
+          register: 丁寧体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: 香澄さん
+          register: 丁寧体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: 香澄さん
+          register: 丁寧体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 香澄先輩
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: 香澄先輩
+          register: 常体
+      confirmed: true
+    八潮瑠唯:
+      progression: false
+      forms:
+        - form: 戸山さん
+          register: 丁寧体
+      confirmed: true
     和奏レイヤ:
       progression: true
       forms:
@@ -185,9 +503,24 @@ updated: 2026-09-02
           register: 常体
           stage: 中期
       confirmed: true
-    朝日六花: { progression: false, forms: [{ form: 香澄先輩, register: 常体 }], confirmed: true }
-    佐藤益木: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    鳰原令王那: { progression: false, forms: [{ form: 香澄さん, register: 丁寧体 }], confirmed: true }
+    朝日六花:
+      progression: false
+      forms:
+        - form: 香澄先輩
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: 香澄さん
+          register: 丁寧体
+      confirmed: true
     チュチュ:
       progression: false
       forms:
@@ -195,33 +528,109 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: フルネームで呼ぶ
-    高松燈: { progression: false, forms: [{ form: 香澄さん, register: 丁寧体 }], confirmed: true }
-    千早愛音: { progression: false, forms: [{ form: 香澄先輩, register: 常体 }], confirmed: true }
-    要楽奈: { progression: false, forms: [{ form: かすみ, register: 常体 }], confirmed: true }
-    長崎そよ: { progression: false, forms: [{ form: 香澄さん, register: 丁寧体 }], confirmed: true }
-    椎名立希: { progression: false, forms: [{ form: 戸山先輩, register: 常体 }], confirmed: true }
+    高松燈:
+      progression: false
+      forms:
+        - form: 香澄さん
+          register: 丁寧体
+      confirmed: true
+    千早愛音:
+      progression: false
+      forms:
+        - form: 香澄先輩
+          register: 常体
+      confirmed: true
+    要楽奈:
+      progression: false
+      forms:
+        - form: かすみ
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: 香澄さん
+          register: 丁寧体
+      confirmed: true
+    椎名立希:
+      progression: false
+      forms:
+        - form: 戸山先輩
+          register: 常体
+      confirmed: true
   note: |
     PPP の中心。相手を愛称で呼ぶ率が高い（りみりん・さーや・おたえ・こころん 等）。
     先輩には「〜先輩」＋丁寧体、同格以下は常体。
-
-# ═════════════════════════════════════════════════════════════
-# 花園たえ（はなぞの たえ / ポッピンパーティ）
-# ═════════════════════════════════════════════════════════════
 花園たえ:
   self:
     first_person: わたし
   addresses:
-    戸山香澄: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    牛込りみ: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: 沙綾, register: 常体 }], confirmed: true }
-    市ヶ谷有咲: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: "蘭", register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: モカ, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: ひまり, register: 常体 }], confirmed: true }
-    宇田川巴: { progression: false, forms: [{ form: "巴", register: 常体 }], confirmed: true }
-    羽沢つぐみ: { progression: false, forms: [{ form: つぐみ, register: 常体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: 彩先輩, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: 日菜さん, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 沙綾
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 蘭
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: モカ
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: ひまり
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: 巴
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: つぐみ
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 彩先輩
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 日菜さん
+          register: 常体
+      confirmed: true
     白鷺千聖:
       progression: true
       forms:
@@ -233,7 +642,12 @@ updated: 2026-09-02
           stage: 中期
       confirmed: true
       note: 出典の「千聖さん→千聖先輩」
-    大和麻弥: { progression: false, forms: [{ form: 麻弥さん, register: 常体 }], confirmed: true }
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 麻弥さん
+          register: 常体
+      confirmed: true
     若宮イヴ:
       progression: false
       forms:
@@ -241,27 +655,132 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: 「イヴちゃん」ではなく呼び捨て
-    湊友希那: { progression: false, forms: [{ form: 友希那先輩, register: 常体 }], confirmed: true }
-    氷川紗夜: { progression: false, forms: [{ form: 氷川先輩, register: 常体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: リサさん, register: 常体 }], confirmed: true }
-    宇田川あこ: { progression: false, forms: [{ form: あこ, register: 常体 }], confirmed: true }
-    白金燐子: { progression: false, forms: [{ form: 燐子先輩, register: 常体 }], confirmed: true }
-    弦巻こころ: { progression: false, forms: [{ form: こころ, register: 常体 }], confirmed: true }
-    瀬田薫: { progression: false, forms: [{ form: 薫さん, register: 常体 }], confirmed: true }
-    北沢はぐみ: { progression: false, forms: [{ form: はぐみ, register: 常体 }], confirmed: true }
-    松原花音: { progression: false, forms: [{ form: 花音先輩, register: 常体 }], confirmed: true }
-    奥沢美咲: { progression: false, forms: [{ form: 美咲, register: 常体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: ましろ, register: 常体 }], confirmed: true }
-    桐谷透子: { progression: false, forms: [{ form: 透子, register: 常体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: 七深, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: つくし, register: 常体 }], confirmed: true }
-    和奏レイヤ: { progression: false, forms: [{ form: レイ, register: 常体 }], confirmed: true }
-    朝日六花: { progression: false, forms: [{ form: ロック, register: 常体 }], confirmed: true }
-    佐藤益木: { progression: false, forms: [{ form: マッスー, register: 常体 }], confirmed: true }
-    鳰原令王那: { progression: false, forms: [{ form: パレオ, register: 常体 }], confirmed: true }
-    チュチュ: { progression: false, forms: [{ form: チュチュ, register: 常体 }], confirmed: true }
-    要楽奈: { progression: false, forms: [{ form: 楽奈, register: 常体 }], confirmed: true }
-    長崎そよ: { progression: false, forms: [{ form: そよ, register: 常体 }], confirmed: true }
+    湊友希那:
+      progression: false
+      forms:
+        - form: 友希那先輩
+          register: 常体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 氷川先輩
+          register: 常体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: リサさん
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: あこ
+          register: 常体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: こころ
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 薫さん
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: はぐみ
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 花音先輩
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 美咲
+          register: 常体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: ましろ
+          register: 常体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: 透子
+          register: 常体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 七深
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: つくし
+          register: 常体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: レイ
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: マッスー
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+    チュチュ:
+      progression: false
+      forms:
+        - form: チュチュ
+          register: 常体
+      confirmed: true
+    要楽奈:
+      progression: false
+      forms:
+        - form: 楽奈
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: そよ
+          register: 常体
+      confirmed: true
   addressed_by:
     戸山香澄:
       progression: false
@@ -270,38 +789,198 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: ★ 香澄が名付けた呼称。PPP 全員に広まった
-    牛込りみ: { progression: false, forms: [{ form: おたえちゃん, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: おたえ, register: 常体 }], confirmed: true }
-    市ヶ谷有咲: { progression: false, forms: [{ form: おたえ, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: たえ, register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: おたえ, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: おたえ, register: 常体 }], confirmed: true }
-    宇田川巴: { progression: false, forms: [{ form: おたえ, register: 常体 }], confirmed: true }
-    羽沢つぐみ: { progression: false, forms: [{ form: おたえちゃん, register: 常体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: たえちゃん, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: おたえちゃん, register: 常体 }], confirmed: true }
-    白鷺千聖: { progression: false, forms: [{ form: たえちゃん, register: 常体 }], confirmed: true }
-    大和麻弥: { progression: false, forms: [{ form: たえさん, register: 丁寧体 }], confirmed: true }
-    若宮イヴ: { progression: false, forms: [{ form: タエさん, register: 丁寧体 }], confirmed: true }
-    湊友希那: { progression: false, forms: [{ form: 花園さん, register: 丁寧体 }], confirmed: true }
-    氷川紗夜: { progression: false, forms: [{ form: 花園さん, register: 丁寧体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: たえ, register: 常体 }], confirmed: true }
-    宇田川あこ: { progression: false, forms: [{ form: たえ, register: 常体 }], confirmed: true }
-    白金燐子: { progression: false, forms: [{ form: 花園さん, register: 丁寧体 }], confirmed: true }
-    弦巻こころ: { progression: false, forms: [{ form: たえ, register: 常体 }], confirmed: true }
-    瀬田薫: { progression: false, forms: [{ form: たえちゃん, register: 常体 }], confirmed: true }
-    北沢はぐみ: { progression: false, forms: [{ form: おたえ, register: 常体 }], confirmed: true }
-    松原花音: { progression: false, forms: [{ form: たえちゃん, register: 常体 }], confirmed: true }
-    奥沢美咲: { progression: false, forms: [{ form: 花園さん, register: 丁寧体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: たえさん, register: 丁寧体 }], confirmed: true }
-    桐谷透子: { progression: false, forms: [{ form: おたえさん, register: 丁寧体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: おたえ先輩, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: たえ先輩, register: 常体 }], confirmed: true }
-    八潮瑠唯: { progression: false, forms: [{ form: 花園さん, register: 丁寧体 }], confirmed: true }
-    和奏レイヤ: { progression: false, forms: [{ form: 花ちゃん, register: 常体 }], confirmed: true }
-    朝日六花: { progression: false, forms: [{ form: たえ先輩, register: 常体 }], confirmed: true }
-    佐藤益木: { progression: false, forms: [{ form: ハナ, register: 常体 }], confirmed: true }
-    鳰原令王那: { progression: false, forms: [{ form: ハナさん, register: 丁寧体 }], confirmed: true }
+    牛込りみ:
+      progression: false
+      forms:
+        - form: おたえちゃん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: おたえ
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: おたえ
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: たえ
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: おたえ
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: おたえ
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: おたえ
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: おたえちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: たえちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: おたえちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: たえちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: たえさん
+          register: 丁寧体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: タエさん
+          register: 丁寧体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: 花園さん
+          register: 丁寧体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 花園さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: たえ
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: たえ
+          register: 常体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 花園さん
+          register: 丁寧体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: たえ
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: たえちゃん
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: おたえ
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: たえちゃん
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 花園さん
+          register: 丁寧体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: たえさん
+          register: 丁寧体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: おたえさん
+          register: 丁寧体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: おたえ先輩
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: たえ先輩
+          register: 常体
+      confirmed: true
+    八潮瑠唯:
+      progression: false
+      forms:
+        - form: 花園さん
+          register: 丁寧体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: 花ちゃん
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: たえ先輩
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: ハナ
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: ハナさん
+          register: 丁寧体
+      confirmed: true
     チュチュ:
       progression: false
       forms:
@@ -309,26 +988,62 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: フルネームで呼ぶ
-    要楽奈: { progression: false, forms: [{ form: たえ, register: 常体 }], confirmed: true }
+    要楽奈:
+      progression: false
+      forms:
+        - form: たえ
+          register: 常体
+      confirmed: true
   note: |
     ★ 「おたえ」は香澄が名付けた呼称（第1期4話、駅での別れ際）。
     PPP 全員に広まり、他バンドも「たえ」「おたえ」と呼ぶ。
     話し方は独特（characters/poppin-party/tae.md 参照）。
-
-# ═════════════════════════════════════════════════════════════
-# 牛込りみ（うしごめ りみ / ポッピンパーティ）
-# ═════════════════════════════════════════════════════════════
 牛込りみ:
   self:
     first_person: 私
   addresses:
-    戸山香澄: { progression: false, forms: [{ form: 香澄ちゃん, register: 常体 }], confirmed: true }
-    花園たえ: { progression: false, forms: [{ form: おたえちゃん, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: 沙綾ちゃん, register: 常体 }], confirmed: true }
-    市ヶ谷有咲: { progression: false, forms: [{ form: 有咲ちゃん, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: 蘭ちゃん, register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: モカちゃん, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: ひまりちゃん, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 香澄ちゃん
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: おたえちゃん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 沙綾ちゃん
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: 有咲ちゃん
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 蘭ちゃん
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: モカちゃん
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: ひまりちゃん
+          register: 常体
+      confirmed: true
     宇田川巴:
       progression: true
       forms:
@@ -340,80 +1055,386 @@ updated: 2026-09-02
           stage: 中期
       confirmed: true
       note: 出典の「宇田川さん→巴ちゃん」
-    羽沢つぐみ: { progression: false, forms: [{ form: つぐみちゃん, register: 常体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: 彩先輩, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: 日菜さん, register: 常体 }], confirmed: true }
-    白鷺千聖: { progression: false, forms: [{ form: 千聖先輩, register: 常体 }], confirmed: true }
-    大和麻弥: { progression: false, forms: [{ form: 麻弥さん, register: 常体 }], confirmed: true }
-    若宮イヴ: { progression: false, forms: [{ form: イヴちゃん, register: 常体 }], confirmed: true }
-    湊友希那: { progression: false, forms: [{ form: 友希那先輩, register: 常体 }], confirmed: true }
-    氷川紗夜: { progression: false, forms: [{ form: 氷川先輩, register: 常体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: リサさん, register: 常体 }], confirmed: true }
-    宇田川あこ: { progression: false, forms: [{ form: あこちゃん, register: 常体 }], confirmed: true }
-    白金燐子: { progression: false, forms: [{ form: 燐子先輩, register: 常体 }], confirmed: true }
-    弦巻こころ: { progression: false, forms: [{ form: こころちゃん, register: 常体 }], confirmed: true }
-    瀬田薫: { progression: false, forms: [{ form: 薫さん, register: 常体 }], confirmed: true }
-    北沢はぐみ: { progression: false, forms: [{ form: はぐみちゃん, register: 常体 }], confirmed: true }
-    松原花音: { progression: false, forms: [{ form: 花音先輩, register: 常体 }], confirmed: true }
-    奥沢美咲: { progression: false, forms: [{ form: 美咲ちゃん, register: 常体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: ましろちゃん, register: 常体 }], confirmed: true }
-    桐谷透子: { progression: false, forms: [{ form: 透子ちゃん, register: 常体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: 七深ちゃん, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: つくしちゃん, register: 常体 }], confirmed: true }
-    八潮瑠唯: { progression: false, forms: [{ form: 瑠唯ちゃん, register: 常体 }], confirmed: true }
-    和奏レイヤ: { progression: false, forms: [{ form: レイヤさん, register: 丁寧体 }], confirmed: true }
-    朝日六花: { progression: false, forms: [{ form: ロックちゃん, register: 常体 }], confirmed: true }
-    佐藤益木: { progression: false, forms: [{ form: マッスーさん, register: 丁寧体 }], confirmed: true }
-    鳰原令王那: { progression: false, forms: [{ form: パレオちゃん, register: 常体 }], confirmed: true }
-    チュチュ: { progression: false, forms: [{ form: チュチュちゃん, register: 常体 }], confirmed: true }
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: つぐみちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 彩先輩
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 日菜さん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 千聖先輩
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 麻弥さん
+          register: 常体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: イヴちゃん
+          register: 常体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: 友希那先輩
+          register: 常体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 氷川先輩
+          register: 常体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: リサさん
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: あこちゃん
+          register: 常体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: こころちゃん
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 薫さん
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: はぐみちゃん
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 花音先輩
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 美咲ちゃん
+          register: 常体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: ましろちゃん
+          register: 常体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: 透子ちゃん
+          register: 常体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 七深ちゃん
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: つくしちゃん
+          register: 常体
+      confirmed: true
+    八潮瑠唯:
+      progression: false
+      forms:
+        - form: 瑠唯ちゃん
+          register: 常体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: レイヤさん
+          register: 丁寧体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: ロックちゃん
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: マッスーさん
+          register: 丁寧体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: パレオちゃん
+          register: 常体
+      confirmed: true
+    チュチュ:
+      progression: false
+      forms:
+        - form: チュチュちゃん
+          register: 常体
+      confirmed: true
   addressed_by:
-    戸山香澄: { progression: false, forms: [{ form: りみりん, register: 常体 }], confirmed: true }
-    花園たえ: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: りみりん, register: 常体 }], confirmed: true }
-    市ヶ谷有咲: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: りみりん, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    宇田川巴: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    羽沢つぐみ: { progression: false, forms: [{ form: りみちゃん, register: 常体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: りみちゃん, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: りみちゃん, register: 常体 }], confirmed: true }
-    白鷺千聖: { progression: false, forms: [{ form: りみちゃん, register: 常体 }], confirmed: true }
-    大和麻弥: { progression: false, forms: [{ form: 牛込さん, register: 丁寧体 }], confirmed: true }
-    若宮イヴ: { progression: false, forms: [{ form: リミさん, register: 丁寧体 }], confirmed: true }
-    湊友希那: { progression: false, forms: [{ form: 牛込さん, register: 丁寧体 }], confirmed: true }
-    氷川紗夜: { progression: false, forms: [{ form: 牛込さん, register: 丁寧体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    宇田川あこ: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    白金燐子: { progression: false, forms: [{ form: 牛込さん, register: 丁寧体 }], confirmed: true }
-    弦巻こころ: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    瀬田薫: { progression: false, forms: [{ form: りみちゃん, register: 常体 }], confirmed: true }
-    北沢はぐみ: { progression: false, forms: [{ form: りみりん, register: 常体 }], confirmed: true }
-    松原花音: { progression: false, forms: [{ form: りみちゃん, register: 常体 }], confirmed: true }
-    奥沢美咲: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: りみさん, register: 丁寧体 }], confirmed: true }
-    桐谷透子: { progression: false, forms: [{ form: りみさん, register: 丁寧体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: りみりん先輩, register: 常体 }], confirmed: true }
-    和奏レイヤ: { progression: false, forms: [{ form: りみちゃん, register: 常体 }], confirmed: true }
-    朝日六花: { progression: false, forms: [{ form: りみ先輩, register: 常体 }], confirmed: true }
-    佐藤益木: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    チュチュ: { progression: false, forms: [{ form: リミ, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: りみりん
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: りみりん
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: りみりん
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: りみちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: りみちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: りみちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: りみちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 牛込さん
+          register: 丁寧体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: リミさん
+          register: 丁寧体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: 牛込さん
+          register: 丁寧体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 牛込さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 牛込さん
+          register: 丁寧体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: りみちゃん
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: りみりん
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: りみちゃん
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: りみさん
+          register: 丁寧体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: りみさん
+          register: 丁寧体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: りみりん先輩
+          register: 常体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: りみちゃん
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: りみ先輩
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    チュチュ:
+      progression: false
+      forms:
+        - form: リミ
+          register: 常体
+      confirmed: true
   note: |
     関西人。緊張すると方言が出る。
     基本は相手を「名 + ちゃん」で呼ぶ。先輩には「〜先輩」。
-
-# ═════════════════════════════════════════════════════════════
-# 山吹沙綾（やまぶき さあや / ポッピンパーティ）
-# ═════════════════════════════════════════════════════════════
 山吹沙綾:
   self:
     first_person: 私
   addresses:
-    戸山香澄: { progression: false, forms: [{ form: 香澄, register: 常体 }], confirmed: true }
-    花園たえ: { progression: false, forms: [{ form: おたえ, register: 常体 }], confirmed: true }
-    牛込りみ: { progression: false, forms: [{ form: りみりん, register: 常体 }], confirmed: true }
-    市ヶ谷有咲: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: "蘭", register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 香澄
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: おたえ
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: りみりん
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 蘭
+          register: 常体
+      confirmed: true
     青葉モカ:
       progression: true
       forms:
@@ -425,7 +1446,12 @@ updated: 2026-09-02
           stage: 中期
       confirmed: true
       note: 出典の「モカちゃん→モカ」
-    上原ひまり: { progression: false, forms: [{ form: ひまり, register: 常体 }], confirmed: true }
+    上原ひまり:
+      progression: false
+      forms:
+        - form: ひまり
+          register: 常体
+      confirmed: true
     宇田川巴:
       progression: false
       forms:
@@ -444,10 +1470,30 @@ updated: 2026-09-02
           stage: 中期
       confirmed: true
       note: 出典の「つぐみちゃん→つぐ」
-    丸山彩: { progression: false, forms: [{ form: 彩先輩, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: 日菜さん, register: 常体 }], confirmed: true }
-    白鷺千聖: { progression: false, forms: [{ form: 千聖先輩, register: 常体 }], confirmed: true }
-    大和麻弥: { progression: false, forms: [{ form: 麻弥さん, register: 常体 }], confirmed: true }
+    丸山彩:
+      progression: false
+      forms:
+        - form: 彩先輩
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 日菜さん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 千聖先輩
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 麻弥さん
+          register: 常体
+      confirmed: true
     若宮イヴ:
       progression: true
       forms:
@@ -459,9 +1505,24 @@ updated: 2026-09-02
           stage: 中期
       confirmed: true
       note: 出典の「イヴちゃん→イヴ」
-    湊友希那: { progression: false, forms: [{ form: 友希那先輩, register: 常体 }], confirmed: true }
-    氷川紗夜: { progression: false, forms: [{ form: 紗夜先輩, register: 常体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: リサさん, register: 常体 }], confirmed: true }
+    湊友希那:
+      progression: false
+      forms:
+        - form: 友希那先輩
+          register: 常体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 紗夜先輩
+          register: 常体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: リサさん
+          register: 常体
+      confirmed: true
     宇田川あこ:
       progression: true
       forms:
@@ -473,32 +1534,157 @@ updated: 2026-09-02
           stage: 中期
       confirmed: true
       note: 出典の「あこちゃん→あこ」
-    白金燐子: { progression: false, forms: [{ form: 燐子先輩, register: 常体 }], confirmed: true }
-    弦巻こころ: { progression: false, forms: [{ form: こころ, register: 常体 }], confirmed: true }
-    瀬田薫: { progression: false, forms: [{ form: 薫さん, register: 常体 }], confirmed: true }
-    北沢はぐみ: { progression: false, forms: [{ form: はぐみ, register: 常体 }], confirmed: true }
-    松原花音: { progression: false, forms: [{ form: 花音先輩, register: 常体 }], confirmed: true }
-    奥沢美咲: { progression: false, forms: [{ form: 美咲, register: 常体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: ましろ, register: 常体 }], confirmed: true }
-    桐谷透子: { progression: false, forms: [{ form: 透子, register: 常体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: 七深ちゃん, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: つくし, register: 常体 }], confirmed: true }
-    和奏レイヤ: { progression: false, forms: [{ form: レイヤ, register: 常体 }], confirmed: true }
-    朝日六花: { progression: false, forms: [{ form: ロック, register: 常体 }], confirmed: true }
-    佐藤益木: { progression: false, forms: [{ form: マッスー, register: 常体 }], confirmed: true }
-    鳰原令王那: { progression: false, forms: [{ form: パレオ, register: 常体 }], confirmed: true }
-    チュチュ: { progression: false, forms: [{ form: チュチュ, register: 常体 }], confirmed: true }
-    千早愛音: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    要楽奈: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
-    長崎そよ: { progression: false, forms: [{ form: そよちゃん, register: 常体 }], confirmed: true }
-    椎名立希: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
+    白金燐子:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: こころ
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 薫さん
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: はぐみ
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 花音先輩
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 美咲
+          register: 常体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: ましろ
+          register: 常体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: 透子
+          register: 常体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 七深ちゃん
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: つくし
+          register: 常体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: レイヤ
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: マッスー
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+    チュチュ:
+      progression: false
+      forms:
+        - form: チュチュ
+          register: 常体
+      confirmed: true
+    千早愛音:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    要楽奈:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: そよちゃん
+          register: 常体
+      confirmed: true
+    椎名立希:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
   addressed_by:
-    戸山香澄: { progression: false, forms: [{ form: さーや, register: 常体 }], confirmed: true }
-    花園たえ: { progression: false, forms: [{ form: 沙綾, register: 常体 }], confirmed: true }
-    牛込りみ: { progression: false, forms: [{ form: 沙綾ちゃん, register: 常体 }], confirmed: true }
-    市ヶ谷有咲: { progression: false, forms: [{ form: 沙綾, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: 沙綾, register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: さーや, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: さーや
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: 沙綾
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: 沙綾ちゃん
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: 沙綾
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 沙綾
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: さーや
+          register: 常体
+      confirmed: true
     上原ひまり:
       progression: true
       forms:
@@ -510,16 +1696,66 @@ updated: 2026-09-02
           stage: 中期
       confirmed: true
       note: 出典の「沙綾ちゃん→沙綾」
-    宇田川巴: { progression: false, forms: [{ form: 沙綾, register: 常体 }], confirmed: true }
-    羽沢つぐみ: { progression: false, forms: [{ form: 沙綾ちゃん, register: 常体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: 沙綾ちゃん, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: さーやちゃん, register: 常体 }], confirmed: true }
-    白鷺千聖: { progression: false, forms: [{ form: 沙綾ちゃん, register: 常体 }], confirmed: true }
-    大和麻弥: { progression: false, forms: [{ form: 山吹さん, register: 丁寧体 }], confirmed: true }
-    若宮イヴ: { progression: false, forms: [{ form: サーヤさん, register: 丁寧体 }], confirmed: true }
-    湊友希那: { progression: false, forms: [{ form: 山吹さん, register: 丁寧体 }], confirmed: true }
-    氷川紗夜: { progression: false, forms: [{ form: 山吹さん, register: 丁寧体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: 沙綾, register: 常体 }], confirmed: true }
+    宇田川巴:
+      progression: false
+      forms:
+        - form: 沙綾
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 沙綾ちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 沙綾ちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: さーやちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 沙綾ちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 山吹さん
+          register: 丁寧体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: サーヤさん
+          register: 丁寧体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: 山吹さん
+          register: 丁寧体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 山吹さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: 沙綾
+          register: 常体
+      confirmed: true
     宇田川あこ:
       progression: false
       forms:
@@ -527,31 +1763,117 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: 平仮名表記
-    白金燐子: { progression: false, forms: [{ form: 山吹さん, register: 丁寧体 }], confirmed: true }
-    弦巻こころ: { progression: false, forms: [{ form: 沙綾, register: 常体 }], confirmed: true }
-    瀬田薫: { progression: false, forms: [{ form: 沙綾ちゃん, register: 常体 }], confirmed: true }
-    北沢はぐみ: { progression: false, forms: [{ form: さーや, register: 常体 }], confirmed: true }
-    松原花音: { progression: false, forms: [{ form: 沙綾ちゃん, register: 常体 }], confirmed: true }
-    奥沢美咲: { progression: false, forms: [{ form: 山吹さん, register: 丁寧体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: 沙綾さん, register: 丁寧体 }], confirmed: true }
-    桐谷透子: { progression: false, forms: [{ form: 沙綾さん, register: 丁寧体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: さーや先輩, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: 沙綾先輩, register: 常体 }], confirmed: true }
-    朝日六花: { progression: false, forms: [{ form: 沙綾先輩, register: 常体 }], confirmed: true }
-    佐藤益木: { progression: false, forms: [{ form: 沙綾, register: 常体 }], confirmed: true }
-    チュチュ: { progression: false, forms: [{ form: サーヤ, register: 常体 }], confirmed: true }
-    高松燈: { progression: false, forms: [{ form: 沙綾さん, register: 丁寧体 }], confirmed: true }
-    千早愛音: { progression: false, forms: [{ form: 沙綾先輩, register: 常体 }], confirmed: true }
-    要楽奈: { progression: false, forms: [{ form: さーや, register: 常体 }], confirmed: true }
-    長崎そよ: { progression: false, forms: [{ form: 沙綾さん, register: 丁寧体 }], confirmed: true }
-    椎名立希: { progression: false, forms: [{ form: 山吹先輩, register: 常体 }], confirmed: true }
+    白金燐子:
+      progression: false
+      forms:
+        - form: 山吹さん
+          register: 丁寧体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: 沙綾
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 沙綾ちゃん
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: さーや
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 沙綾ちゃん
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 山吹さん
+          register: 丁寧体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: 沙綾さん
+          register: 丁寧体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: 沙綾さん
+          register: 丁寧体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: さーや先輩
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: 沙綾先輩
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: 沙綾先輩
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: 沙綾
+          register: 常体
+      confirmed: true
+    チュチュ:
+      progression: false
+      forms:
+        - form: サーヤ
+          register: 常体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: 沙綾さん
+          register: 丁寧体
+      confirmed: true
+    千早愛音:
+      progression: false
+      forms:
+        - form: 沙綾先輩
+          register: 常体
+      confirmed: true
+    要楽奈:
+      progression: false
+      forms:
+        - form: さーや
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: 沙綾さん
+          register: 丁寧体
+      confirmed: true
+    椎名立希:
+      progression: false
+      forms:
+        - form: 山吹先輩
+          register: 常体
+      confirmed: true
   note: |
     面倒見が良い。年下・後輩には「ちゃん」、同格は呼び捨て。
     複数の呼称が「〜ちゃん → 呼び捨て」へ推移している（progression: true）。
-
-# ═════════════════════════════════════════════════════════════
-# 市ヶ谷有咲（いちがや ありさ / ポッピンパーティ）
-# ═════════════════════════════════════════════════════════════
 市ヶ谷有咲:
   self:
     first_person: 私
@@ -563,12 +1885,42 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: ★ 呼び捨て。彼女にだけ強い
-    花園たえ: { progression: false, forms: [{ form: おたえ, register: 常体 }], confirmed: true }
-    牛込りみ: { progression: false, forms: [{ form: りみ, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: 沙綾, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: 蘭ちゃん, register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: モカちゃん, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: ひまりちゃん, register: 常体 }], confirmed: true }
+    花園たえ:
+      progression: false
+      forms:
+        - form: おたえ
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: りみ
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 沙綾
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 蘭ちゃん
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: モカちゃん
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: ひまりちゃん
+          register: 常体
+      confirmed: true
     宇田川巴:
       progression: false
       forms:
@@ -576,49 +1928,259 @@ updated: 2026-09-02
           register: 丁寧体
       confirmed: true
       note: 「ちゃん」ではなく「さん」
-    羽沢つぐみ: { progression: false, forms: [{ form: 羽沢さん, register: 丁寧体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: 彩先輩, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: 日菜さん, register: 常体 }], confirmed: true }
-    白鷺千聖: { progression: false, forms: [{ form: 白鷺先輩, register: 常体 }], confirmed: true }
-    大和麻弥: { progression: false, forms: [{ form: 麻弥さん, register: 常体 }], confirmed: true }
-    若宮イヴ: { progression: false, forms: [{ form: イヴ, register: 常体 }], confirmed: true }
-    湊友希那: { progression: false, forms: [{ form: 友希那先輩, register: 常体 }], confirmed: true }
-    氷川紗夜: { progression: false, forms: [{ form: 紗夜先輩, register: 常体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: リサさん, register: 常体 }], confirmed: true }
-    宇田川あこ: { progression: false, forms: [{ form: あこちゃん, register: 常体 }], confirmed: true }
-    白金燐子: { progression: false, forms: [{ form: 燐子先輩, register: 常体 }], confirmed: true }
-    弦巻こころ: { progression: false, forms: [{ form: 弦巻さん, register: 丁寧体 }], confirmed: true }
-    瀬田薫: { progression: false, forms: [{ form: 薫さん, register: 常体 }], confirmed: true }
-    北沢はぐみ: { progression: false, forms: [{ form: 北沢さん, register: 丁寧体 }], confirmed: true }
-    松原花音: { progression: false, forms: [{ form: 花音先輩, register: 常体 }], confirmed: true }
-    奥沢美咲: { progression: false, forms: [{ form: 奥沢さん, register: 丁寧体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: ましろちゃん, register: 常体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: 七深ちゃん, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: つくしちゃん, register: 常体 }], confirmed: true }
-    八潮瑠唯: { progression: false, forms: [{ form: 瑠唯ちゃん, register: 常体 }], confirmed: true }
-    和奏レイヤ: { progression: false, forms: [{ form: レイヤ, register: 常体 }], confirmed: true }
-    朝日六花: { progression: false, forms: [{ form: ロック, register: 常体 }], confirmed: true }
-    佐藤益木: { progression: false, forms: [{ form: マスキング, register: 常体 }], confirmed: true }
-    鳰原令王那: { progression: false, forms: [{ form: パレオ, register: 常体 }], confirmed: true }
-    高松燈: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 羽沢さん
+          register: 丁寧体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 彩先輩
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 日菜さん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 白鷺先輩
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 麻弥さん
+          register: 常体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: イヴ
+          register: 常体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: 友希那先輩
+          register: 常体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 紗夜先輩
+          register: 常体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: リサさん
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: あこちゃん
+          register: 常体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: 弦巻さん
+          register: 丁寧体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 薫さん
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: 北沢さん
+          register: 丁寧体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 花音先輩
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 奥沢さん
+          register: 丁寧体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: ましろちゃん
+          register: 常体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 七深ちゃん
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: つくしちゃん
+          register: 常体
+      confirmed: true
+    八潮瑠唯:
+      progression: false
+      forms:
+        - form: 瑠唯ちゃん
+          register: 常体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: レイヤ
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: マスキング
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
   addressed_by:
-    戸山香澄: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    花園たえ: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    牛込りみ: { progression: false, forms: [{ form: 有咲ちゃん, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    宇田川巴: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    羽沢つぐみ: { progression: false, forms: [{ form: 有咲ちゃん, register: 常体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: 有咲ちゃん, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: 有咲ちゃん, register: 常体 }], confirmed: true }
-    白鷺千聖: { progression: false, forms: [{ form: 有咲ちゃん, register: 常体 }], confirmed: true }
-    大和麻弥: { progression: false, forms: [{ form: 市ヶ谷さん, register: 丁寧体 }], confirmed: true }
-    若宮イヴ: { progression: false, forms: [{ form: アリサさん, register: 丁寧体 }], confirmed: true }
-    湊友希那: { progression: false, forms: [{ form: 市ヶ谷さん, register: 丁寧体 }], confirmed: true }
-    氷川紗夜: { progression: false, forms: [{ form: 市ヶ谷さん, register: 丁寧体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: 有咲ちゃん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 有咲ちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 有咲ちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 有咲ちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 有咲ちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 市ヶ谷さん
+          register: 丁寧体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: アリサさん
+          register: 丁寧体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: 市ヶ谷さん
+          register: 丁寧体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 市ヶ谷さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
     宇田川あこ:
       progression: false
       forms:
@@ -626,37 +2188,133 @@ updated: 2026-09-02
           register: 常体
       confirmed: true
       note: 平仮名表記
-    白金燐子: { progression: false, forms: [{ form: 市ヶ谷さん, register: 丁寧体 }], confirmed: true }
-    弦巻こころ: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    瀬田薫: { progression: false, forms: [{ form: 有咲ちゃん, register: 常体 }], confirmed: true }
-    北沢はぐみ: { progression: false, forms: [{ form: あーちゃん, register: 常体 }], confirmed: true }
-    松原花音: { progression: false, forms: [{ form: 有咲ちゃん, register: 常体 }], confirmed: true }
-    奥沢美咲: { progression: false, forms: [{ form: 市ヶ谷さん, register: 丁寧体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: 有咲さん, register: 丁寧体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: 有咲先輩, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: 有咲先輩, register: 常体 }], confirmed: true }
-    和奏レイヤ: { progression: false, forms: [{ form: 有咲ちゃん, register: 常体 }], confirmed: true }
-    朝日六花: { progression: false, forms: [{ form: 有咲先輩, register: 常体 }], confirmed: true }
-    佐藤益木: { progression: false, forms: [{ form: 有咲, register: 常体 }], confirmed: true }
-    鳰原令王那: { progression: false, forms: [{ form: 有咲さん, register: 丁寧体 }], confirmed: true }
-    チュチュ: { progression: false, forms: [{ form: アリサ, register: 常体 }], confirmed: true }
+    白金燐子:
+      progression: false
+      forms:
+        - form: 市ヶ谷さん
+          register: 丁寧体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 有咲ちゃん
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: あーちゃん
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 有咲ちゃん
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 市ヶ谷さん
+          register: 丁寧体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: 有咲さん
+          register: 丁寧体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 有咲先輩
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: 有咲先輩
+          register: 常体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: 有咲ちゃん
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: 有咲先輩
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: 有咲
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: 有咲さん
+          register: 丁寧体
+      confirmed: true
+    チュチュ:
+      progression: false
+      forms:
+        - form: アリサ
+          register: 常体
+      confirmed: true
   note: |
     ★ 香澄にだけ呼び捨てで強く出る（毒舌の主対象）。
     他は名字 + さん が多い（巴さん・弦巻さん・北沢さん・奥沢さん）。
-
-# ═════════════════════════════════════════════════════════════
-# 高松燈（たかまつ ともり / マイゴ）
-# ═════════════════════════════════════════════════════════════
 高松燈:
   self:
     first_person: 私
   addresses:
-    戸山香澄: { progression: false, forms: [{ form: 香澄さん, register: 丁寧体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: 沙綾さん, register: 丁寧体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: 美竹さん, register: 丁寧体 }], confirmed: true }
-    羽沢つぐみ: { progression: false, forms: [{ form: 羽沢さん, register: 丁寧体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: 氷川さん, register: 丁寧体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: 今井さん, register: 丁寧体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 香澄さん
+          register: 丁寧体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 沙綾さん
+          register: 丁寧体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 美竹さん
+          register: 丁寧体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 羽沢さん
+          register: 丁寧体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 氷川さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: 今井さん
+          register: 丁寧体
+      confirmed: true
     千早愛音:
       progression: true
       forms:
@@ -674,29 +2332,139 @@ updated: 2026-09-02
           note: 親密になった後
       confirmed: true
       note: ★ 三形態は時間軸。同一場面で混用しない
-    要楽奈: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
-    長崎そよ: { progression: false, forms: [{ form: そよちゃん, register: 常体 }], confirmed: true }
-    椎名立希: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    三角初華: { progression: false, forms: [{ form: 初華ちゃん, register: 常体 }], confirmed: true }
-    豊川祥子: { progression: false, forms: [{ form: 祥ちゃん, register: 常体 }], confirmed: true }
+    要楽奈:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: そよちゃん
+          register: 常体
+      confirmed: true
+    椎名立希:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    三角初華:
+      progression: false
+      forms:
+        - form: 初華ちゃん
+          register: 常体
+      confirmed: true
+    豊川祥子:
+      progression: false
+      forms:
+        - form: 祥ちゃん
+          register: 常体
+      confirmed: true
   addressed_by:
-    戸山香澄: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    市ヶ谷有咲: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: "燈", register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    宇田川巴: { progression: false, forms: [{ form: "燈", register: 常体 }], confirmed: true }
-    羽沢つぐみ: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    大和麻弥: { progression: false, forms: [{ form: 高松さん, register: 丁寧体 }], confirmed: true }
-    氷川紗夜: { progression: false, forms: [{ form: 高松さん, register: 丁寧体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: "燈", register: 常体 }], confirmed: true }
-    弦巻こころ: { progression: false, forms: [{ form: "燈", register: 常体 }], confirmed: true }
-    瀬田薫: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    奥沢美咲: { progression: false, forms: [{ form: 高松さん, register: 丁寧体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    朝日六花: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 燈
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: 燈
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 高松さん
+          register: 丁寧体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 高松さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: 燈
+          register: 常体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: 燈
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 高松さん
+          register: 丁寧体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
     千早愛音:
       progression: true
       forms:
@@ -711,29 +2479,87 @@ updated: 2026-09-02
           stage: 后期
       confirmed: true
       note: ★ 時間軸。灯側と連動する
-    要楽奈: { progression: false, forms: [{ form: ともり, register: 常体 }], confirmed: true }
-    長崎そよ: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    椎名立希: { progression: false, forms: [{ form: "燈", register: 常体 }], confirmed: true }
-    三角初華: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
+    要楽奈:
+      progression: false
+      forms:
+        - form: ともり
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    椎名立希:
+      progression: false
+      forms:
+        - form: 燈
+          register: 常体
+      confirmed: true
+    三角初華:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
   note: |
     先輩＝「姓 + さん」＋丁寧体／バンドメンバー＝「名 + ちゃん」＋常体。
     この分布は非常に整っており、整合性検査の強い信号になる。
-
-# ═════════════════════════════════════════════════════════════
-# 千早愛音（ちはや あのん / マイゴ）
-# ═════════════════════════════════════════════════════════════
 千早愛音:
   self:
     first_person: 私
   addresses:
-    戸山香澄: { progression: false, forms: [{ form: 香澄先輩, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: 沙綾先輩, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: 美竹さん, register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: モカ先輩, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: ひまり先輩, register: 常体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: 彩さん, register: 常体 }, { form: 彩ちゃん, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: 日菜ちゃん, register: 常体 }], confirmed: true }
-    白鷺千聖: { progression: false, forms: [{ form: 千聖さん, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 香澄先輩
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 沙綾先輩
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 美竹さん
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: モカ先輩
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: ひまり先輩
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 彩さん
+          register: 常体
+        - form: 彩ちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 日菜ちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 千聖さん
+          register: 常体
+      confirmed: true
     若宮イヴ:
       progression: true
       forms:
@@ -744,11 +2570,36 @@ updated: 2026-09-02
           register: 常体
           stage: 中期
       confirmed: true
-    白金燐子: { progression: false, forms: [{ form: 燐子さん, register: 常体 }], confirmed: true }
-    松原花音: { progression: false, forms: [{ form: 花音さん, register: 常体 }], confirmed: true }
-    桐谷透子: { progression: false, forms: [{ form: 透子先輩, register: 常体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: 広町さん, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: つくし先輩, register: 常体 }], confirmed: true }
+    白金燐子:
+      progression: false
+      forms:
+        - form: 燐子さん
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 花音さん
+          register: 常体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: 透子先輩
+          register: 常体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 広町さん
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: つくし先輩
+          register: 常体
+      confirmed: true
     高松燈:
       progression: true
       forms:
@@ -762,7 +2613,12 @@ updated: 2026-09-02
           register: 常体
           stage: 后期
       confirmed: true
-    要楽奈: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
+    要楽奈:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
     長崎そよ:
       progression: true
       forms:
@@ -805,22 +2661,97 @@ updated: 2026-09-02
           register: 常体
           stage: 中期
       confirmed: true
-    祐天寺若麦: { progression: false, forms: [{ form: にゃむち, register: 常体 }], confirmed: true }
-    豊川祥子: { progression: false, forms: [{ form: 祥子ちゃん, register: 常体 }], confirmed: true }
+    祐天寺若麦:
+      progression: false
+      forms:
+        - form: にゃむち
+          register: 常体
+      confirmed: true
+    豊川祥子:
+      progression: false
+      forms:
+        - form: 祥子ちゃん
+          register: 常体
+      confirmed: true
   addressed_by:
-    戸山香澄: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    氷川日菜: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    白鷺千聖: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    若宮イヴ: { progression: false, forms: [{ form: アノンさん, register: 丁寧体 }], confirmed: true }
-    宇田川あこ: { progression: false, forms: [{ form: あのん, register: 常体 }], confirmed: true }
-    北沢はぐみ: { progression: false, forms: [{ form: あのちん, register: 常体 }], confirmed: true }
-    松原花音: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: アノンさん
+          register: 丁寧体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: あのん
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: あのちん
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
     高松燈:
       progression: true
       forms:
@@ -834,57 +2765,201 @@ updated: 2026-09-02
           register: 常体
           stage: 后期
       confirmed: true
-    要楽奈: { progression: false, forms: [{ form: あのん, register: 常体 }], confirmed: true }
-    長崎そよ: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    椎名立希: { progression: false, forms: [{ form: 愛音, register: 常体 }], confirmed: true }
-    三角初華: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    豊川祥子: { progression: false, forms: [{ form: 愛音さん, register: 丁寧体 }], confirmed: true }
+    要楽奈:
+      progression: false
+      forms:
+        - form: あのん
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    椎名立希:
+      progression: false
+      forms:
+        - form: 愛音
+          register: 常体
+      confirmed: true
+    三角初華:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    豊川祥子:
+      progression: false
+      forms:
+        - form: 愛音さん
+          register: 丁寧体
+      confirmed: true
   note: |
     ★ 最大の特徴：立希にだけ接尾辞を付けない。
     「そよりん」「りっきー」は彼女が押し付けたニックネームで、
     本人たちは起名センスを吐槽する側。双方向の愛称ではない。
-
-# ═════════════════════════════════════════════════════════════
-# 要楽奈（かなめ らーな / マイゴ）
-# ═════════════════════════════════════════════════════════════
 要楽奈:
   self:
     first_person: わたし
   addresses:
-    戸山香澄: { progression: false, forms: [{ form: かすみ, register: 常体 }], confirmed: true }
-    花園たえ: { progression: false, forms: [{ form: たえ, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: さーや, register: 常体 }], confirmed: true }
-    湊友希那: { progression: false, forms: [{ form: ゆきな, register: 常体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: りさ, register: 常体 }], confirmed: true }
-    高松燈: { progression: false, forms: [{ form: ともり, register: 常体 }], confirmed: true }
-    千早愛音: { progression: false, forms: [{ form: あのん, register: 常体 }], confirmed: true }
-    長崎そよ: { progression: false, forms: [{ form: そよ, register: 常体 }], confirmed: true }
-    椎名立希: { progression: false, forms: [{ form: りっきー, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: かすみ
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: たえ
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: さーや
+          register: 常体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: ゆきな
+          register: 常体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: りさ
+          register: 常体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: ともり
+          register: 常体
+      confirmed: true
+    千早愛音:
+      progression: false
+      forms:
+        - form: あのん
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: そよ
+          register: 常体
+      confirmed: true
+    椎名立希:
+      progression: false
+      forms:
+        - form: りっきー
+          register: 常体
+      confirmed: true
   addressed_by:
-    戸山香澄: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
-    花園たえ: { progression: false, forms: [{ form: 楽奈, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
-    羽沢つぐみ: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
-    大和麻弥: { progression: false, forms: [{ form: 要さん, register: 丁寧体 }], confirmed: true }
-    湊友希那: { progression: false, forms: [{ form: 要さん, register: 丁寧体 }], confirmed: true }
-    今井リサ: { progression: false, forms: [{ form: 楽奈, register: 常体 }], confirmed: true }
-    北沢はぐみ: { progression: false, forms: [{ form: らーちゃん, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
-    和奏レイヤ: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
-    佐藤益木: { progression: false, forms: [{ form: 楽奈, register: 常体 }], confirmed: true }
-    鳰原令王那: { progression: false, forms: [{ form: 楽奈さん, register: 丁寧体 }], confirmed: true }
-    高松燈: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
-    千早愛音: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
-    長崎そよ: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
-    椎名立希: { progression: false, forms: [{ form: 野良猫, register: 常体 }, { form: 楽奈, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: 楽奈
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 要さん
+          register: 丁寧体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: 要さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: 楽奈
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: らーちゃん
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: 楽奈
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: 楽奈さん
+          register: 丁寧体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    千早愛音:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    椎名立希:
+      progression: false
+      forms:
+        - form: 野良猫
+          register: 常体
+        - form: 楽奈
+          register: 常体
+      confirmed: true
   note: |
     ★ 人名をほぼ平仮名・呼び捨てで書く（漢字表記にしない）。
     TTS 的に有利——難読漢字の誤読が起きない。
     先輩にも敬語を使わない（上下を区別しないため）。
-
-# ═════════════════════════════════════════════════════════════
-# 椎名立希（しいな たき / マイゴ）
-# ═════════════════════════════════════════════════════════════
 椎名立希:
   self:
     first_person: 私
@@ -892,27 +2967,109 @@ updated: 2026-09-02
     高松燈:
       progression: false
       forms:
-        - form: "燈"
+        - form: 燈
           register: 常体
       confirmed: true
       note: ★ 灯にだけ本名。粗い人称を使わない
-    千早愛音: { progression: false, forms: [{ form: 愛音, register: 常体 }], confirmed: true }
-    要楽奈: { progression: false, forms: [{ form: 野良猫, register: 常体 }, { form: 楽奈, register: 常体 }], confirmed: true }
-    長崎そよ: { progression: false, forms: [{ form: そよ, register: 常体 }], confirmed: true }
-    三角初華: { progression: false, forms: [{ form: 三角さん, register: 丁寧体 }], confirmed: true }
-    八幡海鈴: { progression: false, forms: [{ form: 海鈴, register: 常体 }], confirmed: true }
-    豊川祥子: { progression: false, forms: [{ form: 祥子, register: 常体 }], confirmed: true }
+    千早愛音:
+      progression: false
+      forms:
+        - form: 愛音
+          register: 常体
+      confirmed: true
+    要楽奈:
+      progression: false
+      forms:
+        - form: 野良猫
+          register: 常体
+        - form: 楽奈
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: そよ
+          register: 常体
+      confirmed: true
+    三角初華:
+      progression: false
+      forms:
+        - form: 三角さん
+          register: 丁寧体
+      confirmed: true
+    八幡海鈴:
+      progression: false
+      forms:
+        - form: 海鈴
+          register: 常体
+      confirmed: true
+    豊川祥子:
+      progression: false
+      forms:
+        - form: 祥子
+          register: 常体
+      confirmed: true
   addressed_by:
-    戸山香澄: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    美竹蘭: { progression: false, forms: [{ form: 立希, register: 常体 }], confirmed: true }
-    青葉モカ: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    宇田川巴: { progression: false, forms: [{ form: 立希, register: 常体 }], confirmed: true }
-    羽沢つぐみ: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    二葉つくし: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    高松燈: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 立希
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: 立希
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
     千早愛音:
       progression: true
       forms:
@@ -924,10 +3081,30 @@ updated: 2026-09-02
           stage: 中期
           note: 愛音が押し付けた
       confirmed: true
-    要楽奈: { progression: false, forms: [{ form: りっきー, register: 常体 }], confirmed: true }
-    長崎そよ: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    三角初華: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    八幡海鈴: { progression: false, forms: [{ form: 立希さん, register: 丁寧体 }], confirmed: true }
+    要楽奈:
+      progression: false
+      forms:
+        - form: りっきー
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    三角初華:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    八幡海鈴:
+      progression: false
+      forms:
+        - form: 立希さん
+          register: 丁寧体
+      confirmed: true
     豊川祥子:
       progression: true
       forms:
@@ -942,34 +3119,125 @@ updated: 2026-09-02
     ★ 灯にだけ本名で呼び、粗い人称（お前・あいつ）を使わない。
     他は呼び捨て、時に「お前」「あいつ」。
     「りっきー」は愛音が押し付けたもので、本人は嫌がっている。
-
-# ═════════════════════════════════════════════════════════════
-# 長崎そよ（ながさき そよ / マイゴ）
-# ═════════════════════════════════════════════════════════════
 長崎そよ:
   self:
     first_person: 私
   addresses:
-    高松燈: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
-    千早愛音: { progression: false, forms: [{ form: 愛音ちゃん, register: 常体 }], confirmed: true }
-    要楽奈: { progression: false, forms: [{ form: 楽奈ちゃん, register: 常体 }], confirmed: true }
-    椎名立希: { progression: false, forms: [{ form: 立希ちゃん, register: 常体 }], confirmed: true }
-    祐天寺若麦: { progression: false, forms: [{ form: にゃむち, register: 常体 }], confirmed: true }
-    豊川祥子: { progression: false, forms: [{ form: 祥ちゃん, register: 常体 }], confirmed: true }
+    高松燈:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    千早愛音:
+      progression: false
+      forms:
+        - form: 愛音ちゃん
+          register: 常体
+      confirmed: true
+    要楽奈:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    椎名立希:
+      progression: false
+      forms:
+        - form: 立希ちゃん
+          register: 常体
+      confirmed: true
+    祐天寺若麦:
+      progression: false
+      forms:
+        - form: にゃむち
+          register: 常体
+      confirmed: true
+    豊川祥子:
+      progression: false
+      forms:
+        - form: 祥ちゃん
+          register: 常体
+      confirmed: true
   addressed_by:
-    戸山香澄: { progression: false, forms: [{ form: そよちゃん, register: 常体 }], confirmed: true }
-    花園たえ: { progression: false, forms: [{ form: そよ, register: 常体 }], confirmed: true }
-    山吹沙綾: { progression: false, forms: [{ form: そよちゃん, register: 常体 }], confirmed: true }
-    上原ひまり: { progression: false, forms: [{ form: そよちゃん, register: 常体 }], confirmed: true }
-    丸山彩: { progression: false, forms: [{ form: そよちゃん, register: 常体 }], confirmed: true }
-    宇田川あこ: { progression: false, forms: [{ form: そよ, register: 常体 }], confirmed: true }
-    倉田ましろ: { progression: false, forms: [{ form: そよちゃん, register: 常体 }], confirmed: true }
-    桐谷透子: { progression: false, forms: [{ form: そよ, register: 常体 }], confirmed: true }
-    広町七深: { progression: false, forms: [{ form: そよちゃん, register: 常体 }], confirmed: true }
-    八潮瑠唯: { progression: false, forms: [{ form: 長崎さん, register: 丁寧体 }], confirmed: true }
-    朝日六花: { progression: false, forms: [{ form: そよちゃん, register: 常体 }], confirmed: true }
-    鳰原令王那: { progression: false, forms: [{ form: そよさん, register: 丁寧体 }], confirmed: true }
-    高松燈: { progression: false, forms: [{ form: そよちゃん, register: 常体 }], confirmed: true }
+    戸山香澄:
+      progression: false
+      forms:
+        - form: そよちゃん
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: そよ
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: そよちゃん
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: そよちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: そよちゃん
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: そよ
+          register: 常体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: そよちゃん
+          register: 常体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: そよ
+          register: 常体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: そよちゃん
+          register: 常体
+      confirmed: true
+    八潮瑠唯:
+      progression: false
+      forms:
+        - form: 長崎さん
+          register: 丁寧体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: そよちゃん
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: そよさん
+          register: 丁寧体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: そよちゃん
+          register: 常体
+      confirmed: true
     千早愛音:
       progression: true
       forms:
@@ -981,8 +3249,18 @@ updated: 2026-09-02
           stage: 后期
           note: 愛音が押し付けた
       confirmed: true
-    要楽奈: { progression: false, forms: [{ form: そよ, register: 常体 }], confirmed: true }
-    椎名立希: { progression: false, forms: [{ form: そよ, register: 常体 }], confirmed: true }
+    要楽奈:
+      progression: false
+      forms:
+        - form: そよ
+          register: 常体
+      confirmed: true
+    椎名立希:
+      progression: false
+      forms:
+        - form: そよ
+          register: 常体
+      confirmed: true
     豊川祥子:
       progression: true
       forms:
@@ -996,15 +3274,701 @@ updated: 2026-09-02
   note: |
     ★ 名前は仮名「そよ」が正（漢字「爽世」は後付け）。本文でも仮名を使う。
     外在向き=丁寧体／内向き=常体の二層構造は characters/mygo/soyo.md を参照。
-
-# ═════════════════════════════════════════════════════════════
-# 未調査 —— 推測しない（G8）
-# ═════════════════════════════════════════════════════════════
 unregistered:
-  - item: アフターグロウ／ハロー、ハッピーワールド！／ロゼリア／
-          Pastel*Palettes／モルフォニカ／レイズアスイレン 内の称呼
+  - item: アフターグロウ／ハロー、ハッピーワールド！／ロゼリア／ Pastel*Palettes／モルフォニカ／レイズアスイレン 内の称呼
     action: 各項目の称呼一覧を確認して追加する（PPP・マイゴ以外は未調査）
   - item: Ave Mujica メンバー間の称呼
     action: 未調査。コードネーム表記の扱いも未確定
   - item: 新規バンド 3 組（梦限大MewType / millsage / 一家Dumb Rock!）内の称呼
     action: 未調査
+和奏レイヤ:
+  self:
+    first_person: 私
+  addresses:
+    朝日六花:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: ますき
+          register: 常体
+      confirmed: true
+      note: ★ 本名（平仮名）。コードネームではない
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: チュチュ
+          register: 常体
+      confirmed: true
+    要楽奈:
+      progression: false
+      forms:
+        - form: 楽奈ちゃん
+          register: 常体
+      confirmed: true
+    祐天寺若麦:
+      progression: false
+      forms:
+        - form: にゃむちゃん
+          register: 常体
+      confirmed: true
+  addressed_by:
+    戸山香澄:
+      progression: false
+      forms:
+        - form: レイさん
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: レイ
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: レイヤさん
+          register: 丁寧体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: レイヤ
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: レイヤ
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: レイヤ
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: レイヤ
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: レイヤ
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: レイヤ
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: レイヤちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: レイヤちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: レイヤちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: レイさん
+          register: 丁寧体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: レイヤさん
+          register: 丁寧体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: レイ
+          register: 常体
+      confirmed: true
+      note: ★ 本名。益木もレイヤを本名で呼ぶ
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: レイヤさん
+          register: 丁寧体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: レイヤ
+          register: 常体
+      confirmed: true
+    要楽奈:
+      progression: false
+      forms:
+        - form: れいや
+          register: 常体
+      confirmed: true
+      note: 平仮名表記
+    祐天寺若麦:
+      progression: false
+      forms:
+        - form: レイヤ先輩
+          register: 常体
+      confirmed: true
+  note: RAS 最年長の一人。益木とは本名で呼び合う（`レイ` / `ますき`）。
+朝日六花:
+  self:
+    first_person: 私
+  addresses:
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: レイヤさん
+          register: 丁寧体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: ますきさん
+          register: 丁寧体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: パレオさん
+          register: 丁寧体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: チュチュさん
+          register: 丁寧体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: そよちゃん
+          register: 常体
+      confirmed: true
+  addressed_by:
+    戸山香澄:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: ロックちゃん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 六花
+          register: 常体
+      confirmed: true
+      note: ★ Afterglow は本名で呼ぶ
+    青葉モカ:
+      progression: false
+      forms:
+        - form: 六花
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: 六花
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: 六花
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 六花ちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 六花ちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 六花ちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: ロックさん
+          register: 丁寧体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: ロッカさん
+          register: 丁寧体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: ロックさん
+          register: 丁寧体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: ロックさん
+          register: 丁寧体
+      confirmed: true
+  note: ★ **RAS で唯一、全員に「さん」を付ける**。益木・令王那は呼び捨てだが六花は付けない。
+佐藤益木:
+  self:
+    first_person: 私
+  addresses:
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: レイ
+          register: 常体
+      confirmed: true
+      note: ★ 本名（片仮名）で呼ぶ
+    朝日六花:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: チュチュ
+          register: 常体
+      confirmed: true
+  addressed_by:
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: ますき
+          register: 常体
+      confirmed: true
+      note: ★ 本名。レイヤも益木を本名で呼ぶ
+    朝日六花:
+      progression: false
+      forms:
+        - form: ますきさん
+          register: 丁寧体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: マッスーさん
+          register: 丁寧体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: マスキング
+          register: 常体
+      confirmed: true
+    戸山香澄:
+      progression: false
+      forms:
+        - form: マッスー
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: マッスー
+          register: 常体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: マスキングさん
+          register: 丁寧体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: マスキングさん
+          register: 丁寧体
+      confirmed: true
+  note: ⚠ **この項目の出典には称呼一覧が無い**。他メンバー側の記録から再構成している。
+鳰原令王那:
+  self:
+    first_person: 私
+  addresses:
+    珠手知由:
+      progression: false
+      forms:
+        - form: チュチュ様
+          register: 丁寧体
+          note: 主従
+        - form: ご主人様
+          register: 丁寧体
+          note: 主従
+        - form: ちゆ
+          register: 常体
+          note: 本名
+      confirmed: true
+      note: ★ 知由にだけ敬語。ただし口誤は訂正する（条目明記）——完全服従ではない
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: レイヤさん
+          register: 丁寧体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: ロックさん
+          register: 丁寧体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: マッスーさん
+          register: 丁寧体
+      confirmed: true
+    要楽奈:
+      progression: false
+      forms:
+        - form: 楽奈さん
+          register: 丁寧体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: そよさん
+          register: 丁寧体
+      confirmed: true
+  addressed_by:
+    戸山香澄:
+      progression: false
+      forms:
+        - form: パレオちゃん
+          register: 常体
+        - form: パレちゃん
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: パレオちゃん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: パレちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: パレオちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: true
+      forms:
+        - form: 令王那ちゃん
+          register: 常体
+          stage: 初期
+        - form: パレオちゃん
+          register: 常体
+          stage: 中期
+      confirmed: true
+      note: 出典の「令王那ちゃん→パレオちゃん」
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: パレオちゃん
+          register: 常体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: パレオさん
+          register: 丁寧体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+        - form: 令王那
+          register: 常体
+          note: ★ 本名
+      confirmed: true
+      note: ★ 知由だけ本名でも呼ぶ。令王那は知由を「チュチュ様」——非対称だが原作通り
+    要楽奈:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+      confirmed: true
+  note: 自称は `私` と `パレオ` の両方が出典に記載されている（役割としての自己）。
+珠手知由:
+  self:
+    first_person: ワタシ
+    note: ★ 片仮名。RAS で唯一（他 4 人は `私`）
+  addresses:
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: レイヤ
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: ロック
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: マスキング
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: パレオ
+          register: 常体
+        - form: 令王那
+          register: 常体
+          note: ★ 本名
+      confirmed: true
+  addressed_by:
+    戸山香澄:
+      progression: false
+      forms:
+        - form: チュチュちゃん
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: チュチュ
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: チュチュちゃん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: チュチュ
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: チュチュ
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: チュチュ
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: チュチュちゃん
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: チュチュ
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: チュチュちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: チュチュさん
+          register: 丁寧体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: チュチュちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: チュチュちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: チュチュさん
+          register: 丁寧体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: チュチュ
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: チュチュさん
+          register: 丁寧体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: チュチュ
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: チュチュ様
+          register: 丁寧体
+          note: 主従
+        - form: ご主人様
+          register: 丁寧体
+          note: 主従
+        - form: ちゆ
+          register: 常体
+          note: 本名
+      confirmed: true
+      note: ★ 主従。ただし令王那は口誤を訂正する側でもある
+  note: 成功時の口癖「Sweet! Excellent! Unstoppable!」は**原表記未確認**（chuchu.md 参照）。

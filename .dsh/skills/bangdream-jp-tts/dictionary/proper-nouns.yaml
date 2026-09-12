@@ -400,8 +400,13 @@ characters:
   - canonical: 朝日六花
     kana: あさひ ろっか
     band: レイズアスイレン
+    zh: 朝日六花
+    rules_file: raise-a-suilen/lock.md
+    aliases: [ロック, LOCK]
     confirmed: false
-    note: 称呼一覧に「燈ちゃん」で登場。「六花」は ろっか
+    note: |
+      通称 LOCK。出典の本名欄「朝日（あさひ）六花（ろっか）(Asahi Rokka)」。
+      出典に「译名」欄が無く、日本語漢字がそのまま中文名と一致する
 
   - canonical: 白鷺千聖
     kana: しらさぎ ちさと
@@ -443,33 +448,54 @@ characters:
     note: 「瑠唯」は るい
 
   - canonical: 和奏レイヤ
-    kana: わかな レイヤ
+    kana: わかな レイ
     band: レイズアスイレン
+    zh: 和奏瑞依
+    zh_alt: [和奏蕾]
+    rules_file: raise-a-suilen/layer.md
+    aliases: [レイヤ, LAYER]
     confirmed: false
-    note: 通称 LAYER。姓は わかな
+    note: |
+      通称 LAYER。出典の本名欄は「和奏（わかな）レイ（Wakana Rei）」——
+      本名は「レイ」で、日本語は片仮名。
+      中文別訳「和奏蕾」（出典の「译名」欄）
 
   - canonical: 珠手知由
-    kana: しゅて ちゆ
+    kana: たまで ちゆ
     band: レイズアスイレン
+    zh: 珠手知由
+    rules_file: raise-a-suilen/chuchu.md
     confirmed: false
     aliases: [チュチュ, CHU²]
     note: |
-      通称 CHU²（チュチュ）。出典では中国語訳名「珠手知由」。
-      **「チュチュ」で呼ばれることが圧倒的に多い**が、
-      本表の canonical は本名。称呼データでは「チュチュ」表記が使われている。
-      ⚠ 本名の表記・読みは**未確認**
+      通称 CHU²（チュチュ）。出典の本名欄「珠手（たまで）ちゆ(Tamade Chiyu)」——
+      名前は仮名「ちゆ」。★ 読みは たまで（しゅて ではない）。
+      出典に「译名」欄が無く、日本語漢字がそのまま中文名と一致する
 
   - canonical: 佐藤益木
     kana: さとう ますき
     band: レイズアスイレン
+    zh: 佐藤益木
+    zh_alt: [佐藤增姬]
+    rules_file: raise-a-suilen/masking.md
+    aliases: [マスキング, MASKING]
     confirmed: false
-    note: 通称 マスキング
+    note: |
+      通称 MASKING。出典の本名欄「佐藤（さとう）ますき(Satō Masuki)」——
+      名前は仮名「ますき」（漢字表記なし）。
+      中文別訳「佐藤增姬」（出典の「译名」欄）
 
   - canonical: 鳰原令王那
-    kana: におはら れおな
+    kana: にゅうばら れおな
     band: レイズアスイレン
+    zh: 鳰原令王那
+    rules_file: raise-a-suilen/pareo.md
+    aliases: [パレオ, PAREO]
     confirmed: false
-    note: 通称 パレオ。「鳰」は難読
+    note: |
+      通称 PAREO。出典の本名欄「鳰原（にゅうばら）令王那（れおな）(Nyūbara Reona)」。
+      ★ 読みは にゅうばら（におはら ではない）。「鳰」は難読。
+      出典に「译名」欄が無く、日本語漢字がそのまま中文名と一致する
 
 # ─────────────────────────────────────────────────────────────
 # 学校・地名

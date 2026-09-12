@@ -218,6 +218,66 @@ character_names:
     verified: false
     engine: null
 
+  # ── レイズアスイレン メンバー（2026-09-02 追加）──
+  # 出典の本名欄で読みを確認済み。★ 印は直読では当たらないもの。
+
+  - word: 鳰原
+    reading: にゅうばら
+    reason: |
+      TTS pronunciation — ★ **最も誤読リスクが高い**。
+      「鳰」は難読で、にゅうばら とは直読できない。
+      において はら / におはら 等と読む可能性が高い
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      鳰原令王那（PAREO）。出典の本名欄「鳰原（にゅうばら）」。
+      ⚠ 以前この辞書に「におはら」と誤記していたのを修正した経緯がある
+
+  - word: 珠手
+    reading: たまで
+    reason: |
+      TTS pronunciation — ★ **しゅて と誤読されやすい**。
+      「珠」を しゅ、「手」を て と直読する連想が強い
+    verified: false
+    engine: GPT-SoVITS
+    note: 珠手知由（CHU²）。出典の本名欄「珠手（たまで）」。名前は仮名「ちゆ」
+
+  - word: 六花
+    reading: ろっか
+    reason: |
+      TTS pronunciation — ★ **りっか / ろくはな 等と誤読されやすい**。
+      促音 + 撥音の組み合わせ
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      朝日六花（LOCK）。出典の本名欄「六花（ろっか）」。
+      Afterglow は本名「六花」で呼ぶため、本文での出現頻度が高い
+
+  - word: 令王那
+    reading: れおな
+    reason: |
+      TTS pronunciation — ★ **れいおうな / れおうな 等と誤読されやすい**。
+      三文字で三拍という不規則な対応
+    verified: false
+    engine: GPT-SoVITS
+    note: 鳰原令王那。知由だけが本名「令王那」で呼ぶ
+
+  - word: 和奏
+    reading: わかな
+    reason: TTS pronunciation — 「わそう」等と誤読されやすい
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      和奏レイヤ。出典の姓の由来に「和と奏の二文字が LAYER に合う」とある。
+      ★ **本名は「レイヤ」ではなく「レイ」**（出典の本名欄「レイ」）
+
+  - word: 佐藤
+    reading: さとう
+    reason: TTS pronunciation — 一般姓だが人名として登録
+    verified: false
+    engine: GPT-SoVITS
+    note: 佐藤益木。名前「ますき」は**仮名**なので誤読リスクなし
+
 # ─────────────────────────────────────────────────────────────
 # 地名 —— 聖地巡礼スクリプトで頻出。難読地名は誤読リスクが高い
 # ─────────────────────────────────────────────────────────────
