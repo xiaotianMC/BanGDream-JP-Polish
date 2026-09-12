@@ -37,6 +37,20 @@ BanGDream-JP-Polish/
     │   │   ├── rimi.md              牛込りみ（Ba）
     │   │   ├── saaya.md             山吹沙綾（Dr）
     │   │   └── arisa.md             市ヶ谷有咲（Key）
+    │   ├── roselia/
+    │   │   ├── _band.md             ロゼリア（語体マップ・関係性）
+    │   │   ├── yukina.md            湊友希那（Vo/作詞作曲）
+    │   │   ├── sayo.md              氷川紗夜（Gt）
+    │   │   ├── lisa.md              今井リサ（Ba）
+    │   │   ├── ako.md               宇田川あこ（Dr）
+    │   │   └── rinko.md             白金燐子（Key）
+    │   ├── raise-a-suilen/
+    │   │   ├── _band.md             レイズアスイレン（語体マップ・関係性）
+    │   │   ├── layer.md             和奏レイヤ（Vo/Ba）
+    │   │   ├── lock.md              朝日六花（Gt）
+    │   │   ├── masking.md           佐藤益木（Dr）
+    │   │   ├── pareo.md             鳰原令王那（Key）
+    │   │   └── chuchu.md            珠手知由（DJ/Produce）
     │   └── mygo/
     │       ├── _band.md             マイゴ（語体マップ・関係性）
     │       ├── tomori.md            高松燈（Vo）
@@ -169,6 +183,8 @@ BanG Dream!   → バンドリ
 | `rules/`（global / japanese / tts） | ✅ 可直接使用。基于日语语言学通用规律 |
 | `adapters/gpt-sovits.md` | ⚠️ 引擎已确定，但 `verified: false` —— **行为描述未实机验证** |
 | `characters/poppin-party/*.md` | ⚠️ 基于萌娘百科条目撰写（香澄・たえ・りみ・沙綾・有咲）。**沙綾 的语言特征条目里几乎没有**，该文件规则稀薄已标注 |
+| `characters/roselia/*.md` | ⚠️ 基于萌娘百科条目撰写（友希那・紗夜・リサ・あこ・燐子）。**友希那・リサ・あこ 的条目无称呼节**，称呼表从对手侧重建 |
+| `characters/raise-a-suilen/*.md` | ⚠️ 基于萌娘百科条目撰写（レイヤ・六花・益木・令王那・知由）。**益木 的条目无称呼节**，同上有重建 |
 | `characters/mygo/*.md` | ⚠️ 基于萌娘百科条目撰写（燈・愛音・楽奈・立希・そよ） |
 | 各角色文件末的「表记待确认」 | ⚠️ 多处日文表记/读音**待核对**（tae 的中文名、りみ 的关西腔、CRYCHIC 的假名形等） |
 | `dictionary/` | ⚠️ 条目已列（含 6 个地名），`verified: false` —— **未用真实 TTS 验证** |
@@ -212,7 +228,7 @@ BanG Dream!   → バンドリ
 - 不修改历史 correction 数据（只追加）
 - 核心规则不绑定引擎；引擎差异放在 `adapters/`，不写进 `rules/`
 - 目前只有 GPT-SoVITS 一个 adapter。换引擎时新增 adapter，`rules/` 不动
-- 角色规则目前有 **10 人**：ポッピンパーティ 全 5 人 + マイゴ 全 5 人。新增乐队请从 `characters/_template-band.md` 起手
+- 角色规则目前有 **20 人**：ポッピンパーティ / ロゼリア / レイズアスイレン / マイゴ の各 5 人。新增乐队请从 `characters/_template-band.md` 起手
 - 曲名未登记；出现时按 `dictionary/proper-nouns.yaml` 的 `unregistered` 处理
 - **未实机验证**：所有读音条目与 adapter 行为描述均为 `verified: false`
 
