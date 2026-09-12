@@ -3,7 +3,8 @@ node_modules/
 .DS_Store
 
 # commit message 一時ファイル（git add -A に巻き込まれるのを防ぐ）
-commitmsg.txt
-.commitmsg.tmp
-commitmsg.tmp
-cmsg.txt
+# git commit -F 用。複数行メッセージを shell 経由で渡すと壊れるため必ずファイルにする。
+*.commitmsg
+commitmsg.*
+cmsg.*
+.tmp-commitmsg
