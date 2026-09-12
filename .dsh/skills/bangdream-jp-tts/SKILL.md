@@ -28,78 +28,97 @@ the final text to be voiced (or the Chinese to be translated).
 
 ## Gates（开始前必问）
 
-**七个 gate，一次性问完，不要一个一个地问。** 它们决定整轮产出的形态；
-不问就直接做，很可能整轮都不是用户要的东西。
+**用一次 `ask_user_question` 调用把 gate 全部问完。** 不要一个一个地问，
+也不要只用文本列出来让用户手打——本工具就是为此存在的。
 
-选项**用字母标注，不用数字**（数字留给输入文本的行号）。
+### 怎么构造这次调用
 
-```text
-开始前请确认以下几点（可直接回「全默认」）：
+- **一次调用放多个 question**：`questions` 数组没有数量上限，7 个 gate 一次问完。
+- **`id` 用稳定短名**：`mode` / `zh_naming` / `purpose` / `keigo` / `edit_scope` /
+  `batch` / `layers`。回答里会原样回显，便于对齐。
+- **`header` 写中文短标题**：与 gate 名一致。
+- **选项 label 不要写序号。** 工具的列表 UI 自带编号/选择器，
+  再写「1) 2)」会与之重复、且用户不知道哪个数字算数。
+  也不要用字母前缀，直接写选项文本本身。
+- **推荐项放第一个，label 末尾追加 `(推荐)`。** 这是本工具的既定约定。
+- **每个选项都写 `description`**：一句话说明取舍。gate 的价值在于
+  用户能看懂选了会怎样，而不是猜。
 
-【A 处理模式】
-  A 只优化中文表达（使其更贴近角色）
-  B 翻译成日语版（使其贴近角色）
-  C 只做 TTS 读音纠正优化
-  D 翻译 + TTS 优化（B 和 C 一起）
+### 七个 gate 与推荐项
 
-【B 中文译名偏好】
-  A 贴近官方（如：用「爽世」不用「素世」）
-  B 更社区化（如：用「素世」不用「爽世」）
+| gate | id | 选项（**推荐项在首位**） |
+|---|---|---|
+| **A 处理模式** | `mode` | 翻译成日语版（贴近角色）**(推荐)** / 只优化中文表达 / 翻译 + TTS 优化 / 只做 TTS 读音纠正 |
+| **B 中文译名偏好** | `zh_naming` | 贴近官方（用「爽世」不用「素世」）**(推荐)** / 更社区化（用「素世」不用「爽世」） |
+| **C 成稿用途** | `purpose` | 两者都要 **(推荐)** / 配音用（TTS 友好） / 字幕用（阅读友好） |
+| **D 敬语/亲密度** | `keigo` | 按原作设定（照 characters/ 基线）**(推荐)** / 本场景放宽 / 全篇统一 |
+| **E 改动幅度** | `edit_scope` | 允许口语化改写 **(推荐)** / 只改错误 / 允许重构句子 |
+| **F 批次一致性** | `batch` | 整批次内保持一致 **(推荐)** / 逐句独立判断 |
+| **G 保留层** | `layers` | 全层 **(推荐)** / 跳过 TTS 断句 / 跳过读音 |
 
-【C 成稿用途】            ← 影响标点与句长的判断标准
-  A 配音用（TTS 友好）
-  B 字幕用（阅读友好）
-  C 两者都要
+### ⚠️ B 中文译名偏好：只在输出是中文时问
 
-【D 敬语/亲密度档位】
-  A 按原作设定（照 characters/ 的基线）
-  B 本场景放宽（设定上不熟但需要亲近感）
-  C 全篇统一（消除角色间差异）
+**B 这个 gate 只在「输出含中文成稿」时才出现在调用里。**
+不要无条件把 7 个都塞进去。
 
-【E 改动幅度上限】
-  A 只改错误（读法、语法、明显 OOC）
-  B 允许口语化改写
-  C 允许重构句子
+| 选择的 A 模式 | 输出 | B 要不要问 |
+|---|---|---|
+| A 只优化中文表达 | 中文 | **✅ 问** |
+| B 翻译成日语版 | 日语 | ❌ **不问** |
+| C 只做 TTS 读音纠正 | 日语 | ❌ **不问** |
+| D 翻译 + TTS | 日语 | ❌ **不问** |
 
-【F 批次一致性】
-  A 逐句独立判断
-  B 整批次内保持用词与称呼一致
+**但有一个例外**：选 B/C/D 时，若**用户提供的待处理文本里已经含中文译名**
+（如「爽世」「素世」混用），仍需问一次——因为要统一成哪一种。
+判断方法是扫一遍输入里的中文人名，发现同一角色出现两种写法才问。
 
-【G 保留层】（仅模式 D 有意义）
-  A 全层
-  B 跳过 TTS 断句（只做读音）
-  C 跳过读音（只做断句）
+> 除「只优化中文表达」外，输出都是日语，`zh_variants` 不影响日语正文
+> （日语一律写假名「そよ」，不写「爽世」/「素世」）。所以问了也白问。
+
+### 条件问法：先定 A，再决定问不问 B
+
+`ask_user_question` 一次调用无法根据前面答案调整后面的问题，
+所以按下面两种方式之一处理：
+
+- **输入里已有中文人名且可能混用** → 一次调用里放全 7 个（B 照问）。
+- **输入里没有中文人名歧义** → 只放 6 个（去掉 B）；
+  若用户之后选了「只优化中文表达」，再单独补问 B。
+
+**不要**因为省一次调用就把 B 无条件塞进去。
+问了不相干的 gate 会让用户以为这个选择有效果。
+
+### 默认值（用户回「全默认」或未答时）
+
+```
+A 翻译成日语版 / B 贴近官方 / C 两者都要
+D 按原作设定 / E 允许口语化改写 / F 整批次一致 / G 全层
 ```
 
-**默认值**（用户回「全默认」或未答时使用）：
-
-```
-A-B（翻译+角色化，不做 TTS 手术） / B-A（贴近官方） / C-C（两者都要）
-D-A（按原作设定） / E-B（允许口语化改写） / F-B（整批次一致） / G-A（全层）
-```
+**「全默认」时，输出开头必须列出实际采用的档位**（见 Output format 的
+`【档位】` 行）——用户需要能一眼发现哪项理解错了。
 
 ### A 处理模式
 
 | 模式 | 输入 | 输出 | 走哪几个 Stage |
 |---|---|---|---|
-| A 只优化中文表达 | 中文原文 | 中文（角色化） | C1–C3（中文层） |
-| B 翻译成日语 + 角色化 | 中文原文 | 日语 | 1→2→3→6 |
-| C 只做 TTS 读音纠正 | 已有日语 | 日语（只动读音/断句） | **仅 4→5** |
-| D 翻译 + TTS | 中文原文 | 日语（角色化 + TTS） | 全 6 |
+| 只优化中文表达 | 中文原文 | 中文（角色化） | C1–C3（中文层） |
+| 翻译成日语 + 角色化 | 中文原文 | 日语 | 1→2→3→6 |
+| 只做 TTS 读音纠正 | 已有日语 | 日语（只动读音/断句） | **仅 4→5** |
+| 翻译 + TTS | 中文原文 | 日语（角色化 + TTS） | 全 6 |
 
-- 模式 B 与 D 的差别：**模式 D 明确包含 TTS 层**（读音、断句、表记），
-  模式 B 只保证"是角色的日语"，不主动做 TTS 手术。
-- 模式 C **不做角色化**。已有日语是正确的角色台词，只需处理读法。
-  此时**不要顺手改语体或用词**——那是模式 B/D 的事。
-- 模式 A 只产出中文。**不要输出日语**，即使你能翻译。
+- 「翻译成日语」与「翻译 + TTS」的差别：**后者明确包含 TTS 层**
+  （读音、断句、表记），前者只保证"是角色的日语"，不主动做 TTS 手术。
+- 「只做 TTS 读音纠正」**不做角色化**。已有日语是正确的角色台词，
+  只需处理读法。此时**不要顺手改语体或用词**——那是翻译模式的事。
+- 「只优化中文表达」只产出中文。**不要输出日语**，即使你能翻译。
   用户可能只是要中文脚本给人工翻译用。
 
-> 若用户只给了日语、却选了 A 或 B，或只给了中文、却选了 C，
+> 若用户只给了日语、却选了中文或翻译模式，或只给了中文、却选了纯 TTS，
 > **指出输入与模式不符并请其确认**，不要自行换模式。
 
 ### A 模式的中文层：只按经历与性格构建
 
-模式 A 的中文角色腔，**只从角色知识库的「人物经历」与「性格」推导**，
+「只优化中文表达」的中文角色腔，**只从角色知识库的「人物经历」与「性格」推导**，
 不代入日语语尾、不凭对作品的泛印象。
 
 ```
@@ -176,7 +195,7 @@ canonical，同一批次内不得混用。
 选「整批次一致」时，**处理完必须回头做一次全文复查**——
 G7 的写法统一无法靠逐句处理保证，只能靠复查。
 
-### G 保留层（仅模式 D）
+### G 保留层（仅在「翻译 + TTS」下有意义）
 
 | 档位 | 行为 |
 |---|---|
@@ -247,9 +266,9 @@ and do not report a stage as passing unless you actually checked it.
 | C 只做 TTS | **仅 4 → 5**。不跑 1–3、6 |
 | D 翻译 + TTS | 全 6 |
 
-### 中文层（模式 A 专用）
+### 中文层（仅「只优化中文表达」用）
 
-模式 A 处理的是**中文**，日语规则不适用。中文层的三个阶段：
+「只优化中文表达」处理的是**中文**，日语规则不适用。中文层的三个阶段：
 
 | # | Stage | 读 | 检查 |
 |---|---|---|---|
@@ -280,9 +299,9 @@ and do not report a stage as passing unless you actually checked it.
 > - 已完成的部分**只覆盖「经历 + 性格」这一个维度**
 > - **没有官方中文台词可依据**（原作是日语），所以推导出的中文角色腔
 >   只能是 `observed` 级别，**不能当既定事实**
-> - 因此模式 A 的产出必须带 `basis` 声明与置信度，不能宣称"这就是她的中文腔"
+> - 因此该模式的产出必须带 `basis` 声明与置信度，不能宣称"这就是她的中文腔"
 
-模式 A 被选中时：先按 `characters/_template-zh.md` 建立该角色的中文层，
+「只优化中文表达」被选中时：先按 `characters/_template-zh.md` 建立该角色的中文层，
 或明确告知用户"中文层规则尚未编写"并询问是否继续。
 **不要**用日语层的规则去猜中文角色腔（违反 G8）。
 
@@ -312,10 +331,10 @@ TTS 优化 (tts)              — last layer
 
 The one exception is the Stage 5 veto above.
 
-**模式 A（中文）只用前两层。** TTS 层不参与——本 skill 的 TTS 层针对日语朗读，
+**「只优化中文表达」只用前两层。** TTS 层不参与——本 skill 的 TTS 层针对日语朗读，
 中文层没有对应物。所以中文层不要为了"好读"去调标点密度或加停顿。
 
-**模式 C（纯 TTS）反转了优先级。** 此时文本的角色化**已经由人工完成**，
+**「只做 TTS 读音纠正」反转了优先级。** 此时文本的角色化**已经由人工完成**，
 不再重判角色口吻。读法是唯一的判断对象：
 
 ```
@@ -324,7 +343,7 @@ The one exception is the Stage 5 veto above.
 不改动角色表达 (character)  — 除 T5 veto 外不得改动用词语体
 ```
 
-模式 C 下 G1（语义）仍不可违反，但 G3（不过度润色）升格为
+「只做 TTS 读音纠正」下 G1（语义）仍不可违反，但 G3（不过度润色）升格为
 **"不做任何非读音改动"**。
 
 ## How to load the rule files
@@ -332,14 +351,14 @@ The one exception is the Stage 5 veto above.
 Load only what the task needs. The point of splitting these files is context
 economy — do not read all of `characters/` to polish one line.
 
-**Load by mode.** The Gates already told you which layers are in play:
+**Load by mode.** Gate A already told you which layers are in play:
 
-| 模式 | 读 |
+| Gate A 选择 | 读 |
 |---|---|
-| A 只优化中文 | `rules/global.md`, `characters/<角色>.zh.md` |
-| B 翻译 + 角色化 | `rules/global.md`, `rules/japanese.md`, `characters/<角色>.md` |
-| C 只做 TTS | `rules/tts.md`, `dictionary/*.yaml` |
-| D 翻译 + TTS | 全部 |
+| 只优化中文表达 | `rules/global.md`, `characters/<角色>.zh.md` |
+| 翻译成日语 | `rules/global.md`, `rules/japanese.md`, `characters/<角色>.md` |
+| 翻译 + TTS | 全部 |
+| 只做 TTS 读音纠正 | `rules/tts.md`, `dictionary/*.yaml`（**不读** `characters/`） |
 
 1. Always read `rules/global.md` — every mode needs G1–G3.
 2. Read `characters/<角色>.md`（日语层）or `characters/<角色>.zh.md`（中文层）
@@ -348,11 +367,10 @@ economy — do not read all of `characters/` to polish one line.
    not silently fall back to generic "natural language". Offer to draft the file
    from `characters/_template.md`（日语）or `characters/_template-zh.md`（中文）.
 3. Read `dictionary/proper-nouns.yaml` whenever the text contains a name, song
-   title, band name, or place — **all modes**, because Gate 2 的译名偏好就存在这里。
+   title, band name, or place — **all modes**, because Gate B 的译名偏好就存在这里。
    For Japanese output also read `dictionary/pronunciation.yaml` whenever the
    line contains a kanji with multiple readings, a numeral, or an acronym.
-   For 模式 A/2/4 also read `dictionary/address-forms.yaml` when the line
-   contains a form of address.
+   中文/翻译系模式还要读 `dictionary/address-forms.yaml`（当文本含称呼时）。
 4. Read `corrections/<角色>/` and `corrections/_rules.yaml` when the same
    pattern has come up before. `_rules.yaml` carries the promoted rules with
    their confidence; prefer `established` over `observed`.
@@ -360,21 +378,22 @@ economy — do not read all of `characters/` to polish one line.
 ## Output format
 
 Default to the full format while the rule set is young — the explanations are how
-the rules get audited and corrected. **模式 A 用中文标签，其余模式用日语标签。**
+the rules get audited and corrected. **中文输出用中文标签，日语输出用日语标签。**
 
 ### 开头必须回显采用的档位
 
-每次输出开头加一行，让用户能一眼发现哪项理解错了：
+每次输出开头加一行，让用户能一眼发现哪项理解错了。
+**写选项文本，不要写序号或字母码**（那些在提问时不出现，回显它们用户对不上）：
 
 ```
-【档位】A-D / B-A / C-C / D-A / E-B / F-B / G-A
+【档位】翻译成日语版 / 贴近官方 / 两者都要 / 按原作设定 / 允许口语化改写 / 整批次一致 / 全层
 ```
 
-（模式 / 译名偏好 / 用途 / 敬语 / 改动幅度 / 批次一致性 / 保留层）
+**Gate B（中文译名偏好）没问过就不要写进这一行。** 输出是日语时该 gate 无意义。
 
 用户说「全默认」而某项与预期不符时，这一行是**唯一**能让他立刻察觉的地方。
 
-### 模式 B / 4（日语输出）
+### 翻译成日语 / 翻译 + TTS（日语输出）
 
 ```
 【优化结果】
@@ -393,7 +412,7 @@ the rules get audited and corrected. **模式 A 用中文标签，其余模式�
 ✓ 标点适合朗读
 ```
 
-模式 B 的 `【TTS检查】` 只做**告知**，不做 TTS 手术。
+「翻译成日语」（不含 TTS）的 `【TTS检查】` 只做**告知**，不做 TTS 手术。
 未做 TTS 检查时**不要写这一节**——写了就等于声称检查过。
 
 **Gate C = 两者都要** 时，若某句在配音/字幕下必须不同：
@@ -425,7 +444,7 @@ the rules get audited and corrected. **模式 A 用中文标签，其余模式�
 **Gate E = 只改错误** 时，`【修改】` 节只允许出现读音/语法/OOC 类改动，
 同义改写不得出现。**Gate G** 跳过的层要在 `【未改动】` 里点名。
 
-### 模式 A（中文输出）
+### 只优化中文表达（中文输出）
 
 ```
 【优化结果】
@@ -439,9 +458,9 @@ the rules get audited and corrected. **模式 A 用中文标签，其余模式�
 - <global G1-G3 / character-zh 的哪一条>
 ```
 
-模式 A **不输出 `【TTS检查】`**。中文不面向 TTS。
+「只优化中文表达」**不输出 `【TTS检查】`**。中文不面向 TTS。
 
-### 模式 C（纯 TTS）
+### 只做 TTS 读音纠正（纯 TTS）
 
 只列读音与断句相关的改动，并**显式声明没有动别的**：
 
@@ -459,11 +478,11 @@ the rules get audited and corrected. **模式 A 用中文标签，其余模式�
 → <改后>
 
 【未改动】
-- 语体、用词、角色口吻：**未动**（模式 C 不做角色化）
+- 语体、用词、角色口吻：**未动**（该模式不做角色化）
 ```
 
-**`【未改动】` 是模式 C 的必需项。** 没有它，用户无法判断
-"是不是偷偷改了台词"——而模式 C 的全部价值就在于只动读法。
+**`【未改动】` 是该模式的必需项。** 没有它，用户无法判断
+"是不是偷偷改了台词"——而该模式的全部价值就在于只动读法。
 
 ### 不需要修改时
 
@@ -542,14 +561,14 @@ rules/japanese.md         日语自然度 — 书面语, 中文式表达, 标点
 rules/tts.md              TTS — 断句, 停顿, 读音, 情绪辅助
 adapters/gpt-sovits.md    引擎适配（已确定 GPT-SoVITS）— 引擎特定行为 + 验证清单
 characters/_template.md        模板（日语层）— 新角色从这里开始
-characters/_template-zh.md     模板（中文层，模式 A 用）
+characters/_template-zh.md     模板（中文层）
 characters/kasumi.md           戸山香澄（日语层）
 characters/tomori.md           高松燈（マイゴ）
 characters/anon.md             千早愛音（マイゴ）
 characters/rana.md             要楽奈（マイゴ）
 characters/taki.md             椎名立希（マイゴ）
 characters/soyo.md             長崎そよ（マイゴ）
-characters/<角色>.zh.md        中文层 — **尚未建立**（模式 A 需要时再建）
+characters/<角色>.zh.md        中文层 — **尚未建立**（需要时再建）
 corrections/_schema.md         记录格式 + 分类 + 规则升级标准
 corrections/_rules.yaml        已提炼规则 + confidence + evidence_count
 corrections/kasumi/            戸山香澄 的修订记录
