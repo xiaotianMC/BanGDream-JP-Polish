@@ -120,6 +120,11 @@ for (const f of FILES) {
       'レイズアスイレン': 'raise-a-suilen',
       'ロゼリア': 'roselia',
       'アヴェムジカ': 'ave-mujica',
+      // ↓ 成員を置かないバンド／ユニット。_band.md のみ。
+      //   crychic: 5 人全員が他バンドにファイルを持つ（二重管理を避ける）
+      //   sumimi : 相方 三角初華 はアヴェムジカ側にファイルを持つ
+      'CRYCHIC': 'crychic',
+      'スミミ': 'sumimi',
     };
     const charDir = join(base, 'characters');
     const dirs = readdirSync(charDir, { withFileTypes: true }).filter(e => e.isDirectory()).map(e => e.name);

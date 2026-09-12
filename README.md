@@ -58,13 +58,18 @@ BanGDream-JP-Polish/
     │   │   ├── masking.md           佐藤益木（Dr）
     │   │   ├── pareo.md             鳰原令王那（Key）
     │   │   └── chuchu.md            珠手知由（DJ/Produce）
-    │   └── mygo/
-    │       ├── _band.md             マイゴ（語体マップ・関係性）
-    │       ├── tomori.md            高松燈（Vo）
-    │       ├── anon.md              千早愛音（Gt）
-    │       ├── rana.md              要楽奈（Gt）
-    │       ├── taki.md              椎名立希（Dr/作曲）
-    │       └── soyo.md              長崎そよ（Ba）
+    │   ├── mygo/
+    │   │   ├── _band.md             マイゴ（語体マップ・関係性）
+    │   │   ├── tomori.md            高松燈（Vo）
+    │   │   ├── anon.md              千早愛音（Gt）
+    │   │   ├── rana.md              要楽奈（Gt）
+    │   │   ├── taki.md              椎名立希（Dr/作曲）
+    │   │   └── soyo.md              長崎そよ（Ba）
+    │   ├── crychic/                 ★ _band.md のみ（角色ファイルを置かない）
+    │   │   └── _band.md             CRYCHIC（解散済み。5 人は他バンドにファイルあり）
+    │   └── sumimi/                  アイドルユニット（バンドではない）
+    │       ├── _band.md             スミミ（ユニット情報）
+    │       └── mana.md              純田まな（Vo）
     │          （中文层 <角色>.zh.md 尚未建立）
     ├── corrections/                 ★ 项目核心数据
     │   ├── _schema.md               记录格式 + 分类 + 规则升级标准
@@ -244,9 +249,10 @@ BanG Dream!   → バンドリ
 - 不修改历史 correction 数据（只追加）
 - 核心规则不绑定引擎；引擎差异放在 `adapters/`，不写进 `rules/`
 - 目前只有 GPT-SoVITS 一个 adapter。换引擎时新增 adapter，`rules/` 不动
-- 角色规则目前有 **25 人**：ポッピンパーティ / ロゼリア / レイズアスイレン / アヴェムジカ / マイゴ の各 5 人。新增乐队请从 `characters/_template-band.md` 起手
+- 角色规则目前有 **26 人**：ポッピンパーティ / ロゼリア / レイズアスイレン / アヴェムジカ / マイゴ の各 5 人 + **スミミ 1 人**（純田まな）。新增乐队请从 `characters/_template-band.md` 起手
+- **`crychic/` 只有 `_band.md`，没有角色文件**（5 人全在别的乐队有文件）。**CRYCHIC 的片假名形未确认，本文不得使用该词**（G9 唯一未解决项）
 - 曲名未登记；出现时按 `dictionary/proper-nouns.yaml` 的 `unregistered` 处理
-- **未实机验证**：所有读音条目与 adapter 行为描述均为 `verified: false`
+- **未实机验证**：所有读音条目与 adapter 行为描述均为 `verified: false`（用户已确认的朗读另见 `pronunciation.yaml` 的 `verified_readings`）
 
 ## 参考
 

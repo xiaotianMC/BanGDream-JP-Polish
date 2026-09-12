@@ -187,7 +187,10 @@ sumimi           所属アイドル
 
 ### sumimi の扱い
 
-英字。G9 により本文は片仮名。**読みは未確認**（スミミ？）。
+英字。G9 により本文は片仮名 **「スミミ」**。
+✅ 読みはユーザー確認済み（2026-02-14、`../../dictionary/pronunciation.yaml` の
+`verified_readings`）。
+ユニットの詳細・所属・相方は `../sumimi/_band.md`、相方は `../sumimi/mana.md`。
 
 ---
 
