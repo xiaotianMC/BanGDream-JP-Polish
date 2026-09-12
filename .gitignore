@@ -1,3 +1,7 @@
-﻿node_modules/
+node_modules/
 *.log
 .DS_Store
+
+# commit message 一時ファイル（git add -A に巻き込まれるのを防ぐ）
+commitmsg.txt
+.commitmsg.tmp
