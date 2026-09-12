@@ -44,6 +44,13 @@ BanGDream-JP-Polish/
     │   │   ├── lisa.md              今井リサ（Ba）
     │   │   ├── ako.md               宇田川あこ（Dr）
     │   │   └── rinko.md             白金燐子（Key）
+    │   ├── ave-mujica/
+    │   │   ├── _band.md             アヴェムジカ（語体マップ・コードネーム）
+    │   │   ├── sakiko.md            豊川祥子（Key/脚本/作曲）
+    │   │   ├── mutsumi.md           若葉睦（Gt）
+    │   │   ├── umiri.md             八幡海鈴（Ba）
+    │   │   ├── uika.md              三角初華（Vo/Gt）
+    │   │   └── nyamu.md             祐天寺若麦（Dr）
     │   ├── raise-a-suilen/
     │   │   ├── _band.md             レイズアスイレン（語体マップ・関係性）
     │   │   ├── layer.md             和奏レイヤ（Vo/Ba）
@@ -184,6 +191,7 @@ BanG Dream!   → バンドリ
 | `adapters/gpt-sovits.md` | ⚠️ 引擎已确定，但 `verified: false` —— **行为描述未实机验证** |
 | `characters/poppin-party/*.md` | ⚠️ 基于萌娘百科条目撰写（香澄・たえ・りみ・沙綾・有咲）。**沙綾 的语言特征条目里几乎没有**，该文件规则稀薄已标注 |
 | `characters/roselia/*.md` | ⚠️ 基于萌娘百科条目撰写（友希那・紗夜・リサ・あこ・燐子）。**友希那・リサ・あこ 的条目无称呼节**，称呼表从对手侧重建 |
+| `characters/ave-mujica/*.md` | ⚠️ 基于萌娘百科条目撰写（祥子・睦・海鈴・初華・若麦）。称呼数据**5 人全有称呼一览**（质量最高）。**睦的别人格与初華的双重名义未确定** |
 | `characters/raise-a-suilen/*.md` | ⚠️ 基于萌娘百科条目撰写（レイヤ・六花・益木・令王那・知由）。**益木 的条目无称呼节**，同上有重建 |
 | `characters/mygo/*.md` | ⚠️ 基于萌娘百科条目撰写（燈・愛音・楽奈・立希・そよ） |
 | 各角色文件末的「表记待确认」 | ⚠️ 多处日文表记/读音**待核对**（tae 的中文名、りみ 的关西腔、CRYCHIC 的假名形等） |
@@ -228,7 +236,7 @@ BanG Dream!   → バンドリ
 - 不修改历史 correction 数据（只追加）
 - 核心规则不绑定引擎；引擎差异放在 `adapters/`，不写进 `rules/`
 - 目前只有 GPT-SoVITS 一个 adapter。换引擎时新增 adapter，`rules/` 不动
-- 角色规则目前有 **20 人**：ポッピンパーティ / ロゼリア / レイズアスイレン / マイゴ の各 5 人。新增乐队请从 `characters/_template-band.md` 起手
+- 角色规则目前有 **25 人**：ポッピンパーティ / ロゼリア / レイズアスイレン / アヴェムジカ / マイゴ の各 5 人。新增乐队请从 `characters/_template-band.md` 起手
 - 曲名未登记；出现时按 `dictionary/proper-nouns.yaml` 的 `unregistered` 处理
 - **未实机验证**：所有读音条目与 adapter 行为描述均为 `verified: false`
 

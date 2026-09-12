@@ -76,7 +76,13 @@ bands:
 
   - canonical: アヴェムジカ
     latin: Ave Mujica
-    note: 表記は英字だが、G9 により正文は片仮名
+    members: [豊川祥子, 若葉睦, 八幡海鈴, 三角初華, 祐天寺若麦]
+    note: |
+      英字表記のため G9 により正文は片仮名。
+      コードネームは Oblivionis（忘却）/ Mortis（死）/
+      Timoris（恐怖）/ Doloris（悲しみ）/ Amoris（愛）。
+      5 人のうち 3 つは月の海、Oblivionis のみ月の裏側の湖に由来。
+      キャッチコピー：ようこそ、Ave Mujicaのマスカレードへ
 
   - canonical: グリッターグリーン
     members: [戸山明日香]
@@ -292,33 +298,71 @@ characters:
 
   - canonical: 豊川祥子
     kana: とがわ さきこ
-    band: CRYCHIC
+    zh: 丰川祥子
+    band: アヴェムジカ
+    aliases: [オブリビオニス, Oblivionis, サキコ]
+    rules_file: ave-mujica/sakiko.md
+    confirmed: false
     note: |
-      出典では中国語訳名「丰川祥子」。
-      旧バンド CRYCHIC は**仮名形が未確認**（bands セクション参照）。
-      確認まで本文で使わない
+      出典の本名欄「豊川（とがわ）祥子（さきこ）(Togawa Sakiko)」。
+      コードネーム **Oblivionis（オブリビオニス）**＝Lacus Oblivionis（忘湖）。
+      元 CRYCHIC のキーボード。現在は Ave Mujica を主导する。
+      ★ 一人称は **私（わたくし）**（出典の称呼一览に明記）
 
   - canonical: 若葉睦
     kana: わかば むつみ
+    zh: 若叶睦
     band: アヴェムジカ
-    note: 出典では中国語訳名「若叶睦」。読みは むつみ でほぼ確実
+    aliases: [モーティス, Mortis, ムーコ]
+    rules_file: ave-mujica/mutsumi.md
+    confirmed: false
+    note: |
+      出典の本名欄「若葉（わかば）睦（むつみ）(Wakaba Mutsumi)」。
+      コードネーム **Mortis（モーティス）**＝Lacus Mortis（死湖）。
+      ★ 「睦（むつみ）」は名の一部。**別人格「モーティス」**があり、
+        自称が `私` / `睦ちゃん` / `モーティス` と分かれる（出典の称呼一览）
 
   - canonical: 三角初華
     kana: みすみ ういか
+    zh: 三角初华
     band: アヴェムジカ
-    note: 出典では中国語訳名「三角初华」。読みは ういか
+    aliases: [ドロリス, Doloris, 初音, ウイコ]
+    rules_file: ave-mujica/uika.md
+    confirmed: false
+    note: |
+      出典の本名欄に**二つの名前**が併記されている：
+        「三角（みすみ）初華（ういか）(Misumi Uika)」
+        「三角（みすみ）初音（はつね）(Misumi Hatsune)」
+      ★ 二重名義の設定がある（`初音` は別名義。詳細は uika.md 参照）。
+      コードネーム **Doloris（ドロリス）**＝Lacus Doloris（悲湖）。
+      偶像団体 sumimi のギター/作詞作曲（芸名「初華」、姓を名乗らない）
 
   - canonical: 八幡海鈴
     kana: やはた うみり
+    zh: 八幡海铃
     band: アヴェムジカ
-    note: 出典では中国語訳名「八幡海铃」
+    aliases: [ティモリス, Timoris, ウミコ]
+    rules_file: ave-mujica/umiri.md
+    confirmed: false
+    note: |
+      出典の本名欄「八幡（やはた）海鈴（うみり）(Yahata Umiri)」。
+      コードネーム **Timoris（ティモリス）**＝Lacus Timoris（恐湖）。
+      「貝斯雇傭兵」——曾同時に 30 バンドを支援
 
   - canonical: 祐天寺若麦
     kana: ゆうてんじ にゃむ
+    zh: 祐天寺若麦
+    zh_alt: [祐天寺喵梦]
     band: アヴェムジカ
+    aliases: [アモーリス, Amoris, にゃむち]
+    rules_file: ave-mujica/nyamu.md
+    confirmed: false
     note: |
-      出典の表記は日本語漢字のまま。
-      読み にゃむ は**通称由来で、確度が低い**。要確認
+      出典の本名欄「祐天寺（ゆうてんじ）**にゃむ**(Yūtenji Nyamu)」——
+      ★ **名前は平仮名「にゃむ」**（片仮名「ニャム」ではない）。
+      中文別訳「祐天寺喵梦」。
+      コードネーム **Amoris（アモーリス）**＝Sinus Amoris（愛湾）。
+      ★ 一人称は **アタシ**（出典の称呼一览に「アタシ、にゃむ」と記載）
 
   - canonical: 上原ひまり
     kana: うえはら ひまり

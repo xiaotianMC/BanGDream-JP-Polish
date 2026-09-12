@@ -316,6 +316,72 @@ character_names:
       宇田川あこ（ロゼリア）と宇田川巴（アフターグロウ）の**姉妹で共通**。
       誤読すると二人同時に壊れるため優先度が高い
 
+  # ── アヴェムジカ メンバー（2026-09-06 追加）──
+  # 出典の本名欄で読みを確認済み。★ 印は直読では当たらないもの。
+
+  - word: 睦
+    reading: むつみ
+    reason: |
+      TTS pronunciation — ★ 「むつき」「むつみ」以外の読みを当てられやすい。
+      名の一部であり、単独では読みが定まらない
+    verified: false
+    engine: GPT-SoVITS
+    note: 若葉睦。★ **別人格「モーティス」**があり、自称が三つに分かれる（mutsumi.md）
+
+  - word: 海鈴
+    reading: うみり
+    reason: |
+      TTS pronunciation — ★ 「鈴」を すず と読む連想が強く、
+      うみすず と誤読されやすい
+    verified: false
+    engine: GPT-SoVITS
+    note: 八幡海鈴。「贝斯雇佣兵」——同時に 30 バンドを支援していた経歴がある
+
+  - word: 三角
+    reading: みすみ
+    reason: |
+      TTS pronunciation — ★ **「さんかく」と誤読されやすい**。
+      一般名詞としての読みが極めて強い
+    verified: false
+    engine: GPT-SoVITS
+    note: 三角初華。★ 姓が一般名詞と同形なので誤読リスクが高い
+
+  - word: 初華
+    reading: ういか
+    reason: |
+      TTS pronunciation — ★ 「はつか」「はつはな」等と誤読されやすい。
+      「初」を はつ と読む連想が強い
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      三角初華。★ **同一人物に二つ目の名前「初音（はつね）」がある**（二重名義）。
+      どちらで読むかは文脈依存——TTS 的には要注意
+
+  - word: 初音
+    reading: はつね
+    reason: TTS pronunciation — 「はつおと」と誤読されやすい
+    verified: false
+    engine: GPT-SoVITS
+    note: 三角初華のもう一つの名義。祥子は彼女を「初音」と呼ぶ場面がある（uika.md）
+
+  - word: 豊川
+    reading: とがわ
+    reason: |
+      TTS pronunciation — ★ 「とよかわ」「ほうかわ」等と誤読されやすい
+    verified: false
+    engine: GPT-SoVITS
+    note: 豊川祥子。★ 一人称は「私（わたくし）」
+
+  - word: 祐天寺
+    reading: ゆうてんじ
+    reason: |
+      TTS pronunciation — 寺の名前でもあり、人名としての読みが定まりにくい
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      祐天寺若麦。★ **名前は平仮名「にゃむ」**なので誤読リスクなし。
+      姓だけが漢字
+
 # ─────────────────────────────────────────────────────────────
 # 地名 —— 聖地巡礼スクリプトで頻出。難読地名は誤読リスクが高い
 # ─────────────────────────────────────────────────────────────

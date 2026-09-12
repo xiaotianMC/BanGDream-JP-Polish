@@ -50,6 +50,11 @@ source:
     今井リサ: 8554968
     宇田川あこ: 8595974
     白金燐子: 8507409
+    豊川祥子: 8634914
+    若葉睦: 8637878
+    八幡海鈴: 8658953
+    三角初華: 8605311
+    祐天寺若麦: 8603599
   retrieved: 2026-02-14
   license: CC BY-NC-SA 3.0 CN
   attribution: |
@@ -64,7 +69,9 @@ source:
           他メンバー側から再構成している（masking.md に明記）。
           Roselia の称呼は 5 項目から抽出。**友希那・リサ・あこ の項目には称呼节が無い**ため、
           addresses は各相手側の記録から再構成（各 4 件のみ）。
-version: 5
+          Ave Mujica の称呼は 5 項目すべてに称呼一览がある（高品質）。
+          祥子 は 3 組の時間軸を持ち、にゃむ は全員を片仮名の `〜コ` 系愛称で呼ぶ。
+version: 6
 updated: 2026-09-02
 戸山香澄:
   self:
@@ -5007,3 +5014,533 @@ unregistered:
           register: 丁寧体
       confirmed: true
   note: ★ 出典に称呼一览がある。ほぼ全員に「さん」+ 丁寧体。`あこちゃん` だけが例外。
+豊川祥子:
+  self:
+    first_person: 私（わたくし）
+    note: ★ 出典の称呼一览に「私（わたくし）」と明記。Ave Mujica で最も改まった一人称
+  addresses:
+    三角初華:
+      progression: true
+      forms:
+        - form: 初華
+          register: 常体
+          stage: 初期
+        - form: 初音さん
+          register: 丁寧体
+          stage: 中期
+          note: ★ 名義が「初音」に変わる
+        - form: 初音
+          register: 常体
+          stage: 后期
+      confirmed: true
+      note: ★ 時間軸 + 名義の変化。出典の表記は「初華/初音さん→初音」
+    若葉睦:
+      progression: false
+      forms:
+        - form: 睦
+          register: 常体
+        - form: モーティス
+          register: 常体
+          note: ★ 別人格名
+      confirmed: true
+    八幡海鈴:
+      progression: true
+      forms:
+        - form: 八幡さん
+          register: 丁寧体
+          stage: 初期
+        - form: 海鈴
+          register: 常体
+          stage: 后期
+      confirmed: true
+      note: 出典の「八幡さん→海鈴」
+    祐天寺若麦:
+      progression: true
+      forms:
+        - form: にゃむさん
+          register: 丁寧体
+          stage: 初期
+        - form: 祐天寺さん
+          register: 丁寧体
+          stage: 中期
+        - form: にゃむ
+          register: 常体
+          stage: 后期
+      confirmed: true
+      note: ★ 三形態の時間軸。出典の「にゃむさん→祐天寺さん→にゃむ」
+  addressed_by:
+    若葉睦:
+      progression: false
+      forms:
+        - form: 祥
+          register: 常体
+        - form: 祥子ちゃん
+          register: 常体
+      confirmed: true
+    三角初華:
+      progression: false
+      forms:
+        - form: さきちゃん
+          register: 常体
+      confirmed: true
+    八幡海鈴:
+      progression: false
+      forms:
+        - form: 豊川さん
+          register: 丁寧体
+      confirmed: true
+      note: ★ 海鈴は全員に「姓 + さん」
+    祐天寺若麦:
+      progression: false
+      forms:
+        - form: サキコ
+          register: 常体
+      confirmed: true
+      note: ★ にゃむ独特の片仮名愛称
+    高松燈:
+      progression: true
+      forms:
+        - form: 祥子さん
+          register: 可変
+          stage: 初期
+        - form: 祥子
+          register: 常体
+          stage: 后期
+      confirmed: true
+      note: MyGO 側の記録
+    長崎そよ:
+      progression: false
+      forms:
+        - form: 祥子
+          register: 常体
+      confirmed: true
+  note: 出典に称呼一览がある。3 組が時間軸を持つ（初華・海鈴・にゃむ）。
+若葉睦:
+  self:
+    first_person: 私 / 睦ちゃん / モーティス
+    note: ★ 自称が三つに分かれる（別人格）。それぞれの語体は出典に記載が無い
+  addresses:
+    三角初華:
+      progression: false
+      forms:
+        - form: 初華
+          register: 常体
+        - form: 初華ちゃん
+          register: 常体
+      confirmed: true
+    八幡海鈴:
+      progression: false
+      forms:
+        - form: 海鈴
+          register: 常体
+        - form: 海鈴ちゃん
+          register: 常体
+      confirmed: true
+    祐天寺若麦:
+      progression: false
+      forms:
+        - form: にゃむ
+          register: 常体
+        - form: にゃむちゃん
+          register: 常体
+      confirmed: true
+    豊川祥子:
+      progression: false
+      forms:
+        - form: 祥
+          register: 常体
+        - form: 祥子ちゃん
+          register: 常体
+      confirmed: true
+  addressed_by:
+    豊川祥子:
+      progression: false
+      forms:
+        - form: 睦
+          register: 常体
+        - form: モーティス
+          register: 常体
+          note: ★ 別人格名
+      confirmed: true
+    三角初華:
+      progression: false
+      forms:
+        - form: 睦ちゃん
+          register: 常体
+      confirmed: true
+      note: 「睦ちゃん/-」——場面により呼ばない
+    八幡海鈴:
+      progression: false
+      forms:
+        - form: 若葉さん
+          register: 丁寧体
+        - form: モーティスさん
+          register: 丁寧体
+          note: ★ 別人格名 + さん
+      confirmed: true
+    祐天寺若麦:
+      progression: false
+      forms:
+        - form: ムーコ
+          register: 常体
+          note: ★ にゃむ独特の片仮名愛称
+      confirmed: true
+      note: 「ムーコ/-」
+    花園たえ:
+      progression: false
+      forms:
+        - form: 睦
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 睦
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: 睦
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: 睦ちゃん
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 睦ちゃん
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 睦ちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 睦ちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 睦ちゃん
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 睦ちゃん
+          register: 常体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: 睦ちゃん
+          register: 常体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 睦ちゃん
+          register: 常体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: 睦
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 睦
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: 睦
+          register: 常体
+      confirmed: true
+    八潮瑠唯:
+      progression: false
+      forms:
+        - form: 睦
+          register: 常体
+      confirmed: true
+  note: ⚠ **別人格「モーティス」の語体は出典に記載が無い**。自称が三つに分かれることのみ明記。
+八幡海鈴:
+  self:
+    first_person: 私
+  addresses:
+    豊川祥子:
+      progression: false
+      forms:
+        - form: 豊川さん
+          register: 丁寧体
+      confirmed: true
+    三角初華:
+      progression: false
+      forms:
+        - form: 三角さん
+          register: 丁寧体
+      confirmed: true
+    若葉睦:
+      progression: false
+      forms:
+        - form: 若葉さん
+          register: 丁寧体
+        - form: モーティスさん
+          register: 丁寧体
+          note: ★ 別人格名 + さん
+      confirmed: true
+    祐天寺若麦:
+      progression: false
+      forms:
+        - form: 祐天寺さん
+          register: 丁寧体
+        - form: にゃむち
+          register: 常体
+          note: ★ 自称の愛称
+        - form: ニャムコ
+          register: 常体
+          note: ★ 片仮名表記
+      confirmed: true
+      note: ★ にゃむにだけ三形態。他は「姓 + さん」で統一
+  addressed_by:
+    豊川祥子:
+      progression: true
+      forms:
+        - form: 八幡さん
+          register: 丁寧体
+          stage: 初期
+        - form: 海鈴
+          register: 常体
+          stage: 后期
+      confirmed: true
+      note: 出典の「八幡さん→海鈴」
+    三角初華:
+      progression: false
+      forms:
+        - form: 海鈴ちゃん
+          register: 常体
+      confirmed: true
+    若葉睦:
+      progression: false
+      forms:
+        - form: 海鈴
+          register: 常体
+        - form: 海鈴ちゃん
+          register: 常体
+      confirmed: true
+    祐天寺若麦:
+      progression: false
+      forms:
+        - form: ウミコ
+          register: 常体
+      confirmed: true
+      note: ★ にゃむ独特の片仮名愛称
+    椎名立希:
+      progression: false
+      forms:
+        - form: 海鈴
+          register: 常体
+      confirmed: true
+      note: ★ 同級生。立希は「互相找茬」する間柄
+  note: |-
+    ★ 出典に称呼一览がある。**全員に「姓 + さん」**——バンド内で最も距離を置く。
+    ただしにゃむにだけ `にゃむち` `ニャムコ` も併記（距離が縮まっている）。
+三角初華:
+  self:
+    first_person: 私
+    note: ★ 二重名義（初華 / 初音）。どちらの名義かは台本側の指定が必要
+  addresses:
+    豊川祥子:
+      progression: false
+      forms:
+        - form: さきちゃん
+          register: 常体
+      confirmed: true
+    若葉睦:
+      progression: false
+      forms:
+        - form: 睦ちゃん
+          register: 常体
+      confirmed: true
+    八幡海鈴:
+      progression: false
+      forms:
+        - form: 海鈴ちゃん
+          register: 常体
+      confirmed: true
+    祐天寺若麦:
+      progression: false
+      forms:
+        - form: にゃむちゃん
+          register: 常体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+  addressed_by:
+    豊川祥子:
+      progression: true
+      forms:
+        - form: 初華
+          register: 常体
+          stage: 初期
+        - form: 初音さん
+          register: 丁寧体
+          stage: 中期
+          note: ★ 名義の変化
+        - form: 初音
+          register: 常体
+          stage: 后期
+      confirmed: true
+      note: ★ 時間軸 + 名義の変化。出典の「初華/初音さん→初音」
+    若葉睦:
+      progression: false
+      forms:
+        - form: 初華
+          register: 常体
+        - form: 初華ちゃん
+          register: 常体
+      confirmed: true
+    八幡海鈴:
+      progression: false
+      forms:
+        - form: 三角さん
+          register: 丁寧体
+      confirmed: true
+    祐天寺若麦:
+      progression: false
+      forms:
+        - form: ウイコ
+          register: 常体
+      confirmed: true
+      note: ★ にゃむ独特の片仮名愛称
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 初華ちゃん
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: 初華ちゃん
+          register: 常体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: 初華ちゃん
+          register: 常体
+      confirmed: true
+  note: |-
+    ★ 出典に称呼一览がある。**初華 → 初音 の名義変化**が祥子側の記録にある。
+    二重名義の詳細は uika.md を参照（未確定）。
+祐天寺若麦:
+  self:
+    first_person: アタシ
+    note: ★ 出典の称呼一览に「アタシ、にゃむ」と記載。片仮名の一人称は Ave Mujica で彼女だけ
+  addresses:
+    豊川祥子:
+      progression: false
+      forms:
+        - form: サキコ
+          register: 常体
+      confirmed: true
+      note: ★ 片仮名の愛称
+    三角初華:
+      progression: false
+      forms:
+        - form: ウイコ
+          register: 常体
+      confirmed: true
+      note: ★ 片仮名の愛称
+    八幡海鈴:
+      progression: false
+      forms:
+        - form: ウミコ
+          register: 常体
+      confirmed: true
+      note: ★ 片仮名の愛称
+    若葉睦:
+      progression: false
+      forms:
+        - form: ムーコ
+          register: 常体
+          note: ★ 片仮名の愛称
+      confirmed: true
+      note: 「ムーコ/-」
+  addressed_by:
+    豊川祥子:
+      progression: true
+      forms:
+        - form: にゃむさん
+          register: 丁寧体
+          stage: 初期
+        - form: 祐天寺さん
+          register: 丁寧体
+          stage: 中期
+        - form: にゃむ
+          register: 常体
+          stage: 后期
+      confirmed: true
+      note: ★ 三形態の時間軸
+    三角初華:
+      progression: false
+      forms:
+        - form: にゃむちゃん
+          register: 常体
+      confirmed: true
+    若葉睦:
+      progression: false
+      forms:
+        - form: にゃむ
+          register: 常体
+        - form: にゃむちゃん
+          register: 常体
+      confirmed: true
+    八幡海鈴:
+      progression: false
+      forms:
+        - form: 祐天寺さん
+          register: 丁寧体
+        - form: にゃむち
+          register: 常体
+        - form: ニャムコ
+          register: 常体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: アーモリスちゃん
+          register: 常体
+      confirmed: true
+      note: ★ コードネームで呼ばれている例
+    今井リサ:
+      progression: false
+      forms:
+        - form: にゃむ
+          register: 常体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: にゃむち
+          register: 常体
+      confirmed: true
+  note: ★ 出典に称呼一览がある。**にゃむだけが全員を片仮名の `〜コ` 系愛称で呼ぶ**（サキコ/ウイコ/ウミコ/ムーコ）。
