@@ -3,6 +3,7 @@
 ```yaml
 subcategory:
   name: LiveHouse
+  japanese_name: ライブハウス
   parent: 音楽業界
   roles: [オーナー, 店長, スタッフ]
   members: [都筑詩船, 月島麻里奈, 真次凛々子, 能々美子]

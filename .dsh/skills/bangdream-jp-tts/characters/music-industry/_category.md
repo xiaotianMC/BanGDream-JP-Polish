@@ -3,6 +3,7 @@
 ```yaml
 category:
   name: 音楽業界
+  japanese_name: おんがく ぎょうかい
   kind: 職種カテゴリ
   members: [都筑詩船, 月島麻里奈, 真次凛々子]
   subcategories:

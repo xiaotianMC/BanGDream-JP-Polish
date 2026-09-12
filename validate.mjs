@@ -158,6 +158,37 @@ for (const f of FILES) {
       try { readFileSync(bandFile); } catch { fail(`characters/${d}/_band.md が無い（語体マップの置き場）`); }
     }
 
+    // ── 名前を持つ実体の frontmatter は name と japanese_name を両方持つ ──
+    // 片方しか無いと `name（japanese_name）` 形式のタイトルが
+    // 「undefined. undefined」になる（実際に一度なった）。
+    // テンプレートは name が空欄のひな形なので除外する。
+    let named = 0;
+    for (const f of readdirSync(charDir, { withFileTypes: true })) {
+      const stack = f.isDirectory() ? [join(charDir, f.name)] : [];
+      while (stack.length) {
+        const d = stack.pop();
+        for (const e of readdirSync(d, { withFileTypes: true })) {
+          const p = join(d, e.name);
+          if (e.isDirectory()) { stack.push(p); continue; }
+          if (!e.name.endsWith('.md') || e.name.startsWith('_template')) continue;
+          const txt = readFileSync(p, 'utf8');
+          const m = txt.match(/^```ya?ml\n([\s\S]*?)\n```/m);
+          if (!m) continue;
+          let y; try { y = parse(m[1]); } catch { continue; }
+          const key = Object.keys(y ?? {})[0];
+          if (!['character', 'band', 'category', 'subcategory'].includes(key)) continue;
+          const b = y[key] ?? {};
+          named++;
+          if (b.name == null) fail(`${p.slice(charDir.length + 1)}: frontmatter に name が無い`);
+          if (b.japanese_name === undefined) {
+            fail(`${p.slice(charDir.length + 1)}: frontmatter に japanese_name が無い`
+              + `（name（japanese_name）形式のタイトルが undefined になる）`);
+          }
+        }
+      }
+    }
+    console.log(`     frontmatter の named 実体: ${named} 件（name/japanese_name 両方を検査）`);
+
     // rules_file はバンド別パス。実在確認 + ディレクトリと band の一致確認
     let withRules = 0;
     for (const c of doc.characters.filter(c => c.rules_file)) {
