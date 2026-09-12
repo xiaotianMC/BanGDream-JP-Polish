@@ -34,7 +34,14 @@ const re = /<div class="mw-heading mw-heading([1-6])"><h([1-6])[^>]*>([\s\S]*?)<
 let m;
 while ((m = re.exec(raw))) {
   const inner = m[3].replace(/<span[^>]*id="[^"]*"[^>]*><\/span>/g, '').replace(/<[^>]+>/g, '').trim();
-  heads.push({ level: +m[1], title: inner, start: m.index });
+  // 一部の記事は見出しが作品ネタで装飾されている。
+  // 例：白金燐子のページは全見出しが「「……（简介）」」の形で、
+  // 素の節名では完全一致で引けない。鉤括弧と「……」を剥がす。
+  const normalized = inner
+    .replace(/^[「『]/, '').replace(/[」』]$/, '')
+    .replace(/^[…\s]+/, '')
+    .trim();
+  heads.push({ level: +m[1], title: inner, normalized, start: m.index });
 }
 
 if (!heads.length) { console.error('no mw-heading blocks found — page format changed?'); process.exit(3); }
@@ -54,7 +61,10 @@ if (!wanted.length) {
 }
 
 for (const w of wanted) {
-  const idx = heads.findIndex(h => h.title === w);
+  // 完全一致 → 正規化一致 → 部分一致 の順に探す（装飾された見出しに対応）
+  let idx = heads.findIndex(h => h.title === w);
+  if (idx < 0) idx = heads.findIndex(h => h.normalized === w);
+  if (idx < 0) idx = heads.findIndex(h => h.normalized.includes(w) || h.title.includes(w));
   if (idx < 0) { console.log(`\n### ${w} — NOT FOUND`); continue; }
   const h = heads[idx];
   const next = heads.slice(idx + 1).find(x => x.level <= h.level);

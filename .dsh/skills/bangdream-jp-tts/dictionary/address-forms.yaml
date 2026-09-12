@@ -45,6 +45,11 @@ source:
     佐藤益木: 8509795
     鳩原令王那: 8495706
     珠手知由: 8648660
+    湊友希那: 8648656
+    氷川紗夜: 8576358
+    今井リサ: 8554968
+    宇田川あこ: 8595974
+    白金燐子: 8507409
   retrieved: 2026-02-14
   license: CC BY-NC-SA 3.0 CN
   attribution: |
@@ -57,7 +62,9 @@ source:
 
           RAS の称呼データは 5 項目から抽出。**佐藤益木 の項目には称呼一覧が無い**ため
           他メンバー側から再構成している（masking.md に明記）。
-version: 4
+          Roselia の称呼は 5 項目から抽出。**友希那・リサ・あこ の項目には称呼节が無い**ため、
+          addresses は各相手側の記録から再構成（各 4 件のみ）。
+version: 5
 updated: 2026-09-02
 戸山香澄:
   self:
@@ -3972,3 +3979,1031 @@ unregistered:
       confirmed: true
       note: ★ 主従。ただし令王那は口誤を訂正する側でもある
   note: 成功時の口癖「Sweet! Excellent! Unstoppable!」は**原表記未確認**（chuchu.md 参照）。
+湊友希那:
+  self:
+    first_person: 私
+  addresses:
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 紗夜
+          register: 常体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: リサ
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: あこ
+          register: 常体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 燐子
+          register: 常体
+      confirmed: true
+  addressed_by:
+    今井リサ:
+      progression: false
+      forms:
+        - form: 友希那
+          register: 常体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 湊さん
+          register: 丁寧体
+      confirmed: true
+      note: ★ バンド内で唯一の名字呼び
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: 友希那さん
+          register: 丁寧体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 友希那さん
+          register: 丁寧体
+      confirmed: true
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 友希那先輩
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: 友希那先輩
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: 友希那先輩
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 友希那先輩
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: 友希那先輩
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 友希那ちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 友希那さん
+          register: 丁寧体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 湊さん
+          register: 丁寧体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: ユキナさん
+          register: 丁寧体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: 湊さん
+          register: 丁寧体
+      confirmed: true
+      note: ★ レイヤは友希那を「湊さん」、友希那はレイヤを「レイヤ」
+    朝日六花:
+      progression: false
+      forms:
+        - form: 友希那先輩
+          register: 常体
+      confirmed: true
+    要楽奈:
+      progression: false
+      forms:
+        - form: ゆきな
+          register: 常体
+      confirmed: true
+      note: 平仮名表記
+    高松燈:
+      progression: false
+      forms:
+        - form: 友希那さん
+          register: 丁寧体
+      confirmed: true
+    長崎そよ:
+      progression: false
+      forms:
+        - form: 友希那さん
+          register: 丁寧体
+      confirmed: true
+    椎名立希:
+      progression: false
+      forms:
+        - form: 湊先輩
+          register: 常体
+      confirmed: true
+  note: ⚠ 出典に称呼一览が無い。addresses の 4 件は各相手側の記録から再構成。
+氷川紗夜:
+  self:
+    first_person: 私
+  addresses:
+    湊友希那:
+      progression: false
+      forms:
+        - form: 湊さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: 今井さん
+          register: 丁寧体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: 宇田川さん
+          register: 丁寧体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 白金さん
+          register: 丁寧体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: 弦巻さん
+          register: 丁寧体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 瀬田さん
+          register: 丁寧体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: 北沢さん
+          register: 丁寧体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 松原さん
+          register: 丁寧体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 奥沢さん
+          register: 丁寧体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: 倉田さん
+          register: 丁寧体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: 桐ヶ谷さん
+          register: 丁寧体
+      confirmed: true
+      note: ★ 出典の表記は「桐ヶ谷」。proper-nouns は「桐谷」——表記ゆれ要確認
+    二葉つくし:
+      progression: false
+      forms:
+        - form: 二葉さん
+          register: 丁寧体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: レイヤさん
+          register: 丁寧体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: 朝日さん
+          register: 丁寧体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: マスキングさん
+          register: 丁寧体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: チュチュさん
+          register: 丁寧体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: 高松さん
+          register: 丁寧体
+      confirmed: true
+  addressed_by:
+    戸山香澄:
+      progression: true
+      forms:
+        - form: 氷川先輩
+          register: 常体
+          stage: 初期
+        - form: 紗夜先輩
+          register: 常体
+          stage: 中期
+      confirmed: true
+      note: 出典の「氷川先輩→紗夜先輩」
+    花園たえ:
+      progression: false
+      forms:
+        - form: 氷川先輩
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: 氷川先輩
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 紗夜先輩
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: 紗夜先輩
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 紗夜さん
+          register: 丁寧体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: 紗夜さん
+          register: 丁寧体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: 紗夜さん
+          register: 丁寧体
+      confirmed: true
+    宇田川巴:
+      progression: true
+      forms:
+        - form: 氷川先輩
+          register: 常体
+          stage: 初期
+        - form: 紗夜さん
+          register: 丁寧体
+          stage: 中期
+      confirmed: true
+      note: 出典の「氷川先輩→紗夜さん」
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 紗夜さん
+          register: 丁寧体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 紗夜ちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: おねーちゃん
+          register: 常体
+      confirmed: true
+      note: ★ 双子の妹のみ。特別扱い
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 紗夜ちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 紗夜さん
+          register: 丁寧体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: サヨさん
+          register: 丁寧体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: 紗夜
+          register: 常体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: 紗夜
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: 紗夜さん
+          register: 丁寧体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 氷川さん
+          register: 丁寧体
+      confirmed: true
+      note: ★ 互いに姓で呼び合う唯一の組
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: 紗夜
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 紗夜
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: 紗夜先輩
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 紗夜ちゃん
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 紗夜先輩
+          register: 常体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: 紗夜さん
+          register: 丁寧体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: 紗夜さん
+          register: 丁寧体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 紗夜先輩
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: 紗夜先輩
+          register: 常体
+      confirmed: true
+    八潮瑠唯:
+      progression: false
+      forms:
+        - form: 氷川さん
+          register: 丁寧体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: 氷川さん
+          register: 丁寧体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: 紗夜先輩
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: 紗夜さん
+          register: 丁寧体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: 紗夜さん
+          register: 丁寧体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: サヨ
+          register: 常体
+      confirmed: true
+  note: ★ 出典に称呼一览がある（Roselia では紗夜と燐子のみ）。バンド内は全員「名字 + さん」。
+今井リサ:
+  self:
+    first_person: 私
+  addresses:
+    湊友希那:
+      progression: false
+      forms:
+        - form: 友希那
+          register: 常体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 紗夜
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: あこ
+          register: 常体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 燐子
+          register: 常体
+      confirmed: true
+  addressed_by:
+    湊友希那:
+      progression: false
+      forms:
+        - form: リサ
+          register: 常体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 今井さん
+          register: 丁寧体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: リサさん
+          register: 丁寧体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: 今井さん
+          register: 丁寧体
+      confirmed: true
+    戸山香澄:
+      progression: true
+      forms:
+        - form: リサ先輩
+          register: 常体
+          stage: 初期
+        - form: リサさん
+          register: 常体
+          stage: 中期
+      confirmed: true
+      note: 出典の「リサ先輩→リサさん」
+    花園たえ:
+      progression: false
+      forms:
+        - form: リサさん
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: リサさん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: リサさん
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: リサさん
+          register: 常体
+      confirmed: true
+    高松燈:
+      progression: false
+      forms:
+        - form: 今井さん
+          register: 丁寧体
+      confirmed: true
+    和奏レイヤ:
+      progression: true
+      forms:
+        - form: 今井さん
+          register: 丁寧体
+          stage: 初期
+        - form: リサさん
+          register: 丁寧体
+          stage: 中期
+      confirmed: true
+      note: 出典の「今井さん→リサさん」
+    朝日六花:
+      progression: false
+      forms:
+        - form: リサ先輩
+          register: 常体
+      confirmed: true
+  note: ⚠ 出典に称呼一览が無い。addresses の 4 件は各相手側の記録から再構成。
+宇田川あこ:
+  self:
+    first_person: 私
+  addresses:
+    湊友希那:
+      progression: false
+      forms:
+        - form: 友希那さん
+          register: 丁寧体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 紗夜さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: リサさん
+          register: 丁寧体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: りんりん
+          register: 常体
+      confirmed: true
+      note: ★ バンド内で唯一の愛称
+  addressed_by:
+    湊友希那:
+      progression: false
+      forms:
+        - form: あこ
+          register: 常体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 宇田川さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: あこ
+          register: 常体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: あこちゃん
+          register: 常体
+      confirmed: true
+    戸山香澄:
+      progression: false
+      forms:
+        - form: あこ
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: あこ
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: あこちゃん
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: true
+      forms:
+        - form: あこちゃん
+          register: 常体
+          stage: 初期
+        - form: あこ
+          register: 常体
+          stage: 中期
+      confirmed: true
+      note: 出典の「あこちゃん→あこ」
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: あこちゃん
+          register: 常体
+      confirmed: true
+    千早愛音:
+      progression: false
+      forms:
+        - form: あのん
+          register: 常体
+      confirmed: true
+      note: ★ あこは相手を平仮名で呼ぶことがある
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: あこちゃん
+          register: 常体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: あこちゃん
+          register: 常体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: あこ
+          register: 常体
+      confirmed: true
+  note: |-
+    ⚠ 出典に称呼一览が無い。addresses の 4 件は各相手側の記録から再構成。
+    あこは相手を平仮名で呼ぶことがある（`ありさ` `あのん` `さあやちゃん`）。
+白金燐子:
+  self:
+    first_person: わたし
+    note: ★ 平仮名。Roselia の他 4 人は `私`（漢字）
+  addresses:
+    湊友希那:
+      progression: false
+      forms:
+        - form: 友希那さん
+          register: 丁寧体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 氷川さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: 今井さん
+          register: 丁寧体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: あこちゃん
+          register: 常体
+      confirmed: true
+      note: ★ 唯一の常体・愛称
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: 弦巻さん
+          register: 丁寧体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 瀬田さん
+          register: 丁寧体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: 北沢さん
+          register: 丁寧体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 松原さん
+          register: 丁寧体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 奥沢さん
+          register: 丁寧体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: 倉田さん
+          register: 丁寧体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: 広町さん
+          register: 丁寧体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: 二葉さん
+          register: 丁寧体
+      confirmed: true
+    八潮瑠唯:
+      progression: false
+      forms:
+        - form: 八潮さん
+          register: 丁寧体
+      confirmed: true
+      note: ★ 旧友だが現在は姓で呼ぶ
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: レイヤさん
+          register: 丁寧体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: 朝日さん
+          register: 丁寧体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: パレオさん
+          register: 丁寧体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: チュチュさん
+          register: 丁寧体
+      confirmed: true
+  addressed_by:
+    戸山香澄:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: 白金さん
+          register: 丁寧体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: 燐子さん
+          register: 丁寧体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: 燐子さん
+          register: 丁寧体
+      confirmed: true
+    宇田川巴:
+      progression: true
+      forms:
+        - form: 白金さん
+          register: 丁寧体
+          stage: 初期
+        - form: 燐子さん
+          register: 丁寧体
+          stage: 中期
+      confirmed: true
+      note: 出典の「白金さん→燐子さん」
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: 燐子さん
+          register: 丁寧体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: 燐子ちゃん
+          register: 常体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: 燐子ちゃん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: 燐子ちゃん
+          register: 常体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: 白金さん
+          register: 丁寧体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: リンコさん
+          register: 丁寧体
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: 燐子
+          register: 常体
+      confirmed: true
+    氷川紗夜:
+      progression: false
+      forms:
+        - form: 白金さん
+          register: 丁寧体
+      confirmed: true
+    今井リサ:
+      progression: false
+      forms:
+        - form: 燐子
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: りんりん
+          register: 常体
+      confirmed: true
+      note: ★ 唯一の愛称
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: 燐子
+          register: 常体
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: 燐子
+          register: 常体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: 燐子ちゃん
+          register: 常体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: 燐子さん
+          register: 丁寧体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: 燐子さん
+          register: 丁寧体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: りんりん先輩
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    八潮瑠唯:
+      progression: false
+      forms:
+        - form: 白金さん
+          register: 丁寧体
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: 白金さん
+          register: 丁寧体
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: 燐子先輩
+          register: 常体
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: 燐子
+          register: 常体
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: 燐子さん
+          register: 丁寧体
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: リンコ
+          register: 常体
+      confirmed: true
+    千早愛音:
+      progression: false
+      forms:
+        - form: 燐子さん
+          register: 丁寧体
+      confirmed: true
+  note: ★ 出典に称呼一览がある。ほぼ全員に「さん」+ 丁寧体。`あこちゃん` だけが例外。

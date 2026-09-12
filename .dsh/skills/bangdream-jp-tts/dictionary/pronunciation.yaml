@@ -278,6 +278,44 @@ character_names:
     engine: GPT-SoVITS
     note: 佐藤益木。名前「ますき」は**仮名**なので誤読リスクなし
 
+  # ── ロゼリア メンバー（2026-09-02 追加）──
+  # 出典の本名欄で読みを確認済み。★ 印は直読では当たらないもの。
+
+  - word: 白金
+    reading: しろかね
+    reason: |
+      TTS pronunciation — ★ **最も誤読リスクが高い**。
+      「白金」は金属名で はっきん の連想が極めて強く、
+      人名の しろかね とは直結しない
+    verified: false
+    engine: GPT-SoVITS
+    note: 白金燐子。出典の本名欄「白金（しろかね）燐子（りんこ）(Shirokane Rinko)」
+
+  - word: 燐子
+    reading: りんこ
+    reason: |
+      TTS pronunciation — ★ 「燐」は**常用漢字表にも人名用漢字にも無い字**
+      （出典に注記あり）。読みの推定が効きにくい
+    verified: false
+    engine: GPT-SoVITS
+    note: 白金燐子。「燐」を りん と読むのは難読
+
+  - word: 紗夜
+    reading: さよ
+    reason: TTS pronunciation — 「さや」と誤読されやすい（長音ではないが連想が強い）
+    verified: false
+    engine: GPT-SoVITS
+    note: 氷川紗夜。★ 双子の妹「日菜」と混同しないこと（ひな）
+
+  - word: 宇田川
+    reading: うだがわ
+    reason: TTS pronunciation — 「うたがわ」と誤読されやすい
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      宇田川あこ（ロゼリア）と宇田川巴（アフターグロウ）の**姉妹で共通**。
+      誤読すると二人同時に壊れるため優先度が高い
+
 # ─────────────────────────────────────────────────────────────
 # 地名 —— 聖地巡礼スクリプトで頻出。難読地名は誤読リスクが高い
 # ─────────────────────────────────────────────────────────────

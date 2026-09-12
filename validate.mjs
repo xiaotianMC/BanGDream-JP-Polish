@@ -118,6 +118,7 @@ for (const f of FILES) {
       'ポッピンパーティ': 'poppin-party',
       'マイゴ': 'mygo',
       'レイズアスイレン': 'raise-a-suilen',
+      'ロゼリア': 'roselia',
     };
     const charDir = join(base, 'characters');
     const dirs = readdirSync(charDir, { withFileTypes: true }).filter(e => e.isDirectory()).map(e => e.name);

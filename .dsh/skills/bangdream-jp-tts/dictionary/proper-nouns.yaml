@@ -173,23 +173,54 @@ characters:
 
   - canonical: 湊友希那
     kana: みなと ゆきな
+    zh: 凑友希那
     band: ロゼリア
+    rules_file: roselia/yukina.md
+    confirmed: false
+    note: |
+      出典の本名欄「湊（みなと）友希那（ゆきな）(Minato Yukina)」。
+      出典に「译名」欄が無く、日本語漢字がそのまま中文名と一致する
 
   - canonical: 氷川紗夜
     kana: ひかわ さよ
+    zh: 冰川纱夜
     band: ロゼリア
+    rules_file: roselia/sayo.md
+    confirmed: false
+    note: |
+      出典の本名欄「氷川（ひかわ）紗夜（さよ）(Hikawa Sayo)」。
+      ★ 「氷」は ひ と読む（こおり ではない）
 
   - canonical: 今井リサ
     kana: いまい りさ
+    zh: 今井莉莎
     band: ロゼリア
+    rules_file: roselia/lisa.md
+    confirmed: false
+    note: |
+      出典の本名欄「今井（いまい）リサ(Imai Lisa)」——
+      ★ 日本語では リサ と片仮名で書かれるが、読みは りさ。
+      中文名は「莉莎」（莎 は人名用の当て字）
 
   - canonical: 宇田川あこ
     kana: うだがわ あこ
+    zh: 宇田川亚子
     band: ロゼリア
+    rules_file: roselia/ako.md
+    confirmed: false
+    note: |
+      出典の本名欄「宇田川（うだがわ）あこ(Udagawa Ako)」——
+      ★ 日本語では あこ と平仮名。中文名「亚子」は当て字
 
   - canonical: 白金燐子
     kana: しろかね りんこ
+    zh: 白金燐子
     band: ロゼリア
+    rules_file: roselia/rinko.md
+    confirmed: false
+    note: |
+      出典の本名欄「白金（しろかね）燐子（りんこ）(Shirokane Rinko)」。
+      ★ 「燐」は常用漢字表・人名用漢字に無い字（出典に注記あり）
 
   - canonical: 美竹蘭
     kana: みたけ らん
