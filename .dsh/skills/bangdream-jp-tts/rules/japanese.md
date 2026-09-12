@@ -86,7 +86,7 @@ AI 翻译最常见的失败模式：语法正确，但结构是中文的。
 
 - 「あなた」对同辈使用会显得生硬甚至挑衅。仅在妻子对丈夫等特定语域成立。
 - 「彼」「彼女」作主语时，日语常说名字或省略。
-- 称呼形式查 `../dictionary/proper-nouns.yaml` 的 `address_forms`。
+- 称呼形式查 `../dictionary/address-forms.yaml`。
 
 ### J2-3 助词误用
 

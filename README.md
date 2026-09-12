@@ -36,7 +36,8 @@ BanGDream-JP-Polish/
     │   └── kasumi/
     ├── dictionary/
     │   ├── pronunciation.yaml       读音词典
-    │   └── proper-nouns.yaml        专有名词统一 + 称呼对应表
+    │   ├── proper-nouns.yaml        专有名词统一表（bands / characters / places）
+    │   └── address-forms.yaml       ★ 称呼对应表（G6 的唯一事实来源）
     └── examples/
         ├── input/cases.md
         └── output/expected.md

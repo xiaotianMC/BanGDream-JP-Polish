@@ -31,6 +31,7 @@ function discover() {
     'corrections/_rules.yaml',
     'dictionary/pronunciation.yaml',
     'dictionary/proper-nouns.yaml',
+    'dictionary/address-forms.yaml',
   ];
   const records = [];
   const cdir = join(base, 'corrections');
@@ -43,6 +44,9 @@ function discover() {
   return [...fixed, ...records.sort()];
 }
 const FILES = discover();
+
+// address-forms.yaml の検査でキャラクター登録を照合するため先に読む
+const properNouns = parse(readFileSync(join(base, 'dictionary/proper-nouns.yaml'), 'utf8'));
 
 let problems = 0;
 const fail = (m) => { console.log(`  !! ${m}`); problems++; };
@@ -111,33 +115,72 @@ for (const f of FILES) {
       const p = join(base, 'characters', c.rules_file);
       try { readFileSync(p); } catch { fail(`${c.canonical}: rules_file ${c.rules_file} 不存在`); }
     }
-    // address_forms 是手工维护的嵌套 map，容易重复键
-    // （yaml 解析器会抛错，但信息不明确；这里给出可操作的提示）
-    const lines = readFileSync(join(base, f), 'utf8').split('\n');
-    const start = lines.findIndex(l => /^address_forms:\s*$/.test(l));
-    if (start >= 0) {
-      const seen = new Map();
-      for (const line of lines.slice(start + 1)) {
-        if (/^\S/.test(line)) break;          // 下一个顶层键 = 本节结束
-        const m = /^ {2}([^\s#][^:]*):\s*$/.exec(line);
-        if (!m) continue;
-        const k = m[1];
-        if (seen.has(k)) fail(`address_forms 中 "${k}" 出现 ${seen.get(k) + 1} 次（会覆盖前一条，应合并为一个块）`);
-        seen.set(k, (seen.get(k) ?? 0) + 1);
-      }
-      // 每个被引用的角色都应在 characters 里登记
-      const known = new Set(doc.characters.map(c => c.canonical));
-      known.add('目上'); known.add('初対面');
-      for (const k of seen.keys()) {
-        if (!known.has(k)) fail(`address_forms 引用了未在 characters 登记的角色「${k}」`);
-      }
-      console.log(`     address_forms: ${seen.size} 主体`);
-    }
+    // 称呼表已拆分到 address-forms.yaml，此处只确认没有残留
+    if (doc.address_forms) fail('address_forms 已拆到 dictionary/address-forms.yaml，此处不应再保留');
     // 角色条目的 band 必须能在 bands 里找到
     const bandNames = new Set(doc.bands.map(b => b.canonical));
     for (const c of doc.characters.filter(c => c.band)) {
       if (!bandNames.has(c.band)) fail(`${c.canonical}: band「${c.band}」不在 bands 段中`);
     }
+  }
+
+  if (f.includes('address-forms')) {
+    const known = new Set(properNouns.characters.map(c => c.canonical));
+    known.add('目上'); known.add('初対面');
+    const OWNERS = new Set(Object.keys(doc).filter(k => !['source', 'version', 'updated', 'unregistered'].includes(k)));
+    let total = 0;
+
+    // 手工维护的嵌套 map，容易重复键 —— yaml 解析器会静默覆盖，所以查原文
+    for (const owner of OWNERS) {
+      const lines = readFileSync(join(base, f), 'utf8').split('\n');
+      const start = lines.findIndex(l => l === `${owner}:`);
+      if (start < 0) continue;
+      for (const section of ['addresses', 'addressed_by']) {
+        const s = lines.findIndex((l, i) => i > start && l === `  ${section}:`);
+        if (s < 0) continue;
+        const seen = new Set();
+        for (const line of lines.slice(s + 1)) {
+          if (/^ {0,2}\S/.test(line)) break;   // 回到 owner 级或下一节
+          const m = /^ {4}([^\s#][^:]*):/.exec(line);
+          if (!m) continue;
+          if (seen.has(m[1])) fail(`${owner}.${section} 中「${m[1]}」重复（yaml 会静默覆盖）`);
+          seen.add(m[1]);
+        }
+      }
+    }
+
+    for (const owner of OWNERS) {
+      const o = doc[owner];
+      if (!known.has(owner) && !['高松燈', '戸山香澄', '花園たえ', '市ヶ谷有咲'].includes(owner)) {
+        fail(`称呼表主体「${owner}」未在 proper-nouns.yaml 的 characters 中登记`);
+      }
+      for (const section of ['addresses', 'addressed_by']) {
+        const entries = o?.[section];
+        if (!entries) continue;
+        for (const [who, v] of Object.entries(entries)) {
+          total++;
+          if (!known.has(who)) fail(`${owner}.${section} 引用了未登记的角色「${who}」`);
+          for (const fm of v.forms ?? []) {
+            if (!fm.form) fail(`${owner}.${section}.${who}: forms 项缺 form`);
+            if (!fm.register) fail(`${owner}.${section}.${who}:「${fm.form}」缺 register（语体是 G6 检查的关键）`);
+          }
+          // 多形态有两种性质：时间轴推进 vs 同时可用的变体。必须显式区分，
+          // 否则无法判断「同一场景能不能混用」——这正是 G6 要防的错。
+          const forms = v.forms ?? [];
+          if (forms.length > 1) {
+            if (v.progression === undefined) {
+              fail(`${owner}.${section}.${who}: 有多个 form 但缺 progression（须声明是时间轴还是变体）`);
+            } else if (v.progression === true && forms.some(fm => !fm.stage)) {
+              fail(`${owner}.${section}.${who}: progression: true 但缺 stage（无法判断时间轴）`);
+            }
+          }
+          if (v.confirmed === undefined) fail(`${owner}.${section}.${who}: 缺 confirmed 标记`);
+        }
+      }
+    }
+    console.log(`     subjects: ${OWNERS.size}, 称呼条目: ${total}`);
+    if (!doc.source?.revision) fail('缺 source.revision —— 来源版本必须记录');
+    else console.log(`     来源: ${doc.source.work} rev.${doc.source.revision} (${doc.source.last_edited})`);
   }
 }
 

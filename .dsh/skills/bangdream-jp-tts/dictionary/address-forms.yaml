@@ -1,0 +1,478 @@
+# 称呼对应表
+#
+# 用途：G6（人物关系一致性检查）。判定「谁怎么叫谁」以及**称呼背后的语体**。
+#
+# 为什么单独成文件：
+#   称呼是跨角色数据，与「读音」「专有名词」的维护节奏不同；而且本表体积增长快
+#   （灯一人就有 40+ 条），塞进 characters/*.md 会让角色文件的其余部分难以阅读。
+#   角色文件只写「如何用」的口径，具体表在此。**此处是称呼数据的唯一事实来源。**
+#
+# ── 来源 ─────────────────────────────────────────────────────
+source:
+  work: 萌娘百科「高松灯」
+  revision: 8649612
+  last_edited: 2026-08-31
+  language: 中文（角色名为译名，本项目已转为日文表记）
+  retrieved: 2026-02-14
+  url: https://zh.moegirl.org.cn/index.php?title=高松灯&oldid=8649612
+  license: CC BY-NC-SA 3.0 CN
+  attribution: |
+    称呼データは萌娘百科の記事（上記 revision）から抽出・翻訳したもの。
+    同サイトは CC BY-NC-SA 3.0 CN で提供されている。
+    本リポジトリを**非商業目的**で利用する場合のみ、この帰属表示を保持すること。
+    商業利用する場合は同ライセンス条項に従い、別途許諾が必要。
+  note: |
+    ★ 称呼データは**二次情報**である。公式設定・公式台詞による裏取りが望ましい。
+      `confirmed: false` の項目は特に、本文で使う前に公式確認を行うこと（G8）。
+#
+# ── 字段 ─────────────────────────────────────────────────────
+# forms[]        该称呼的所有形式
+#   form         称呼形态
+#   stage        使用阶段（progression 时必填）
+#   register     伴随的语体：常体 / 丁寧体 / 可変
+#   note         补充说明
+# progression    true  = 多个 form 是**关系推进的时间序列**（→ 連接）
+#                false = 多个 form 是**同时可用的变体**（择一，不涉时间）
+# confirmed      该行是否已用官方来源核对
+#   true         日文表记与称呼均较可靠
+#   false        来自中文译名转换，或读音/表记待核对
+#
+# ── 时间轴（重要）─────────────────────────────────────────────
+# `progression: true` 时，多个 form 表示**关系发展的序列**，
+# 不是同时可用的同义变体。这是 G6「关系变化要跟随」的正面应用：
+#   stage: 初期   → 关系尚未建立
+#   stage: 中期   → 关系建立后
+#   stage: 后期   → 亲昵 / 稳定后
+# **同一场景内不得混用不同 stage 的称呼。**
+#
+# `progression: false`（既定）時は複数 form が同時に成立する。
+#   例：香澄の「有咲」「ありさ」はどちらも同じ時期に使える。
+#   この場合 stage は不要。
+#
+# ── 未登记处理 ───────────────────────────────────────────────
+# 表中为 `forms: []`（空）表示**出典明确记载为「-」（无称呼）**，
+# 即该角色不直接称呼灯，或原作未给出称呼。
+# 这与「未调查」不同：未调查的组合**不要猜**（G8），不要写进本表。
+
+version: 1
+updated: 2026-08-31
+
+# ═════════════════════════════════════════════════════════════
+# 高松燈（たかまつ ともり / マイゴ）
+# ═════════════════════════════════════════════════════════════
+高松燈:
+
+  self:
+    first_person: 私
+    note: 一人称は「私」。他の一人称を使わない
+
+  # ── 灯 → 对方 ──────────────────────────────────────────────
+  # 规则：先輩・他バンドの知人には「姓 + さん」＋丁寧体。
+  #       マイゴのメンバーと旧CRYCHICの相手には「名 + ちゃん」＋常体。
+  #       この分布は非常に整っており、整合性検査の強い信号になる。
+  addresses:
+
+    戸山香澄:
+      forms:
+        - form: 香澄さん
+          stage: 通年
+          register: 丁寧体
+      confirmed: true
+
+    花園たえ:
+      forms: []
+      confirmed: true
+
+    牛込りみ:
+      forms: []
+      confirmed: true
+
+    山吹沙綾:
+      forms:
+        - form: 沙綾さん
+          stage: 通年
+          register: 丁寧体
+      confirmed: true
+
+    市ヶ谷有咲:
+      forms: []
+      confirmed: true
+
+    美竹蘭:
+      forms:
+        - form: 美竹さん
+          stage: 通年
+          register: 丁寧体
+      confirmed: true
+
+    羽沢つぐみ:
+      forms:
+        - form: 羽沢さん
+          stage: 通年
+          register: 丁寧体
+      confirmed: true
+
+    氷川日菜:
+      forms:
+        - form: 氷川さん
+          stage: 通年
+          register: 丁寧体
+      confirmed: true
+      note: 天文部を引き継いだ元生徒会長。丁寧体が自然
+
+    今井リサ:
+      forms:
+        - form: 今井さん
+          stage: 通年
+          register: 丁寧体
+      confirmed: true
+
+    千早愛音:
+      progression: true
+      forms:
+        - form: 千早さん
+          stage: 初期
+          register: 可変
+          note: 出会った直後
+        - form: 愛音ちゃん
+          stage: 中期
+          register: 常体
+          note: バンド結成後
+        - form: あのちゃん
+          stage: 后期
+          register: 常体
+          note: 親密になった後
+      confirmed: true
+      note: |
+        ★ 三形態は**時間軸**。同一場面で混用しない。
+        初期の場面で「あのちゃん」を使わない
+
+    要楽奈:
+      forms:
+        - form: 楽奈ちゃん
+          stage: 通年
+          register: 常体
+      confirmed: true
+      note: 楽奈は灯を「ともり」と呼び捨てにする。非対称だが原作通り
+
+    長崎そよ:
+      forms:
+        - form: そよちゃん
+          stage: 通年
+          register: 常体
+      confirmed: false
+      note: |
+        相手の表記に揺れの可能性（出典は中文訳名「长崎爽世」）。
+        公式ページでの**表記確認が必要**
+
+    椎名立希:
+      forms:
+        - form: 立希ちゃん
+          stage: 通年
+          register: 常体
+      confirmed: true
+
+    三角初華:
+      forms:
+        - form: 初華ちゃん
+          stage: 通年
+          register: 常体
+      confirmed: false
+      note: 新版出典で追加された称呼。読み ういか は要確認
+
+    若葉睦:
+      forms:
+        - form: 睦ちゃん
+          stage: 通年
+          register: 常体
+      confirmed: false
+      note: 出典の表記は「睦ちゃん/‐」。場面により呼ばない場合がある
+
+    豊川祥子:
+      progression: true
+      forms:
+        - form: 祥ちゃん
+          stage: 通年
+          register: 常体
+      confirmed: true
+      note: CRYCHIC 期からの関係。旧字体の人名表記は要確認
+
+    八幡海鈴:
+      forms: []
+      confirmed: true
+
+    祐天寺若麦:
+      forms: []
+      confirmed: true
+
+    梅里千桜梨:
+      forms: []
+      confirmed: false
+      note: |
+        1-A のクラスメイト（新版简介で追加）。
+        読みは**未確認**。名前の漢字も出典は中文訳名
+
+    # ── 新規バンド（新版出典で追加）──
+    # 出典はいずれも「-」（称呼なし）。**推測しない**（G8）。
+
+    仲町阿拉蕾: { forms: [], confirmed: false }
+    宮永野乃花: { forms: [], confirmed: false }
+    峰月律: { forms: [], confirmed: false }
+    藤都子: { forms: [], confirmed: false }
+    千石由乃: { forms: [], confirmed: false }
+    汐見蛍: { forms: [], confirmed: false }
+    伊沢棗: { forms: [], confirmed: false }
+    琴平凪: { forms: [], confirmed: false }
+    浜崎茉幌: { forms: [], confirmed: false }
+    和泉朋花: { forms: [], confirmed: false }
+    須賀蕾葉: { forms: [], confirmed: false }
+    馬橋心玖: { forms: [], confirmed: false }
+    矢倉蓬咲: { forms: [], confirmed: false }
+    四宮寧月: { forms: [], confirmed: false }
+
+  # ── 对方 → 灯 ──────────────────────────────────────────────
+  # 灯の台詞を扱うとき、相手が灯をどう呼ぶかも一致させる必要がある（G6）。
+  addressed_by:
+
+    戸山香澄:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+
+    市ヶ谷有咲:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+      note: 新版出典で追加（旧版は「-」だった）
+
+    美竹蘭:
+      forms:
+        - form: 燈
+          register: 常体
+      confirmed: true
+
+    青葉モカ:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+
+    上原ひまり:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+
+    宇田川巴:
+      forms:
+        - form: 燈
+          register: 常体
+      confirmed: true
+
+    羽沢つぐみ:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+
+    丸山彩:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+      note: 新版出典で追加（旧版は「-」だった）
+
+    氷川日菜:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+
+    大和麻弥:
+      forms:
+        - form: 高松さん
+          register: 丁寧体
+      confirmed: true
+      note: 新版出典で追加（旧版は「-」だった）
+
+    氷川紗夜:
+      forms:
+        - form: 高松さん
+          register: 丁寧体
+      confirmed: true
+
+    今井リサ:
+      forms:
+        - form: 燈
+          register: 常体
+      confirmed: true
+      note: 新版出典で追加（旧版は「-」だった）
+
+    弦巻こころ:
+      forms:
+        - form: 燈
+          register: 常体
+      confirmed: true
+
+    瀬田薫:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+      note: 新版出典で追加（旧版は「-」だった）
+
+    奥沢美咲:
+      forms:
+        - form: 高松さん
+          register: 丁寧体
+      confirmed: true
+
+    倉田ましろ:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+
+    朝日六花:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: true
+
+    千早愛音:
+      progression: true
+      forms:
+        - form: 高松さん
+          stage: 初期
+          register: 可変
+        - form: 燈ちゃん
+          stage: 中期
+          register: 常体
+        - form: ともりん
+          stage: 后期
+          register: 常体
+      confirmed: true
+      note: ★ 時間軸。灯側（千早さん→愛音ちゃん→あのちゃん）と**連動**する
+
+    要楽奈:
+      forms:
+        - form: ともり
+          register: 常体
+      confirmed: true
+      note: 呼び捨て。灯側は「楽奈ちゃん」で非対称
+
+    長崎そよ:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: false
+      note: 相手の表記確認が必要
+
+    椎名立希:
+      forms:
+        - form: 燈
+          register: 常体
+      confirmed: true
+
+    三角初華:
+      forms:
+        - form: 燈ちゃん
+          register: 常体
+      confirmed: false
+
+    若葉睦:
+      forms:
+        - form: 燈
+          register: 常体
+      confirmed: false
+      note: 出典の表記は「燈/‐」
+
+    豊川祥子:
+      progression: true
+      forms:
+        - form: 燈さん
+          stage: 初期
+          register: 可変
+        - form: 燈
+          stage: 后期
+          register: 常体
+      confirmed: true
+      note: ★ 時間軸。距離が縮まるにつれ「さん」が落ちる
+
+    # 以下は出典が「-」。**推測しない**（G8）。
+    仲町阿拉蕾: { forms: [], confirmed: false }
+    宮永野乃花: { forms: [], confirmed: false }
+    峰月律: { forms: [], confirmed: false }
+    藤都子: { forms: [], confirmed: false }
+    千石由乃: { forms: [], confirmed: false }
+    汐見蛍: { forms: [], confirmed: false }
+    伊沢棗: { forms: [], confirmed: false }
+    琴平凪: { forms: [], confirmed: false }
+    浜崎茉幌: { forms: [], confirmed: false }
+    和泉朋花: { forms: [], confirmed: false }
+    須賀蕾葉: { forms: [], confirmed: false }
+    馬橋心玖: { forms: [], confirmed: false }
+    矢倉蓬咲: { forms: [], confirmed: false }
+    四宮寧月: { forms: [], confirmed: false }
+    梅里千桜梨: { forms: [], confirmed: false }
+
+# ═════════════════════════════════════════════════════════════
+# 戸山香澄（とやま かすみ / ポッピンパーティ）
+# ═════════════════════════════════════════════════════════════
+戸山香澄:
+
+  self:
+    first_person: わたし
+
+  addresses:
+    市ヶ谷有咲: { progression: false, forms: [{ form: 有咲, register: 常体 }, { form: ありさ, register: 常体 }], confirmed: true }
+    花園たえ: { progression: false, forms: [{ form: たえ, register: 常体 }, { form: たえちゃん, register: 常体 }], confirmed: true }
+    牛込りみ: { progression: true, forms: [{ form: りみ, stage: 通年, register: 常体 }, { form: りみりん, stage: 后期, register: 常体 }], confirmed: true }
+    山吹沙綾: { progression: true, forms: [{ form: 沙綾, stage: 通年, register: 常体 }, { form: さーや, stage: 后期, register: 常体 }], confirmed: true }
+    湊友希那: { progression: false, forms: [{ form: 友希那さん, register: 丁寧体 }, { form: 友希那先輩, register: 丁寧体 }], confirmed: true }
+    高松燈: { progression: false, forms: [{ form: 燈ちゃん, register: 常体 }], confirmed: true }
+    目上: { progression: false, forms: [{ form: 姓 + さん, register: 丁寧体 }, { form: 姓 + 先生, register: 丁寧体 }], confirmed: true }
+    初対面: { progression: false, forms: [{ form: 姓 + さん, register: 丁寧体 }], confirmed: true }
+  note: |
+    「りみりん」「さーや」は**親密な愛称**。関係構築後でのみ使用（stage: 后期）。
+    初対面の場面では使わない。
+    「有咲」「ありさ」は同時に使える変種（progression: false）。
+    香澄は**場面**で敬体を切り替える（正式な場では丁寧体）。
+    燈は**関係**で切り替える——両者を混同しない
+
+# ═════════════════════════════════════════════════════════════
+# 花園たえ（はなぞの たえ / ポッピンパーティ）
+# ═════════════════════════════════════════════════════════════
+花園たえ:
+  addresses:
+    戸山香澄: { forms: [{ form: 香澄, register: 常体 }], confirmed: true }
+    市ヶ谷有咲: { forms: [{ form: 有咲, register: 常体 }], confirmed: true }
+    牛込りみ: { forms: [{ form: りみ, register: 常体 }], confirmed: true }
+    山吹沙綾: { forms: [{ form: 沙綾, register: 常体 }], confirmed: true }
+  note: 基本的に呼び捨て。たえの口調は独特なので characters/ のファイルを参照
+
+# ═════════════════════════════════════════════════════════════
+# 市ヶ谷有咲（いちがや ありさ / ポッピンパーティ）
+# ═════════════════════════════════════════════════════════════
+市ヶ谷有咲:
+  addresses:
+    戸山香澄: { forms: [{ form: 香澄, register: 常体 }], confirmed: true }
+    花園たえ: { forms: [{ form: たえ, register: 常体 }], confirmed: true }
+    牛込りみ: { forms: [{ form: りみ, register: 常体 }], confirmed: true }
+    山吹沙綾: { forms: [{ form: 沙綾, register: 常体 }], confirmed: true }
+  note: 有咲は基本的に名字でなく名前で呼ぶ。ツンデレ的な呼び捨て
+
+# ═════════════════════════════════════════════════════════════
+# 未調査 —— これらの組み合わせは**推測しない**（G8）
+# ═════════════════════════════════════════════════════════════
+unregistered:
+
+  - item: 上記以外の全キャラクター間の称呼
+    action: 使用前に公式台詞で確認し、本表に追加する
+
+  - item: 新規バンドのメンバー同士の称呼
+    action: |
+      夢限大MewType / millsage / 一家Dumb Rock! はバンドとしても
+      proper-nouns.yaml の bands に未登録。作品内での扱いを確認してから追加する
