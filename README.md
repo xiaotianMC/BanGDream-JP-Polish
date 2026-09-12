@@ -66,7 +66,7 @@ BanGDream-JP-Polish/
     │   │   ├── taki.md              椎名立希（Dr/作曲）
     │   │   └── soyo.md              長崎そよ（Ba）
     │   ├── crychic/                 ★ _band.md のみ（角色ファイルを置かない）
-    │   │   └── _band.md             CRYCHIC（解散済み。5 人は他バンドにファイルあり）
+    │   │   └── _band.md             クライシック（解散済み。5 人は他バンドにファイルあり）
     │   └── sumimi/                  アイドルユニット（バンドではない）
     │       ├── _band.md             スミミ（ユニット情報）
     │       └── mana.md              純田まな（Vo）
@@ -199,7 +199,7 @@ BanG Dream!   → バンドリ
 | `characters/ave-mujica/*.md` | ⚠️ 基于萌娘百科条目撰写（祥子・睦・海鈴・初華・若麦）。称呼数据**5 人全有称呼一览**（质量最高）。**睦的别人格与初華的双重名义未确定** |
 | `characters/raise-a-suilen/*.md` | ⚠️ 基于萌娘百科条目撰写（レイヤ・六花・益木・令王那・知由）。**益木 的条目无称呼节**，同上有重建 |
 | `characters/mygo/*.md` | ⚠️ 基于萌娘百科条目撰写（燈・愛音・楽奈・立希・そよ） |
-| 各角色文件末的「表记待确认」 | ⚠️ 多处日文表记/读音**待核对**（tae 的中文名、りみ 的关西腔、CRYCHIC 的假名形等） |
+| 各角色文件末的「表记待确认」 | ⚠️ 多处日文表记/读音**待核对**（tae 的中文名、りみ 的关西腔、RiNG 的假名形等） |
 | `dictionary/pronunciation.yaml` | ✅ `verified_readings` 15 项**朗读已由用户确认**（2026-02-14）；⚠️ 其余条目 `verified: false`，且**全部条目均未用真实 TTS 验证** |
 | `corrections/_rules.yaml` | ⚠️ 全部是 `status: demo`，源自需求文档示例，**不得作为强制依据** |
 | `corrections/kasumi/*.yaml` | ⚠️ 示范记录，非真实数据 |
@@ -250,7 +250,9 @@ BanG Dream!   → バンドリ
 - 核心规则不绑定引擎；引擎差异放在 `adapters/`，不写进 `rules/`
 - 目前只有 GPT-SoVITS 一个 adapter。换引擎时新增 adapter，`rules/` 不动
 - 角色规则目前有 **26 人**：ポッピンパーティ / ロゼリア / レイズアスイレン / アヴェムジカ / マイゴ の各 5 人 + **スミミ 1 人**（純田まな）。新增乐队请从 `characters/_template-band.md` 起手
-- **`crychic/` 只有 `_band.md`，没有角色文件**（5 人全在别的乐队有文件）。**CRYCHIC 的片假名形未确认，本文不得使用该词**（G9 唯一未解决项）
+- **`crychic/` 只有 `_band.md`，没有角色文件**（5 人全在别的乐队有文件）
+- ✅ **CRYCHIC 的片假名形已确定 = `クライシック`**（出典简介明记）。**G9 至此没有未解决项**
+  - ⚠️ 但 `クライシック` 与 `クラシック`（CLASSIC）片假名极近，出典记载「祥子提出时睦听错了」。TTS 混同风险已记入 `pronunciation.yaml`
 - 曲名未登记；出现时按 `dictionary/proper-nouns.yaml` 的 `unregistered` 处理
 - **未实机验证**：所有读音条目与 adapter 行为描述均为 `verified: false`（用户已确认的朗读另见 `pronunciation.yaml` 的 `verified_readings`）
 
