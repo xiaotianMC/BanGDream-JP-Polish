@@ -8,3 +8,4 @@ node_modules/
 commitmsg.*
 cmsg.*
 .tmp-commitmsg
+*.commitmsg.txt

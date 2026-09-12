@@ -699,6 +699,20 @@ verified_readings:
       **別物**なので混同しないこと。
 
   # ── 楽曲名 ──────────────────────────────────────────────
+  - word: モーティス
+    reading: モーティス
+    kind: character_alias
+    reason: |
+      TTS pronunciation — 原表記 `Mortis` は英語 G2P を通る（G9）。
+      ★ **`モルティス` と誤読されやすい**（ラテン語 mortis の連想）。
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      若葉睦（アヴェムジカ）のコードネーム **かつ別人格名**。
+      コードネームは Lacus Mortis（死湖）に由来。意味は**死**。
+      ★ 睦の自称は `私` / `睦ちゃん` / `モーティス` の三つに分かれる
+      （出典の称呼一覧）。**別人格の語体は出典に記載が無い**（mutsumi.md 参照）。
+
   - word: 春日影
     reason: TTS pronunciation — 曲名。「影」を かげ と読み、「春日」を はるひ と読ませる必要がある（はるかげ ではない）
     reading: はるひかげ

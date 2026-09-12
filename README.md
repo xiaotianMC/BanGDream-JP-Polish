@@ -67,9 +67,17 @@ BanGDream-JP-Polish/
     │   │   └── soyo.md              長崎そよ（Ba）
     │   ├── crychic/                 ★ _band.md のみ（角色ファイルを置かない）
     │   │   └── _band.md             クライシック（解散済み。5 人は他バンドにファイルあり）
-    │   └── sumimi/                  アイドルユニット（バンドではない）
-    │       ├── _band.md             スミミ（ユニット情報）
-    │       └── mana.md              純田まな（Vo）
+    │   ├── sumimi/                  アイドルユニット（バンドではない）
+    │   │   ├── _band.md             スミミ（ユニット情報）
+    │   │   └── mana.md              純田まな（Vo）
+    │   └── music-industry/          ★ 音楽業界（バンドに所属しない人物）
+    │       ├── _category.md         カテゴリ共通情報
+    │       └── livehouse/           LiveHouse 経営・運営
+    │           ├── _livehouse.md    職種共通情報（接客業の語体）
+    │           ├── shifune.md       都筑詩船（元 SPACE 責任者・オーナー）
+    │           ├── marina.md        月島麻里奈（CiRCLE スタッフ）
+    │           └── rinko.md         真次凛々子（元 SPACE → RiNG）
+    │              （能々美子 は專有名詞のみ。ファイルを作らない）
     │          （中文层 <角色>.zh.md 尚未建立）
     ├── corrections/                 ★ 项目核心数据
     │   ├── _schema.md               记录格式 + 分类 + 规则升级标准
@@ -249,10 +257,11 @@ BanG Dream!   → バンドリ
 - 不修改历史 correction 数据（只追加）
 - 核心规则不绑定引擎；引擎差异放在 `adapters/`，不写进 `rules/`
 - 目前只有 GPT-SoVITS 一个 adapter。换引擎时新增 adapter，`rules/` 不动
-- 角色规则目前有 **26 人**：ポッピンパーティ / ロゼリア / レイズアスイレン / アヴェムジカ / マイゴ の各 5 人 + **スミミ 1 人**（純田まな）。新增乐队请从 `characters/_template-band.md` 起手
-- **`crychic/` 只有 `_band.md`，没有角色文件**（5 人全在别的乐队有文件）
+- 角色规则目前有 **29 人**：ポッピンパーティ / ロゼリア / レイズアスイレン / アヴェムジカ / マイゴ の各 5 人 + **スミミ 1 人**（純田まな）+ **音楽業界 3 人**（都筑詩船・月島麻里奈・真次凛々子）。新增乐队请从 `characters/_template-band.md` 起手
+- **`characters/` 下并非只有乐队**：`crychic/`（仅 `_band.md`）、`sumimi/`（偶像组合）、`music-industry/livehouse/`（音乐业界 LiveHouse）。**能々美子 无独立条目，只作专有名词处理，不建角色文件**
 - ✅ **CRYCHIC 的片假名形已确定 = `クライシック`**（出典简介明记）。**G9 至此没有未解决项**
   - ⚠️ 但 `クライシック` 与 `クラシック`（CLASSIC）片假名极近，出典记载「祥子提出时睦听错了」。TTS 混同风险已记入 `pronunciation.yaml`
+- ⚠️ **`CiRCLE` / `SPACE` / `Galaxy` / `RiNG` 四个 LiveHouse 名全是英字，片假名形未确认**，确认前不得写入正文
 - 曲名未登记；出现时按 `dictionary/proper-nouns.yaml` 的 `unregistered` 处理
 - **未实机验证**：所有读音条目与 adapter 行为描述均为 `verified: false`（用户已确认的朗读另见 `pronunciation.yaml` 的 `verified_readings`）
 

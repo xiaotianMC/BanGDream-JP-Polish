@@ -77,7 +77,7 @@ source:
           祥子 は 3 組の時間軸を持ち、にゃむ は全員を片仮名の `〜コ` 系愛称で呼ぶ。
           ★ 純田真奈（スミミ）の項目には**称呼一覧が無く、言語描写自体が乏しい**。
           subjects には登録したが addresses / addressed_by は空のまま（推測で埋めない）。
-version: 7
+version: 8
 updated: 2026-02-14
 戸山香澄:
   self:
@@ -3304,6 +3304,18 @@ unregistered:
       出典の両項目に称呼一覧が無い。確認できているのは
       「スミミでは互いに姓を付けない」というユニット共通の約束のみ。
       私的な場面での呼び方（`初華ちゃん` か `初華` か）は未調査
+  - item: 月島麻里奈 → 他角色の称呼
+    action: |
+      出典の称呼表は「主要角色 → 麻里奈」の**向きのみ**。
+      麻里奈自身が相手をどう呼ぶかは出典に無い。
+      音声で確認できたのは**プレイヤー（後輩）への `君`** のみ
+  - item: 音楽業界の関係者（都筑詩船 / 真次凛々子 / 能々美子）
+    action: |
+      出典に称呼表が無い、または項目自体が存在しない。
+      ・都筑詩船：称呼表なし。楽奈（外孫）への呼び方も未確認
+      ・真次凛々子：称呼表なし。後輩スタッフへの呼び方も未確認
+      ・能々美子：**独立条目が無い**ため、称呼データを取得できない
+      → 台詞で称呼が必要になったら【待确认】に出す
   - item: 新規バンド 3 組（梦限大MewType / millsage / 一家Dumb Rock!）内の称呼
     action: 未調査
   - item: クライシック期の称呼・語体
@@ -5573,3 +5585,241 @@ unregistered:
     ユニット共通の約束のみ（`_band.md` 参照）。
     相手側（初華 = 三角初華）からの称呼も出典に一覧が無い。
     → 台詞で称呼が必要になったら【待确认】に出す。
+月島麻里奈:
+  self:
+    first_person: 私
+    note: |
+      音声 17 行のうち一人称は 1 回のみ（`私もなかなか気の利いた…`）。
+      常体基線。**接客時の語体は実例が無い**（characters/music-industry/livehouse/marina.md）。
+  addressed_by:
+    戸山香澄:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    花園たえ:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    牛込りみ:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 丁寧体
+      confirmed: true
+    山吹沙綾:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    市ヶ谷有咲:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    美竹蘭:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    青葉モカ:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    上原ひまり:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    宇田川巴:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    羽沢つぐみ:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 丁寧体
+      confirmed: true
+    丸山彩:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 丁寧体
+      confirmed: true
+    氷川日菜:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    白鷺千聖:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 丁寧体
+      confirmed: true
+    大和麻弥:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    若宮イヴ:
+      progression: false
+      forms:
+        - form: マリナさん
+          register: 常体
+          note: ★ 片仮名表記。イヴの呼び方
+      confirmed: true
+    湊友希那:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    氷川紗夜:
+      progression: true
+      forms:
+        - form: 月島さん
+          register: 丁寧体
+          stage: 初期
+        - form: まりなさん
+          register: 常体
+          stage: 後期
+      confirmed: true
+      note: ★ 時間軸。初期は「月島さん」。distance が縮まる
+    今井リサ:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    宇田川あこ:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    白金燐子:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 丁寧体
+      confirmed: true
+    弦巻こころ:
+      progression: false
+      forms:
+        - form: まりな
+          register: 常体
+          note: ★ さん無し。こころは全員に対してこの形
+      confirmed: true
+    瀬田薫:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 丁寧体
+      confirmed: true
+    北沢はぐみ:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    松原花音:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 丁寧体
+      confirmed: true
+    奥沢美咲:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    倉田ましろ:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 丁寧体
+      confirmed: true
+    桐谷透子:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    広町七深:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+      confirmed: true
+    二葉つくし:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 丁寧体
+      confirmed: true
+    八潮瑠唯:
+      progression: false
+      forms:
+        - form: 月島さん
+          register: 丁寧体
+          note: ★ 姓 + さん。瑠唯のみ
+      confirmed: true
+    和奏レイヤ:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+          note: 出典の称呼表はコードネーム `LAYER` で記載
+      confirmed: true
+    朝日六花:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+          note: 出典の称呼表はコードネーム `LOCK` で記載
+      confirmed: true
+    佐藤益木:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+          note: 出典の称呼表はコードネーム `MASKING` で記載
+      confirmed: true
+    鳰原令王那:
+      progression: false
+      forms:
+        - form: まりなさん
+          register: 常体
+          note: 出典の称呼表はコードネーム `PAREO` で記載
+      confirmed: true
+    珠手知由:
+      progression: false
+      forms:
+        - form: マリナ
+          register: 常体
+          note: ★ さん無し + 片仮名。知由の尊大さの表れ
+      confirmed: true
+  note: |
+    ★ **出典に称呼表があるが「主要角色 → 麻里奈」の向きのみ**。
+    麻里奈自身が相手をどう呼ぶか（`addresses`）は**出典に無い**ため空。
+    音声で確認できたのは**プレイヤー（後輩）への `君`** のみ。
+    ★ `さん` を付けないのは **こころ と 知由** の 2 名だけ。
+      こころは全員に対してそうなので彼女固有、知由は尊大さの表れ。
+      **麻里奈を雑に呼んでよい、という意味ではない。**
+    時間軸を持つのは **氷川紗夜** のみ（月島さん → まりなさん）。

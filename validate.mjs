@@ -128,8 +128,30 @@ for (const f of FILES) {
     };
     const charDir = join(base, 'characters');
     const dirs = readdirSync(charDir, { withFileTypes: true }).filter(e => e.isDirectory()).map(e => e.name);
-    const undeclared = dirs.filter(d => !Object.values(BAND_DIR).includes(d));
+
+    // ── バンド以外のカテゴリ ──
+    // characters/ 配下には「バンド」以外の分類も置く。
+    // 例：music-industry（音楽業界）→ livehouse（LiveHouse 経営・運営）
+    // これらは BAND_DIR に無いので、ディレクトリ名を明示的に既知とする。
+    // ★ ここを更新しないと「未登録のバンドディレクトリ」として fail する。
+    const NON_BAND = new Set([
+      'music-industry',   // 音楽業界（カテゴリ）
+      'livehouse',        // LiveHouse 職種（music-industry 配下）
+    ]);
+    const undeclared = dirs.filter(d => !Object.values(BAND_DIR).includes(d) && !NON_BAND.has(d));
     if (undeclared.length) fail(`characters/ に未登録のバンドディレクトリ: ${undeclared.join(', ')}`);
+
+    // 非バンドカテゴリにも「共通情報の置き場」が要る。
+    // _category.md / _<subcategory>.md のどちらかがあることを確認する。
+    const catDir = join(charDir, 'music-industry');
+    try {
+      readdirSync(catDir);
+      for (const need of ['_category.md', join('livehouse', '_livehouse.md')]) {
+        try { readFileSync(join(catDir, need)); }
+        catch { fail(`characters/music-industry/${need} が無い（カテゴリ共通情報の置き場）`); }
+      }
+      console.log(`     非バンドカテゴリ: music-industry（livehouse を含む）`);
+    } catch { /* music-industry が無ければ検査しない */ }
 
     for (const d of Object.values(BAND_DIR)) {
       const bandFile = join(charDir, d, '_band.md');
@@ -208,8 +230,14 @@ for (const f of FILES) {
     // canonical に加え aliases も既知とする。
     // 称呼データは出典の表記をそのまま採るため、通称（チュチュ等）で
     // 引かれることがある。aliases を無視すると正しいデータを誤検出する。
-    const known = new Set(properNouns.characters.map(c => c.canonical));
-    for (const c of properNouns.characters) for (const a of c.aliases ?? []) known.add(a);
+    //
+    // ★ バンド成員（characters）だけでなく、**バンドに所属しない
+    //   音楽業界の関係者（staff）**も称呼表の主体・対象になりうる。
+    //   例：LIVE HOUSE スタッフの 月島麻里奈。
+    //   両方を既知として扱わないと、正しいデータを「未登録」と誤判定する。
+    const allPeople = [...properNouns.characters, ...(properNouns.staff ?? [])];
+    const known = new Set(allPeople.map(c => c.canonical));
+    for (const c of allPeople) for (const a of c.aliases ?? []) known.add(a);
     known.add('目上'); known.add('初対面');
     const OWNERS = new Set(Object.keys(doc).filter(k => !['source', 'version', 'updated', 'unregistered'].includes(k)));
     let total = 0;
