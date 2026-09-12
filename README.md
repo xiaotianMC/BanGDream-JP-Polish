@@ -27,20 +27,22 @@ BanGDream-JP-Polish/
     ├── adapters/
     │   └── gpt-sovits.md            引擎适配（已确定 GPT-SoVITS）+ 验证清单
     ├── characters/
-    │   ├── _template.md             新角色从这里开始
+    │   ├── _template.md             新角色从这里开始（日语层）
+    │   ├── _template-zh.md          中文层模板（模式 1 用）
     │   ├── kasumi.md                戸山香澄（ポッピンパーティ）
     │   ├── tomori.md                高松燈（マイゴ）ボーカル
     │   ├── anon.md                  千早愛音（マイゴ）ギター
     │   ├── rana.md                  要楽奈（マイゴ）ギター
     │   ├── taki.md                  椎名立希（マイゴ）ドラム・作曲
     │   └── soyo.md                  長崎そよ（マイゴ）ベース
+    │      （中文层 <角色>.zh.md 尚未建立）
     ├── corrections/                 ★ 项目核心数据
     │   ├── _schema.md               记录格式 + 分类 + 规则升级标准
     │   ├── _rules.yaml              已提炼规则 + confidence
     │   └── kasumi/
     ├── dictionary/
     │   ├── pronunciation.yaml       读音词典
-    │   ├── proper-nouns.yaml        专有名词统一表（bands / characters / places）
+    │   ├── proper-nouns.yaml        专有名词统一表 + zh_variants（译名变体，Gate 2）
     │   └── address-forms.yaml       ★ 称呼对应表（G6 的唯一事实来源）
     └── examples/
         ├── input/cases.md
@@ -69,9 +71,42 @@ DSH 扫描以下根目录（优先级从高到低）：
 
 在 DSH 会话中：
 
-- 自动触发：给出角色名 + 日语台词，或提到「日语优化」「角色语气」「TTS 断句」
+- 自动触发：给出角色名 + 台词，或提到「日语优化」「角色语气」「TTS 断句」「中文优化」
 - 手动触发：`/bangdream-jp-tts`
-- 加载规则：skill 会用 `skill` 工具读取对应的规则文件
+
+### 两个 Gate（每次必答）
+
+Skill 会在动手前先问两个问题，因为它们决定整轮的产出形态：
+
+**Gate 1 — 处理模式**
+
+| # | 模式 | 输入 | 输出 |
+|---|---|---|---|
+| 1 | 只优化中文表达 | 中文 | 中文 |
+| 2 | 翻译成日语 + 角色化 | 中文 | 日语 |
+| 3 | 只做 TTS 读音纠正 | 日语 | 日语（只动读法） |
+| 4 | 2 + 3 一起 | 中文 | 日语（角色化 + TTS） |
+
+模式 3 **不做角色化**——已有日语是正确台词，只处理读法。
+输出里必须有 `【未改动】` 一节，声明语体和用词没被动过。
+
+**Gate 2 — 用词偏好**
+
+| # | 偏好 | 例 |
+|---|---|---|
+| 1 | 贴近官方 | 用「爽世」 |
+| 2 | 更社区化 | 用「素世」 |
+
+变体对照表在 `dictionary/proper-nouns.yaml` 的 `zh_variants` 段。
+选定后即为该批次 canonical，**同批次不得混用**。
+
+### 中文层的现状
+
+模式 1 需要 `characters/<角色>.zh.md`（中文层规则），**这些文件尚未建立**。
+需要时会先按 `characters/_template-zh.md` 建，或明确告知"中文层尚未编写"。
+
+日语层（`characters/<角色>.md`）管 `〜だよ`／です・ます 这类语尾，
+中文没有对应物，**两者不可互相套用**——否则会写出翻译腔。
 
 ## TTS 引擎
 
