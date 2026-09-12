@@ -114,33 +114,71 @@ character_names:
       長崎そよ。**名前は仮名「そよ」が正**（「爽世」は後付けの漢字名）。
       本文でも仮名を使うのが原作準拠かつ TTS 安全
 
+  # ── ポッピンパーティ メンバー（2026-09-02 追加）──
+
+  - word: たえ
+    reading: たえ
+    reason: TTS pronunciation — **仮名表記なので誤読リスクは低い**
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      花園たえ。漢字表記が存在しない（出典の「多惠」は中文表記で日本語起源が不明）。
+      **仮名なので TTS 的に最も安全**。`おたえ` も同様
+
+  - word: りみ
+    reading: りみ
+    reason: TTS pronunciation — **仮名表記なので誤読リスクは低い**
+    verified: false
+    engine: GPT-SoVITS
+    note: 牛込りみ。`牛込`（うしごめ）は別途登録。苗字だけが漢字
+
+  - word: 沙綾
+    reading: さあや
+    reason: |
+      TTS pronunciation — **「さや」と誤読されやすい**（長音の有無）。
+      同じ作品内に「さーや」という呼称も存在し、混同しやすい
+    verified: false
+    engine: GPT-SoVITS
+    note: |
+      山吹沙綾。**「さあや」が本名の読み**、「さーや」は呼称。
+      読みは同じだが表記が異なる。TTS には同じ音として渡る想定
+
+  - word: 有咲
+    reading: ありさ
+    reason: |
+      TTS pronunciation — **「ゆうさき」等と誤読されやすい**。
+      「咲」を さき と読む連想が強い
+    verified: false
+    engine: GPT-SoVITS
+    note: 市ヶ谷有咲。「咲」は さ
+
+  - word: 牛込
+    reading: うしごめ
+    reason: |
+      TTS pronunciation — **「ぎゅうこみ」等と誤読されやすい**。
+      牛込さん（友希那・紗夜・燐子・麻弥が使う）で頻出
+    verified: false
+    engine: GPT-SoVITS
+    note: 牛込りみの姓
+
+  - word: 戸山
+    reading: とやま
+    reason: |
+      TTS pronunciation — 「戸」を こ と読む可能性。
+      戸山さん（麻弥・友希那・紗夜・燐子・美咲が使う）で頻出
+    verified: false
+    engine: GPT-SoVITS
+    note: 戸山香澄の姓
+
   - word: 香澄
     reading: かすみ
     reason: TTS pronunciation — 「香」を「こう」と読む可能性が高い
     verified: false
     engine: null
 
-  - word: 戸山
-    reading: とやま
-    reason: TTS pronunciation — 「戸」を「こ」と読む可能性
-    verified: false
-    engine: null
-
   - word: 市ヶ谷
     reading: いちがや
     reason: TTS pronunciation — 「ヶ」の読み（が / け / ガ）が不安定
-    verified: false
-    engine: null
-
-  - word: 有咲
-    reading: ありさ
-    reason: TTS pronunciation — 難読。当用漢字の組み合わせ
-    verified: false
-    engine: null
-
-  - word: 沙綾
-    reading: さあや
-    reason: TTS pronunciation — 「沙」の読みが不安定（さ / しゃ）
     verified: false
     engine: null
 

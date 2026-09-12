@@ -361,11 +361,14 @@ economy — do not read all of `characters/` to polish one line.
 | 只做 TTS 读音纠正 | `rules/tts.md`, `dictionary/*.yaml`（**不读** `characters/`） |
 
 1. Always read `rules/global.md` — every mode needs G1–G3.
-2. Read `characters/<角色>.md`（日语层）or `characters/<角色>.zh.md`（中文层）
+2. Read `characters/<band>/<角色>.md`（日语层）or `characters/<band>/<角色>.zh.md`（中文层）
+   — the band is `characters/<band>/_band.md`. Read it too when more than one
+   member appears in the same scene, because it carries the intra-band register map.
    for the named character. If it does not exist, **stop and say so** — do not
    improvise a character voice from general knowledge of the franchise, and do
    not silently fall back to generic "natural language". Offer to draft the file
-   from `characters/_template.md`（日语）or `characters/_template-zh.md`（中文）.
+   from `characters/_template-ja.md`（日语）or `characters/_template-zh.md`（中文）.
+   For a whole band, start from `characters/_template-band.md`.
 3. Read `dictionary/proper-nouns.yaml` whenever the text contains a name, song
    title, band name, or place — **all modes**, because Gate B 的译名偏好就存在这里。
    For Japanese output also read `dictionary/pronunciation.yaml` whenever the
@@ -560,21 +563,43 @@ rules/global.md           语义/信息/关系/专有名词 — all characters, 
 rules/japanese.md         日语自然度 — 书面语, 中文式表达, 标点
 rules/tts.md              TTS — 断句, 停顿, 读音, 情绪辅助
 adapters/gpt-sovits.md    引擎适配（已确定 GPT-SoVITS）— 引擎特定行为 + 验证清单
-characters/_template.md        模板（日语层）— 新角色从这里开始
-characters/_template-zh.md     模板（中文层）
-characters/kasumi.md           戸山香澄（日语层）
-characters/tomori.md           高松燈（マイゴ）
-characters/anon.md             千早愛音（マイゴ）
-characters/rana.md             要楽奈（マイゴ）
-characters/taki.md             椎名立希（マイゴ）
-characters/soyo.md             長崎そよ（マイゴ）
-characters/<角色>.zh.md        中文层 — **尚未建立**（需要时再建）
+
+characters/               ★ 按乐队分目录（见下）
+├── _template-ja.md           模板（日语层）— 新角色从这里开始
+├── _template-zh.md           模板（中文层）
+├── _template-band.md         模板（乐队层）
+├── poppin-party/
+│   ├── _band.md              ポッピンパーティ — 語体マップ・関係性
+│   ├── kasumi.md             戸山香澄（Vo/Gt）
+│   ├── tae.md                花園たえ（Gt）
+│   ├── rimi.md               牛込りみ（Ba）
+│   ├── saaya.md              山吹沙綾（Dr）
+│   └── arisa.md              市ヶ谷有咲（Key）
+└── mygo/
+    ├── _band.md              マイゴ — 語体マップ・関係性
+    ├── tomori.md             高松燈（Vo）
+    ├── anon.md               千早愛音（Gt）
+    ├── rana.md               要楽奈（Gt）
+    ├── taki.md               椎名立希（Dr/作曲）
+    └── soyo.md               長崎そよ（Ba）
+
+characters/<band>/<角色>.zh.md  中文层 — **尚未建立**（需要时再建）
+
 corrections/_schema.md         记录格式 + 分类 + 规则升级标准
 corrections/_rules.yaml        已提炼规则 + confidence + evidence_count
 corrections/kasumi/            戸山香澄 的修订记录
 dictionary/pronunciation.yaml  读音词典（日语输出用）
-dictionary/proper-nouns.yaml   专有名词统一表 + zh_variants（译名变体，Gate 2 用）
+dictionary/proper-nouns.yaml   专有名词统一表 + zh_variants（译名变体，Gate B 用）
 dictionary/address-forms.yaml  称呼对应表（G6 的唯一事实来源）
 examples/input/                输入样例
 examples/output/               输出样例
 ```
+
+### なぜバンド別ディレクトリか
+
+- **乐队共通の情報**（語体マップ、関係性、口号）は `_band.md` に集約され、
+  各角色ファイルに重複しない。重複は必ず齟齬を生む。
+- **複数角色が同じ場面に出る**とき、まず `_band.md` を読めば
+  「誰が誰にどう話すか」が一目で分かる。
+- **新しいバンドを追加する**ときは `_template-band.md` から起こし、
+  そのディレクトリに角色を足していく。

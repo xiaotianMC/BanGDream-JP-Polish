@@ -110,11 +110,49 @@ for (const f of FILES) {
 
   if (f.includes('proper-nouns')) {
     console.log(`     bands: ${doc.bands.length}, characters: ${doc.characters.length}`);
-    // 角色表里声明了 rules_file 的，文件必须真实存在
-    for (const c of doc.characters.filter(c => c.rules_file)) {
-      const p = join(base, 'characters', c.rules_file);
-      try { readFileSync(p); } catch { fail(`${c.canonical}: rules_file ${c.rules_file} 不存在`); }
+
+    // ── 角色ファイルは characters/<band>/ に置く ──
+    // バンド → ディレクトリ名の対応。projects では bands.canonical が片仮名なので、
+    // latin か既知の対応表から引く。
+    const BAND_DIR = {
+      'ポッピンパーティ': 'poppin-party',
+      'マイゴ': 'mygo',
+    };
+    const charDir = join(base, 'characters');
+    const dirs = readdirSync(charDir, { withFileTypes: true }).filter(e => e.isDirectory()).map(e => e.name);
+    const undeclared = dirs.filter(d => !Object.values(BAND_DIR).includes(d));
+    if (undeclared.length) fail(`characters/ に未登録のバンドディレクトリ: ${undeclared.join(', ')}`);
+
+    for (const d of Object.values(BAND_DIR)) {
+      const bandFile = join(charDir, d, '_band.md');
+      try { readFileSync(bandFile); } catch { fail(`characters/${d}/_band.md が無い（語体マップの置き場）`); }
     }
+
+    // rules_file はバンド別パス。実在確認 + ディレクトリと band の一致確認
+    let withRules = 0;
+    for (const c of doc.characters.filter(c => c.rules_file)) {
+      withRules++;
+      const p = join(charDir, c.rules_file);
+      try { readFileSync(p); } catch { fail(`${c.canonical}: rules_file ${c.rules_file} 不存在`); continue; }
+      const dir = c.rules_file.split('/')[0];
+      if (!c.rules_file.includes('/')) {
+        fail(`${c.canonical}: rules_file はバンド別パスにする（${c.rules_file}）`);
+      } else if (c.band && BAND_DIR[c.band] && BAND_DIR[c.band] !== dir) {
+        fail(`${c.canonical}: band「${c.band}」に対し rules_file のディレクトリ「${dir}」が不一致`);
+      }
+    }
+    console.log(`     rules_file あり: ${withRules} / バンドディレクトリ: ${dirs.length}`);
+
+    // 角色全员にファイルがあるべきバンド（members 数と rules_file 数を突き合わせ）
+    for (const b of doc.bands) {
+      const dir = BAND_DIR[b.canonical];
+      if (!dir || !b.members) continue;
+      const inBand = doc.characters.filter(c => c.band === b.canonical);
+      const missing = inBand.filter(c => !c.rules_file).map(c => c.canonical);
+      if (missing.length) fail(`${b.canonical}: rules_file 未設定のメンバー → ${missing.join(', ')}`);
+      console.log(`     ${b.canonical}: メンバー ${inBand.length} 名（全員 rules_file あり）`);
+    }
+
     // 称呼表已拆分到 address-forms.yaml，此处只确认没有残留
     if (doc.address_forms) fail('address_forms 已拆到 dictionary/address-forms.yaml，此处不应再保留');
     // 角色条目的 band 必须能在 bands 里找到
@@ -125,7 +163,11 @@ for (const f of FILES) {
   }
 
   if (f.includes('address-forms')) {
+    // canonical に加え aliases も既知とする。
+    // 称呼データは出典の表記をそのまま採るため、通称（チュチュ等）で
+    // 引かれることがある。aliases を無視すると正しいデータを誤検出する。
     const known = new Set(properNouns.characters.map(c => c.canonical));
+    for (const c of properNouns.characters) for (const a of c.aliases ?? []) known.add(a);
     known.add('目上'); known.add('初対面');
     const OWNERS = new Set(Object.keys(doc).filter(k => !['source', 'version', 'updated', 'unregistered'].includes(k)));
     let total = 0;

@@ -26,28 +26,42 @@ BanGDream-JP-Polish/
     │   └── tts.md                   断句/停顿/读音/情绪
     ├── adapters/
     │   └── gpt-sovits.md            引擎适配（已确定 GPT-SoVITS）+ 验证清单
-    ├── characters/
-    │   ├── _template.md             新角色从这里开始（日语层）
+    ├── characters/                  ★ 按乐队分目录
+    │   ├── _template-ja.md          新角色从这里开始（日语层）
     │   ├── _template-zh.md          中文层模板（只优化中文时用）
-    │   ├── kasumi.md                戸山香澄（ポッピンパーティ）
-    │   ├── tomori.md                高松燈（マイゴ）ボーカル
-    │   ├── anon.md                  千早愛音（マイゴ）ギター
-    │   ├── rana.md                  要楽奈（マイゴ）ギター
-    │   ├── taki.md                  椎名立希（マイゴ）ドラム・作曲
-    │   └── soyo.md                  長崎そよ（マイゴ）ベース
-    │      （中文层 <角色>.zh.md 尚未建立）
+    │   ├── _template-band.md        乐队层模板
+    │   ├── poppin-party/
+    │   │   ├── _band.md             ポッピンパーティ（語体マップ・関係性）
+    │   │   ├── kasumi.md            戸山香澄（Vo/Gt）
+    │   │   ├── tae.md               花園たえ（Gt）
+    │   │   ├── rimi.md              牛込りみ（Ba）
+    │   │   ├── saaya.md             山吹沙綾（Dr）
+    │   │   └── arisa.md             市ヶ谷有咲（Key）
+    │   └── mygo/
+    │       ├── _band.md             マイゴ（語体マップ・関係性）
+    │       ├── tomori.md            高松燈（Vo）
+    │       ├── anon.md              千早愛音（Gt）
+    │       ├── rana.md              要楽奈（Gt）
+    │       ├── taki.md              椎名立希（Dr/作曲）
+    │       └── soyo.md              長崎そよ（Ba）
+    │          （中文层 <角色>.zh.md 尚未建立）
     ├── corrections/                 ★ 项目核心数据
     │   ├── _schema.md               记录格式 + 分类 + 规则升级标准
     │   ├── _rules.yaml              已提炼规则 + confidence
     │   └── kasumi/
     ├── dictionary/
     │   ├── pronunciation.yaml       读音词典
-    │   ├── proper-nouns.yaml        专有名词统一表 + zh_variants（译名变体，Gate 2）
+    │   ├── proper-nouns.yaml        专有名词统一表 + zh_variants（译名变体，Gate B）
     │   └── address-forms.yaml       ★ 称呼对应表（G6 的唯一事实来源）
     └── examples/
         ├── input/cases.md
         └── output/expected.md
 ```
+
+**为什么按乐队分目录**：乐队共通的信息（语体映射、关系性、口号）集中在
+`_band.md`，不必在五个角色文件里重复——重复必然产生不一致。
+多角色同场时先读 `_band.md` 就能看到「谁对谁怎么说」。
+新增乐队时从 `_template-band.md` 起手。
 
 > **注意**：DSH 只发现 `<root>/<name>/SKILL.md` 和 `<root>/<name>.md` 这两种形式，
 > 嵌套的 `**/SKILL.md` 一律忽略。所以 `SKILL.md` 必须在 bundle 根目录下。
@@ -118,7 +132,7 @@ Skill 用**一次 `ask_user_question` 调用**把 gate 全部问完（该工具�
 **且该维度本身也不完整**：没有官方中文台词可依据（原作是日语），
 所以推导出的中文角色腔只能是 `observed` 级别，不能当既定事实。
 
-日语层（`characters/<角色>.md`）管 `〜だよ`／です・ます 这类语尾，
+日语层（`characters/<band>/<角色>.md`）管 `〜だよ`／です・ます 这类语尾，
 中文没有对应物，**两者不可互相套用**——否则会写出翻译腔。
 
 ## TTS 引擎
@@ -154,8 +168,9 @@ BanG Dream!   → バンドリ
 |---|---|
 | `rules/`（global / japanese / tts） | ✅ 可直接使用。基于日语语言学通用规律 |
 | `adapters/gpt-sovits.md` | ⚠️ 引擎已确定，但 `verified: false` —— **行为描述未实机验证** |
-| `characters/kasumi.md` | ⚠️ 基于通用认知撰写，**未经真实修订数据校准** |
-| `characters/tomori.md` / `anon.md` / `rana.md` / `taki.md` / `soyo.md` | ⚠️ 基于萌娘百科条目撰写，**日文表记部分待确认**（各文末「表记待确认」） |
+| `characters/poppin-party/*.md` | ⚠️ 基于萌娘百科条目撰写（香澄・たえ・りみ・沙綾・有咲）。**沙綾 的语言特征条目里几乎没有**，该文件规则稀薄已标注 |
+| `characters/mygo/*.md` | ⚠️ 基于萌娘百科条目撰写（燈・愛音・楽奈・立希・そよ） |
+| 各角色文件末的「表记待确认」 | ⚠️ 多处日文表记/读音**待核对**（tae 的中文名、りみ 的关西腔、CRYCHIC 的假名形等） |
 | `dictionary/` | ⚠️ 条目已列（含 6 个地名），`verified: false` —— **未用真实 TTS 验证** |
 | `corrections/_rules.yaml` | ⚠️ 全部是 `status: demo`，源自需求文档示例，**不得作为强制依据** |
 | `corrections/kasumi/*.yaml` | ⚠️ 示范记录，非真实数据 |
@@ -197,7 +212,7 @@ BanG Dream!   → バンドリ
 - 不修改历史 correction 数据（只追加）
 - 核心规则不绑定引擎；引擎差异放在 `adapters/`，不写进 `rules/`
 - 目前只有 GPT-SoVITS 一个 adapter。换引擎时新增 adapter，`rules/` 不动
-- 角色规则目前有 6 人：香澄 + マイゴ 全 5 人（燈・愛音・楽奈・立希・そよ）。其余需按 `characters/_template.md` 补充
+- 角色规则目前有 **10 人**：ポッピンパーティ 全 5 人 + マイゴ 全 5 人。新增乐队请从 `characters/_template-band.md` 起手
 - 曲名未登记；出现时按 `dictionary/proper-nouns.yaml` 的 `unregistered` 处理
 - **未实机验证**：所有读音条目与 adapter 行为描述均为 `verified: false`
 

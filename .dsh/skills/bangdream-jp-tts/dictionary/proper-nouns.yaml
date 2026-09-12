@@ -64,7 +64,7 @@ bands:
 
   - canonical: レイズアスイレン
     latin: RAISE A SUILEN
-    members: [レイヤ, ロック, マスキング, パレオ, チュチュ]
+    members: [和奏レイヤ, 朝日六花, 佐藤益木, 鳰原令王那, 珠手知由]
     note: 略称 RAS（読み アールエーエス。本文で使うなら片仮名で）
 
   - canonical: マイゴ
@@ -113,25 +113,29 @@ characters:
 
 
   - canonical: 戸山香澄
+    rules_file: poppin-party/kasumi.md
     kana: とやま かすみ
     band: ポッピンパーティ
-    rules_file: kasumi.md
 
   - canonical: 花園たえ
+    rules_file: poppin-party/tae.md
     kana: はなぞの たえ
     band: ポッピンパーティ
     note: 表記は「たえ」（漢字表記なし）。「多恵」等にしない
 
   - canonical: 牛込りみ
+    rules_file: poppin-party/rimi.md
     kana: うしごめ りみ
     band: ポッピンパーティ
     note: 表記は「りみ」（ひらがな）。「里美」にしない
 
   - canonical: 山吹沙綾
+    rules_file: poppin-party/saaya.md
     kana: やまぶき さあや
     band: ポッピンパーティ
 
   - canonical: 市ヶ谷有咲
+    rules_file: poppin-party/arisa.md
     kana: いちがや ありさ
     band: ポッピンパーティ
     note: 「ヶ」はカタカナ小書き。「ケ」「が」に置換しない
@@ -177,15 +181,16 @@ characters:
     band: モルフォニカ
 
   - canonical: 高松燈
+    rules_file: mygo/tomori.md
     kana: たかまつ ともり
     band: マイゴ
-    rules_file: tomori.md
     note: |
       「燈」は旧字体。常用漢字の「灯」に置換しない。
       **読みは「ともり」で、「あかり」ではない**——原作でも誤読される場面がある。
       TTS の最高リスク項目（pronunciation.yaml 参照）
 
   - canonical: 千早愛音
+    rules_file: mygo/anon.md
     kana: ちはや あのん
     band: マイゴ
 
@@ -194,11 +199,13 @@ characters:
   # 読みは標準的なものを記入。**未確認のものは note に明記**（G8）。
 
   - canonical: 要楽奈
+    rules_file: mygo/rana.md
     kana: かなめ らな
     band: マイゴ
     note: 表記は「楽奈」。読みは らな でほぼ確実
 
   - canonical: 長崎そよ
+    rules_file: mygo/soyo.md
     kana: ながさき そよ
     band: マイゴ
     note: |
@@ -206,6 +213,7 @@ characters:
       人名表記に揺れの可能性があるため**公式ページで要確認**
 
   - canonical: 椎名立希
+    rules_file: mygo/taki.md
     kana: しいな たき
     band: マイゴ
     note: 読みは たき。「りっき」ではない
@@ -427,6 +435,17 @@ characters:
     confirmed: false
     note: 通称 LAYER。姓は わかな
 
+  - canonical: 珠手知由
+    kana: しゅて ちゆ
+    band: レイズアスイレン
+    confirmed: false
+    note: |
+      通称 CHU²（チュチュ）。出典では中国語訳名「珠手知由」。
+      **「チュチュ」で呼ばれることが圧倒的に多い**が、
+      本表の canonical は本名。称呼データでは「チュチュ」表記が使われている。
+      ⚠ 本名の表記・読みは**未確認**
+    aliases: [チュチュ, CHU²]
+
   - canonical: 佐藤益木
     kana: さとう ますき
     band: レイズアスイレン
@@ -591,8 +610,8 @@ places:
 #
 # 相关规则：
 #   G6  人物关系一致性     —— 称呼必须稳定，关系变化要跟随
-#   characters/tomori.md   —— 燈的称呼使用口径（含时间轴说明）
-#   characters/kasumi.md   —— 香澄的称呼使用口径
+#   characters/mygo/tomori.md          —— 燈的称呼使用口径（含时间轴说明）
+#   characters/poppin-party/kasumi.md  —— 香澄的称呼使用口径
 #
 # 下表原来的内容已全部移入 address-forms.yaml，未丢失。
 # ─────────────────────────────────────────────────────────────
