@@ -195,13 +195,21 @@ BanG Dream!   → バンドリ
 | `characters/raise-a-suilen/*.md` | ⚠️ 基于萌娘百科条目撰写（レイヤ・六花・益木・令王那・知由）。**益木 的条目无称呼节**，同上有重建 |
 | `characters/mygo/*.md` | ⚠️ 基于萌娘百科条目撰写（燈・愛音・楽奈・立希・そよ） |
 | 各角色文件末的「表记待确认」 | ⚠️ 多处日文表记/读音**待核对**（tae 的中文名、りみ 的关西腔、CRYCHIC 的假名形等） |
-| `dictionary/` | ⚠️ 条目已列（含 6 个地名），`verified: false` —— **未用真实 TTS 验证** |
+| `dictionary/pronunciation.yaml` | ✅ `verified_readings` 15 项**朗读已由用户确认**（2026-02-14）；⚠️ 其余条目 `verified: false`，且**全部条目均未用真实 TTS 验证** |
 | `corrections/_rules.yaml` | ⚠️ 全部是 `status: demo`，源自需求文档示例，**不得作为强制依据** |
 | `corrections/kasumi/*.yaml` | ⚠️ 示范记录，非真实数据 |
 
+**两种「verified」不是一回事。** `pronunciation.yaml` 里：
+
+- `verified_readings` 的 `verified: true` = **朗读本身经用户确认**（该读什么）
+- 其余条目的 `verified: false` = 朗读未确认
+- **两者都没做 TTS 实机验证**（引擎实际发出什么音）
+
+把前两者当成第三者会产生虚假的安心感。实机验证清单在 `adapters/gpt-sovits.md`。
+
 **这些标记不是形式。** 用未验证的读音词典去改文本，会产生新的错误。
-引擎已确定，所以下一步就是把 `pronunciation.yaml` 和 adapter 验证清单的
-`verified` 跑一遍——这是目前唯一挡在可用性前面的硬问题。
+下一步就是把 `adapters/gpt-sovits.md` 的验证清单跑一遍——
+这是目前唯一挡在可用性前面的硬问题。
 
 ## Learn 工作流：怎么让它越用越好
 

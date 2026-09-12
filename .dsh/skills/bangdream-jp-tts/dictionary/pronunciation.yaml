@@ -514,6 +514,186 @@ numbers:
     engine: null
 
 # ─────────────────────────────────────────────────────────────
+# ★ 用户確認済みの読み（2026-02-14）
+# ─────────────────────────────────────────────────────────────
+# `verified` の意味に注意。ここでの `verified: true` は
+#   **「読みが正しいことをユーザーが確認した」**
+# を表す。**TTS が実際にその通り発音するかは別問題で、依然 unverified**
+# （後述の `unverified` 節を参照）。混同すると
+# 「確認済みだから実機検証も不要」という誤った安心につながる。
+#
+# 初出：ユーザーが 2026-02-14 のレビューで明示的に列挙した確認リスト。
+# 出典（萌娘百科）に読みの記載が無い項目が多く、G8 により
+# これまで「未確認」として本文での使用を避けていた語。
+#
+# 英字で書かれるバンド名・コードネームは G9 により片仮名を正文とする。
+# ここに並ぶのは**その片仮名形と読み**である。
+verified_readings:
+
+  # ── バンド名（G9 転写後）────────────────────────────────
+  - word: アヴェムジカ
+    reason: TTS pronunciation — 英字 `Ave Mujica` は英語 G2P を通り英語音素になる（G9）。「ヴ」の扱いも揺れうる
+    reading: アヴェムジカ
+    kind: band
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      英字 `Ave Mujica`。canonical は `proper-nouns.yaml` の `bands`。
+      ラテン語由来のため「ヴ」の扱いが揺れうる（ブ ではなく ヴ）。
+
+  - word: スミミ
+    reason: TTS pronunciation — 英字 `sumimi` のままだと英語読みになる（G9）
+    reading: スミミ
+    kind: band
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      英字 `sumimi`。初華が所属するアイドルユニット。
+      英字のままでは GPT-SoVITS が英語 G2P を通すため片仮名が必須。
+
+  - word: ロゼリア
+    reason: TTS pronunciation — 英字 `Roselia` のままだと英語読みになる（G9）
+    reading: ロゼリア
+    kind: band
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: 英字 `Roselia`。略称は「ロゼ」だが正文では「ロゼリア」
+
+  - word: レイズアスイレン
+    reason: TTS pronunciation — 英字 `RAISE A SUILEN` は逐字読み・英語読みの両方がありうる（G9）
+    reading: レイズアスイレン
+    kind: band
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: 英字 `RAISE A SUILEN`。語間に空白があるため転写時に空白を残さない
+
+  - word: ポッピンパーティ
+    reason: TTS pronunciation — 英字 `Poppin'Party` だと英語読みになる。アポストロフィも記号として問題（G9）
+    reading: ポッピンパーティ
+    kind: band
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      英字 `Poppin'Party`。アポストロフィは転写で消える。
+      **本項は既に登録済みだったが、読みの確認は今回が初**。
+
+  - word: マイゴ
+    reason: TTS pronunciation — 英字 `MyGO!!!!!` だと英語読みになり、`!` も記号として問題（G9）
+    reading: マイゴ
+    kind: band
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      英字 `MyGO!!!!!`。転写により `!!!!!` は消える。
+      正文に感嘆符を**付けない**。
+
+  # ── 略称 ────────────────────────────────────────────────
+  - word: RAS
+    reason: TTS pronunciation — 略称は逐字読み（アールエーエス）されやすい。正しくは「ラス」
+    reading: ラス
+    kind: acronym
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      ★ **重要**：アルファベット読み（アールエーエス）では**ない**。
+      単語として「ラス」と読む。`proper-nouns.yaml` に以前
+      「アールエーエス」と誤記していたのを本確認で修正した。
+      略称は逐字読みされやすいため、正文では「ラス」と片仮名で書くのが安全。
+
+  - word: ポピパ
+    reason: TTS pronunciation — 略称。単独では誤読リスクは低いが、正式名「ポッピンパーティ」との対応を記録する
+    reading: ポピパ
+    kind: acronym
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      「ポッピンパーティ」の略称。**日本語として成立する**ことを確認。
+      ただし**誰が使うか**（全員か、たえ等に限るか）は未確認 ——
+      語形の確認と語用の確認は別物。語用は各 `characters/*.md` の
+      称呼節を参照。
+
+  # ── 口上 ────────────────────────────────────────────────
+  - word: ポピパ！ピポパ！
+    reason: TTS pronunciation — 全角 `！` の扱いと、`！` で区切られた 2 語の分割が未検証
+    reading: ポピパ！ピポパ！
+    kind: catchphrase
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      原表記 `popipa！ pipopa！…`（出典は英字小文字 + 全角 `！` + 空白）。
+      読みは「ポピパ！ピポパ！」。**`！` は残す**。
+      元が片仮名のため G9 の転写対象ではなく、**表記を変えない**。
+      `！` の個数と全角/半角、末尾の `…` の有無は依然未確認。
+      出典表記に揺れがあるため、使う場面では【待确认】に出す。
+
+  # ── キャラクター名・あだ名 ──────────────────────────────
+  - word: 聖堕天使亜子姫
+    reason: TTS pronunciation — 当て字の長い名前。「聖堕天使」を せいだてんし と読ませる必要がある
+    reading: せいだてんしあこひめ
+    kind: character_alias
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      宇田川あこ（ロゼリア）の NFO 内の名前（中二病ネーム）。
+      **表記は漢字のまま**。読みだけがここで確定した。
+      読みが特殊（「聖堕天使」= せいだてんし）なため誤読リスクが高い。
+
+  - word: チュチュ
+    reason: TTS pronunciation — 原表記 `CHU²` の上付き 2 は転写で消える。英字のままだと英語読み（G9）
+    reading: チュチュ
+    kind: character_alias
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      珠手知由（レイズアスイレン）のコードネーム。原表記は `CHU²`。
+      **朗読稿では「チュチュ」と書く**（上付き 2 は転写で消える）。
+      出典の本名欄は「珠手（たまで）ちゆ」だが、通称は「ちゆ」ではなく
+      `CHU²` = チュチュ である点に注意。混同しないこと。
+
+  # ── 地名 ────────────────────────────────────────────────
+  - word: 岐阜県
+    reason: TTS pronunciation — 難読地名。「岐」を き と読む誤りが起きうる
+    reading: ぎふけん
+    kind: place
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      朝日六花（レイズアスイレン）の出身。`lock.md` の岐阜弁節を参照。
+      ★ 六花の**岐阜弁そのものの具体形は依然未確証**。
+      県名の読みが確定したことと、方言の形が分かったことは別問題。
+
+  - word: 千葉県
+    reason: 多音字 — 「千」は通常 ち だが、地名として確実にするため登録
+    reading: ちばけん
+    kind: place
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: 令王那（パレオ）の通学元。
+
+  - word: 鴨川
+    reason: TTS pronunciation — 地名。「鴨」を かも と読ませる。駅名「安房鴨川」とは別語
+    reading: かもがわ
+    kind: place
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      千葉県鴨川。令王那の通学元。
+      `proper-nouns.yaml` には駅名「安房鴨川」（あわかもがわ）も登録済み——
+      **別物**なので混同しないこと。
+
+  # ── 楽曲名 ──────────────────────────────────────────────
+  - word: 春日影
+    reason: TTS pronunciation — 曲名。「影」を かげ と読み、「春日」を はるひ と読ませる必要がある（はるかげ ではない）
+    reading: はるひかげ
+    kind: song
+    verified: true
+    source: ユーザー確認 2026-02-14
+    note: |
+      CRYCHIC の楽曲。燈（MyGO）の台詞に頻出。
+      **はるかげ ではない**。`songs` 段は依然未整備のため
+      他の曲名（迷星叫 等）の読みは未確認のまま。
+
+# ─────────────────────────────────────────────────────────────
 # 外来語・略称
 # ─────────────────────────────────────────────────────────────
 loanwords:
@@ -551,6 +731,7 @@ unverified:
     issue: |
       verified: false の項目はすべて**未検証**。
       引擎は GPT-SoVITS に確定したが、実合成での聴取確認はまだ行っていない。
+      ★ `verified_readings` の項目も**読みが確認済みなだけで、TTS 実機検証は未実施**。
     action: |
       `../adapters/gpt-sovits.md` の「検証清单」を実行し、ここに結果を回填する。
       確認項目：

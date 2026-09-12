@@ -5,3 +5,4 @@ node_modules/
 # commit message 一時ファイル（git add -A に巻き込まれるのを防ぐ）
 commitmsg.txt
 .commitmsg.tmp
+commitmsg.tmp
