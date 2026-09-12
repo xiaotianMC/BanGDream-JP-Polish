@@ -111,34 +111,46 @@ bands:
 # ─────────────────────────────────────────────────────────────
 characters:
 
-
   - canonical: 戸山香澄
     rules_file: poppin-party/kasumi.md
     kana: とやま かすみ
+    zh: 户山香澄
     band: ポッピンパーティ
+    note: 日本語表記は出典の本名欄で確認済み — 戸山（とやま）香澄（かすみ）
 
   - canonical: 花園たえ
     rules_file: poppin-party/tae.md
     kana: はなぞの たえ
+    zh: 花园多惠
     band: ポッピンパーティ
-    note: 表記は「たえ」（漢字表記なし）。「多恵」等にしない
+    note: |
+      表記は「たえ」（漢字表記なし）。「多恵」等にしない
+      中文別訳: 花园妙 / 花园多英（出典の「译名」欄）。日本語表記は出典の本名欄で確認済み — 花園（はなぞの）たえ
 
   - canonical: 牛込りみ
     rules_file: poppin-party/rimi.md
     kana: うしごめ りみ
+    zh: 牛込里美
     band: ポッピンパーティ
-    note: 表記は「りみ」（ひらがな）。「里美」にしない
+    note: |
+      表記は「りみ」（ひらがな）。「里美」にしない
+      日本語表記は出典の本名欄で確認済み — 牛込（うしごめ）りみ
 
   - canonical: 山吹沙綾
     rules_file: poppin-party/saaya.md
     kana: やまぶき さあや
+    zh: 山吹沙绫
     band: ポッピンパーティ
+    note: 日本語表記は出典の本名欄で確認済み — 山吹（やまぶき）沙綾（さあや）
 
   - canonical: 市ヶ谷有咲
     rules_file: poppin-party/arisa.md
     kana: いちがや ありさ
+    zh: 市谷有咲
     band: ポッピンパーティ
-    note: 「ヶ」はカタカナ小書き。「ケ」「が」に置換しない
+    note: |
+      「ヶ」はカタカナ小書き。「ケ」「が」に置換しない
+      日本語表記は出典の本名欄で確認済み — 市ヶ谷（いちがや）有咲（ありさ）
 
   - canonical: 湊友希那
     kana: みなと ゆきな
@@ -183,40 +195,48 @@ characters:
   - canonical: 高松燈
     rules_file: mygo/tomori.md
     kana: たかまつ ともり
+    zh: 高松灯
     band: マイゴ
     note: |
       「燈」は旧字体。常用漢字の「灯」に置換しない。
       **読みは「ともり」で、「あかり」ではない**——原作でも誤読される場面がある。
       TTS の最高リスク項目（pronunciation.yaml 参照）
+      日本語表記は出典の本名欄で確認済み — 高松（たかまつ）燈（ともり）
 
   - canonical: 千早愛音
     rules_file: mygo/anon.md
     kana: ちはや あのん
+    zh: 千早爱音
     band: マイゴ
-
-  # ── 以下は 2026-02-14 追加 ──
-  # 出典：萌娘百科「高松灯」称呼一览（address_forms が参照するため登録）。
-  # 読みは標準的なものを記入。**未確認のものは note に明記**（G8）。
+    note: 日本語表記は出典の本名欄で確認済み — 千早（ちはや）愛音（あのん）
 
   - canonical: 要楽奈
     rules_file: mygo/rana.md
-    kana: かなめ らな
+    kana: かなめ らーな
+    zh: 要乐奈
     band: マイゴ
-    note: 表記は「楽奈」。読みは らな でほぼ確実
+    note: |
+      表記は「楽奈」。読みは らな でほぼ確実
+      日本語表記は出典の本名欄で確認済み — 要（かなめ）楽奈（らーな）
 
   - canonical: 長崎そよ
     rules_file: mygo/soyo.md
     kana: ながさき そよ
+    zh: 长崎爽世
     band: マイゴ
     note: |
       出典では中国語訳名「长崎爽世」。本項目は既存表記「長崎そよ」を維持。
       人名表記に揺れの可能性があるため**公式ページで要確認**
+      中文別訳: 长崎素世（出典の「译名」欄）。別表記: 一ノ瀬（いちのせ）そよ。日本語表記は出典の本名欄で確認済み — 長崎（ながさき）そよ
 
   - canonical: 椎名立希
     rules_file: mygo/taki.md
     kana: しいな たき
+    zh: 椎名立希
     band: マイゴ
-    note: 読みは たき。「りっき」ではない
+    note: |
+      読みは たき。「りっき」ではない
+      日本語表記は出典の本名欄で確認済み — 椎名（しいな）立希（たき）
 
   - canonical: 豊川祥子
     kana: とがわ さきこ
@@ -281,97 +301,69 @@ characters:
       「氷」は ひ と読む（こおり ではない）。**誤読リスクが高い**。
       かつて羽丘女子学園の生徒会長で、高松燈に天文部を引き継いだ人物
 
-  # ═══════════════════════════════════════════════════════════
-  # 2026-08-31 版出典で追加された人物
-  # ═══════════════════════════════════════════════════════════
-  # 出典：萌娘百科「高松灯」rev.8649612 の称呼一览。
-  # ⚠ 新規バンド（梦限大MewType / millsage / 一家Dumb Rock!）のメンバーで、
-  #    本項目の他の情報源では未確認。**読みは推定を含む**。
-  #    confirmed: false のものは公式確認まで本文で使わない（G8）。
-
-  # ── 1-A クラスメイト（新版简介で判明）──
   - canonical: 梅里千桜梨
-    kana: null
     confirmed: false
     note: |
       高松燈・千早愛音と同じ 1-A 組。
       **読み未確認**。苗字「梅里」は うめざと の可能性が高いが確定できない。
       出典の表記は中文訳名のため、日本語表記自体が要確認
 
-  # ── 梦限大MewType ──
   - canonical: 仲町阿拉蕾
-    kana: null
     confirmed: false
     note: 梦限大MewType。**読み・日本語表記とも未確認**
 
   - canonical: 宮永野乃花
-    kana: null
     confirmed: false
     note: 梦限大MewType。**読み・日本語表記とも未確認**
 
   - canonical: 峰月律
-    kana: null
     confirmed: false
     note: 梦限大MewType。**読み・日本語表記とも未確認**
 
   - canonical: 藤都子
-    kana: null
     confirmed: false
     note: 梦限大MewType。**読み・日本語表記とも未確認**
 
   - canonical: 千石由乃
-    kana: null
     confirmed: false
     note: 梦限大MewType。**読み・日本語表記とも未確認**
 
-  # ── millsage ──
   - canonical: 汐見蛍
-    kana: null
     confirmed: false
     note: millsage。**読み・日本語表記とも未確認**
 
   - canonical: 伊沢棗
-    kana: null
     confirmed: false
     note: millsage。**読み・日本語表記とも未確認**
 
   - canonical: 琴平凪
-    kana: null
     confirmed: false
     note: millsage。**読み・日本語表記とも未確認**
 
   - canonical: 浜崎茉幌
-    kana: null
     confirmed: false
     note: millsage。**読み・日本語表記とも未確認**
 
   - canonical: 和泉朋花
-    kana: null
     confirmed: false
     note: millsage。**読み・日本語表記とも未確認**
 
-  # ── 一家Dumb Rock! ──
   - canonical: 須賀蕾葉
-    kana: null
     confirmed: false
     note: 一家Dumb Rock!。**読み・日本語表記とも未確認**
 
   - canonical: 馬橋心玖
-    kana: null
     confirmed: false
     note: 一家Dumb Rock!。**読み・日本語表記とも未確認**
 
   - canonical: 矢倉蓬咲
-    kana: null
     confirmed: false
     note: 一家Dumb Rock!。**読み・日本語表記とも未確認**
 
   - canonical: 四宮寧月
-    kana: null
     confirmed: false
     note: 一家Dumb Rock!。**読み・日本語表記とも未確認**
 
-  # ── 既存バンドだが本辞書に未登録だった人物 ──
   - canonical: 大和麻弥
     kana: やまと まや
     band: パステルパレット
@@ -439,12 +431,12 @@ characters:
     kana: しゅて ちゆ
     band: レイズアスイレン
     confirmed: false
+    aliases: [チュチュ, CHU²]
     note: |
       通称 CHU²（チュチュ）。出典では中国語訳名「珠手知由」。
       **「チュチュ」で呼ばれることが圧倒的に多い**が、
       本表の canonical は本名。称呼データでは「チュチュ」表記が使われている。
       ⚠ 本名の表記・読みは**未確認**
-    aliases: [チュチュ, CHU²]
 
   - canonical: 佐藤益木
     kana: さとう ますき
@@ -627,58 +619,92 @@ places:
 #   - 表里没有的译名分歧**不要猜**（G8），列入【待确认】并建议补入本表
 #
 # official = 官方中文译名 / community = 社区通用译名
+# official  = 出典（萌娘百科の各項目）に記載された中文名
+# community = それ以外に流布している表記。**出典に「早期译名」等の記載がある場合のみ記録**
+#
+# ⚠ 確認済みは**ポッピンパーティとマイゴの 2 バンドのみ**（ユーザー指定）。
+#   他バンドは未補完。台本で必要になったら、そのキャラの項目で確認してから追加する。
+#
+# 構造：
+#   japanese  日本語 canonical（characters/ 段と一致させる）
+#   official  出典記載の中文名（= 日本語の zh フィールドと同値）
+#   alt       出典に併記された別訳（あれば）
+#   community 出典が「早期译名」等として明示した表記（あれば）
+#   note      判断材料
 zh_variants:
 
-  - japanese: 長崎そよ
-    official: 爽世
-    community: 素世
+  # ═══ ポッピンパーティ ═══
+  - japanese: 戸山香澄
+    official: 户山香澄
+    note: 出典の本名欄「戸山（とやま）香澄（かすみ）」。別訳の記載なし
+
+  - japanese: 花園たえ
+    official: 花园多惠
+    alt: [花园妙, 花园多英]
     note: |
-      本项目最典型的一例。日语原名是**假名「そよ」**，
-      「爽世」是动画编剧后定的汉字名，「素世」是早期社区译名且在二创中更常用。
-      注意：日语正文一律写「そよ」，不写「爽世」/「素世」
+      ★ 本表で唯一「別訳」が複数ある例。出典の「译名」欄に
+      **花园多惠、花园妙、花园多英** の 3 つが併記されている。
+      どれを採るかは**運用側の判断**——本 Skill は既定を決めない。
+      ⚠ 日本語名は**仮名「たえ」**で、漢字表記は存在しない
 
-  - japanese: 高松燈
-    official: 灯
-    community: 灯
-    note: 日語は旧字体「燈」、簡体字は「灯」。**両者で違いなし**
+  - japanese: 牛込りみ
+    official: 牛込里美
+    note: |
+      出典の本名欄「牛込（うしごめ）りみ」。日本語は**仮名「りみ」**。
+      「里美」の日本語起源は不明（当て字の可能性）
 
-  - japanese: 要楽奈
-    official: 乐奈
-    community: 乐奈
-    note: 違いなし
-
-  - japanese: 千早愛音
-    official: 爱音
-    community: 爱音
-    note: 違いなし。ただし愛称「あのちゃん」の訳は「小爱」が定着
-
-  - japanese: 椎名立希
-    official: 立希
-    community: 立希
-    note: 違いなし。愛称「りっきー」は「Rikki」表記が多い
-
-  - japanese: 豊川祥子
-    official: 祥子
-    community: 祥子
-    note: 違いなし
-
-  - japanese: 若葉睦
-    official: 睦
-    community: 睦
-    note: 違いなし
-
-  - japanese: 湊友希那
-    official: 友希那
-    community: 友希那
-    note: 違いなし
+  - japanese: 山吹沙綾
+    official: 山吹沙绫
+    note: 出典の本名欄「山吹（やまぶき）沙綾（さあや）」。简体字で「绫」
 
   - japanese: 市ヶ谷有咲
-    official: 有咲
-    community: 有咲
-    note: 違いなし
+    official: 市谷有咲
+    note: |
+      出典は「市谷有咲」——日本語の「ヶ」が中文では「谷」に簡略化される。
+      **日本語正文では「市ヶ谷」**（小書き片仮名「ヶ」）を使う
 
-  # 未確認 —— 推測しない（G8）
+  # ═══ マイゴ ═══
+  - japanese: 高松燈
+    official: 高松灯
+    note: 日本語は旧字体「燈」、簡体字は「灯」。日本語正文では「燈」を维持
+
+  - japanese: 千早愛音
+    official: 千早爱音
+    note: |
+      出典の本名欄「千早（ちはや）愛音（あのん）」。
+      愛称「あのちゃん」の中文訳は「小爱」が定着（出典の別号欄）
+
+  - japanese: 要楽奈
+    official: 要乐奈
+    note: 出典の本名欄「要（かなめ）楽奈（らーな）」。読みは**らーな**（長音符付き）
+
+  - japanese: 椎名立希
+    official: 椎名立希
+    note: 出典の本名欄「椎名（しいな）立希（たき）」
+
+  - japanese: 長崎そよ
+    official: 长崎爽世
+    alt: [长崎素世]
+    community: 长崎素世
+    note: |
+      ★ 本表で唯一「community」を記録できる例。
+      出典に「长崎爽世、**长崎素世（早期译名）**」と明記されているため、
+      「素世」を早期訳として community に置ける（推測ではなく出典由来）。
+      ⚠ 日本語名は**仮名「そよ」**。「爽世」はアニメ脚本家が後から定めた漢字名
+      （原文假名，详见 characters/mygo/soyo.md）
+
 zh_variants_unverified:
+
+  - item: ポッピンパーティ・マイゴ**以外**の全バンド
+    note: |
+      ユーザー指定により、確認済みの 2 バンドのみ補完した。
+      アフターグロウ / ハロー、ハッピーワールド！ / ロゼリア / Pastel*Palettes /
+      モルフォニカ / レイズアスイレン / Ave Mujica / 新規バンド 3 組は**未補完**。
+      台本で必要になったら、そのキャラの項目で中文名を確認してから追加する（G8）
+
+  - item: 楽曲名の中文訳
+    note: 曲名は songs 段が未整備。中日対訳も未確認
+
 
   - item: 新規バンド 3 組とそのメンバー
     note: |

@@ -160,6 +160,27 @@ for (const f of FILES) {
     for (const c of doc.characters.filter(c => c.band)) {
       if (!bandNames.has(c.band)) fail(`${c.canonical}: band「${c.band}」不在 bands 段中`);
     }
+
+    // ── zh と zh_variants.official の整合 ──
+    // 同じ中文名を 2 箇所に持っているので、片方だけ直すと必ず食い違う。
+    // characters[].zh      = その角色の中文名（正引き用）
+    // zh_variants[].official = Gate B が使う公式訳（変体比較用）
+    const byJp = new Map((doc.zh_variants ?? []).map(v => [v.japanese, v]));
+    let zhCount = 0;
+    for (const c of doc.characters.filter(c => c.zh)) {
+      zhCount++;
+      const v = byJp.get(c.canonical);
+      if (!v) { fail(`${c.canonical}: zh はあるが zh_variants に項目がない`); continue; }
+      if (v.official !== c.zh) {
+        fail(`${c.canonical}: zh「${c.zh}」と zh_variants.official「${v.official}」が不一致`);
+      }
+    }
+    for (const v of doc.zh_variants ?? []) {
+      const c = doc.characters.find(c => c.canonical === v.japanese);
+      if (!c) { fail(`zh_variants「${v.japanese}」に対応する角色がない`); continue; }
+      if (!c.zh) fail(`zh_variants「${v.japanese}」はあるが角色側に zh がない`);
+    }
+    console.log(`     zh / zh_variants: ${zhCount} 名（整合確認済み）`);
   }
 
   if (f.includes('address-forms')) {
