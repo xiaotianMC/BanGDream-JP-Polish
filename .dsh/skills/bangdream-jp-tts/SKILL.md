@@ -566,26 +566,31 @@ rules/japanese.md         日语自然度 — 书面语, 中文式表达, 标点
 rules/tts.md              TTS — 断句, 停顿, 读音, 情绪辅助
 adapters/gpt-sovits.md    引擎适配（已确定 GPT-SoVITS）— 引擎特定行为 + 验证清单
 
-characters/               ★ 按乐队分目录（见下）
+characters/               ★ 按乐队/分类分目录（见下）
 ├── _template-ja.md           模板（日语层）— 新角色从这里开始
 ├── _template-zh.md           模板（中文层）
 ├── _template-band.md         模板（乐队层）
-├── poppin-party/
-│   ├── _band.md              ポッピンパーティ — 語体マップ・関係性
-│   ├── kasumi.md             戸山香澄（Vo/Gt）
-│   ├── tae.md                花園たえ（Gt）
-│   ├── rimi.md               牛込りみ（Ba）
-│   ├── saaya.md              山吹沙綾（Dr）
-│   └── arisa.md              市ヶ谷有咲（Key）
-└── mygo/
-    ├── _band.md              マイゴ — 語体マップ・関係性
-    ├── tomori.md             高松燈（Vo）
-    ├── anon.md               千早愛音（Gt）
-    ├── rana.md               要楽奈（Gt）
-    ├── taki.md               椎名立希（Dr/作曲）
-    └── soyo.md               長崎そよ（Ba）
+├── poppin-party/             ポッピンパーティ（5 人）
+├── roselia/                  ロゼリア（5 人）
+├── raise-a-suilen/           レイズアスイレン（5 人）
+├── ave-mujica/               アヴェムジカ（5 人）
+├── mygo/                     マイゴ（5 人）
+├── crychic/                  ★ `_band.md` のみ。**角色ファイルを置かない**
+│                              （5 人全員が他バンドにファイルを持つため）
+├── sumimi/                   アイドルユニット（バンドではない）
+│   ├── _band.md              スミミ
+│   └── mana.md               純田まな
+└── music-industry/           ★ バンドに所属しない人物
+    ├── _category.md
+    └── livehouse/
+        ├── _livehouse.md     職種共通（接客業の語体）
+        ├── shifune.md        都筑詩船
+        ├── marina.md         月島麻里奈
+        └── rinko.md          真次凛々子
 
 characters/<band>/<角色>.zh.md  中文层 — **尚未建立**（需要时再建）
+
+_extraction-notes.md      ★ 出典抽出の横断メモ（G10 の運用記録）
 
 corrections/_schema.md         记录格式 + 分类 + 规则升级标准
 corrections/_rules.yaml        已提炼规则 + confidence + evidence_count
@@ -596,6 +601,26 @@ dictionary/address-forms.yaml  称呼对应表（G6 的唯一事实来源）
 examples/input/                输入样例
 examples/output/               输出样例
 ```
+
+### ★ 出典の抽出について（G10）
+
+角色知识は萌娘百科などの**二手资料**から抽出する。
+抽出ツールは**リポジトリ根**の `extract.mjs`（skill の外にある）。
+
+```bash
+node extract.mjs <html>              # 節一覧
+node extract.mjs <html> <節名> …      # 指定節を抽出
+```
+
+★ **`extract.mjs` は「本編でない」マークアップを明示する**：
+
+```text
+〖冗談〗…〖/冗談〗     just-kidding-text＝编者が玩笑と明示。台詞の根拠にしない
+〖伏せ字〗…〖/伏せ字〗  heimu＝伏せ字。推测・補足・ネタバレが多い
+```
+
+**抽出結果にこれらのマークが出たら、引用前に必ず判断する**（G10）。
+判断の記録は `_extraction-notes.md` に残す。
 
 ### なぜバンド別ディレクトリか
 

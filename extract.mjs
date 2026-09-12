@@ -17,6 +17,14 @@ const strip = (s) => s
   .replace(/<script[\s\S]*?<\/script>/g, '')
   .replace(/<style[\s\S]*?<\/style>/g, '')
   .replace(/<sup[\s\S]*?<\/sup>/g, '')
+  // ── 出典の「本編でない」マークアップを行内に明示する ──
+  // これをやらないと、ジョークや伏せ字が地の文と区別できず、
+  // 台詞として引用してしまう（実際に一度やらかした）。
+  //   just-kidding-text … 打ち消し線付きの冗談。本編の台詞ではない
+  //   heimu             … マウスオーバーで見える伏せ字。推測・補足・ネタバレ
+  .replace(/<s class="just-kidding-text"[^>]*>([\s\S]*?)<\/s>/g, '〖冗談〗$1〖/冗談〗')
+  .replace(/<span class="heimu"[^>]*>([\s\S]*?)<\/span>/g, '〖伏せ字〗$1〖/伏せ字〗')
+  .replace(/<[^>]*class="[^"]*\bheimu\b[^"]*"[^>]*>([\s\S]*?)<\/span>/g, '〖伏せ字〗$1〖/伏せ字〗')
   .replace(/<br\s*\/?>/g, '\n')
   .replace(/<\/t[dh]>/g, '|')
   .replace(/<\/tr>/g, '\n')
