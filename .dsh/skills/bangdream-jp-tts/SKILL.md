@@ -1,50 +1,126 @@
 ---
 name: bangdream-jp-tts
 description: >
-  Handle BanG Dream! dialogue in four modes, chosen by a gate at the start:
-  (1) polish the Chinese only so it fits the character, (2) translate the Chinese
-  into in-character spoken Japanese, (3) fix TTS pronunciation/segmentation only
-  without touching the wording, (4) translate plus TTS polish. A second gate picks
-  official vs community Chinese naming variants. Japanese output is checked across
-  six stages (translation, naturalness, character voice, segmentation,
-  pronunciation, emotion) and reports "no change needed" when the draft already
-  holds. Use when the user gives a BanG Dream! character name with dialogue, a
-  Chinese 小剧场/宣传脚本, or asks to make 台词 more in-character / more spoken /
-  better for 朗读/TTS, or to 提炼/学习 rules from human corrections.
-  Triggers: "日语优化", "角色语气", "TTS 优化", "断句", "读音", "中文优化",
-  "correction", "香澄/有咲/燈/そよ/… 的台词".
+  Check BanG Dream! dialogue against a per-character knowledge base, in two
+  steps chosen by gates at the start. First it asks the target language
+  (Japanese or Chinese); then it offers the checks available for that language:
+  for Japanese, a character/proper-noun consistency check and a TTS
+  segmentation + misread-prone-character check (or both); for Chinese, the
+  character/proper-noun consistency check only. It reports what is wrong with
+  the rule or dictionary entry that says so, and says "no problem" when the
+  draft holds. Translation and character-voice rewriting are implemented but
+  NOT currently exposed. Use when the user gives a BanG Dream! character name
+  with existing dialogue and wants it checked — proper nouns, 称呼, 角色语体,
+  断句, 读音 — or asks to 提炼/学习 rules from human corrections.
+  Triggers: "人设检查", "专有名词检查", "TTS 断句", "易读错字", "读音", "断句",
+  "日语检查", "中文检查", "correction", "香澄/有咲/燈/そよ/… 的台词".
 whenToUse: >
-  A BanG Dream! character's lines need to sound like that character — in Chinese
-  or Japanese — and/or survive text-to-speech. Skip it for general translation
-  with no character or TTS requirement, and skip it for prose read by a human on
-  screen with no voice-over.
+  A BanG Dream! character's existing lines need checking against that
+  character's established settings and readings, and/or need to survive
+  text-to-speech. Skip it for general translation with no character or TTS
+  requirement, and skip it for prose read by a human on screen with no
+  voice-over.
 ---
 
 # BanG Dream! Character Japanese & TTS Polish
 
-A **characterization + naturalness + TTS-readability layer**. It works in four
-modes over a Chinese script and/or an existing AI Japanese draft; the output is
-the final text to be voiced (or the Chinese to be translated).
+A **characterization + naturalness + TTS-readability layer** over a per-character
+knowledge base. **Currently it exposes two checks**（Gate 2）——
+**基础人设检查（专有名词正确性检查）** and
+**TTS 断句及易读错字检查**——and the target language is chosen first.
+
+**翻訳・角色化は実装済みだが現在は非公開**（`附録` 参照）。
 
 ## Gates（开始前必问）
 
-**用一次 `ask_user_question` 调用把 gate 全部问完。** 不要一个一个地问，
-也不要只用文本列出来让用户手打——本工具就是为此存在的。
+> ★ **現在公開している機能は「検査」だけです**（ユーザー指定 2026-02-14）。
+> **翻訳・角色化は一時的に非公開**（下の「非公開の機能」参照）。
 
-### 怎么构造这次调用
+**2 段階で問う。** 1 回目の回答で 2 回目の選択肢が変わるため、
+**1 回の呼び出しでは聞けない**——2 回に分ける。
 
-- **一次调用放多个 question**：`questions` 数组没有数量上限，7 个 gate 一次问完。
-- **`id` 用稳定短名**：`mode` / `zh_naming` / `purpose` / `keigo` / `edit_scope` /
-  `batch` / `layers`。回答里会原样回显，便于对齐。
-- **`header` 写中文短标题**：与 gate 名一致。
+### Gate 1：目標言語
+
+`ask_user_question` を **1 問だけ**で呼ぶ。
+
+| gate | id | 选项（**推荐项在首位**） |
+|---|---|---|
+| **目標言語** | `target_lang` | 日语 **(推荐)** / 中文 |
+
+- `header` は「目标语言」
+- 选项の `description`：
+  - **日语** —— 「日本語の成稿を検査します」
+  - **中文** —— 「中国語の成稿を検査します」
+
+### Gate 2：機能（Gate 1 の回答で分岐する）
+
+**Gate 1 の結果を見てから、もう一度 `ask_user_question` を呼ぶ。**
+選択肢は**言語によって違う**。
+
+#### 日本語を選んだ場合
+
+| gate | id | 选项（**推荐项在首位**） |
+|---|---|---|
+| **機能** | `function` | 両方 **(推荐)** / 基础人设检查（专有名词正确性检查） / TTS 断句及易读错字检查 |
+
+| 選択肢 | 何をするか |
+|---|---|
+| **基础人设检查（专有名词正确性检查）** | 专有名词の表記・読み・称呼が設定と一致するか。G6/G7/G8/G9 |
+| **TTS 断句及易读错字检查** | 断句・停顿・読み間違い（多音字・難読） |
+| **両方** | 上記 2 つを続けて実行 |
+
+#### 中文を選んだ場合
+
+| gate | id | 选项 |
+|---|---|---|
+| **機能** | `function` | 基础人设检查（专有名词正确性检查） |
+
+**中国語は検査が 1 つだけ**なので、**選択肢も 1 つ**。
+選択の余地が無いので、**「この機能しかありません」と description に書く**。
+
+### ★ 非公開の機能（翻訳・角色化）
+
+**以下は実装済みだが、現在 Gate に出していない**（ユーザー指定）：
+
+```text
+× 翻訳成日语 + 角色化
+× 翻译 + TTS 优化
+× 只优化中文表达
+```
+
+→ **Gate 1 で言語を選んでも、これらの選択肢は出さない。**
+→ ★ **翻訳モードの規則（2 遍法・角色層・敬语档位など）は
+  `rules/` と `characters/` に残してある。**
+  非公開なのは**入口（Gate）だけ**で、規則を消してはいない。
+  再公開するときは Gate 2 に選択肢を戻すだけでよい。
+
+> ⚠️ **ユーザーが翻訳を明示的に頼んできた場合**は、
+> 勝手に翻訳せず「現在この機能は提供していません」と伝える。
+> **規則があるからといって実行してよいわけではない。**
+
+### 選択を出力に回显する
+
+**Gate 1 と Gate 2 の選択は必ず出力の冒頭に書く**（`【档位】` 行）。
+ユーザーが「どっちを選んだか」を一目で確認できるようにする。
+
+### 問い方の作法
+
 - **选项 label 不要写序号。** 工具的列表 UI 自带编号/选择器，
   再写「1) 2)」会与之重复、且用户不知道哪个数字算数。
   也不要用字母前缀，直接写选项文本本身。
 - **推荐项放第一个，label 末尾追加 `(推荐)`。** 这是本工具的既定约定。
-- **每个选项都写 `description`**：一句话说明取舍。gate 的价值在于
-  用户能看懂选了会怎样，而不是猜。
+- **每个选项都写 `description`**：一句话说明取舍。
+- **選択肢が 1 つしか無い場合も、勝手に実行せず 1 回聞く**
+  （中文の基礎人設検査がこれに当たる）。
 
-### 七个 gate 与推荐项
+---
+
+## 附録：旧 gate 構成（翻訳を再公開するときに戻す）
+
+> **以下は非公開。** 翻訳・角色化を再公開する際に Gate 2 へ戻す。
+> 規則本体は `rules/` と `characters/` にそのまま残っている。
+
+### 旧 gate 一覧
 
 | gate | id | 选项（**推荐项在首位**） |
 |---|---|---|
@@ -87,15 +163,12 @@ the final text to be voiced (or the Chinese to be translated).
 **不要**因为省一次调用就把 B 无条件塞进去。
 问了不相干的 gate 会让用户以为这个选择有效果。
 
-### 默认值（用户回「全默认」或未答时）
+### 旧 gate の既定値（ユーザーが「全默认」と答えた場合）
 
 ```
 A 翻译成日语版 / B 贴近官方 / C 两者都要
 D 按原作设定 / E 允许口语化改写 / F 整批次一致 / G 全层
 ```
-
-**「全默认」时，输出开头必须列出实际采用的档位**（见 Output format 的
-`【档位】` 行）——用户需要能一眼发现哪项理解错了。
 
 ### A 处理模式
 
@@ -247,14 +320,17 @@ cannot name the defect in one clause, do not make the change.
 
 ## Inputs
 
-Required by mode (see Gate A):
+**現在公開している機能で必要なもの**：
 
-| 模式 | 角色 | 中文原文 | 已有日语 |
+| 機能 | 角色 | 検査対象のテキスト | 備考 |
 |---|---|---|---|
-| A 只优化中文 | ✅ | ✅ | — |
-| B 翻译 + 角色化 | ✅ | ✅ | 不需要（可作参考） |
-| C 只做 TTS | — | — | ✅ |
-| D 翻译 + TTS | ✅ | ✅ | 不需要（可作参考） |
+| **基础人设检查**（日语） | ✅ | **日语**成稿 | 专有名词・称呼・語体を見る |
+| **基础人设检查**（中文） | ✅ | **中文**成稿 | 中文表記・称呼を見る |
+| **TTS 断句及易读错字检查** | — | **日语**成稿 | 角色情報は不要（表記と読みだけ見る） |
+
+> **中文の基礎人設検査には中文の成稿が必要。**
+> 中文原文が無い場合（日本語だけがある場合）は、
+> **日本語の表記から中文表記を推測しない**——G8。
 
 Useful in all modes:
 
@@ -266,10 +342,73 @@ Always gate before reading rule files. The Gates decide *which* files
 matter; loading `rules/tts.md` for a 中文-only run wastes context and invites
 out-of-scope edits.
 
+### 附録：翻訳モードで必要な入力（非公開）
+
+| 模式 | 角色 | 中文原文 | 已有日语 |
+|---|---|---|---|
+| A 只优化中文 | ✅ | ✅ | — |
+| B 翻译 + 角色化 | ✅ | ✅ | 不需要（可作参考） |
+| C 只做 TTS | — | — | ✅ |
+| D 翻译 + TTS | ✅ | ✅ | 不需要（可作参考） |
+
 ## Execution order
 
 Run the stages in order. Each stage is allowed to pass. Do not skip a stage,
 and do not report a stage as passing unless you actually checked it.
+
+### ★ 現在公開している 2 機能（Gate 2 で選ばれたもの）
+
+**どちらも「検査」——日本語を新しく作らない。**
+★ **翻訳・角色化は非公開なので、ここには無い**（`附録` 参照）。
+
+| 機能 | Stage | 何を見るか | 主に読むファイル |
+|---|---|---|---|
+| **基础人设检查**<br>（专有名词正确性检查） | **1 → 3** | ①**专有名词**の表記・読みが辞書と一致するか<br>②**称呼**が人間関係の設定と一致するか<br>③**角色の語体**が設定から外れていないか<br>④**出典に無い情報を足していないか**（G2） | `rules/global.md`（G1–G3, G6, G7, G9, G11）<br>`dictionary/proper-nouns.yaml`<br>`dictionary/address-forms.yaml`<br>`characters/<角色>.md` |
+| **TTS 断句及易读错字检查** | **4 → 5** | ①**句長**が上限内か<br>②**停顿・标点**が朗読に合うか<br>③**誤読しやすい字**（多音字・難読・当て字）<br>④**英字**が残っていないか（G9）<br>⑤数字表記 | `rules/tts.md`<br>`dictionary/pronunciation.yaml`<br>`dictionary/proper-nouns.yaml` |
+
+**「両方」が選ばれた場合**：`1 → 3 → 4 → 5` の順で通す。
+★ **人設検査を先に**やる——表記が変われば読みも変わるため。
+
+### ★ どちらの検査も「直す」より「指摘する」が主
+
+**検査モードは書き換えを主目的にしない。**
+見つけた問題は**根拠（どの規則・どの辞書項目）と一緒に示す**。
+
+```text
+✅ <箇所> → <問題> → <根拠: G7 / proper-nouns.yaml の該当項目> → <推奨の直し>
+❌ 黙って直して、変更点を説明しない
+❌ 問題が無いのに「らしくする」ための書き換えをする
+```
+
+**問題が無ければ `問題なし` と書く。**
+検査は**欠陥を探す工程**であって、**産出量を競う工程ではない**
+（下の "The single most important rule" と同じ基準）。
+
+### 中国語が選ばれた場合
+
+**機能は「基础人设检查」1 つだけ**（Gate 2 の選択肢も 1 つ）。
+
+**日本語の規則（语尾・ですます・TTS 断句）は適用しない。**
+中国語に `〜だよ` / `〜わ` の対応物は無い——**当てると怪中文になる**。
+
+| # | 何を見るか | 主に読むファイル |
+|---|---|---|
+| C1 | **专有名词**の中国語表記（`zh` / `zh_alt` / `zh_community`）が辞書と一致するか | `proper-nouns.yaml` |
+| C2 | **称呼**が設定と一致するか | `address-forms.yaml` |
+| C3 | **角色の語体**が設定から外れていないか | `characters/<角色>.zh.md`（**未整備**） |
+| C4 | 出典に無い情報を足していないか（G2） | `rules/global.md` |
+
+> ⚠️ **C3 の `characters/<角色>.zh.md` は未整備**。
+> → 中文の角色腔は**「经历」と「性格」からのみ**導出し、
+> **`observed` 級として提示**する。断定しない（下記「中文层」参照）。
+> 判断材料が無い場合は **`問題なし` ではなく「判断材料が無い」と書く**（G8）。
+
+---
+
+## 附録：翻訳モードの実行順序（非公開）
+
+> **以下は非公開。** 翻訳を再公開する際に有効化する。
+> 規則は `rules/` にそのまま残っている。
 
 ### ★★ 翻译は必ず 2 遍で行う（`rules/japanese.md` の J0）
 
@@ -401,7 +540,20 @@ The one exception is the Stage 5 veto above.
 Load only what the task needs. The point of splitting these files is context
 economy — do not read all of `characters/` to polish one line.
 
-**Load by mode.** Gate A already told you which layers are in play:
+**Load by function.** Gate 2 already told you which checks are in play:
+
+| Gate 2 の選択 | 读 |
+|---|---|
+| 基础人设检查（日语） | `rules/global.md`, `dictionary/proper-nouns.yaml`, `dictionary/address-forms.yaml`, `characters/<角色>.md` |
+| 基础人设检查（中文） | `rules/global.md`, `dictionary/proper-nouns.yaml`, `dictionary/address-forms.yaml`, `characters/<角色>.zh.md` |
+| TTS 断句及易读错字检查 | `rules/tts.md`, `dictionary/pronunciation.yaml`, `dictionary/proper-nouns.yaml`（**不读** `characters/`） |
+| 両方 | 上記の和集合 |
+
+> ★ **TTS 检查だけなら `characters/` を読まない。**
+> 表記と読みだけを見るので、角色ファイルは不要——context の無駄遣いであり、
+> つい語体まで直したくなる（この機能の範囲外）。
+
+### 附録：旧 Gate A による読み分け（非公開）
 
 | Gate A 选择 | 读 |
 |---|---|
@@ -420,7 +572,8 @@ economy — do not read all of `characters/` to polish one line.
    from `characters/_template-ja.md`（日语）or `characters/_template-zh.md`（中文）.
    For a whole band, start from `characters/_template-band.md`.
 3. Read `dictionary/proper-nouns.yaml` whenever the text contains a name, song
-   title, band name, or place — **all modes**, because Gate B 的译名偏好就存在这里。
+   title, band name, or place — **all checks**, because 中文名（`zh` / `zh_alt` /
+   `zh_community`）もここにあり、中文の 人設検査 で必要になる。
    For Japanese output also read `dictionary/pronunciation.yaml` whenever the
    line contains a kanji with multiple readings, a numeral, or an acronym.
    中文/翻译系模式还要读 `dictionary/address-forms.yaml`（当文本含称呼时）。
@@ -433,18 +586,84 @@ economy — do not read all of `characters/` to polish one line.
 Default to the full format while the rule set is young — the explanations are how
 the rules get audited and corrected. **中文输出用中文标签，日语输出用日语标签。**
 
-### 开头必须回显采用的档位
+### 开头必须回显采用的选择
 
 每次输出开头加一行，让用户能一眼发现哪项理解错了。
-**写选项文本，不要写序号或字母码**（那些在提问时不出现，回显它们用户对不上）：
+**写选项文本，不要写序号或字母码**（那些在提问时不出现，回显它们用户对不上）。
 
 ```
-【档位】翻译成日语版 / 贴近官方 / 两者都要 / 按原作设定 / 允许口语化改写 / 整批次一致 / 全层
+【档位】目标语言：日语 / 功能：基础人设检查（专有名词正确性检查）
 ```
 
-**Gate B（中文译名偏好）没问过就不要写进这一行。** 输出是日语时该 gate 无意义。
+**Gate 1（目标语言）と Gate 2（功能）は必ず両方書く。**
+ユーザーが選んだ 2 つが、そのまま出ているか確認できるようにする。
 
-用户说「全默认」而某项与预期不符时，这一行是**唯一**能让他立刻察觉的地方。
+```
+【档位】目标语言：日语 / 功能：TTS 断句及易读错字检查
+【档位】目标语言：日语 / 功能：両方
+【档位】目标语言：中文 / 功能：基础人设检查（专有名词正确性检查）
+```
+
+> **旧 gate（A〜G）は現在問いていないので、この行に書かない。**
+> 問いていないものを書くと、ユーザーは選んでいない項目を見ることになる。
+
+### 基础人设检查（专有名词正确性检查）—— 日本語
+
+**検査結果をリストする。** 問題が無ければそう書く。
+
+```
+【人設検査】
+✓ 专有名词表記：辞書と一致（`proper-nouns.yaml`）
+✓ 称呼：`address-forms.yaml` と一致
+✓ 角色語体：`characters/<角色>.md` の記載範囲内
+✓ 追加情報なし（G2）
+
+【指摘】
+- <箇所>：<問題>
+  → 推奨：<直し>
+  → 根拠：<G7 / proper-nouns.yaml の該当項目 など>
+```
+
+**問題が無い場合**：
+
+```
+【人設検査】
+問題なし（专有名词・称呼・語体ともに設定と一致）
+```
+
+★ **「問題なし」は立派な結論**。書き換えて産出量を作らない
+（"The single most important rule" と同じ基準）。
+
+**判断材料が無い場合**は、**「問題なし」と書かず**にそう書く（G8）：
+
+```
+【人設検査】
+⚠ 判断材料が無い：<何が不明か>
+  → <箇所> は未確認のため、【待确认】に出す
+```
+
+### TTS 断句及易读错字检查
+
+```
+【TTS検査】
+✓ 断句自然（句長は上限内）
+✓ 无明显多音词风险
+✓ 标点适合朗读
+
+【指摘】
+- <箇所>：<誤読リスク / 断句の問題>
+  → 推奨：<表記の変更 など>
+  → 根拠：<pronunciation.yaml の該当項目 / rules/tts.md の条項>
+```
+
+**未検証の読みは「未検証」と書く。** 辞書に `verified: false` と
+記録されている項目を「問題なし」に含めない。
+
+---
+
+## 附録：翻訳モードの出力形式（非公開）
+
+> **以下は非公開。** 翻訳を再公開する際に有効化する。
 
 ### 翻译成日语 / 翻译 + TTS（日语输出）
 
@@ -659,7 +878,7 @@ corrections/_schema.md         记录格式 + 分类 + 规则升级标准
 corrections/_rules.yaml        已提炼规则 + confidence + evidence_count
 corrections/kasumi/            戸山香澄 的修订记录
 dictionary/pronunciation.yaml  读音词典（日语输出用）
-dictionary/proper-nouns.yaml   专有名词统一表 + 中文名（Gate B 用）
+dictionary/proper-nouns.yaml   专有名词统一表 + 中文名（中文の人設検査で使う）
 dictionary/address-forms.yaml  称呼对应表（G6 的唯一事实来源）
 examples/input/                输入样例
 examples/output/               输出样例
