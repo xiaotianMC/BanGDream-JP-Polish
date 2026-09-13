@@ -9,3 +9,8 @@ commitmsg.*
 cmsg.*
 .tmp-commitmsg
 *.commitmsg.txt
+
+# 作業用の翻訳ドラフト（Skill の成果物であって、リポジトリの一部ではない）
+# 公開リポジトリには含めない。手元には残る。
+邦多利巡礼包宣传视频脚本*.md
+
