@@ -853,6 +853,7 @@ characters/               ★ 按乐队/分类分目录（见下）
 ├── _template-zh.md           模板（中文层）
 ├── _template-band.md         模板（乐队层）
 ├── poppin-party/             ポッピンパーティ（5 人）
+├── afterglow/               アフターグロウ（5 人）
 ├── roselia/                  ロゼリア（5 人）
 ├── raise-a-suilen/           レイズアスイレン（5 人）
 ├── ave-mujica/               アヴェムジカ（5 人）

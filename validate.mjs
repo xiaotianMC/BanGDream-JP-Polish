@@ -120,6 +120,7 @@ for (const f of FILES) {
       'レイズアスイレン': 'raise-a-suilen',
       'ロゼリア': 'roselia',
       'アヴェムジカ': 'ave-mujica',
+      'アフターグロウ': 'afterglow',
       // ↓ 成員を置かないバンド／ユニット。_band.md のみ。
       //   crychic: 5 人全員が他バンドにファイルを持つ（二重管理を避ける）
       //   sumimi : 相方 三角初華 はアヴェムジカ側にファイルを持つ

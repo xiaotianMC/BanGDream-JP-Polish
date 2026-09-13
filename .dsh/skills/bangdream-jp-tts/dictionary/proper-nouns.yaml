@@ -245,10 +245,12 @@ characters:
   - canonical: 美竹蘭
     kana: みたけ らん
     band: アフターグロウ
+    rules_file: afterglow/ran.md
 
   - canonical: 青葉モカ
     kana: あおば もか
     band: アフターグロウ
+    rules_file: afterglow/moka.md
 
   - canonical: 弦巻こころ
     kana: つるまき こころ
@@ -394,15 +396,18 @@ characters:
   - canonical: 上原ひまり
     kana: うえはら ひまり
     band: アフターグロウ
+    rules_file: afterglow/himari.md
     note: 表记是「ひまり」（平假名）
 
   - canonical: 羽沢つぐみ
     kana: はざわ つぐみ
     band: アフターグロウ
+    rules_file: afterglow/tsugumi.md
 
   - canonical: 宇田川巴
     kana: うだがわ ともえ
     band: アフターグロウ
+    rules_file: afterglow/tomoe.md
     note: 读音是 ともえ。不是「は」
 
   - canonical: 奥沢美咲
