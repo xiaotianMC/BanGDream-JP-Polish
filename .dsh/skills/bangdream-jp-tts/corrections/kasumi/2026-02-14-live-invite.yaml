@@ -27,49 +27,49 @@ pairs:
         to: ほんっとに
         issues: [character_style, emotion]
         reason: |
-          興奮状態の強調形。促音の挿入で勢いが出る。
-          平叙の場面では「本当に」のままでよい（境界は excludes を参照）
+          兴奋状态下的强调形。插入促音会带出气势。
+          陈述性场面保持「本当に」即可（边界参见 excludes）
       - from: すごく
         to: （削除）
         issues: [natural_japanese]
         reason: |
-          「ほんっとに」が強度を担うため、程度副詞の重複になる。
-          日本語では程度副詞の二重修飾は冗長に響く
+          由「ほんっとに」承担强度，因此成了程度副词的重复。
+          在日语中，程度副词的双重修饰听起来冗长
       - from: 楽しかったです
         to: 楽しかったー
         issues: [character_style, sentence_ending, tts]
         reason: |
-          友人間かつ興奮状態で敬体は不自然（距離感が出る）。
-          長音「ー」が興奮を音声的に補助する
+          朋友之间、且处于兴奋状态时，敬体不自然（会产生距离感）。
+          长音「ー」从语音上辅助表现兴奋
       - from: やりましょう
         to: やろうよ
         issues: [character_style, sentence_ending]
         reason: |
-          敬体の勧誘「〜ましょう」は過度に丁寧。
-          香澄は対等な相手には直接誘う形を使う
+          敬体的劝诱「〜ましょう」过于礼貌。
+          香澄对地位对等的对象会用直接邀请的形式
       - from: ライブをやろうよ
         to: ライブやろうよ
         issues: [natural_japanese]
-        reason: 口語では助詞「を」を省略する
+        reason: 口语中省略助词「を」
 
 generalizable_rule: |
-  興奮状態の香澄にはです・ます を使わない。勧誘は「〜しよう」「〜やろうよ」。
-  ただし公式・目上の場面では敬体が正しい（この境界を外すと過学習する）
+  对兴奋状态下的香澄不使用です・ます。劝诱用「〜しよう」「〜やろうよ」。
+  不过在正式场合、对长辈的场合敬体才是正确的（去掉这个边界就会过拟合）
 
 promoted_rule_ids: [kasumi_001, kasumi_002, kasumi_003, global_001, global_002]
 
 not_promoted:
   - change: すごく → （削除）
-    why: この文脈固有。「すごく」が必要な文が多数あり、一般則にできない
+    why: 为该语境特有。需要「すごく」的句子很多，无法成为一般规律
   - change: 「キラキラ」「みんな」の追加
     why: |
-      原文に存在しない情報の追加（Global G2 違反）。
-      香澄の特徴語だが全台詞に足すのは刻板模倣であり、角色规则の過学習
+      添加原文中不存在的信息（违反 Global G2）。
+      虽是香澄的特征词，但加到所有台词里属于刻板模仿，是角色规则的过拟合
 
 confidence: observed
 evidence_count: 1
 note: |
-  evidence_count が 1 なので、promoted_rule_ids の各規則はすべて observed 扱い。
-  同種の修正が3件以上、異なる場面から集まったら recommended への昇格を検討する。
-  「です・ます を使わない」は境界（公式の場）を外すと誤適用しやすいので、
-  昇格時には excludes を必ず維持すること。
+  由于 evidence_count 为 1，promoted_rule_ids 中的各条规则全部按 observed 处理。
+  同种修正从不同场景收集到 3 件以上时，再考虑升格为 recommended。
+  「です・ます を使わない」一旦去掉边界（正式场合）就容易误用，所以
+  升格时必须保留 excludes。

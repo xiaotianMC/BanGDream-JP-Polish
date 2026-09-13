@@ -6,14 +6,14 @@
 engine:
   name: GPT-SoVITS
   status: confirmed
-  verified: false        # 未实际合成验证。見 adapters/gpt-sovits.md
+  verified: false        # 未实际合成验证。参见 adapters/gpt-sovits.md
   adapter: adapters/gpt-sovits.md
 #
 # 引擎确定后的三条影响：
-#   1. 英字は G9 により**無条件で片仮名に転写**。本词典に英字エントリを
-#      追加する意味は薄い——转写した片仮名を登録する
-#   2. 片仮名は字符と読みがほぼ一対一なので、**片仮名化自体が誤読対策**になる
-#   3. 促音「っ」・長音「ー」の挙動は要実測（adapters/gpt-sovits.md 検証清单 C）
+#   1. 英字按 G9 **无条件转写为片假名**。在本词典中追加英字条目
+#      意义不大——登记转写后的片假名
+#   2. 片假名的字符与读音几乎一一对应，**片假名化本身就是误读对策**
+#   3. 促音「っ」・长音「ー」的行为需要实测（adapters/gpt-sovits.md 验证清单 C）
 #
 # 填写原则：
 #   - 只填**真的会误读**的条目。常用词不要塞进来，会稀释信噪比。
@@ -32,405 +32,405 @@ version: 0
 updated: 2026-02-14
 
 # ─────────────────────────────────────────────────────────────
-# 角色名 —— 最高风险。当用汉字几乎必然误读
+# 角色名 —— 最高风险。用常用汉字写几乎必然误读
 # ─────────────────────────────────────────────────────────────
 character_names:
 
-  # ★ 最高リスク項目 —— 「燈」は あかり と誤読されやすい。
-  #   原作でも道人が「あかり」と読み間違える場面がある。
-  #   GPT-SoVITS も同じ誤りを犯す可能性が高い（adapters/gpt-sovits.md 参照）。
+  # ★ 最高风险条目 —— 「燈」容易被误读成 あかり。
+  #   原作中也有路人把它读错成「あかり」的场面。
+  #   GPT-SoVITS 也很可能犯同样的错误（参见 adapters/gpt-sovits.md）。
   - word: 燈
     reading: ともり
     reason: |
-      TTS pronunciation — **あかり と誤読する可能性が極めて高い**。
-      動詞「灯（とも）る」の名詞形に由来する希少な読み。
-      名前のため**書き換えによる回避ができない**（T5 veto の適用外）
+      TTS pronunciation — **被误读成 あかり 的可能性极高**。
+      源自动词「灯（とも）る」的名词形，是稀有的读音。
+      因为是名字，**无法通过改写来规避**（T5 veto 的适用范围之外）
     verified: false
     engine: GPT-SoVITS
     note: |
-      高松燈（たかまつ ともり）。読みの希少さ自体が原作の要素。
-      回避手段の優先順位：
-        1. 本エントリの登録（実施済み）
-        2. GPT-SoVITS 側のフロントエンド辞書に登録
-        3. 最終手段として本文を「ともり」と仮名表記
-      名前は G7 により表記統一が必須のため、安易に仮名化しない
+      高松燈（たかまつ ともり）。读音的稀有性本身就是原作的要素。
+      规避手段的优先顺序：
+        1. 登记本条目（已完成）
+        2. 登记到 GPT-SoVITS 侧的前端词典
+        3. 作为最后手段，把正文用假名写成「ともり」
+      名字按 G7 必须统一表记，因此不要轻易改成假名
 
   - word: 高松
     reading: たかまつ
-    reason: TTS pronunciation — 姓の読み
+    reason: TTS pronunciation — 姓氏的读音
     verified: false
     engine: GPT-SoVITS
-    note: 読みの異形は考えにくいが、名と連続するため誤読の連鎖に注意
+    note: 读音的异形不太可能出现，但与名字连续，注意误读的连锁
 
   - word: 氷川
     reading: ひかわ
     reason: |
-      TTS pronunciation — 「氷」を こおり と読む誤りが起きやすい。
-      氷川紗夜（ロゼリア）・氷川日菜（パステルパレット）の姉妹で頻出
+      TTS pronunciation — 容易把「氷」误读成 こおり。
+      在姐妹 氷川紗夜（ロゼリア）・氷川日菜（パステルパレット）身上高频出现
     verified: false
     engine: GPT-SoVITS
-    note: 読みは ひかわ。「ひょうかわ」等にも注意
+    note: 读音是 ひかわ。也要注意「ひょうかわ」等
 
-  # ── MyGO!!!!! メンバー（2026-08-31 追加）──
-  # 灯以外の 4 名も当用漢字の難読揺れが大きい。
+  # ── MyGO!!!!! 成员（2026-08-31 追加）──
+  # 除灯以外的 4 人，常用汉字的难读与摇摆也很大。
 
   - word: 愛音
     reading: あのん
     reason: |
-      TTS pronunciation — **あいね と誤読する可能性が高い**。
-      「愛」→あい、「音」→ね という通常の連想から外れる
+      TTS pronunciation — **被误读成 あいね 的可能性很高**。
+      脱离了「愛」→あい、「音」→ね 这种通常的联想
     verified: false
     engine: GPT-SoVITS
-    note: 千早愛音。読みの意外さはキャラ設定の一部。名前は書き換え不可（G7）
+    note: 千早愛音。读音的出人意料是角色设定的一部分。名字不可改写（G7）
 
   - word: 楽奈
     reading: らーな
     reason: |
-      TTS pronunciation — **らくな と誤読する可能性が高い**。
-      「楽」→らく、「奈」→な の直読を避ける必要がある
+      TTS pronunciation — **被误读成 らくな 的可能性很高**。
+      需要避免按「楽」→らく、「奈」→な 直接读
     verified: false
     engine: GPT-SoVITS
     note: |
-      要楽奈。**長音符付きの「らーな」**が正しい（「らな」ではない）。
-      「ー」を正しく伸ばすかは要実測（adapters/gpt-sovits.md 検証清单 C）
+      要楽奈。正确的是**带长音符的「らーな」**（不是「らな」）。
+      「ー」能否正确拉长需要实测（adapters/gpt-sovits.md 验证清单 C）
 
   - word: 立希
     reading: たき
     reason: |
-      TTS pronunciation — **りっき と誤読する可能性**。
-      同一作品内に「りっきー」というニックネームがあり混同しやすい
+      TTS pronunciation — **有被误读成 りっき 的可能**。
+      同一作品内有「りっきー」这个昵称，容易混淆
     verified: false
     engine: GPT-SoVITS
-    note: 椎名立希。`りっきー` は**愛音が押し付けた別名**で、名前の読みではない
+    note: 椎名立希。`りっきー` 是**愛音硬塞给她的别名**，不是名字的读音
 
   - word: そよ
     reading: そよ
     reason: |
-      TTS pronunciation — **仮名表記なので誤読リスクは低い**。
-      ただし漢字表記「爽世」を使うと そうせい / そうよ 等に誤読される
+      TTS pronunciation — **因为写的是假名，误读风险低**。
+      但若使用汉字表记「爽世」，会被误读成 そうせい / そうよ 等
     verified: false
     engine: GPT-SoVITS
     note: |
-      長崎そよ。**名前は仮名「そよ」が正**（「爽世」は後付けの漢字名）。
-      本文でも仮名を使うのが原作準拠かつ TTS 安全
+      長崎そよ。**名字以假名「そよ」为正**（「爽世」是后来追加的汉字名）。
+      正文中也使用假名，既符合原作又对 TTS 安全
 
-  # ── ポッピンパーティ メンバー（2026-09-02 追加）──
+  # ── ポッピンパーティ 成员（2026-09-02 追加）──
 
   - word: たえ
     reading: たえ
-    reason: TTS pronunciation — **仮名表記なので誤読リスクは低い**
+    reason: TTS pronunciation — **因为写的是假名，误读风险低**
     verified: false
     engine: GPT-SoVITS
     note: |
-      花園たえ。漢字表記が存在しない（出典の「多惠」は中文表記で日本語起源が不明）。
-      **仮名なので TTS 的に最も安全**。`おたえ` も同様
+      花園たえ。不存在汉字表记（出典的「多惠」是中文表记，日语起源不明）。
+      **因为是假名，对 TTS 来说最安全**。`おたえ` 也一样
 
   - word: りみ
     reading: りみ
-    reason: TTS pronunciation — **仮名表記なので誤読リスクは低い**
+    reason: TTS pronunciation — **因为写的是假名，误读风险低**
     verified: false
     engine: GPT-SoVITS
-    note: 牛込りみ。`牛込`（うしごめ）は別途登録。苗字だけが漢字
+    note: 牛込りみ。`牛込`（うしごめ）已另行登记。只有姓氏是汉字
 
   - word: 沙綾
     reading: さあや
     reason: |
-      TTS pronunciation — **「さや」と誤読されやすい**（長音の有無）。
-      同じ作品内に「さーや」という呼称も存在し、混同しやすい
+      TTS pronunciation — **容易被误读成「さや」**（有无长音）。
+      同一作品内还存在「さーや」这个称呼，容易混淆
     verified: false
     engine: GPT-SoVITS
     note: |
-      山吹沙綾。**「さあや」が本名の読み**、「さーや」は呼称。
-      読みは同じだが表記が異なる。TTS には同じ音として渡る想定
+      山吹沙綾。**「さあや」是本名的读音**，「さーや」是称呼。
+      读音相同但表记不同。设想传给 TTS 时是同一个音
 
   - word: 有咲
     reading: ありさ
     reason: |
-      TTS pronunciation — **「ゆうさき」等と誤読されやすい**。
-      「咲」を さき と読む連想が強い
+      TTS pronunciation — **容易被误读成「ゆうさき」等**。
+      把「咲」读成 さき 的联想很强
     verified: false
     engine: GPT-SoVITS
-    note: 市ヶ谷有咲。「咲」は さ
+    note: 市ヶ谷有咲。「咲」读 さ
 
   - word: 牛込
     reading: うしごめ
     reason: |
-      TTS pronunciation — **「ぎゅうこみ」等と誤読されやすい**。
-      牛込さん（友希那・紗夜・燐子・麻弥が使う）で頻出
+      TTS pronunciation — **容易被误读成「ぎゅうこみ」等**。
+      在 牛込さん（友希那・紗夜・燐子・麻弥使用）中高频出现
     verified: false
     engine: GPT-SoVITS
-    note: 牛込りみの姓
+    note: 牛込りみ的姓
 
   - word: 戸山
     reading: とやま
     reason: |
-      TTS pronunciation — 「戸」を こ と読む可能性。
-      戸山さん（麻弥・友希那・紗夜・燐子・美咲が使う）で頻出
+      TTS pronunciation — 有把「戸」读成 こ 的可能。
+      在 戸山さん（麻弥・友希那・紗夜・燐子・美咲使用）中高频出现
     verified: false
     engine: GPT-SoVITS
-    note: 戸山香澄の姓
+    note: 戸山香澄的姓
 
   - word: 香澄
     reading: かすみ
-    reason: TTS pronunciation — 「香」を「こう」と読む可能性が高い
+    reason: TTS pronunciation — 把「香」读成「こう」的可能性很高
     verified: false
     engine: null
 
   - word: 市ヶ谷
     reading: いちがや
-    reason: TTS pronunciation — 「ヶ」の読み（が / け / ガ）が不安定
+    reason: TTS pronunciation — 「ヶ」的读音（が / け / ガ）不稳定
     verified: false
     engine: null
 
   - word: 友希那
     reading: ゆきな
-    reason: TTS pronunciation — 「希」を「き」と読むのは難読
+    reason: TTS pronunciation — 把「希」读成「き」属于难读
     verified: false
     engine: null
 
   - word: 湊
     reading: みなと
-    reason: TTS pronunciation — 「湊」の読みが複数
+    reason: TTS pronunciation — 「湊」的读音有多个
     verified: false
     engine: null
 
   - word: 美竹蘭
     reading: みたけらん
-    reason: TTS pronunciation — 人名の難読
+    reason: TTS pronunciation — 人名难读
     verified: false
     engine: null
 
   - word: 青葉モカ
     reading: あおばもか
-    reason: TTS pronunciation — 姓の読み
+    reason: TTS pronunciation — 姓氏的读音
     verified: false
     engine: null
 
   - word: 上原ひまり
     reading: うえはらひまり
-    reason: TTS pronunciation — 姓の読み
+    reason: TTS pronunciation — 姓氏的读音
     verified: false
     engine: null
 
   - word: 羽丘
     reading: はねおか
-    reason: TTS pronunciation — 学校名。地名由来の読み
+    reason: TTS pronunciation — 学校名。源自地名的读音
     verified: false
     engine: null
 
-  # ── レイズアスイレン メンバー（2026-09-02 追加）──
-  # 出典の本名欄で読みを確認済み。★ 印は直読では当たらないもの。
+  # ── レイズアスイレン 成员（2026-09-02 追加）──
+  # 读音已在出典的本名栏确认。★ 标记表示不能按字面直读的条目。
 
   - word: 鳰原
     reading: にゅうばら
     reason: |
-      TTS pronunciation — ★ **最も誤読リスクが高い**。
-      「鳰」は難読で、にゅうばら とは直読できない。
-      において はら / におはら 等と読む可能性が高い
+      TTS pronunciation — ★ **误读风险最高**。
+      「鳰」是难读字，无法直读成 にゅうばら。
+      很有可能会读成 において はら / におはら 等
     verified: false
     engine: GPT-SoVITS
     note: |
-      鳰原令王那（PAREO）。出典の本名欄「鳰原（にゅうばら）」。
-      ⚠ 以前この辞書に「におはら」と誤記していたのを修正した経緯がある
+      鳰原令王那（PAREO）。出典的本名栏「鳰原（にゅうばら）」。
+      ⚠ 以前本词典曾把它误记成「におはら」，后来修正过
 
   - word: 珠手
     reading: たまで
     reason: |
-      TTS pronunciation — ★ **しゅて と誤読されやすい**。
-      「珠」を しゅ、「手」を て と直読する連想が強い
+      TTS pronunciation — ★ **容易被误读成 しゅて**。
+      把「珠」直读成 しゅ、「手」直读成 て 的联想很强
     verified: false
     engine: GPT-SoVITS
-    note: 珠手知由（CHU²）。出典の本名欄「珠手（たまで）」。名前は仮名「ちゆ」
+    note: 珠手知由（CHU²）。出典的本名栏「珠手（たまで）」。名字是假名「ちゆ」
 
   - word: 六花
     reading: ろっか
     reason: |
-      TTS pronunciation — ★ **りっか / ろくはな 等と誤読されやすい**。
-      促音 + 撥音の組み合わせ
+      TTS pronunciation — ★ **容易被误读成 りっか / ろくはな 等**。
+      促音 + 拨音的组合
     verified: false
     engine: GPT-SoVITS
     note: |
-      朝日六花（LOCK）。出典の本名欄「六花（ろっか）」。
-      Afterglow は本名「六花」で呼ぶため、本文での出現頻度が高い
+      朝日六花（LOCK）。出典的本名栏「六花（ろっか）」。
+      因为 Afterglow 会用本名「六花」称呼她，正文中的出现频率很高
 
   - word: 令王那
     reading: れおな
     reason: |
-      TTS pronunciation — ★ **れいおうな / れおうな 等と誤読されやすい**。
-      三文字で三拍という不規則な対応
+      TTS pronunciation — ★ **容易被误读成 れいおうな / れおうな 等**。
+      三个字对应三拍这种不规则对应
     verified: false
     engine: GPT-SoVITS
-    note: 鳰原令王那。知由だけが本名「令王那」で呼ぶ
+    note: 鳰原令王那。只有知由用本名「令王那」称呼
 
   - word: 和奏
     reading: わかな
-    reason: TTS pronunciation — 「わそう」等と誤読されやすい
+    reason: TTS pronunciation — 容易被误读成「わそう」等
     verified: false
     engine: GPT-SoVITS
     note: |
-      和奏レイヤ。出典の姓の由来に「和と奏の二文字が LAYER に合う」とある。
-      ★ **本名は「レイヤ」ではなく「レイ」**（出典の本名欄「レイ」）
+      和奏レイヤ。出典中关于姓氏由来写着「和与奏这两个字很适合 LAYER」。
+      ★ **本名不是「レイヤ」而是「レイ」**（出典的本名栏「レイ」）
 
   - word: 佐藤
     reading: さとう
-    reason: TTS pronunciation — 一般姓だが人名として登録
+    reason: TTS pronunciation — 虽然是普通姓氏，但作为人名登记
     verified: false
     engine: GPT-SoVITS
-    note: 佐藤益木。名前「ますき」は**仮名**なので誤読リスクなし
+    note: 佐藤益木。名字「ますき」是**假名**，所以没有误读风险
 
-  # ── ロゼリア メンバー（2026-09-02 追加）──
-  # 出典の本名欄で読みを確認済み。★ 印は直読では当たらないもの。
+  # ── ロゼリア 成员（2026-09-02 追加）──
+  # 读音已在出典的本名栏确认。★ 标记表示不能按字面直读的条目。
 
   - word: 白金
     reading: しろかね
     reason: |
-      TTS pronunciation — ★ **最も誤読リスクが高い**。
-      「白金」は金属名で はっきん の連想が極めて強く、
-      人名の しろかね とは直結しない
+      TTS pronunciation — ★ **误读风险最高**。
+      「白金」是金属名，和 はっきん 的联想极强，
+      与人名的 しろかね 无法直接挂钩
     verified: false
     engine: GPT-SoVITS
-    note: 白金燐子。出典の本名欄「白金（しろかね）燐子（りんこ）(Shirokane Rinko)」
+    note: 白金燐子。出典的本名栏「白金（しろかね）燐子（りんこ）(Shirokane Rinko)」
 
   - word: 燐子
     reading: りんこ
     reason: |
-      TTS pronunciation — ★ 「燐」は**常用漢字表にも人名用漢字にも無い字**
-      （出典に注記あり）。読みの推定が効きにくい
+      TTS pronunciation — ★ 「燐」是**常用汉字表和人名用汉字表中都没有的字**
+      （出典中有注记）。很难靠推测得出读音
     verified: false
     engine: GPT-SoVITS
-    note: 白金燐子。「燐」を りん と読むのは難読
+    note: 白金燐子。把「燐」读成 りん 属于难读
 
   - word: 紗夜
     reading: さよ
-    reason: TTS pronunciation — 「さや」と誤読されやすい（長音ではないが連想が強い）
+    reason: TTS pronunciation — 容易被误读成「さや」（虽不是长音，但联想很强）
     verified: false
     engine: GPT-SoVITS
-    note: 氷川紗夜。★ 双子の妹「日菜」と混同しないこと（ひな）
+    note: 氷川紗夜。★ 不要和双胞胎妹妹「日菜」混淆（ひな）
 
   - word: 宇田川
     reading: うだがわ
-    reason: TTS pronunciation — 「うたがわ」と誤読されやすい
+    reason: TTS pronunciation — 容易被误读成「うたがわ」
     verified: false
     engine: GPT-SoVITS
     note: |
-      宇田川あこ（ロゼリア）と宇田川巴（アフターグロウ）の**姉妹で共通**。
-      誤読すると二人同時に壊れるため優先度が高い
+      宇田川あこ（ロゼリア）和宇田川巴（アフターグロウ）**姐妹共用**。
+      一旦误读，两人会同时崩掉，因此优先级很高
 
-  # ── アヴェムジカ メンバー（2026-09-06 追加）──
-  # 出典の本名欄で読みを確認済み。★ 印は直読では当たらないもの。
+  # ── アヴェムジカ 成员（2026-09-06 追加）──
+  # 读音已在出典的本名栏确认。★ 标记表示不能按字面直读的条目。
 
   - word: 睦
     reading: むつみ
     reason: |
-      TTS pronunciation — ★ 「むつき」「むつみ」以外の読みを当てられやすい。
-      名の一部であり、単独では読みが定まらない
+      TTS pronunciation — ★ 容易被套上「むつき」「むつみ」以外的读音。
+      只是名字的一部分，单独出现时读音无法确定
     verified: false
     engine: GPT-SoVITS
-    note: 若葉睦。★ **別人格「モーティス」**があり、自称が三つに分かれる（mutsumi.md）
+    note: 若葉睦。★ 有**另一个人格「モーティス」**，自称分成三种（mutsumi.md）
 
   - word: 海鈴
     reading: うみり
     reason: |
-      TTS pronunciation — ★ 「鈴」を すず と読む連想が強く、
-      うみすず と誤読されやすい
+      TTS pronunciation — ★ 把「鈴」读成 すず 的联想很强，
+      容易被误读成 うみすず
     verified: false
     engine: GPT-SoVITS
-    note: 八幡海鈴。「贝斯雇佣兵」——同時に 30 バンドを支援していた経歴がある
+    note: 八幡海鈴。「贝斯雇佣兵」——有同时支援 30 个乐队的经历
 
   - word: 三角
     reading: みすみ
     reason: |
-      TTS pronunciation — ★ **「さんかく」と誤読されやすい**。
-      一般名詞としての読みが極めて強い
+      TTS pronunciation — ★ **容易被误读成「さんかく」**。
+      作为普通名词的读音印象极强
     verified: false
     engine: GPT-SoVITS
-    note: 三角初華。★ 姓が一般名詞と同形なので誤読リスクが高い
+    note: 三角初華。★ 姓氏与普通名词同形，因此误读风险很高
 
   - word: 初華
     reading: ういか
     reason: |
-      TTS pronunciation — ★ 「はつか」「はつはな」等と誤読されやすい。
-      「初」を はつ と読む連想が強い
+      TTS pronunciation — ★ 容易被误读成「はつか」「はつはな」等。
+      把「初」读成 はつ 的联想很强
     verified: false
     engine: GPT-SoVITS
     note: |
-      三角初華。★ **同一人物に二つ目の名前「初音（はつね）」がある**（二重名義）。
-      どちらで読むかは文脈依存——TTS 的には要注意
+      三角初華。★ **同一个人还有第二个名字「初音（はつね）」**（双重名义）。
+      读哪一个取决于上下文——从 TTS 角度需要特别注意
 
   - word: 初音
     reading: はつね
-    reason: TTS pronunciation — 「はつおと」と誤読されやすい
+    reason: TTS pronunciation — 容易被误读成「はつおと」
     verified: false
     engine: GPT-SoVITS
-    note: 三角初華のもう一つの名義。祥子は彼女を「初音」と呼ぶ場面がある（uika.md）
+    note: 三角初華的另一个名义。祥子有称呼她为「初音」的场面（uika.md）
 
   - word: 豊川
     reading: とがわ
     reason: |
-      TTS pronunciation — ★ 「とよかわ」「ほうかわ」等と誤読されやすい
+      TTS pronunciation — ★ 容易被误读成「とよかわ」「ほうかわ」等
     verified: false
     engine: GPT-SoVITS
-    note: 豊川祥子。★ 一人称は「私（わたくし）」
+    note: 豊川祥子。★ 第一人称是「私（わたくし）」
 
   - word: 祐天寺
     reading: ゆうてんじ
     reason: |
-      TTS pronunciation — 寺の名前でもあり、人名としての読みが定まりにくい
+      TTS pronunciation — 也是寺庙的名字，作为人名的读音难以确定
     verified: false
     engine: GPT-SoVITS
     note: |
-      祐天寺若麦。★ **名前は平仮名「にゃむ」**なので誤読リスクなし。
-      姓だけが漢字
+      祐天寺若麦。★ **名字是平假名「にゃむ」**，所以没有误读风险。
+      只有姓氏是汉字
 
 # ─────────────────────────────────────────────────────────────
-# 地名 —— 聖地巡礼スクリプトで頻出。難読地名は誤読リスクが高い
+# 地名 —— 在圣地巡礼脚本中高频出现。难读地名误读风险高
 # ─────────────────────────────────────────────────────────────
-# 2026-02-14 追加。ユーザー指定の 3 件（小豆島 / 安房鴨川 / 逗子・葉山）を含む。
-# 詳細な表記統一は proper-nouns.yaml の places セクションを参照。
+# 2026-02-14 追加。包含用户指定的 3 条（小豆島 / 安房鴨川 / 逗子・葉山）。
+# 详细的表记统一参见 proper-nouns.yaml 的 places 段。
 place_names:
 
   - word: 小豆島
     reading: しょうどしま
-    reason: TTS pronunciation — **あずきじま と誤読する可能性が高い**。最高リスク
+    reason: TTS pronunciation — **被误读成 あずきじま 的可能性很高**。最高风险
     verified: false
     engine: GPT-SoVITS
     note: |
-      香川県。「小豆」＝あずき の連想で誤読しやすい。
-      片仮名「ショウドシマ」にすれば確実だが、本文の可読性が落ちる。
-      通常は漢字のまま + 本エントリ + 実測で対応する
+      香川県。因为「小豆」＝あずき 的联想，容易误读。
+      写成片假名「ショウドシマ」确实可靠，但正文可读性会下降。
+      通常以汉字原样 + 本条目 + 实测来应对
 
   - word: 安房鴨川
     reading: あわかもがわ
-    reason: TTS pronunciation — 「安房」は旧国名で あわ。難読
+    reason: TTS pronunciation — 「安房」是旧国名，读 あわ。难读
     verified: false
     engine: GPT-SoVITS
     note: |
-      千葉県。駅名「安房鴨川駅」は あわかもがわえき。
-      「あわ-かもがわ」と区切る読みを望む場合は要調整（未検証）
+      千葉県。站名「安房鴨川駅」读 あわかもがわえき。
+      如果想让它按「あわ-かもがわ」断开来读，需要调整（未验证）
 
   - word: 逗子
     reading: ずし
-    reason: TTS pronunciation — 「逗」の読み（とう / ず）が不安定
+    reason: TTS pronunciation — 「逗」的读音（とう / ず）不稳定
     verified: false
     engine: GPT-SoVITS
 
   - word: 葉山
     reading: はやま
-    reason: TTS pronunciation — 地名の読み
+    reason: TTS pronunciation — 地名的读音
     verified: false
     engine: GPT-SoVITS
-    note: 「逗子・葉山」の「・」は読ませない。並列表記
+    note: 「逗子・葉山」中的「・」不读出。并列表记
 
   - word: 江の島
     reading: えのしま
-    reason: TTS pronunciation — 「江」を こう と読む可能性
+    reason: TTS pronunciation — 有把「江」读成 こう 的可能
     verified: false
     engine: GPT-SoVITS
-    note: 表記は「江の島」に統一（「江ノ島」と混在させない）
+    note: 表记统一为「江の島」（不要与「江ノ島」混用）
 
   - word: 神戸
     reading: こうべ
-    reason: TTS pronunciation — 「しんこ」等の誤読可能性
+    reason: TTS pronunciation — 有误读成「しんこ」等的可能
     verified: false
     engine: GPT-SoVITS
 
@@ -440,21 +440,21 @@ place_names:
 ambiguous_kanji:
 
   - word: 生
-    reading: （文脈依存）
+    reading: （依赖上下文）
     reason: 多音字 — いきる / うまれる / なま / せい / おう
     verified: false
     engine: null
-    note: 単独では登録できない。誤読した具体例が出たら文単位で登録する
+    note: 无法单独登记。出现误读的具体例子后按句子单位登记
 
   - word: 行
-    reading: （文脈依存）
+    reading: （依赖上下文）
     reason: 多音字 — いく / ぎょう / おこなう / ゆく
     verified: false
     engine: null
     note: 同上
 
   - word: 空
-    reading: （文脈依存）
+    reading: （依赖上下文）
     reason: 多音字 — そら / から / あく / くう
     verified: false
     engine: null
@@ -462,7 +462,7 @@ ambiguous_kanji:
 
   - word: 一日
     reading: いちにち
-    reason: 多音字 — ついたち と読む文脈もある
+    reason: 多音字 — 也有读作 ついたち 的上下文
     verified: false
     engine: null
 
@@ -479,280 +479,280 @@ numbers:
 
   - word: 3人
     reading: さんにん
-    reason: TTS pronunciation — 助数詞の読み（にん / り）
+    reason: TTS pronunciation — 量词的读音（にん / り）
     verified: false
     engine: null
 
   - word: 10月
     reading: じゅうがつ
-    reason: TTS pronunciation — とおつき と誤読する可能性
+    reason: TTS pronunciation — 有可能误读成 とおつき
     verified: false
     engine: null
 
   - word: 4月
     reading: しがつ
-    reason: TTS pronunciation — よんがつ と誤読する可能性
+    reason: TTS pronunciation — 有可能误读成 よんがつ
     verified: false
     engine: null
 
   - word: 7月
     reading: しちがつ
-    reason: TTS pronunciation — なながつ と読むケースもある
+    reason: TTS pronunciation — 也有读成 なながつ 的情况
     verified: false
     engine: null
 
   - word: 9月
     reading: くがつ
-    reason: TTS pronunciation — きゅうがつ と誤読する可能性
+    reason: TTS pronunciation — 有可能误读成 きゅうがつ
     verified: false
     engine: null
 
   - word: 1つ
     reading: ひとつ
-    reason: TTS pronunciation — いちつ と誤読する可能性
+    reason: TTS pronunciation — 有可能误读成 いちつ
     verified: false
     engine: null
 
 # ─────────────────────────────────────────────────────────────
-# ★ 用户確認済みの読み（2026-02-14）
+# ★ 用户已确认的读音（2026-02-14）
 # ─────────────────────────────────────────────────────────────
-# `verified` の意味に注意。ここでの `verified: true` は
-#   **「読みが正しいことをユーザーが確認した」**
-# を表す。**TTS が実際にその通り発音するかは別問題で、依然 unverified**
-# （後述の `unverified` 節を参照）。混同すると
-# 「確認済みだから実機検証も不要」という誤った安心につながる。
+# 注意 `verified` 的含义。这里的 `verified: true` 表示的是
+#   **「用户已确认读音是正确的」**
+# ——仅此而已。**TTS 是否真的按此发音是另一回事，依然是 unverified**
+# （参见后文的 `unverified` 段）。混淆二者会导致
+# 「既然已确认，就不需要实机验证」这种错误的安心感。
 #
-# 初出：ユーザーが 2026-02-14 のレビューで明示的に列挙した確認リスト。
-# 出典（萌娘百科）に読みの記載が無い項目が多く、G8 により
-# これまで「未確認」として本文での使用を避けていた語。
+# 首次出现：用户在 2026-02-14 的评审中明确列出的确认清单。
+# 出典（萌娘百科）中没有读音记载的条目很多，按 G8
+# 此前一直作为「未确认」而避免在正文中使用的词。
 #
-# 英字で書かれるバンド名・コードネームは G9 により片仮名を正文とする。
-# ここに並ぶのは**その片仮名形と読み**である。
+# 用英字书写的乐队名・代号按 G9 以片假名为正文。
+# 这里列出的就是**它们的片假名形与读音**。
 verified_readings:
 
-  # ── バンド名（G9 転写後）────────────────────────────────
+  # ── 乐队名（G9 转写后）────────────────────────────────
   - word: アヴェムジカ
-    reason: TTS pronunciation — 英字 `Ave Mujica` は英語 G2P を通り英語音素になる（G9）。「ヴ」の扱いも揺れうる
+    reason: TTS pronunciation — 英字 `Ave Mujica` 会经过英语 G2P 变成英语音素（G9）。「ヴ」的处理也可能摇摆
     reading: アヴェムジカ
     kind: band
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      英字 `Ave Mujica`。canonical は `proper-nouns.yaml` の `bands`。
-      ラテン語由来のため「ヴ」の扱いが揺れうる（ブ ではなく ヴ）。
+      英字 `Ave Mujica`。canonical 在 `proper-nouns.yaml` 的 `bands` 中。
+      因为源自拉丁语，「ヴ」的处理可能摇摆（是 ヴ 而不是 ブ）。
 
   - word: スミミ
-    reason: TTS pronunciation — 英字 `sumimi` のままだと英語読みになる（G9）
+    reason: TTS pronunciation — 若保持英字 `sumimi` 会变成英语读法（G9）
     reading: スミミ
     kind: band
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      英字 `sumimi`。初華が所属するアイドルユニット。
-      英字のままでは GPT-SoVITS が英語 G2P を通すため片仮名が必須。
+      英字 `sumimi`。初華所属的偶像组合。
+      若保持英字，GPT-SoVITS 会走英语 G2P，因此必须用片假名。
 
   - word: ロゼリア
-    reason: TTS pronunciation — 英字 `Roselia` のままだと英語読みになる（G9）
+    reason: TTS pronunciation — 若保持英字 `Roselia` 会变成英语读法（G9）
     reading: ロゼリア
     kind: band
     verified: true
-    source: ユーザー確認 2026-02-14
-    note: 英字 `Roselia`。略称は「ロゼ」だが正文では「ロゼリア」
+    source: 用户确认 2026-02-14
+    note: 英字 `Roselia`。简称是「ロゼ」，但正文用「ロゼリア」
 
   - word: レイズアスイレン
-    reason: TTS pronunciation — 英字 `RAISE A SUILEN` は逐字読み・英語読みの両方がありうる（G9）
+    reason: TTS pronunciation — 英字 `RAISE A SUILEN` 可能被逐字读，也可能按英语读（G9）
     reading: レイズアスイレン
     kind: band
     verified: true
-    source: ユーザー確認 2026-02-14
-    note: 英字 `RAISE A SUILEN`。語間に空白があるため転写時に空白を残さない
+    source: 用户确认 2026-02-14
+    note: 英字 `RAISE A SUILEN`。词间有空格，转写时不要保留空格
 
   - word: ポッピンパーティ
-    reason: TTS pronunciation — 英字 `Poppin'Party` だと英語読みになる。アポストロフィも記号として問題（G9）
+    reason: TTS pronunciation — 若写成英字 `Poppin'Party` 会变成英语读法。撇号作为符号也有问题（G9）
     reading: ポッピンパーティ
     kind: band
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      英字 `Poppin'Party`。アポストロフィは転写で消える。
-      **本項は既に登録済みだったが、読みの確認は今回が初**。
+      英字 `Poppin'Party`。撇号会在转写中消失。
+      **本条虽然早已登记，但读音确认是本次首次**。
 
   - word: マイゴ
-    reason: TTS pronunciation — 英字 `MyGO!!!!!` だと英語読みになり、`!` も記号として問題（G9）
+    reason: TTS pronunciation — 若写成英字 `MyGO!!!!!` 会变成英语读法，`!` 作为符号也有问题（G9）
     reading: マイゴ
     kind: band
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      英字 `MyGO!!!!!`。転写により `!!!!!` は消える。
-      正文に感嘆符を**付けない**。
+      英字 `MyGO!!!!!`。转写后 `!!!!!` 会消失。
+      正文中**不加**感叹号。
 
   - word: クライシック
     reason: |
-      TTS pronunciation — 英字 `CRYCHIC` は英語 G2P を通り英語音素になる（G9）。
-      ★ **`クラシック`（CLASSIC）と片仮名が近く、混同しやすい**。
-      出典いわく「祥子が提案した時、睦が聞き間違えた」ほど近い。    reading: クライシック
+      TTS pronunciation — 英字 `CRYCHIC` 会经过英语 G2P 变成英语音素（G9）。
+      ★ **与 `クラシック`（CLASSIC）片假名相近，容易混淆**。
+      出典称，二者近到「祥子提出时，睦听错了」的程度。    reading: クライシック
     kind: band
     verified: true
-    source: 出典（萌娘百科 CRYCHIC rev.8548918 の简介）に `クライシック` と明記
+    source: 出典（萌娘百科 CRYCHIC rev.8548918 的简介）中明确写着 `クライシック`
     note: |
-      解散済みの旧バンド。読みは出典の简介に
-      「队名 CRYCHIC（クライシック）还与 CLASSIC（クラシック）片假名相近」と明記。
-      → **G9 の唯一の未解決項はこれで解消**。
-      正文では「クライシック」を使い、英字 `CRYCHIC` は使わない。
-      ★ `クラシック` との混同が**出典に記録されているほど近い**ため、
-      TTS では確実を期すなら frontend 辞書に両語を登録する
-      （adapters/gpt-sovits.md の検証清单）。
+      已解散的旧乐队。读音在出典的简介中
+      「队名 CRYCHIC（クライシック）还与 CLASSIC（クラシック）片假名相近」有明确记载。
+      → **G9 的唯一未解决项就此解决**。
+      正文使用「クライシック」，不使用英字 `CRYCHIC`。
+      ★ 与 `クラシック` 的混淆**近到被出典记录下来**，因此
+      TTS 若要确保可靠，就在 frontend 词典中登记两个词
+      （adapters/gpt-sovits.md 的验证清单）。
 
-  # ── 略称 ────────────────────────────────────────────────
+  # ── 简称 ────────────────────────────────────────────────
   - word: RAS
-    reason: TTS pronunciation — 略称は逐字読み（アールエーエス）されやすい。正しくは「ラス」
+    reason: TTS pronunciation — 简称容易被逐字读（アールエーエス）。正确的是「ラス」
     reading: ラス
     kind: acronym
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      ★ **重要**：アルファベット読み（アールエーエス）では**ない**。
-      単語として「ラス」と読む。`proper-nouns.yaml` に以前
-      「アールエーエス」と誤記していたのを本確認で修正した。
-      略称は逐字読みされやすいため、正文では「ラス」と片仮名で書くのが安全。
+      ★ **重要**：**不是**字母读法（アールエーエス）。
+      而是作为单词读「ラス」。`proper-nouns.yaml` 中以前
+      误记成「アールエーエス」，本次确认时修正了。
+      简称容易被逐字读，因此正文中用片假名写「ラス」更安全。
 
   - word: ポピパ
-    reason: TTS pronunciation — 略称。単独では誤読リスクは低いが、正式名「ポッピンパーティ」との対応を記録する
+    reason: TTS pronunciation — 简称。单独使用时误读风险低，但记录它与正式名「ポッピンパーティ」的对应关系
     reading: ポピパ
     kind: acronym
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      「ポッピンパーティ」の略称。**日本語として成立する**ことを確認。
-      ただし**誰が使うか**（全員か、たえ等に限るか）は未確認 ——
-      語形の確認と語用の確認は別物。語用は各 `characters/*.md` の
-      称呼節を参照。
+      是「ポッピンパーティ」的简称。已确认**它作为日语能够成立**。
+      但**谁会使用**（全员，还是仅限たえ等人）尚未确认 ——
+      词形的确认和语用的确认是两回事。语用参见各 `characters/*.md` 的
+      称呼节。
 
   # ── 口上 ────────────────────────────────────────────────
   - word: ポピパ！ピポパ！
-    reason: TTS pronunciation — 全角 `！` の扱いと、`！` で区切られた 2 語の分割が未検証
+    reason: TTS pronunciation — 全角 `！` 的处理，以及按 `！` 分隔的 2 个词如何切分，均未验证
     reading: ポピパ！ピポパ！
     kind: catchphrase
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      原表記 `popipa！ pipopa！…`（出典は英字小文字 + 全角 `！` + 空白）。
-      読みは「ポピパ！ピポパ！」。**`！` は残す**。
-      元が片仮名のため G9 の転写対象ではなく、**表記を変えない**。
-      `！` の個数と全角/半角、末尾の `…` の有無は依然未確認。
-      出典表記に揺れがあるため、使う場面では【待确认】に出す。
+      原表记 `popipa！ pipopa！…`（出典为英字小写 + 全角 `！` + 空格）。
+      读音为「ポピパ！ピポパ！」。**保留 `！`**。
+      因为原本就是片假名，不属于 G9 的转写对象，**不改表记**。
+      `！` 的个数与全角/半角、末尾有无 `…` 依然未确认。
+      出典表记存在摇摆，使用时在【待确认】中列出。
 
-  # ── キャラクター名・あだ名 ──────────────────────────────
+  # ── 角色名・绰号 ──────────────────────────────
   - word: 聖堕天使亜子姫
-    reason: TTS pronunciation — 当て字の長い名前。「聖堕天使」を せいだてんし と読ませる必要がある
+    reason: TTS pronunciation — 很长的一个当字名。必须让「聖堕天使」读成 せいだてんし
     reading: せいだてんしあこひめ
     kind: character_alias
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      宇田川あこ（ロゼリア）の NFO 内の名前（中二病ネーム）。
-      **表記は漢字のまま**。読みだけがここで確定した。
-      読みが特殊（「聖堕天使」= せいだてんし）なため誤読リスクが高い。
+      宇田川あこ（ロゼリア）在 NFO 中的名字（中二病名）。
+      **表记保持汉字**。只有读音在这里确定了。
+      读音特殊（「聖堕天使」= せいだてんし），因此误读风险很高。
 
   - word: チュチュ
-    reason: TTS pronunciation — 原表記 `CHU²` の上付き 2 は転写で消える。英字のままだと英語読み（G9）
+    reason: TTS pronunciation — 原表记 `CHU²` 的上标 2 会在转写中消失。若保持英字会按英语读（G9）
     reading: チュチュ
     kind: character_alias
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      珠手知由（レイズアスイレン）のコードネーム。原表記は `CHU²`。
-      **朗読稿では「チュチュ」と書く**（上付き 2 は転写で消える）。
-      出典の本名欄は「珠手（たまで）ちゆ」だが、通称は「ちゆ」ではなく
-      `CHU²` = チュチュ である点に注意。混同しないこと。
+      珠手知由（レイズアスイレン）的代号。原表记是 `CHU²`。
+      **朗读稿中写作「チュチュ」**（上标 2 会在转写中消失）。
+      出典的本名栏是「珠手（たまで）ちゆ」，但通称不是「ちゆ」而是
+      `CHU²` = チュチュ，这点需要注意。不要混淆。
 
   # ── 地名 ────────────────────────────────────────────────
   - word: 岐阜県
-    reason: TTS pronunciation — 難読地名。「岐」を き と読む誤りが起きうる
+    reason: TTS pronunciation — 难读地名。有可能把「岐」误读成 き
     reading: ぎふけん
     kind: place
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      朝日六花（レイズアスイレン）の出身。`lock.md` の岐阜弁節を参照。
-      ★ 六花の**岐阜弁そのものの具体形は依然未確証**。
-      県名の読みが確定したことと、方言の形が分かったことは別問題。
+      朝日六花（レイズアスイレン）的出身地。参见 `lock.md` 的岐阜方言节。
+      ★ 六花的**岐阜方言本身的具体形态依然未经证实**。
+      县名读音确定，与弄清了方言形态，是两回事。
 
   - word: 千葉県
-    reason: 多音字 — 「千」は通常 ち だが、地名として確実にするため登録
+    reason: 多音字 — 「千」通常是 ち，但为了作为地名确保无误而登记
     reading: ちばけん
     kind: place
     verified: true
-    source: ユーザー確認 2026-02-14
-    note: 令王那（パレオ）の通学元。
+    source: 用户确认 2026-02-14
+    note: 令王那（パレオ）的上学出发地。
 
   - word: 鴨川
-    reason: TTS pronunciation — 地名。「鴨」を かも と読ませる。駅名「安房鴨川」とは別語
+    reason: TTS pronunciation — 地名。要让「鴨」读成 かも。与站名「安房鴨川」是另一个词
     reading: かもがわ
     kind: place
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      千葉県鴨川。令王那の通学元。
-      `proper-nouns.yaml` には駅名「安房鴨川」（あわかもがわ）も登録済み——
-      **別物**なので混同しないこと。
+      千葉県鴨川。令王那的上学出发地。
+      `proper-nouns.yaml` 中也登记了站名「安房鴨川」（あわかもがわ）——
+      **是另一个东西**，不要混淆。
 
-  # ── 楽曲名 ──────────────────────────────────────────────
+  # ── 乐曲名 ──────────────────────────────────────────────
   - word: モーティス
     reading: モーティス
     kind: character_alias
     reason: |
-      TTS pronunciation — 原表記 `Mortis` は英語 G2P を通る（G9）。
-      ★ **`モルティス` と誤読されやすい**（ラテン語 mortis の連想）。
+      TTS pronunciation — 原表记 `Mortis` 会经过英语 G2P（G9）。
+      ★ **容易被误读成 `モルティス`**（拉丁语 mortis 的联想）。
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      若葉睦（アヴェムジカ）のコードネーム **かつ別人格名**。
-      コードネームは Lacus Mortis（死湖）に由来。意味は**死**。
-      ★ 睦の自称は `私` / `睦ちゃん` / `モーティス` の三つに分かれる
-      （出典の称呼一覧）。**別人格の語体は出典に記載が無い**（mutsumi.md 参照）。
+      若葉睦（アヴェムジカ）的代号**同时也是另一个人格的名字**。
+      代号源自 Lacus Mortis（死湖）。意思是**死**。
+      ★ 睦的自称分为 `私` / `睦ちゃん` / `モーティス` 三种
+      （出典的称呼一览）。**另一个人格的语体在出典中没有记载**（参见 mutsumi.md）。
 
   - word: 春日影
-    reason: TTS pronunciation — 曲名。「影」を かげ と読み、「春日」を はるひ と読ませる必要がある（はるかげ ではない）
+    reason: TTS pronunciation — 曲名。需要让「影」读 かげ、「春日」读 はるひ（不是 はるかげ）
     reading: はるひかげ
     kind: song
     verified: true
-    source: ユーザー確認 2026-02-14
+    source: 用户确认 2026-02-14
     note: |
-      **クライシック**の楽曲。燈（マイゴ）の台詞に頻出。
-      **はるかげ ではない**。クライシック歌唱版とマイゴ歌唱版がある。
-      ★ 偶然の一致：バンド名の先頭 3 字 `C` `R` `Y` は
-      《春日影》のピンイン頭文字（Chūn Rì Yǐng）と一致する（出典記載）。
-      他の曲名（迷星叫 等）の読みは未確認のまま。
+      **クライシック**的乐曲。在燈（マイゴ）的台词中高频出现。
+      **不是 はるかげ**。有 クライシック 演唱版和 マイゴ 演唱版。
+      ★ 偶然的一致：乐队名的前 3 个字母 `C` `R` `Y` 与
+      《春日影》的拼音首字母（Chūn Rì Yǐng）一致（出典记载）。
+      其他曲名（迷星叫 等）的读音仍未确认。
 
 # ─────────────────────────────────────────────────────────────
-# 外来語・略称
+# 外来语・简称
 # ─────────────────────────────────────────────────────────────
 loanwords:
 
   - word: ライブ
     reading: らいぶ
-    reason: 通常は正しく読まれる。誤読例が出たら記録
+    reason: 通常会被正确读出。出现误读例子后再记录
     verified: false
     engine: null
 
   - word: ギター
     reading: ぎたー
-    reason: 通常は正しく読まれる
+    reason: 通常会被正确读出
     verified: false
     engine: null
 
-# 略称は**登録しても解決しないことが多い**。
-# エンジンが逐字読みする場合、テキスト側で読みを書く方が確実（tts.md T3-4）。
+# 简称**即便登记也常常解决不了问题**。
+# 引擎逐字读时，在文本侧写出读音更可靠（tts.md T3-4）。
 acronyms:
 
   - word: BD
     reading: ビーディー
-    reason: TTS pronunciation — 逐字読み・単語読みの両方がありうる
+    reason: TTS pronunciation — 可能被逐字读，也可能按单词读
     verified: false
     engine: null
-    note: 確実にするなら本文に「ビーディー」と書く方が安全
+    note: 若要确保可靠，正文中写出「ビーディー」更安全
 
 # ─────────────────────────────────────────────────────────────
 # 待确认 —— 尚未验证的读音风险
@@ -760,48 +760,48 @@ acronyms:
 # 规则：不确定就读不准的，写在这里，不要在生成文本时静默选一个（Global G8）。
 unverified:
 
-  - item: 全エントリ
+  - item: 全部条目
     issue: |
-      verified: false の項目はすべて**未検証**。
-      引擎は GPT-SoVITS に確定したが、実合成での聴取確認はまだ行っていない。
-      ★ `verified_readings` の項目も**読みが確認済みなだけで、TTS 実機検証は未実施**。
+      verified: false 的项目全部**未验证**。
+      引擎已确定为 GPT-SoVITS，但尚未进行实际合成的听感确认。
+      ★ `verified_readings` 的项目也只是**读音已确认，TTS 实机验证尚未实施**。
     action: |
-      `../adapters/gpt-sovits.md` の「検証清单」を実行し、ここに結果を回填する。
-      確認項目：
-        1. 上記の reading 通りに読むか
-        2. 促音（ほんっとに）が発音されるか
-        3. 長音（ー）が適切に伸びるか
-        4. 数字の表記（3人 / 三人）で挙動が変わるか
-        5. 片仮名転写後の語（ポッピンパーティ等）が正しく読まれるか
+      执行 `../adapters/gpt-sovits.md` 的「验证清单」，并把结果回填到这里。
+      确认项目：
+        1. 是否按上述 reading 读出
+        2. 促音（ほんっとに）是否被发音
+        3. 长音（ー）是否被适当拉长
+        4. 数字的表记（3人 / 三人）是否会让行为改变
+        5. 片假名转写后的词（ポッピンパーティ 等）是否被正确读出
     priority: high
     engine: GPT-SoVITS
 
-  - item: 促音「っ」の扱い
+  - item: 促音「っ」的处理
     issue: |
-      「ほんっとに」の小書き「っ」を GPT-SoVITS が正しく促音として扱うか不明。
-      文本前端が表記をそのまま音素化しようとして不自然になる可能性がある。
-    action: adapters/gpt-sovits.md 検証清单 C を実施。問題があれば回避策を検討
+      GPT-SoVITS 是否会把「ほんっとに」中的小写「っ」正确处理为促音，尚不明确。
+      文本前端可能直接按表记音素化，导致不自然。
+    action: 执行 adapters/gpt-sovits.md 验证清单 C。若有问题则研究规避方案
     priority: high
     engine: GPT-SoVITS
 
-  - item: 地名の誤読（小豆島）
+  - item: 地名的误读（小豆島）
     issue: |
-      **小豆島 を あずきじま と誤読する可能性が最も高い**。
-      聖地巡礼スクリプトでは固有名詞の誤読が最も目立つ失敗になる。
+      **把小豆島 误读成 あずきじま 的可能性最高**。
+      在圣地巡礼脚本中，专有名词误读会是最显眼的失败。
     action: |
-      最優先で実測する。誤読する場合の選択肢：
-        1. pronunciation.yaml の frontend 辞書に登録（GPT-SoVITS 側の設定）
-        2. 本文を「ショウドシマ」と片仮名で書く
-        3. 「しょうどしま」と平仮名で書く
-      → どれを採るかはエンジンの辞書機能の可否を確認してから決める（未確認）
+      最优先实测。如果会误读，可选方案：
+        1. 登记到 pronunciation.yaml 的 frontend 词典（GPT-SoVITS 侧的设置）
+        2. 正文用片假名写成「ショウドシマ」
+        3. 用平假名写成「しょうどしま」
+      → 采用哪一个，要等确认引擎的词典功能是否可用之后再决定（未确认）
     priority: high
     engine: GPT-SoVITS
 
-  - item: 片仮名転写後の読み
+  - item: 片假名转写后的读音
     issue: |
-      G9 により英字を片仮名転写した語（ポッピンパーティ / レイズアスイレン /
-      アヴェムジカ 等）が、想定通りに読まれるか未確認。
-      「ヴ」を含む語（アヴェムジカ）は引擎により ブ と ヴ が揺れうる。
-    action: adapters/gpt-sovits.md 検証清单 B を実施
+      按 G9 把英字转写成片假名的词（ポッピンパーティ / レイズアスイレン /
+      アヴェムジカ 等）是否按预期读出，尚未确认。
+      含「ヴ」的词（アヴェムジカ）会因引擎而在 ブ 和 ヴ 之间摇摆。
+    action: 执行 adapters/gpt-sovits.md 验证清单 B
     priority: high
     engine: GPT-SoVITS

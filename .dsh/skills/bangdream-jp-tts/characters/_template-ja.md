@@ -17,7 +17,7 @@ character:
 
 ## speech_style
 
-### formality
+### 语体
 
 <常体基线？です・ます 在什么场合？情绪高扬时敬体会不会掉？>
 

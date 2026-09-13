@@ -8,7 +8,7 @@
 ```yaml
 character:
   name:
-  japanese_name:            # 与 characters/<name>.md 一致
+  japanese_name:            # 与 characters/<name>.md 保持一致
   language: zh-CN
   confidence: observed      # observed | recommended | established
 ```
@@ -34,15 +34,15 @@ character:
 basis:
   # 1) 性格 —— 来自「简介 / 性格」节
   personality:
-    source: 萌娘百科「<角色>」rev.<n> の「简介」
+    source: 萌娘百科「<角色>」rev.<n> 的「简介」
     quotes:
-      - <性格を述べた原文の引用。例：「性格略悲观的女孩。感情细腻…」>
+      - <描述性格的原文引用。例：「性格略悲观的女孩。感情细腻…」>
   # 2) 经历 —— 来自「经历」节（含实际台词的中文译）
   experience:
-    source: 同上の「经历」
+    source: 同上「经历」
     quotes:
-      - <行動・発言の原文引用。例：「我受够了……我本来就不想组什么乐队的……」>
-  verified: false          # 官方中文台詞・字幕で裏取りできたか
+      - <行动・发言的原文引用。例：「我受够了……我本来就不想组什么乐队的……」>
+  verified: false          # 是否已用官方中文台词・字幕核实
 ```
 
 ### 禁止的依据
@@ -113,7 +113,7 @@ basis:
 ### address_forms
 
 称呼的中文写法。**译名变体由 Gate 2 决定**（`../dictionary/proper-nouns.yaml`
-の `zh` フィールド）。
+的 `zh` 字段）。
 
 | 对象 | 官方译名 | 社区译名 | 备注 |
 |---|---|---|---|
@@ -177,5 +177,5 @@ basis:
 
 ## 校准待办
 
-- [ ] 官方中文台詞・字幕で裏取りできたか
+- [ ] 是否已用官方中文台词・字幕核实
 - [ ]

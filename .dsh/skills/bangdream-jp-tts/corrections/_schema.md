@@ -53,38 +53,38 @@ pairs:
       - from: 本当に
         to: ほんっとに
         issues: [character_style, emotion]
-        reason: 興奮状態の強調形。香澄はこの場面で「ほんっとに」を使う
+        reason: 兴奋状态下的强调形。香澄在这个场面会使用「ほんっとに」
       - from: すごく
         to: （削除）
         issues: [natural_japanese]
-        reason: 「ほんっとに」が強度を担うため、程度副詞の重複を解消
+        reason: 由「ほんっとに」承担强度，因此消除程度副词的重叠
       - from: 楽しかったです
         to: 楽しかったー
         issues: [character_style, sentence_ending, tts]
-        reason: 友人間＋興奮状態で敬体は不自然。長音が興奮を補助
+        reason: 朋友之间＋兴奋状态下敬体不自然。长音辅助表现兴奋
       - from: やりましょう
         to: やろうよ
         issues: [character_style, sentence_ending]
-        reason: 敬体の勧誘は過度に丁寧。香澄は直接誘う
+        reason: 敬体劝诱过于礼貌。香澄会直接邀请
       - from: ライブをやろう
         to: ライブやろう
         issues: [natural_japanese]
-        reason: 口語では助詞「を」を省略する
+        reason: 口语中省略助词「を」
 
 generalizable_rule: |
-  興奮状態の香澄にです・ます は使わない。
-  ただし公式・目上の場面では敬体が正しい（過学習に注意）。
+  对兴奋状态下的香澄不使用です・ます。
+  不过在官方・长辈的场面中敬体才是正确的（注意过拟合）。
 
 promoted_rule_ids: [kasumi_001]
 not_promoted:
   - change: すごく → （削除）
-    why: この文脈固有。他の文では「すごく」が必要な場合がある
+    why: 该文脉固有。其他句子中有时需要「すごく」
 
 confidence: medium
 evidence_count: 1
 note: |
-  初回の記録。evidence_count が 1 なので promoted_rule_ids は observed 扱い。
-  同種の修正が3件以上集まったら established へ昇格を検討。
+  初次记录。由于 evidence_count 为 1，promoted_rule_ids 按 observed 对待。
+  同种修正收集到 3 件以上后，再考虑升级为 established。
 ```
 
 ---
@@ -187,11 +187,11 @@ AI：  今日は楽しかった！
 
 ```yaml
 - id: kasumi_001
-  rule: 興奮状態ではです・ます を使わない
+  rule: 兴奋状态下不使用です・ます
   layer: character
   applies_to: [戸山香澄]
-  scope: 興奮・親しい相手との会話
-  excludes: 公式の場、目上、初対面       # 边界，必填
+  scope: 兴奋・与亲近对象的对话
+  excludes: 官方场合、长辈、初次见面      # 边界，必填
   confidence: observed
   evidence_count: 1
   evidence: [kasumi-2026-02-14-live-invite]
@@ -208,7 +208,7 @@ AI：  今日は楽しかった！
 ```yaml
 - id: kasumi_001
   status: retracted       # active | retracted
-  retracted_reason: 後続データで反例が3件。公式場面での敬体使用を確認
+  retracted_reason: 后续数据中出现 3 个反例。确认了官方场面中会使用敬体
   retracted_date: 2026-03-01
 ```
 

@@ -32,11 +32,11 @@ updated: 2026-02-14
 rules:
 
   - id: kasumi_001
-    rule: 興奮状態ではです・ます を使わない
+    rule: 兴奋状态下不使用です・ます
     layer: character
     applies_to: [戸山香澄]
-    scope: 興奮・親しい相手との会話
-    excludes: 公式の場、目上、初対面
+    scope: 兴奋・与亲近对象的对话
+    excludes: 官方场合、长辈、初次见面
     confidence: observed
     evidence_count: 1
     evidence: [kasumi-2026-02-14-live-invite]
@@ -44,11 +44,11 @@ rules:
     status: demo
 
   - id: kasumi_002
-    rule: 敬体の勧誘「〜ましょう」は使わない。「〜しよう」「〜やろうよ」を使う
+    rule: 不使用敬体劝诱「〜ましょう」。使用「〜しよう」「〜やろうよ」
     layer: character
     applies_to: [戸山香澄]
-    scope: 親しい相手を誘う場面
-    excludes: 目上・初対面を誘う場面（敬体が正しい）
+    scope: 邀请亲近对象的场面
+    excludes: 邀请长辈・初次见面对象的场面（敬体才正确）
     confidence: observed
     evidence_count: 1
     evidence: [kasumi-2026-02-14-live-invite]
@@ -56,11 +56,11 @@ rules:
     status: demo
 
   - id: kasumi_003
-    rule: 興奮の強調は「本当に」ではなく「ほんっとに」（促音挿入）
+    rule: 兴奋的强调不用「本当に」，而用「ほんっとに」（插入促音）
     layer: character
     applies_to: [戸山香澄]
-    scope: 感情が高ぶっている場面
-    excludes: 平叙・冷静な説明の場面（「本当に」のままでよい）
+    scope: 情绪高涨的场面
+    excludes: 平叙・冷静说明的场面（保持「本当に」即可）
     confidence: observed
     evidence_count: 1
     evidence: [kasumi-2026-02-14-live-invite]
@@ -68,11 +68,11 @@ rules:
     status: demo
 
   - id: global_001
-    rule: 口語では助詞「を」を省略できる（ライブをやろう → ライブやろう）
+    rule: 口语中可以省略助词「を」（ライブをやろう → ライブやろう）
     layer: japanese
     applies_to: ['*']
-    scope: 口語の会話文
-    excludes: 書き言葉、意味の曖昧化を招く場合
+    scope: 口语的会话句
+    excludes: 书面语、以及会导致语义暧昧的情况
     confidence: observed
     evidence_count: 1
     evidence: [kasumi-2026-02-14-live-invite]
@@ -80,22 +80,22 @@ rules:
     status: demo
 
   - id: global_002
-    rule: 程度副詞を重複させない（本当にすごく楽しかった → ほんっとに楽しかった）
+    rule: 不重复使用程度副词（本当にすごく楽しかった → ほんっとに楽しかった）
     layer: japanese
     applies_to: ['*']
-    scope: 同一の程度を二重に修飾している場合
-    excludes: 意図的な強調の重ね（「すごくすごく嬉しい」など）
+    scope: 对同一程度进行双重修饰的情况
+    excludes: 有意的强调叠加（如「すごくすごく嬉しい」）
     confidence: observed
     evidence_count: 1
     evidence: [kasumi-2026-02-14-live-invite]
     created: 2026-02-14
     status: demo
 
-  # ── 以下は昇格候補として明示的に却下された例（_schema.md §5） ──
-  # 記録として残すが rules には入れない。
+  # ── 以下是作为升级候选被明确否决的例子（_schema.md §5） ──
+  # 作为记录保留，但不放入 rules。
   #
-  # - candidate: 「すごく」→ 削除
-  #   rejected_because: この文脈固有。「すごく」が必要な文が多数ある
+  # - candidate: 「すごく」→ 删除
+  #   rejected_because: 该文脉固有。有很多句子需要「すごく」
   #
-  # - candidate: 「キラキラ」「みんな」を全台詞に追加
-  #   rejected_because: 原文にない情報の追加（Global G2 違反）。刻板模倣
+  # - candidate: 在所有台词中添加「キラキラ」「みんな」
+  #   rejected_because: 添加原文没有的信息（违反 Global G2）。刻板模仿

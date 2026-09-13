@@ -7,15 +7,15 @@
 #   塞进 characters/ 的单个角色文件会让其余部分难以阅读。
 #   角色文件只写「如何用」的口径，具体表在此。**此处是称呼数据的唯一事实来源。**
 #
-# ★ 「空」の意味（ユーザー確認済み）
-#   forms: [] は「**その二人は一度も会っていない**」を意味する。
-#   「未調査」ではない。出典の称呼一覧で「-」と記録された組み合わせは、
-#   作中に会話・接触の記録がないことを示す。
-#   → 未調査の組み合わせは本表に**追加しない**（G8）。
-#   → 会っていない相手は、双方のマップに載せない（非対称に書かない）。
+# ★ 「空」的含义（用户已确认）
+#   forms: [] 表示「**那两人一次也没有见过面**」。
+#   不是「未调查」。出典的称呼一览中记为「-」的组合，
+#   表示作品中不存在对话・接触的记录。
+#   → 未调查的组合**不追加**到本表（G8）。
+#   → 没有见过面的对象，不写进双方的映射表（不要写成非对称）。
 #
-# ★ 称呼は出典どおり**コードネーム**で記録している（レイヤ / ロック / マスキング / パレオ）。
-#   canonical は本名（和奏レイヤ 等）なので、proper-nouns.yaml の aliases で解決される。
+# ★ 称呼按出典原样以**代号**记录（レイヤ / ロック / マスキング / パレオ）。
+#   canonical 是本名（和奏レイヤ 等），因此通过 proper-nouns.yaml 的 aliases 解析。
 #
 # ── 字段 ───────────────────────────────────────────────────
 # forms[]     该称呼的所有形式
@@ -28,7 +28,7 @@
 # confirmed   true  = 表记与称呼较可靠 / false = 来自中文译名转换，待核对
 #
 source:
-  work: 萌娘百科 BanG Dream! 各キャラクター項目
+  work: 萌娘百科 BanG Dream! 各角色条目
   revisions:
     戸山香澄: 8653138
     花園たえ: 8627503
@@ -56,27 +56,27 @@ source:
     三角初華: 8605311
     祐天寺若麦: 8603599
     純田真奈: 8447005
-    # バンド記事（称呼データそのものではなく、語体の前提の出典）
+    # 乐队条目（并非称呼数据本身，而是语体的前提出典）
     クライシック: 8548918
     スミミ: 8255646
   retrieved: 2026-02-14
   license: CC BY-NC-SA 3.0 CN
   attribution: |
-    称呼データは萌娘百科の各記事から抽出・翻訳したもの。
-    同サイトは CC BY-NC-SA 3.0 CN で提供されている。
-    本リポジトリを**非商業目的**で利用する場合のみ、この帰属表示を保持すること。
+    称呼数据是从萌娘百科各条目中抽取・翻译的。
+    该网站以 CC BY-NC-SA 3.0 CN 提供。
+    仅在本仓库用于**非商业目的**时，才需要保留此署名。
   note: |-
-    ★ 称呼データは**二次情報**である。confirmed: false の項目は、
-      本文で使う前に公式設定・公式台詞で裏取りすること（G8）。
+    ★ 称呼数据是**二次信息**。confirmed: false 的条目，
+      在正文使用前必须用官方设定・官方台词核对（G8）。
 
-          RAS の称呼データは 5 項目から抽出。**佐藤益木 の項目には称呼一覧が無い**ため
-          他メンバー側から再構成している（masking.md に明記）。
-          Roselia の称呼は 5 項目から抽出。**友希那・リサ・あこ の項目には称呼节が無い**ため、
-          addresses は各相手側の記録から再構成（各 4 件のみ）。
-          Ave Mujica の称呼は 5 項目すべてに称呼一览がある（高品質）。
-          祥子 は 3 組の時間軸を持ち、にゃむ は全員を片仮名の `〜コ` 系愛称で呼ぶ。
-          ★ 純田真奈（スミミ）の項目には**称呼一覧が無く、言語描写自体が乏しい**。
-          subjects には登録したが addresses / addressed_by は空のまま（推測で埋めない）。
+          RAS 的称呼数据从 5 个条目中抽取。**佐藤益木 的条目中没有称呼一览**，因此
+          从其他成员一侧重构（masking.md 中有明记）。
+          Roselia 的称呼从 5 个条目中抽取。**友希那・リサ・あこ 的条目中没有称呼节**，因此
+          addresses 是从各对方一侧的记录重构的（各仅 4 条）。
+          Ave Mujica 的称呼在 5 个条目中都有称呼一览（高质量）。
+          祥子 拥有 3 组时间轴，にゃむ 用片假名的 `〜コ` 系爱称称呼所有人。
+          ★ 純田真奈（スミミ）的条目中**没有称呼一览，语言描写本身也很匮乏**。
+          subjects 中已登记，但 addresses / addressed_by 保持为空（不用推测填补）。
 version: 8
 updated: 2026-02-14
 戸山香澄:
@@ -89,7 +89,7 @@ updated: 2026-02-14
         - form: おたえ
           register: 常体
       confirmed: true
-      note: 出典で確認。香澄が名付けた呼称。命名由来は characters/poppin-party/tae.md
+      note: 已在出典中确认。香澄命名的称呼。命名由来见 characters/poppin-party/tae.md
     牛込りみ:
       progression: false
       forms:
@@ -138,7 +138,7 @@ updated: 2026-02-14
         - form: つぐ
           register: 常体
       confirmed: true
-      note: 「つぐみちゃん」ではなく「つぐ」
+      note: 不是「つぐみちゃん」而是「つぐ」
     丸山彩:
       progression: false
       forms:
@@ -279,7 +279,7 @@ updated: 2026-02-14
         - form: ロック
           register: 常体
       confirmed: true
-      note: コードネームで呼ぶ
+      note: 以代号称呼
     佐藤益木:
       progression: false
       forms:
@@ -324,7 +324,7 @@ updated: 2026-02-14
         - form: そよちゃん
           register: 常体
       confirmed: true
-      note: 出典は「そよちゃん」
+      note: 出典为「そよちゃん」
     椎名立希:
       progression: false
       forms:
@@ -470,7 +470,7 @@ updated: 2026-02-14
         - form: かーくん
           register: 常体
       confirmed: true
-      note: 独特の愛称
+      note: 独特的爱称
     松原花音:
       progression: false
       forms:
@@ -547,7 +547,7 @@ updated: 2026-02-14
         - form: カスミ・トヤマ
           register: 常体
       confirmed: true
-      note: フルネームで呼ぶ
+      note: 以全名称呼
     高松燈:
       progression: false
       forms:
@@ -579,8 +579,8 @@ updated: 2026-02-14
           register: 常体
       confirmed: true
   note: |
-    PPP の中心。相手を愛称で呼ぶ率が高い（りみりん・さーや・おたえ・こころん 等）。
-    先輩には「〜先輩」＋丁寧体、同格以下は常体。
+    PPP 的中心人物。用爱称称呼对方的比例很高（りみりん・さーや・おたえ・こころん 等）。
+    对前辈用「〜先輩」＋敬体，同格及以下用常体。
 花園たえ:
   self:
     first_person: わたし
@@ -661,7 +661,7 @@ updated: 2026-02-14
           register: 常体
           stage: 中期
       confirmed: true
-      note: 出典の「千聖さん→千聖先輩」
+      note: 出典中的「千聖さん→千聖先輩」
     大和麻弥:
       progression: false
       forms:
@@ -674,7 +674,7 @@ updated: 2026-02-14
         - form: イヴ
           register: 常体
       confirmed: true
-      note: 「イヴちゃん」ではなく呼び捨て
+      note: 不是「イヴちゃん」而是直呼其名
     湊友希那:
       progression: false
       forms:
@@ -808,7 +808,7 @@ updated: 2026-02-14
         - form: おたえ
           register: 常体
       confirmed: true
-      note: ★ 香澄が名付けた呼称。PPP 全員に広まった
+      note: ★ 香澄命名的称呼。在 PPP 全体中普及
     牛込りみ:
       progression: false
       forms:
@@ -1007,7 +1007,7 @@ updated: 2026-02-14
         - form: タエ・ハナゾノ
           register: 常体
       confirmed: true
-      note: フルネームで呼ぶ
+      note: 以全名称呼
     要楽奈:
       progression: false
       forms:
@@ -1015,9 +1015,9 @@ updated: 2026-02-14
           register: 常体
       confirmed: true
   note: |
-    ★ 「おたえ」は香澄が名付けた呼称（第1期4話、駅での別れ際）。
-    PPP 全員に広まり、他バンドも「たえ」「おたえ」と呼ぶ。
-    話し方は独特（characters/poppin-party/tae.md 参照）。
+    ★ 「おたえ」是香澄命名的称呼（第1期第4话、在车站道别时）。
+    在 PPP 全体中普及开来，其他乐队也叫「たえ」「おたえ」。
+    说话方式很独特（见 characters/poppin-party/tae.md）。
 牛込りみ:
   self:
     first_person: 私
@@ -1074,7 +1074,7 @@ updated: 2026-02-14
           register: 常体
           stage: 中期
       confirmed: true
-      note: 出典の「宇田川さん→巴ちゃん」
+      note: 出典中的「宇田川さん→巴ちゃん」
     羽沢つぐみ:
       progression: false
       forms:
@@ -1419,8 +1419,8 @@ updated: 2026-02-14
           register: 常体
       confirmed: true
   note: |
-    関西人。緊張すると方言が出る。
-    基本は相手を「名 + ちゃん」で呼ぶ。先輩には「〜先輩」。
+    关西人。紧张时会冒出方言。
+    基本上用「名 + ちゃん」称呼对方。对前辈用「〜先輩」。
 山吹沙綾:
   self:
     first_person: 私
@@ -1465,7 +1465,7 @@ updated: 2026-02-14
           register: 常体
           stage: 中期
       confirmed: true
-      note: 出典の「モカちゃん→モカ」
+      note: 出典中的「モカちゃん→モカ」
     上原ひまり:
       progression: false
       forms:
@@ -1478,7 +1478,7 @@ updated: 2026-02-14
         - form: ともえ
           register: 常体
       confirmed: true
-      note: 平仮名で呼ぶ
+      note: 用平假名称呼
     羽沢つぐみ:
       progression: true
       forms:
@@ -1489,7 +1489,7 @@ updated: 2026-02-14
           register: 常体
           stage: 中期
       confirmed: true
-      note: 出典の「つぐみちゃん→つぐ」
+      note: 出典中的「つぐみちゃん→つぐ」
     丸山彩:
       progression: false
       forms:
@@ -1524,7 +1524,7 @@ updated: 2026-02-14
           register: 常体
           stage: 中期
       confirmed: true
-      note: 出典の「イヴちゃん→イヴ」
+      note: 出典中的「イヴちゃん→イヴ」
     湊友希那:
       progression: false
       forms:
@@ -1553,7 +1553,7 @@ updated: 2026-02-14
           register: 常体
           stage: 中期
       confirmed: true
-      note: 出典の「あこちゃん→あこ」
+      note: 出典中的「あこちゃん→あこ」
     白金燐子:
       progression: false
       forms:
@@ -1715,7 +1715,7 @@ updated: 2026-02-14
           register: 常体
           stage: 中期
       confirmed: true
-      note: 出典の「沙綾ちゃん→沙綾」
+      note: 出典中的「沙綾ちゃん→沙綾」
     宇田川巴:
       progression: false
       forms:
@@ -1782,7 +1782,7 @@ updated: 2026-02-14
         - form: さあやちゃん
           register: 常体
       confirmed: true
-      note: 平仮名表記
+      note: 平假名表记
     白金燐子:
       progression: false
       forms:
@@ -1892,8 +1892,8 @@ updated: 2026-02-14
           register: 常体
       confirmed: true
   note: |
-    面倒見が良い。年下・後輩には「ちゃん」、同格は呼び捨て。
-    複数の呼称が「〜ちゃん → 呼び捨て」へ推移している（progression: true）。
+    很会照顾人。对年下・后辈用「ちゃん」，同格则直呼其名。
+    多个称呼正在从「〜ちゃん → 直呼其名」推移（progression: true）。
 市ヶ谷有咲:
   self:
     first_person: 私
@@ -1904,7 +1904,7 @@ updated: 2026-02-14
         - form: 香澄
           register: 常体
       confirmed: true
-      note: ★ 呼び捨て。彼女にだけ強い
+      note: ★ 直呼其名。只对她特别强势
     花園たえ:
       progression: false
       forms:
@@ -1947,7 +1947,7 @@ updated: 2026-02-14
         - form: 巴さん
           register: 丁寧体
       confirmed: true
-      note: 「ちゃん」ではなく「さん」
+      note: 不是「ちゃん」而是「さん」
     羽沢つぐみ:
       progression: false
       forms:
@@ -2207,7 +2207,7 @@ updated: 2026-02-14
         - form: ありさ
           register: 常体
       confirmed: true
-      note: 平仮名表記
+      note: 平假名表记
     白金燐子:
       progression: false
       forms:
@@ -2293,8 +2293,8 @@ updated: 2026-02-14
           register: 常体
       confirmed: true
   note: |
-    ★ 香澄にだけ呼び捨てで強く出る（毒舌の主対象）。
-    他は名字 + さん が多い（巴さん・弦巻さん・北沢さん・奥沢さん）。
+    ★ 只对香澄直呼其名且态度强硬（毒舌的主要对象）。
+    对其他人多用 姓 + さん（巴さん・弦巻さん・北沢さん・奥沢さん）。
 高松燈:
   self:
     first_person: 私
@@ -2341,17 +2341,17 @@ updated: 2026-02-14
         - form: 千早さん
           register: 可変
           stage: 初期
-          note: 出会った直後
+          note: 刚见面后
         - form: 愛音ちゃん
           register: 常体
           stage: 中期
-          note: バンド結成後
+          note: 乐队结成后
         - form: あのちゃん
           register: 常体
           stage: 后期
-          note: 親密になった後
+          note: 关系变亲密后
       confirmed: true
-      note: ★ 三形態は時間軸。同一場面で混用しない
+      note: ★ 三种形态是时间轴。同一场面中不混用
     要楽奈:
       progression: false
       forms:
@@ -2498,7 +2498,7 @@ updated: 2026-02-14
           register: 常体
           stage: 后期
       confirmed: true
-      note: ★ 時間軸。灯側と連動する
+      note: ★ 时间轴。与灯一侧联动
     要楽奈:
       progression: false
       forms:
@@ -2524,8 +2524,8 @@ updated: 2026-02-14
           register: 常体
       confirmed: true
   note: |
-    先輩＝「姓 + さん」＋丁寧体／バンドメンバー＝「名 + ちゃん」＋常体。
-    この分布は非常に整っており、整合性検査の強い信号になる。
+    前辈＝「姓 + さん」＋敬体／乐队成员＝「名 + ちゃん」＋常体。
+    这个分布非常整齐，是整合性检查的强信号。
 千早愛音:
   self:
     first_person: 私
@@ -2648,7 +2648,7 @@ updated: 2026-02-14
         - form: そよりん
           register: 常体
           stage: 后期
-          note: 彼女が押し付けたニックネーム
+          note: 她强加的昵称
       confirmed: true
     椎名立希:
       progression: true
@@ -2659,7 +2659,7 @@ updated: 2026-02-14
         - form: りっきー
           register: 常体
           stage: 中期
-          note: ★ 立希にだけ接尾辞を付けない
+          note: ★ 只对立希不加后缀
       confirmed: true
     三角初華:
       progression: true
@@ -2816,9 +2816,9 @@ updated: 2026-02-14
           register: 丁寧体
       confirmed: true
   note: |
-    ★ 最大の特徴：立希にだけ接尾辞を付けない。
-    「そよりん」「りっきー」は彼女が押し付けたニックネームで、
-    本人たちは起名センスを吐槽する側。双方向の愛称ではない。
+    ★ 最大的特征：只对立希不加后缀。
+    「そよりん」「りっきー」是她强加的昵称，
+    本人们则是吐槽她起名品味的一方。并非双向的爱称。
 要楽奈:
   self:
     first_person: わたし
@@ -2977,9 +2977,9 @@ updated: 2026-02-14
           register: 常体
       confirmed: true
   note: |
-    ★ 人名をほぼ平仮名・呼び捨てで書く（漢字表記にしない）。
-    TTS 的に有利——難読漢字の誤読が起きない。
-    先輩にも敬語を使わない（上下を区別しないため）。
+    ★ 人名几乎都用平假名・直呼其名书写（不写成汉字表记）。
+    对 TTS 有利——不会发生难读汉字的误读。
+    对前辈也不用敬语（因为不区分上下关系）。
 椎名立希:
   self:
     first_person: 私
@@ -2990,7 +2990,7 @@ updated: 2026-02-14
         - form: 燈
           register: 常体
       confirmed: true
-      note: ★ 灯にだけ本名。粗い人称を使わない
+      note: ★ 只对灯用本名。不使用粗鲁的人称
     千早愛音:
       progression: false
       forms:
@@ -3099,7 +3099,7 @@ updated: 2026-02-14
         - form: りっきー
           register: 常体
           stage: 中期
-          note: 愛音が押し付けた
+          note: 爱音强加的
       confirmed: true
     要楽奈:
       progression: false
@@ -3136,9 +3136,9 @@ updated: 2026-02-14
           stage: 后期
       confirmed: true
   note: |
-    ★ 灯にだけ本名で呼び、粗い人称（お前・あいつ）を使わない。
-    他は呼び捨て、時に「お前」「あいつ」。
-    「りっきー」は愛音が押し付けたもので、本人は嫌がっている。
+    ★ 只对灯用本名称呼，不使用粗鲁的人称（お前・あいつ）。
+    对其他人直呼其名，有时用「お前」「あいつ」。
+    「りっきー」是爱音强加的，本人很反感。
 長崎そよ:
   self:
     first_person: 私
@@ -3267,7 +3267,7 @@ updated: 2026-02-14
         - form: そよりん
           register: 常体
           stage: 后期
-          note: 愛音が押し付けた
+          note: 爱音强加的
       confirmed: true
     要楽奈:
       progression: false
@@ -3292,37 +3292,37 @@ updated: 2026-02-14
           stage: 后期
       confirmed: true
   note: |
-    ★ 名前は仮名「そよ」が正（漢字「爽世」は後付け）。本文でも仮名を使う。
-    外在向き=丁寧体／内向き=常体の二層構造は characters/mygo/soyo.md を参照。
+    ★ 名字以假名「そよ」为正（汉字「爽世」是后加的）。正文中也使用假名。
+    对外=敬体／对内=常体的双层结构见 characters/mygo/soyo.md。
 unregistered:
-  - item: アフターグロウ／ハロー、ハッピーワールド！／ロゼリア／ Pastel*Palettes／モルフォニカ／レイズアスイレン 内の称呼
-    action: 各項目の称呼一覧を確認して追加する（PPP・マイゴ以外は未調査）
-  - item: Ave Mujica メンバー間の称呼
-    action: 未調査。コードネーム表記の扱いも未確定
-  - item: スミミ内の称呼（純田真奈 ⇄ 三角初華）
+  - item: アフターグロウ／ハロー、ハッピーワールド！／ロゼリア／ Pastel*Palettes／モルフォニカ／レイズアスイレン 内的称呼
+    action: 确认各条目的称呼一览后追加（PPP・マイゴ以外未调查）
+  - item: Ave Mujica 成员之间的称呼
+    action: 未调查。代号表记的处理方式也未确定
+  - item: スミミ内的称呼（純田真奈 ⇄ 三角初華）
     action: |
-      出典の両項目に称呼一覧が無い。確認できているのは
-      「スミミでは互いに姓を付けない」というユニット共通の約束のみ。
-      私的な場面での呼び方（`初華ちゃん` か `初華` か）は未調査
-  - item: 月島麻里奈 → 他角色の称呼
+      出典的两个条目中都没有称呼一览。能够确认的只有
+      「在スミミ中互相不加姓」这一组合共通的约定。
+      私人场面中的称呼方式（`初華ちゃん` 还是 `初華`）未调查
+  - item: 月島麻里奈 → 其他角色的称呼
     action: |
-      出典の称呼表は「主要角色 → 麻里奈」の**向きのみ**。
-      麻里奈自身が相手をどう呼ぶかは出典に無い。
-      音声で確認できたのは**プレイヤー（後輩）への `君`** のみ
-  - item: 音楽業界の関係者（都筑詩船 / 真次凛々子 / 能々美子）
+      出典的称呼表只有「主要角色 → 麻里奈」**这一个方向**。
+      麻里奈自己怎么称呼对方，出典中没有。
+      能从语音确认的只有**对玩家（后辈）使用的 `君`**
+  - item: 音乐业界相关者（都筑詩船 / 真次凛々子 / 能々美子）
     action: |
-      出典に称呼表が無い、または項目自体が存在しない。
-      ・都筑詩船：称呼表なし。楽奈（外孫）への呼び方も未確認
-      ・真次凛々子：称呼表なし。後輩スタッフへの呼び方も未確認
-      ・能々美子：**独立条目が無い**ため、称呼データを取得できない
-      → 台詞で称呼が必要になったら【待确认】に出す
-  - item: 新規バンド 3 組（梦限大MewType / millsage / 一家Dumb Rock!）内の称呼
-    action: 未調査
-  - item: クライシック期の称呼・語体
+      出典中没有称呼表，或者条目本身不存在。
+      ・都筑詩船：无称呼表。对楽奈（外孙女）的称呼方式也未确认
+      ・真次凛々子：无称呼表。对后辈员工的称呼方式也未确认
+      ・能々美子：**没有独立条目**，因此无法获取称呼数据
+      → 台词中需要称呼时，提交到【待确认】
+  - item: 新規バンド 3 組（梦限大MewType / millsage / 一家Dumb Rock!）内的称呼
+    action: 未调查
+  - item: クライシック期的称呼・语体
     action: |
-      現在の称呼表は「現在の関係」の記録。クライシック期は別データ。
-      祥子が離脱する前後で語体が変わっている可能性があるため、
-      出典から別途抽出する（characters/crychic/_band.md 参照）
+      当前的称呼表记录的是「现在的关系」。クライシック期是另一份数据。
+      因为祥子退出前后语体可能发生变化，
+      需要另行从出典中抽取（见 characters/crychic/_band.md）
 和奏レイヤ:
   self:
     first_person: 私
@@ -3339,7 +3339,7 @@ unregistered:
         - form: ますき
           register: 常体
       confirmed: true
-      note: ★ 本名（平仮名）。コードネームではない
+      note: ★ 本名（平假名）。不是代号
     鳰原令王那:
       progression: false
       forms:
@@ -3455,7 +3455,7 @@ unregistered:
         - form: レイ
           register: 常体
       confirmed: true
-      note: ★ 本名。益木もレイヤを本名で呼ぶ
+      note: ★ 本名。益木也用本名称呼レイヤ
     鳰原令王那:
       progression: false
       forms:
@@ -3474,14 +3474,14 @@ unregistered:
         - form: れいや
           register: 常体
       confirmed: true
-      note: 平仮名表記
+      note: 平假名表记
     祐天寺若麦:
       progression: false
       forms:
         - form: レイヤ先輩
           register: 常体
       confirmed: true
-  note: RAS 最年長の一人。益木とは本名で呼び合う（`レイ` / `ますき`）。
+  note: RAS 最年长的一人。与益木互相以本名称呼（`レイ` / `ますき`）。
 朝日六花:
   self:
     first_person: 私
@@ -3559,7 +3559,7 @@ unregistered:
         - form: 六花
           register: 常体
       confirmed: true
-      note: ★ Afterglow は本名で呼ぶ
+      note: ★ Afterglow 用本名称呼
     青葉モカ:
       progression: false
       forms:
@@ -3638,7 +3638,7 @@ unregistered:
         - form: ロックさん
           register: 丁寧体
       confirmed: true
-  note: ★ **RAS で唯一、全員に「さん」を付ける**。益木・令王那は呼び捨てだが六花は付けない。
+  note: ★ **RAS 中唯一给所有人都加「さん」的人**。益木・令王那被直呼其名，但对六花不加。
 佐藤益木:
   self:
     first_person: 私
@@ -3649,7 +3649,7 @@ unregistered:
         - form: レイ
           register: 常体
       confirmed: true
-      note: ★ 本名（片仮名）で呼ぶ
+      note: ★ 以本名（片假名）称呼
     朝日六花:
       progression: false
       forms:
@@ -3675,7 +3675,7 @@ unregistered:
         - form: ますき
           register: 常体
       confirmed: true
-      note: ★ 本名。レイヤも益木を本名で呼ぶ
+      note: ★ 本名。レイヤ也用本名称呼益木
     朝日六花:
       progression: false
       forms:
@@ -3718,7 +3718,7 @@ unregistered:
         - form: マスキングさん
           register: 丁寧体
       confirmed: true
-  note: ⚠ **この項目の出典には称呼一覧が無い**。他メンバー側の記録から再構成している。
+  note: ⚠ **该条目的出典中没有称呼一览**。是从其他成员一侧的记录重构的。
 鳰原令王那:
   self:
     first_person: 私
@@ -3728,15 +3728,15 @@ unregistered:
       forms:
         - form: チュチュ様
           register: 丁寧体
-          note: 主従
+          note: 主从
         - form: ご主人様
           register: 丁寧体
-          note: 主従
+          note: 主从
         - form: ちゆ
           register: 常体
           note: 本名
       confirmed: true
-      note: ★ 知由にだけ敬語。ただし口誤は訂正する（条目明記）——完全服従ではない
+      note: ★ 只对知由用敬语。但也会订正口误（条目明记）——并非完全服从
     和奏レイヤ:
       progression: false
       forms:
@@ -3828,7 +3828,7 @@ unregistered:
           register: 常体
           stage: 中期
       confirmed: true
-      note: 出典の「令王那ちゃん→パレオちゃん」
+      note: 出典中的「令王那ちゃん→パレオちゃん」
     白鷺千聖:
       progression: false
       forms:
@@ -3862,18 +3862,18 @@ unregistered:
           register: 常体
           note: ★ 本名
       confirmed: true
-      note: ★ 知由だけ本名でも呼ぶ。令王那は知由を「チュチュ様」——非対称だが原作通り
+      note: ★ 只有知由也用本名称呼。令王那称知由为「チュチュ様」——虽然非对称，但符合原作
     要楽奈:
       progression: false
       forms:
         - form: パレオ
           register: 常体
       confirmed: true
-  note: 自称は `私` と `パレオ` の両方が出典に記載されている（役割としての自己）。
+  note: 自称 `私` 和 `パレオ` 在出典中都有记载（作为角色的自我）。
 珠手知由:
   self:
     first_person: ワタシ
-    note: ★ 片仮名。RAS で唯一（他 4 人は `私`）
+    note: ★ 片假名。RAS 中唯一（其余 4 人都是 `私`）
   addresses:
     和奏レイヤ:
       progression: false
@@ -4004,16 +4004,16 @@ unregistered:
       forms:
         - form: チュチュ様
           register: 丁寧体
-          note: 主従
+          note: 主从
         - form: ご主人様
           register: 丁寧体
-          note: 主従
+          note: 主从
         - form: ちゆ
           register: 常体
           note: 本名
       confirmed: true
-      note: ★ 主従。ただし令王那は口誤を訂正する側でもある
-  note: 成功時の口癖「Sweet! Excellent! Unstoppable!」は**原表記未確認**（chuchu.md 参照）。
+      note: ★ 主从。但令王那也会订正口误
+  note: 成功时的口头禅「Sweet! Excellent! Unstoppable!」的**原表记未确认**（见 chuchu.md）。
 湊友希那:
   self:
     first_person: 私
@@ -4055,7 +4055,7 @@ unregistered:
         - form: 湊さん
           register: 丁寧体
       confirmed: true
-      note: ★ バンド内で唯一の名字呼び
+      note: ★ 乐队内唯一的以姓称呼
     宇田川あこ:
       progression: false
       forms:
@@ -4128,7 +4128,7 @@ unregistered:
         - form: 湊さん
           register: 丁寧体
       confirmed: true
-      note: ★ レイヤは友希那を「湊さん」、友希那はレイヤを「レイヤ」
+      note: ★ レイヤ称友希那为「湊さん」，友希那称レイヤ为「レイヤ」
     朝日六花:
       progression: false
       forms:
@@ -4141,7 +4141,7 @@ unregistered:
         - form: ゆきな
           register: 常体
       confirmed: true
-      note: 平仮名表記
+      note: 平假名表记
     高松燈:
       progression: false
       forms:
@@ -4160,7 +4160,7 @@ unregistered:
         - form: 湊先輩
           register: 常体
       confirmed: true
-  note: ⚠ 出典に称呼一览が無い。addresses の 4 件は各相手側の記録から再構成。
+  note: ⚠ 出典中没有称呼一览。addresses 的 4 条是从各对方一侧的记录重构的。
 氷川紗夜:
   self:
     first_person: 私
@@ -4231,7 +4231,7 @@ unregistered:
         - form: 桐ヶ谷さん
           register: 丁寧体
       confirmed: true
-      note: ★ 出典の表記は「桐ヶ谷」。proper-nouns は「桐谷」——表記ゆれ要確認
+      note: ★ 出典的表记是「桐ヶ谷」。proper-nouns 是「桐谷」——表记差异需要确认
     二葉つくし:
       progression: false
       forms:
@@ -4279,7 +4279,7 @@ unregistered:
           register: 常体
           stage: 中期
       confirmed: true
-      note: 出典の「氷川先輩→紗夜先輩」
+      note: 出典中的「氷川先輩→紗夜先輩」
     花園たえ:
       progression: false
       forms:
@@ -4332,7 +4332,7 @@ unregistered:
           register: 丁寧体
           stage: 中期
       confirmed: true
-      note: 出典の「氷川先輩→紗夜さん」
+      note: 出典中的「氷川先輩→紗夜さん」
     羽沢つぐみ:
       progression: false
       forms:
@@ -4351,7 +4351,7 @@ unregistered:
         - form: おねーちゃん
           register: 常体
       confirmed: true
-      note: ★ 双子の妹のみ。特別扱い
+      note: ★ 仅限双胞胎妹妹。特别对待
     白鷺千聖:
       progression: false
       forms:
@@ -4394,7 +4394,7 @@ unregistered:
         - form: 氷川さん
           register: 丁寧体
       confirmed: true
-      note: ★ 互いに姓で呼び合う唯一の組
+      note: ★ 唯一互相以姓称呼的组合
     弦巻こころ:
       progression: false
       forms:
@@ -4485,7 +4485,7 @@ unregistered:
         - form: サヨ
           register: 常体
       confirmed: true
-  note: ★ 出典に称呼一览がある（Roselia では紗夜と燐子のみ）。バンド内は全員「名字 + さん」。
+  note: ★ 出典中有称呼一览（Roselia 中只有紗夜和燐子）。乐队内全体都是「姓 + さん」。
 今井リサ:
   self:
     first_person: 私
@@ -4549,7 +4549,7 @@ unregistered:
           register: 常体
           stage: 中期
       confirmed: true
-      note: 出典の「リサ先輩→リサさん」
+      note: 出典中的「リサ先輩→リサさん」
     花園たえ:
       progression: false
       forms:
@@ -4590,14 +4590,14 @@ unregistered:
           register: 丁寧体
           stage: 中期
       confirmed: true
-      note: 出典の「今井さん→リサさん」
+      note: 出典中的「今井さん→リサさん」
     朝日六花:
       progression: false
       forms:
         - form: リサ先輩
           register: 常体
       confirmed: true
-  note: ⚠ 出典に称呼一览が無い。addresses の 4 件は各相手側の記録から再構成。
+  note: ⚠ 出典中没有称呼一览。addresses 的 4 条是从各对方一侧的记录重构的。
 宇田川あこ:
   self:
     first_person: 私
@@ -4626,7 +4626,7 @@ unregistered:
         - form: りんりん
           register: 常体
       confirmed: true
-      note: ★ バンド内で唯一の愛称
+      note: ★ 乐队内唯一的爱称
   addressed_by:
     湊友希那:
       progression: false
@@ -4680,7 +4680,7 @@ unregistered:
           register: 常体
           stage: 中期
       confirmed: true
-      note: 出典の「あこちゃん→あこ」
+      note: 出典中的「あこちゃん→あこ」
     市ヶ谷有咲:
       progression: false
       forms:
@@ -4693,7 +4693,7 @@ unregistered:
         - form: あのん
           register: 常体
       confirmed: true
-      note: ★ あこは相手を平仮名で呼ぶことがある
+      note: ★ あこ有时用平假名称呼对方
     和奏レイヤ:
       progression: false
       forms:
@@ -4713,12 +4713,12 @@ unregistered:
           register: 常体
       confirmed: true
   note: |-
-    ⚠ 出典に称呼一览が無い。addresses の 4 件は各相手側の記録から再構成。
-    あこは相手を平仮名で呼ぶことがある（`ありさ` `あのん` `さあやちゃん`）。
+    ⚠ 出典中没有称呼一览。addresses 的 4 条是从各对方一侧的记录重构的。
+    あこ有时用平假名称呼对方（`ありさ` `あのん` `さあやちゃん`）。
 白金燐子:
   self:
     first_person: わたし
-    note: ★ 平仮名。Roselia の他 4 人は `私`（漢字）
+    note: ★ 平假名。Roselia 的其他 4 人都是 `私`（汉字）
   addresses:
     湊友希那:
       progression: false
@@ -4744,7 +4744,7 @@ unregistered:
         - form: あこちゃん
           register: 常体
       confirmed: true
-      note: ★ 唯一の常体・愛称
+      note: ★ 唯一的常体・爱称
     弦巻こころ:
       progression: false
       forms:
@@ -4799,7 +4799,7 @@ unregistered:
         - form: 八潮さん
           register: 丁寧体
       confirmed: true
-      note: ★ 旧友だが現在は姓で呼ぶ
+      note: ★ 虽是旧友，但现在以姓称呼
     和奏レイヤ:
       progression: false
       forms:
@@ -4883,7 +4883,7 @@ unregistered:
           register: 丁寧体
           stage: 中期
       confirmed: true
-      note: 出典の「白金さん→燐子さん」
+      note: 出典中的「白金さん→燐子さん」
     羽沢つぐみ:
       progression: false
       forms:
@@ -4944,7 +4944,7 @@ unregistered:
         - form: りんりん
           register: 常体
       confirmed: true
-      note: ★ 唯一の愛称
+      note: ★ 唯一的爱称
     弦巻こころ:
       progression: false
       forms:
@@ -5041,11 +5041,11 @@ unregistered:
         - form: 燐子さん
           register: 丁寧体
       confirmed: true
-  note: ★ 出典に称呼一览がある。ほぼ全員に「さん」+ 丁寧体。`あこちゃん` だけが例外。
+  note: ★ 出典中有称呼一览。几乎对所有人都用「さん」+ 敬体。只有 `あこちゃん` 是例外。
 豊川祥子:
   self:
     first_person: 私（わたくし）
-    note: ★ 出典の称呼一览に「私（わたくし）」と明記。Ave Mujica で最も改まった一人称
+    note: ★ 出典的称呼一览中明确写着「私（わたくし）」。Ave Mujica 中最正式的第一人称
   addresses:
     三角初華:
       progression: true
@@ -5056,12 +5056,12 @@ unregistered:
         - form: 初音さん
           register: 丁寧体
           stage: 中期
-          note: ★ 名義が「初音」に変わる
+          note: ★ 名义变为「初音」
         - form: 初音
           register: 常体
           stage: 后期
       confirmed: true
-      note: ★ 時間軸 + 名義の変化。出典の表記は「初華/初音さん→初音」
+      note: ★ 时间轴 + 名义变化。出典的表记是「初華/初音さん→初音」
     若葉睦:
       progression: false
       forms:
@@ -5069,7 +5069,7 @@ unregistered:
           register: 常体
         - form: モーティス
           register: 常体
-          note: ★ 別人格名
+          note: ★ 另一个人格的名字
       confirmed: true
     八幡海鈴:
       progression: true
@@ -5081,7 +5081,7 @@ unregistered:
           register: 常体
           stage: 后期
       confirmed: true
-      note: 出典の「八幡さん→海鈴」
+      note: 出典中的「八幡さん→海鈴」
     祐天寺若麦:
       progression: true
       forms:
@@ -5095,7 +5095,7 @@ unregistered:
           register: 常体
           stage: 后期
       confirmed: true
-      note: ★ 三形態の時間軸。出典の「にゃむさん→祐天寺さん→にゃむ」
+      note: ★ 三种形态的时间轴。出典中的「にゃむさん→祐天寺さん→にゃむ」
   addressed_by:
     若葉睦:
       progression: false
@@ -5117,14 +5117,14 @@ unregistered:
         - form: 豊川さん
           register: 丁寧体
       confirmed: true
-      note: ★ 海鈴は全員に「姓 + さん」
+      note: ★ 海鈴对所有人都用「姓 + さん」
     祐天寺若麦:
       progression: false
       forms:
         - form: サキコ
           register: 常体
       confirmed: true
-      note: ★ にゃむ独特の片仮名愛称
+      note: ★ にゃむ独特的片假名爱称
     高松燈:
       progression: true
       forms:
@@ -5135,18 +5135,18 @@ unregistered:
           register: 常体
           stage: 后期
       confirmed: true
-      note: MyGO 側の記録
+      note: MyGO 一侧的记录
     長崎そよ:
       progression: false
       forms:
         - form: 祥子
           register: 常体
       confirmed: true
-  note: 出典に称呼一览がある。3 組が時間軸を持つ（初華・海鈴・にゃむ）。
+  note: 出典中有称呼一览。3 组拥有时间轴（初華・海鈴・にゃむ）。
 若葉睦:
   self:
     first_person: 私 / 睦ちゃん / モーティス
-    note: ★ 自称が三つに分かれる（別人格）。それぞれの語体は出典に記載が無い
+    note: ★ 自称分为三种（另一个人格）。各自的语体在出典中没有记载
   addresses:
     三角初華:
       progression: false
@@ -5188,7 +5188,7 @@ unregistered:
           register: 常体
         - form: モーティス
           register: 常体
-          note: ★ 別人格名
+          note: ★ 另一个人格的名字
       confirmed: true
     三角初華:
       progression: false
@@ -5196,7 +5196,7 @@ unregistered:
         - form: 睦ちゃん
           register: 常体
       confirmed: true
-      note: 「睦ちゃん/-」——場面により呼ばない
+      note: 「睦ちゃん/-」——依场面有时不称呼
     八幡海鈴:
       progression: false
       forms:
@@ -5204,14 +5204,14 @@ unregistered:
           register: 丁寧体
         - form: モーティスさん
           register: 丁寧体
-          note: ★ 別人格名 + さん
+          note: ★ 另一个人格的名字 + さん
       confirmed: true
     祐天寺若麦:
       progression: false
       forms:
         - form: ムーコ
           register: 常体
-          note: ★ にゃむ独特の片仮名愛称
+          note: ★ にゃむ独特的片假名爱称
       confirmed: true
       note: 「ムーコ/-」
     花園たえ:
@@ -5304,7 +5304,7 @@ unregistered:
         - form: 睦
           register: 常体
       confirmed: true
-  note: ⚠ **別人格「モーティス」の語体は出典に記載が無い**。自称が三つに分かれることのみ明記。
+  note: ⚠ **另一个人格「モーティス」的语体在出典中没有记载**。只明确写了自称分为三种。
 八幡海鈴:
   self:
     first_person: 私
@@ -5328,7 +5328,7 @@ unregistered:
           register: 丁寧体
         - form: モーティスさん
           register: 丁寧体
-          note: ★ 別人格名 + さん
+          note: ★ 另一个人格的名字 + さん
       confirmed: true
     祐天寺若麦:
       progression: false
@@ -5337,27 +5337,27 @@ unregistered:
           register: 丁寧体
         - form: にゃむち
           register: 常体
-          note: ★ 自称の愛称
+          note: ★ 自称的爱称
         - form: ニャムコ
           register: 常体
-          note: ★ 片仮名表記
+          note: ★ 片假名表记
       confirmed: true
-      note: ★ にゃむにだけ三形態。他は「姓 + さん」で統一
+      note: ★ 只对にゃむ有三种形态。其他统一为「姓 + さん」
     椎名立希:
       progression: false
       forms:
         - form: 立希さん
           register: 常体
           note: |
-            ★★ **唯一の「名 + さん」**（他は全て姓 + さん）。
-            さらに**語体は常体**——敬称は保つが語尾が砕ける。
-            出典の `高一秋冬季` に実例多数（「找到我的人只有你一个」等）。
-            ⚠️ 逆方向（立希 → 海鈴）は**呼び捨て `海鈴`** で**非対称**。
+            ★★ **唯一的「名 + さん」**（其他全都是姓 + さん）。
+            而且**语体是常体**——保留敬称但语尾变得随意。
+            出典的 `高一秋冬季` 中有大量实例（「找到我的人只有你一个」等）。
+            ⚠️ 反方向（立希 → 海鈴）是**直呼其名 `海鈴`**，属于**非对称**。
       confirmed: true
       note: |
-        ★ 立希は「**海鈴を見つけられる唯一の人間**」（出典：
+        ★ 立希是「**唯一能找到海鈴的人**」（出典：
         「一下课就溜走了，只有立希能找到她」）。
-        「找茬」は表面であり、本質は**互いを見つける関係**。
+        「找茬」只是表面，本质是**互相找到对方的关系**。
   addressed_by:
     豊川祥子:
       progression: true
@@ -5369,7 +5369,7 @@ unregistered:
           register: 常体
           stage: 后期
       confirmed: true
-      note: 出典の「八幡さん→海鈴」
+      note: 出典中的「八幡さん→海鈴」
     三角初華:
       progression: false
       forms:
@@ -5390,37 +5390,37 @@ unregistered:
         - form: ウミコ
           register: 常体
       confirmed: true
-      note: ★ にゃむ独特の片仮名愛称
+      note: ★ にゃむ独特的片假名爱称
     椎名立希:
       progression: false
       forms:
         - form: 海鈴
           register: 常体
-          note: ★ **呼び捨て**。海鈴側は `立希さん` なので**非対称**
+          note: ★ **直呼其名**。海鈴一侧是 `立希さん`，所以**非对称**
       confirmed: true
       note: |
-        ★ 同級生。出典は「互相找茬」と書くが、
-        `高一秋冬季` を読むと本質は**「互いを見つける関係」**——
-        海鈴は終業後すぐ逃げるが「**只有立希能找到她**」。
+        ★ 同班同学。出典写的是「互相找茬」，但
+        读 `高一秋冬季` 就会发现本质是**「互相找到对方的关系」**——
+        海鈴虽然一放学就逃走，但「**只有立希能找到她**」。
   note: |-
-    ★ 出典に称呼一览がある。**全員に「姓 + さん」**——バンド内で最も距離を置く。
-    ★ **唯一の例外は 椎名立希で `立希さん`（名 + さん）**、
-      かつ**語体は常体**（敬称は保つが語尾が砕ける）。
-      `高一秋冬季` に実例多数（「找到我的人只有你一个」等）。
-      ⚠️ 逆方向（立希 → 海鈴）は呼び捨てで**非対称**。
-    ただしにゃむにだけ `にゃむち` `ニャムコ` も併記（距離が縮まっている）。
+    ★ 出典中有称呼一览。**对所有人都用「姓 + さん」**——乐队内距离感最强。
+    ★ **唯一的例外是 椎名立希，用 `立希さん`（名 + さん）**、
+      而且**语体是常体**（保留敬称但语尾变得随意）。
+      `高一秋冬季` 中有大量实例（「找到我的人只有你一个」等）。
+      ⚠️ 反方向（立希 → 海鈴）是直呼其名，属于**非对称**。
+    不过只有对にゃむ还并记了 `にゃむち` `ニャムコ`（距离正在缩短）。
 三角初華:
   self:
     first_person: 私
     note: |
-      ⚠️ **一人称は出典に記載が無い**（`语音` 節が存在せず発話例がゼロ）。
-      `私` は仮置きであり確定情報ではない。
-      ★ **本名は `三角初音`**。`初華` は妹の名前を借用した表舞台の名義。
-      ユーザー確認（2026-02-14）により**同一人物**として扱い、
-      本表・本文とも **`三角初華` に統一**。`初音` は aliases として保持。
-      ⚠️ 出典は「初華は妹ではないので**記憶に誤りが多い**」と明記
-         （「初華双子説」の源）→ 島の回想を含む台詞は【待确认】。
-      → 詳細は characters/ave-mujica/uika.md を参照。
+      ⚠️ **第一人称在出典中没有记载**（不存在 `语音` 节，发言实例为零）。
+      `私` 是暂定，并非确定信息。
+      ★ **本名是 `三角初音`**。`初華` 是借用妹妹名字的公开名义。
+      根据用户确认（2026-02-14），**视为同一人物**，
+      本表与正文都**统一为 `三角初華`**。`初音` 作为 aliases 保留。
+      ⚠️ 出典明确写着「初華不是妹妹，所以**记忆中有很多错误**」
+         （「初華双子説」的来源）→ 包含岛上回忆的台词标记为【待确认】。
+      → 详情见 characters/ave-mujica/uika.md。
   addresses:
     豊川祥子:
       progression: false
@@ -5462,12 +5462,12 @@ unregistered:
         - form: 初音さん
           register: 丁寧体
           stage: 中期
-          note: ★ 名義の変化
+          note: ★ 名义的变化
         - form: 初音
           register: 常体
           stage: 后期
       confirmed: true
-      note: ★ 時間軸 + 名義の変化。出典の「初華/初音さん→初音」
+      note: ★ 时间轴 + 名义变化。出典中的「初華/初音さん→初音」
     若葉睦:
       progression: false
       forms:
@@ -5488,7 +5488,7 @@ unregistered:
         - form: ウイコ
           register: 常体
       confirmed: true
-      note: ★ にゃむ独特の片仮名愛称
+      note: ★ にゃむ独特的片假名爱称
     戸山香澄:
       progression: false
       forms:
@@ -5508,12 +5508,12 @@ unregistered:
           register: 常体
       confirmed: true
   note: |-
-    ★ 出典に称呼一览がある。**初華 → 初音 の名義変化**が祥子側の記録にある。
-    二重名義の詳細は uika.md を参照（未確定）。
+    ★ 出典中有称呼一览。祥子一侧的记录中有**初華 → 初音 的名义变化**。
+    双重名义的详情见 uika.md（未确定）。
 祐天寺若麦:
   self:
     first_person: アタシ
-    note: ★ 出典の称呼一览に「アタシ、にゃむ」と記載。片仮名の一人称は Ave Mujica で彼女だけ
+    note: ★ 出典的称呼一览中记载着「アタシ、にゃむ」。片假名的第一人称在 Ave Mujica 中只有她
   addresses:
     豊川祥子:
       progression: false
@@ -5521,27 +5521,27 @@ unregistered:
         - form: サキコ
           register: 常体
       confirmed: true
-      note: ★ 片仮名の愛称
+      note: ★ 片假名的爱称
     三角初華:
       progression: false
       forms:
         - form: ウイコ
           register: 常体
       confirmed: true
-      note: ★ 片仮名の愛称
+      note: ★ 片假名的爱称
     八幡海鈴:
       progression: false
       forms:
         - form: ウミコ
           register: 常体
       confirmed: true
-      note: ★ 片仮名の愛称
+      note: ★ 片假名的爱称
     若葉睦:
       progression: false
       forms:
         - form: ムーコ
           register: 常体
-          note: ★ 片仮名の愛称
+          note: ★ 片假名的爱称
       confirmed: true
       note: 「ムーコ/-」
   addressed_by:
@@ -5558,7 +5558,7 @@ unregistered:
           register: 常体
           stage: 后期
       confirmed: true
-      note: ★ 三形態の時間軸
+      note: ★ 三种形态的时间轴
     三角初華:
       progression: false
       forms:
@@ -5589,7 +5589,7 @@ unregistered:
         - form: アーモリスちゃん
           register: 常体
       confirmed: true
-      note: ★ コードネームで呼ばれている例
+      note: ★ 被以代号称呼的例子
     今井リサ:
       progression: false
       forms:
@@ -5602,26 +5602,26 @@ unregistered:
         - form: にゃむち
           register: 常体
       confirmed: true
-  note: ★ 出典に称呼一览がある。**にゃむだけが全員を片仮名の `〜コ` 系愛称で呼ぶ**（サキコ/ウイコ/ウミコ/ムーコ）。
+  note: ★ 出典中有称呼一览。**只有にゃむ用片假名的 `〜コ` 系爱称称呼所有人**（サキコ/ウイコ/ウミコ/ムーコ）。
 純田真奈:
   self:
-    first_person: null        # ★ 出典に記載が無い
+    first_person: null        # ★ 出典中没有记载
     note: |
-      ⚠️ 出典（纯田真奈 rev.8447005）には**称呼一覧が無い**。
-      さらに言語描写自体がほとんど無く、自称も語尾も記載が無い。
-      → **推測で埋めない**（G8）。characters/sumimi/mana.md を参照。
+      ⚠️ 出典（纯田真奈 rev.8447005）中**没有称呼一览**。
+      而且语言描写本身几乎没有，自称和语尾都没有记载。
+      → **不用推测填补**（G8）。见 characters/sumimi/mana.md。
   note: |
-    ★ 出典に称呼データが無い唯一の登録済み角色。
-    確認できているのは「スミミでは互いに**姓を付けない**」という
-    ユニット共通の約束のみ（`_band.md` 参照）。
-    相手側（初華 = 三角初華）からの称呼も出典に一覧が無い。
-    → 台詞で称呼が必要になったら【待确认】に出す。
+    ★ 唯一一个出典中没有称呼数据的已登记角色。
+    能够确认的只有「在スミミ中互相**不加姓**」这一
+    组合共通的约定（见 `_band.md`）。
+    对方一侧（初華 = 三角初華）的称呼在出典中也没有一览。
+    → 台词中需要称呼时，提交到【待确认】。
 月島麻里奈:
   self:
     first_person: 私
     note: |
-      音声 17 行のうち一人称は 1 回のみ（`私もなかなか気の利いた…`）。
-      常体基線。**接客時の語体は実例が無い**（characters/music-industry/livehouse/marina.md）。
+      语音 17 行中第一人称只出现 1 次（`私もなかなか気の利いた…`）。
+      常体基线。**接客时的语体没有实例**（characters/music-industry/livehouse/marina.md）。
   addressed_by:
     戸山香澄:
       progression: false
@@ -5712,7 +5712,7 @@ unregistered:
       forms:
         - form: マリナさん
           register: 常体
-          note: ★ 片仮名表記。イヴの呼び方
+          note: ★ 片假名表记。イヴ的称呼方式
       confirmed: true
     湊友希那:
       progression: false
@@ -5730,7 +5730,7 @@ unregistered:
           register: 常体
           stage: 後期
       confirmed: true
-      note: ★ 時間軸。初期は「月島さん」。distance が縮まる
+      note: ★ 时间轴。初期是「月島さん」。distance 缩短
     今井リサ:
       progression: false
       forms:
@@ -5754,7 +5754,7 @@ unregistered:
       forms:
         - form: まりな
           register: 常体
-          note: ★ さん無し。こころは全員に対してこの形
+          note: ★ 不加 さん。こころ对所有人都是这个形式
       confirmed: true
     瀬田薫:
       progression: false
@@ -5809,48 +5809,48 @@ unregistered:
       forms:
         - form: 月島さん
           register: 丁寧体
-          note: ★ 姓 + さん。瑠唯のみ
+          note: ★ 姓 + さん。只有瑠唯
       confirmed: true
     和奏レイヤ:
       progression: false
       forms:
         - form: まりなさん
           register: 常体
-          note: 出典の称呼表はコードネーム `LAYER` で記載
+          note: 出典的称呼表以代号 `LAYER` 记载
       confirmed: true
     朝日六花:
       progression: false
       forms:
         - form: まりなさん
           register: 常体
-          note: 出典の称呼表はコードネーム `LOCK` で記載
+          note: 出典的称呼表以代号 `LOCK` 记载
       confirmed: true
     佐藤益木:
       progression: false
       forms:
         - form: まりなさん
           register: 常体
-          note: 出典の称呼表はコードネーム `MASKING` で記載
+          note: 出典的称呼表以代号 `MASKING` 记载
       confirmed: true
     鳰原令王那:
       progression: false
       forms:
         - form: まりなさん
           register: 常体
-          note: 出典の称呼表はコードネーム `PAREO` で記載
+          note: 出典的称呼表以代号 `PAREO` 记载
       confirmed: true
     珠手知由:
       progression: false
       forms:
         - form: マリナ
           register: 常体
-          note: ★ さん無し + 片仮名。知由の尊大さの表れ
+          note: ★ 不加 さん + 片假名。知由傲慢的表现
       confirmed: true
   note: |
-    ★ **出典に称呼表があるが「主要角色 → 麻里奈」の向きのみ**。
-    麻里奈自身が相手をどう呼ぶか（`addresses`）は**出典に無い**ため空。
-    音声で確認できたのは**プレイヤー（後輩）への `君`** のみ。
-    ★ `さん` を付けないのは **こころ と 知由** の 2 名だけ。
-      こころは全員に対してそうなので彼女固有、知由は尊大さの表れ。
-      **麻里奈を雑に呼んでよい、という意味ではない。**
-    時間軸を持つのは **氷川紗夜** のみ（月島さん → まりなさん）。
+    ★ **出典中有称呼表，但只有「主要角色 → 麻里奈」这一个方向**。
+    麻里奈自己怎么称呼对方（`addresses`）**出典中没有**，因此留空。
+    能从语音确认的只有**对玩家（后辈）使用的 `君`**。
+    ★ 不加 `さん` 的只有 **こころ 和 知由** 这 2 人。
+      こころ对所有人都如此，属于她个人特点；知由则是傲慢的表现。
+      **这并不意味着可以随便称呼麻里奈。**
+    拥有时间轴的只有 **氷川紗夜**（月島さん → まりなさん）。

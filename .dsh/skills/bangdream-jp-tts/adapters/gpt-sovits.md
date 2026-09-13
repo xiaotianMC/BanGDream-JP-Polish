@@ -1,4 +1,4 @@
-# TTS Adapter — GPT-SoVITS
+# TTS 适配层 — GPT-SoVITS
 
 引擎适配层。`rules/tts.md` 只写通用规则；**引擎特有的行为写在这里**。
 
@@ -170,7 +170,7 @@ GPT-SoVITS 是 few-shot 音色克隆，**参考音频（reference audio）对结
 
 1. **本文件的清单项**：勾选，并在下方「实测结果」追加条目
 2. **`../dictionary/pronunciation.yaml`**：把对应条目的 `verified` 改为 `true`，
-   并把 `engine: null` 改为 `engine: GPT-SoVITS`（若该行为是引擎特有的）
+   并把 `engine: null` 改为 `engine: GPT-SoVITS`（若该行为是本引擎特有的）
 3. **失效的假设**：如果实测推翻本文件的某个假设，**不要删掉那一节**——
    加 `~~删除线~~` 并注明实测结果，保留推导痕迹（同 `_schema.md` §5 的降级约定）
 
